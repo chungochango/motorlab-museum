@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-02T12:00:00Z",
+  "title": "Design System: Museo digital del automóvil",
+  "extensions": {
+    "scope": {
+      "museumInvariants": ["#000 ground on every page", "back-to-Hall link top-left in every room topbar", "shared footer content (conceptual project, trademarks, privacy link)", "assets/museo-consent.{css,js} themed only via --mc-accent / --mc-primary / --mc-primary-ink"],
+      "documentedWorld": "Sala 02 · r34/index.html · Shuto nocturna",
+      "undocumentedWorlds": ["Hall (index.html) and Sala 01 F40 (f40/index.html): incumbent separate world (Inter, gallery light, red accents); not described by this system"]
+    },
+    "colorMeta": {
+      "oled-black":     { "role": "neutral",   "displayName": "Negro OLED",               "canonical": "#000000", "tonalRamp": ["#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000"] },
+      "sign-blue":      { "role": "primary",   "displayName": "Azul de señal",            "canonical": "color(display-p3 0.05 0.24 0.62)", "fallback": "#0b3f9c", "tonalRamp": ["oklch(15% 0.06 263)", "oklch(25% 0.10 263)", "oklch(37% 0.15 263)", "oklch(45% 0.16 263)", "oklch(55% 0.15 263)", "oklch(65% 0.12 263)", "oklch(80% 0.07 263)", "oklch(95% 0.02 263)"] },
+      "sign-blue-deep": { "role": "primary",   "displayName": "Azul de señal profundo",   "canonical": "#072c70", "tonalRamp": ["oklch(15% 0.05 263)", "oklch(22% 0.09 263)", "oklch(29% 0.12 263)", "oklch(40% 0.14 263)", "oklch(52% 0.13 263)", "oklch(65% 0.10 263)", "oklch(80% 0.06 263)", "oklch(95% 0.02 263)"] },
+      "sign-ink":       { "role": "neutral",   "displayName": "Tinta de señal",           "canonical": "#ffffff", "tonalRamp": ["oklch(15% 0 0)", "oklch(25% 0 0)", "oklch(35% 0 0)", "oklch(45% 0 0)", "oklch(55% 0 0)", "oklch(65% 0 0)", "oklch(80% 0 0)", "oklch(100% 0 0)"] },
+      "led-lamp":       { "role": "secondary", "displayName": "Lámpara LED",              "canonical": "rgb(196, 238, 255)", "cssVar": "--lamp (R, G, B triplet)", "tonalRamp": ["oklch(15% 0.03 220)", "oklch(25% 0.04 220)", "oklch(35% 0.05 220)", "oklch(45% 0.05 220)", "oklch(55% 0.05 220)", "oklch(65% 0.05 220)", "oklch(80% 0.05 220)", "oklch(93% 0.05 220)"] },
+      "wet-cyan":       { "role": "secondary", "displayName": "Cian de asfalto mojado",   "canonical": "rgb(64, 224, 255)", "cssVar": "--cyan (R, G, B triplet)", "tonalRamp": ["oklch(15% 0.05 210)", "oklch(25% 0.07 210)", "oklch(35% 0.09 210)", "oklch(45% 0.11 210)", "oklch(55% 0.12 210)", "oklch(65% 0.13 210)", "oklch(84% 0.14 210)", "oklch(95% 0.05 210)"] },
+      "bayside-blue":   { "role": "tertiary",  "displayName": "Azul Bayside",             "canonical": "rgb(40, 92, 255)", "cssVar": "--bayside (R, G, B triplet)", "tonalRamp": ["oklch(15% 0.08 265)", "oklch(25% 0.13 265)", "oklch(35% 0.18 265)", "oklch(45% 0.21 265)", "oklch(55% 0.23 265)", "oklch(65% 0.18 265)", "oklch(80% 0.10 265)", "oklch(95% 0.03 265)"] },
+      "cold-white":     { "role": "neutral",   "displayName": "Blanco frío",              "canonical": "#f2f5f8", "tonalRamp": ["oklch(15% 0.005 250)", "oklch(25% 0.005 250)", "oklch(35% 0.005 250)", "oklch(45% 0.005 250)", "oklch(55% 0.005 250)", "oklch(65% 0.005 250)", "oklch(80% 0.005 250)", "oklch(97% 0.005 250)"] },
+      "reading-mist":   { "role": "neutral",   "displayName": "Niebla de lectura",        "canonical": "#c6cfd9", "tonalRamp": ["oklch(15% 0.015 250)", "oklch(25% 0.015 250)", "oklch(35% 0.015 250)", "oklch(45% 0.015 250)", "oklch(55% 0.015 250)", "oklch(65% 0.015 250)", "oklch(85% 0.015 250)", "oklch(95% 0.01 250)"] },
+      "fog":            { "role": "neutral",   "displayName": "Niebla",                   "canonical": "#a3afbc", "tonalRamp": ["oklch(15% 0.02 250)", "oklch(25% 0.02 250)", "oklch(35% 0.02 250)", "oklch(45% 0.02 250)", "oklch(55% 0.02 250)", "oklch(65% 0.02 250)", "oklch(75% 0.02 250)", "oklch(95% 0.01 250)"] },
+      "dim":            { "role": "neutral",   "displayName": "Tenue",                    "canonical": "#7d8995", "tonalRamp": ["oklch(15% 0.02 250)", "oklch(25% 0.02 250)", "oklch(35% 0.02 250)", "oklch(45% 0.02 250)", "oklch(55% 0.02 250)", "oklch(62% 0.02 250)", "oklch(80% 0.015 250)", "oklch(95% 0.01 250)"] },
+      "rule":           { "role": "neutral",   "displayName": "Filete",                   "canonical": "rgba(150, 190, 255, 0.14)" },
+      "rule-strong":    { "role": "neutral",   "displayName": "Filete marcado",           "canonical": "rgba(170, 205, 255, 0.28)" }
+    },
+    "typographyMeta": {
+      "display":     { "displayName": "Display",       "purpose": "Solo el nombre del coche dentro de la señal H1; mayúsculas, sin salto." },
+      "headline":    { "displayName": "Headline",      "purpose": "Título de sección dentro de una señal de sección." },
+      "title":       { "displayName": "Title",         "purpose": "Títulos de los tramos de historia; el título del sistema activo en despieces sube a clamp(1.7rem, 2.8vw, 2.4rem)." },
+      "body":        { "displayName": "Body",          "purpose": "Párrafos de lectura en niebla de lectura, 58–60ch como máximo." },
+      "label":       { "displayName": "Label",         "purpose": "Vuelta al Hall, ruta de secciones, conmutador, etiquetas; mayúsculas 0.08–0.14em." },
+      "data":        { "displayName": "Data",          "purpose": "Cifras del panel de distancias; tabular-nums." },
+      "data-inline": { "displayName": "Data inline",   "purpose": "Valores de tabla, códigos y números de pieza en mono." },
+      "kana":        { "displayName": "Kana",          "purpose": "Línea japonesa de cada señal, con lang=\"ja\"; cargada con subconjunto &text=." }
+    },
+    "shadows": [
+      { "name": "sign-plate", "value": "inset 0 1px 0 rgba(255,255,255,0.18), 0 2px 4px rgba(0,0,0,0.6), 0 18px 40px -12px rgba(0,0,0,0.85)", "purpose": "Toda señal: canto superior iluminado y caída difusa." },
+      { "name": "detail-pop", "value": "0 2px 6px rgba(0,0,0,0.7), 0 18px 36px -12px rgba(0,0,0,0.95), 0 22px 40px -26px rgba(40,92,255,0.55)", "purpose": "Vista inset de detalle con reflejo Bayside." },
+      { "name": "lit-halo", "value": "0 0 0 3px rgba(0,0,0,0.6), 0 0 24px rgba(64,224,255,0.95)", "purpose": "Punto o marcador encendido; en reposo 0 0 12–14px al 0.45–0.5." },
+      { "name": "lit-text", "value": "0 0 18px rgba(64,224,255,0.35)", "purpose": "text-shadow de las cifras de la tira y del código de sistema (14px al 0.45)." },
+      { "name": "gantry-beam", "value": "inset 0 1px 0 rgba(255,255,255,0.18), 0 6px 14px rgba(0,0,0,0.7)", "purpose": "Viga de acero del pórtico (#3a434d a #1a2027)." }
+    ],
+    "motion": [
+      { "name": "out", "value": "cubic-bezier(0.23, 1, 0.32, 1)", "purpose": "Entradas y respuesta a la interacción (--out)." },
+      { "name": "inout", "value": "cubic-bezier(0.77, 0, 0.175, 1)", "purpose": "Desplazamiento en pantalla, p. ej. el centro del enfoque óptico (--inout)." },
+      { "name": "lamp-sweep", "value": "6.4s cubic-bezier(0.45, 0, 0.55, 1) 1.2s infinite", "purpose": "Barrido de farola en bucle sobre la portada; en el resto, ligado al scroll vía --lamp-x." },
+      { "name": "sign-sheen", "value": "6.4s linear 1.2s infinite (H1) / 0.9s linear once (carril seleccionado)", "purpose": "Brillo retrorreflectante que cruza una señal." },
+      { "name": "press", "value": "0.16s var(--out), scale 0.92–0.98", "purpose": "Respuesta táctil de botones, carriles, salidas, puntos." },
+      { "name": "state", "value": "0.2–0.25s", "purpose": "Cambios de color, filete y subrayado." },
+      { "name": "optic-focus", "value": "base 0.45s var(--out); --fx/--fy 0.5s var(--inout); nítida 0.35s", "purpose": "Enfoque óptico." },
+      { "name": "pop", "value": "in 0.26–0.3s var(--out); out 0.18s", "purpose": "Vista inset que nace del punto." },
+      { "name": "panel-swap", "value": "out 0.15s; in 0.32–0.4s var(--out) +0.06s", "purpose": "Cambio de panel en el escenario fijo (6px, blur 4px)." },
+      { "name": "reveal", "value": "0.8–0.9s var(--out), stagger 70ms, 18px + blur 6px", "purpose": "Aparición al hacer scroll." },
+      { "name": "hero-entry", "value": "plate 1.4s; sign 0.9s +0.35s, var(--out)", "purpose": "La foto llega desde la oscuridad y la señal se enciende." },
+      { "name": "reduced-motion", "value": "0.3s ease opacity only", "purpose": "Sin barridos, brillos ni desplazamientos." }
+    ],
+    "breakpoints": [
+      { "name": "lanes-scroll", "value": "1080px" },
+      { "name": "story-stack", "value": "860px" },
+      { "name": "mobile", "value": "760px" },
+      { "name": "narrow", "value": "420px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Señal de sección",
+      "kind": "custom",
+      "refersTo": "sign-head",
+      "description": "Título de sección como señal de orientación: escudo de ruta, kana y título, con filete blanco interior y brillo retrorreflectante.",
+      "html": "<div class=\"ds-sign ds-sign-head\"><span class=\"ds-shield\">B</span><span class=\"ds-ja\" lang=\"ja\">本線</span><h2>Cinco sistemas</h2></div>",
+      "css": ".ds-sign { position: relative; isolation: isolate; overflow: hidden; display: inline-flex; align-items: center; gap: 16px; padding: 14px 22px 14px 16px; background: #0b3f9c; color: #fff; border-radius: 8px; font-family: Overpass, 'Helvetica Neue', Arial, sans-serif; box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 2px 4px rgba(0,0,0,0.6), 0 18px 40px -12px rgba(0,0,0,0.85); } .ds-sign::before { content: ''; position: absolute; inset: 5px; z-index: -1; border: 2px solid rgba(255,255,255,0.92); border-radius: 5px; } .ds-sign::after { content: ''; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(255,255,255,0) 30%, rgba(255,255,255,0.16) 48%, rgba(255,255,255,0) 66%); transform: translateX(-120%); transition: transform 0.9s linear; pointer-events: none; } .ds-sign:hover::after { transform: translateX(160%); } .ds-shield { display: inline-flex; align-items: center; justify-content: center; min-width: 1.9em; height: 1.9em; padding: 0 0.35em; border-radius: 0.38em; background: #fff; color: #0b3f9c; font-weight: 800; line-height: 1; } .ds-ja { font-family: 'Zen Kaku Gothic New', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif; font-weight: 700; letter-spacing: 0.06em; font-size: 0.95rem; opacity: 0.9; } .ds-sign-head h2 { margin: 0; font-size: 2rem; font-weight: 800; line-height: 1; letter-spacing: -0.015em; }"
+    },
+    {
+      "name": "Conmutador Historia / Técnico",
+      "kind": "button",
+      "refersTo": "mode-toggle",
+      "description": "Señal pequeña con dos carriles; el activo se invierte a blanco con texto azul.",
+      "html": "<div class=\"ds-modes\" role=\"group\" aria-label=\"Modo de lectura\"><button type=\"button\" aria-pressed=\"true\">Historia</button><button type=\"button\" aria-pressed=\"false\">Técnico</button></div>",
+      "css": ".ds-modes { position: relative; display: inline-flex; gap: 2px; padding: 4px; border-radius: 7px; background: #0b3f9c; box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 2px 4px rgba(0,0,0,0.6); } .ds-modes::before { content: ''; position: absolute; inset: 2px; border: 1.5px solid rgba(255,255,255,0.92); border-radius: 5px; pointer-events: none; } .ds-modes button { position: relative; z-index: 2; height: 30px; padding: 0 14px; border: 0; border-radius: 4px; background: none; cursor: pointer; font: 800 0.74rem/1 Overpass, Arial, sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.78); transition: background-color 0.2s ease, color 0.2s ease, transform 0.16s cubic-bezier(0.23,1,0.32,1); } .ds-modes button[aria-pressed='true'] { background: #fff; color: #0b3f9c; } .ds-modes button:hover { color: #fff; } .ds-modes button[aria-pressed='true']:hover { color: #0b3f9c; } .ds-modes button:active { transform: scale(0.96); } .ds-modes button:focus-visible { outline: 2px solid rgb(64,224,255); outline-offset: 3px; }"
+    },
+    {
+      "name": "Carril del pórtico (tab)",
+      "kind": "nav",
+      "refersTo": "lane-tab",
+      "description": "Pestaña como señal de carril: kana, nombre, código en mono, flecha abajo; seleccionada pasa a azul de señal.",
+      "html": "<div class=\"ds-lanes\" role=\"tablist\"><button class=\"ds-lane\" role=\"tab\" aria-selected=\"true\"><span class=\"ds-ja\" lang=\"ja\">エンジン</span><span class=\"ds-lane-name\">Motor</span><span class=\"ds-lane-code\">RB26DETT</span><svg viewBox=\"0 0 18 20\" aria-hidden=\"true\"><path d=\"M9 1v17M2 11l7 7 7-7\"/></svg></button><button class=\"ds-lane\" role=\"tab\" aria-selected=\"false\"><span class=\"ds-ja\" lang=\"ja\">ブレーキ</span><span class=\"ds-lane-name\">Frenos</span><span class=\"ds-lane-code\">Brembo</span><svg viewBox=\"0 0 18 20\" aria-hidden=\"true\"><path d=\"M9 1v17M2 11l7 7 7-7\"/></svg></button></div>",
+      "css": ".ds-lanes { display: grid; grid-template-columns: repeat(2, 200px); gap: 10px; } .ds-lane { position: relative; display: flex; flex-direction: column; align-items: flex-start; text-align: left; min-height: 128px; padding: 16px 18px 40px; border: 0; border-radius: 8px; cursor: pointer; background: #072c70; color: rgba(255,255,255,0.86); font-family: Overpass, Arial, sans-serif; transition: background-color 0.25s ease, color 0.25s ease, transform 0.16s cubic-bezier(0.23,1,0.32,1); } .ds-lane::before { content: ''; position: absolute; inset: 5px; border: 2px solid rgba(255,255,255,0.5); border-radius: 5px; pointer-events: none; transition: border-color 0.25s ease; } .ds-lane .ds-ja { font-family: 'Zen Kaku Gothic New', 'Yu Gothic', sans-serif; font-weight: 700; font-size: 0.86rem; letter-spacing: 0.06em; opacity: 0.9; } .ds-lane-name { margin-top: 6px; font-size: 1.2rem; font-weight: 800; line-height: 1.1; } .ds-lane-code { margin-top: 4px; font-family: 'Overpass Mono', ui-monospace, monospace; font-size: 0.76rem; opacity: 0.85; } .ds-lane svg { position: absolute; left: 18px; bottom: 12px; width: 18px; height: 20px; fill: none; stroke: #fff; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.3s cubic-bezier(0.23,1,0.32,1); } .ds-lane[aria-selected='true'] { background: #0b3f9c; color: #fff; } .ds-lane[aria-selected='true']::before { border-color: rgba(255,255,255,0.92); } .ds-lane[aria-selected='true'] svg { transform: translateY(3px); } .ds-lane:hover { color: #fff; } .ds-lane:hover::before { border-color: rgba(255,255,255,0.8); } .ds-lane:active { transform: scale(0.98); } .ds-lane:focus-visible { outline: 2px solid rgb(64,224,255); outline-offset: 3px; }"
+    },
+    {
+      "name": "Vuelta al Hall + ruta de secciones",
+      "kind": "nav",
+      "refersTo": "back-link",
+      "description": "Barra superior negra: vuelta al Hall con flecha SVG y ruta con subrayado cian en la sección actual.",
+      "html": "<header class=\"ds-topbar\"><a href=\"#\" class=\"ds-back\"><svg viewBox=\"0 0 16 12\" aria-hidden=\"true\"><path d=\"M15 6H1M6 1L1 6l5 5\"/></svg><span>Hall</span></a><nav class=\"ds-route\"><a href=\"#\" aria-current=\"true\">Exterior</a><a href=\"#\">Historia</a><a href=\"#\">Despieces</a></nav></header>",
+      "css": ".ds-topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; padding: 0 24px; background: #000; font-family: Overpass, Arial, sans-serif; } .ds-back { display: inline-flex; align-items: center; gap: 10px; height: 36px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #a3afbc; text-decoration: none; transition: color 0.2s ease; } .ds-back svg { width: 16px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.25s cubic-bezier(0.23,1,0.32,1); } .ds-back:hover { color: #f2f5f8; } .ds-back:hover svg { transform: translateX(-3px); } .ds-route { display: flex; gap: 24px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; } .ds-route a { position: relative; padding: 8px 0; color: #a3afbc; text-decoration: none; transition: color 0.2s ease; } .ds-route a::after { content: ''; position: absolute; left: 0; right: 0; bottom: 2px; height: 2px; background: rgb(64,224,255); transform: scaleX(0); transform-origin: 0 50%; transition: transform 0.25s cubic-bezier(0.23,1,0.32,1); } .ds-route a:hover, .ds-route a[aria-current='true'] { color: #f2f5f8; } .ds-route a[aria-current='true']::after { transform: scaleX(1); } .ds-back:focus-visible, .ds-route a:focus-visible { outline: 2px solid rgb(64,224,255); outline-offset: 3px; border-radius: 2px; }"
+    },
+    {
+      "name": "Placa de salida",
+      "kind": "button",
+      "refersTo": "exit-plate",
+      "description": "Enlace de salida como señal con etiqueta EXIT / 出口, destino y flecha que avanza al pasar.",
+      "html": "<a class=\"ds-exit\" href=\"#\"><span class=\"ds-exit-tag\"><b>EXIT</b><span lang=\"ja\">出口</span></span><span class=\"ds-exit-txt\"><strong>Hall del museo</strong><span>Volver a todas las salas</span></span><svg viewBox=\"0 0 26 20\" aria-hidden=\"true\"><path d=\"M1 10h23M16 2l8 8-8 8\"/></svg></a>",
+      "css": ".ds-exit { position: relative; display: flex; align-items: center; gap: 16px; width: 360px; padding: 18px 22px 18px 18px; border-radius: 8px; background: #0b3f9c; color: #fff; text-decoration: none; font-family: Overpass, Arial, sans-serif; box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 2px 4px rgba(0,0,0,0.6), 0 18px 40px -12px rgba(0,0,0,0.85); transition: transform 0.16s cubic-bezier(0.23,1,0.32,1), filter 0.2s ease; } .ds-exit::before { content: ''; position: absolute; inset: 5px; border: 2px solid rgba(255,255,255,0.92); border-radius: 5px; pointer-events: none; } .ds-exit-tag { flex: none; display: grid; place-items: center; padding: 4px 8px 3px; border-radius: 4px; background: #fff; color: #0b3f9c; font-size: 0.78rem; line-height: 1.05; text-align: center; font-family: 'Zen Kaku Gothic New', 'Yu Gothic', sans-serif; font-weight: 700; } .ds-exit-tag b { display: block; font-family: Overpass, Arial, sans-serif; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.1em; } .ds-exit-txt { display: flex; flex-direction: column; } .ds-exit-txt strong { font-size: 1.08rem; font-weight: 800; line-height: 1.15; } .ds-exit-txt span { font-size: 0.84rem; opacity: 0.82; } .ds-exit svg { margin-left: auto; width: 26px; height: 20px; fill: none; stroke: #fff; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.25s cubic-bezier(0.23,1,0.32,1); } .ds-exit:hover { filter: brightness(1.18); } .ds-exit:hover svg { transform: translateX(4px); } .ds-exit:active { transform: scale(0.98); } .ds-exit:focus-visible { outline: 2px solid rgb(64,224,255); outline-offset: 3px; }"
+    },
+    {
+      "name": "Panel de distancias",
+      "kind": "card",
+      "refersTo": "distance-board",
+      "description": "Cifras de serie como panel de destinos y distancias: concepto a la izquierda, cifra mono a la derecha.",
+      "html": "<div class=\"ds-board\"><div class=\"ds-board-top\"><span class=\"ds-shield\">B</span><h2>Cifras de serie</h2><span lang=\"ja\" class=\"ds-ja\">大黒 · 諸元</span></div><dl><div><dt>Potencia<small>Homologada</small></dt><dd>280<sub>PS</sub></dd></div><div><dt>Par máximo<small>A 4.400 rpm</small></dt><dd>392<sub>N·m</sub></dd></div></dl></div>",
+      "css": ".ds-board { position: relative; width: 520px; padding: 32px 36px 26px; border-radius: 8px; background: #0b3f9c; color: #fff; font-family: Overpass, Arial, sans-serif; box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 2px 4px rgba(0,0,0,0.6), 0 18px 40px -12px rgba(0,0,0,0.85); } .ds-board::before { content: ''; position: absolute; inset: 5px; border: 2px solid rgba(255,255,255,0.92); border-radius: 5px; pointer-events: none; } .ds-board-top { display: flex; align-items: center; gap: 14px; padding-bottom: 16px; border-bottom: 2px solid rgba(255,255,255,0.92); } .ds-board-top h2 { margin: 0; font-size: 1.6rem; font-weight: 800; line-height: 1; } .ds-board-top .ds-ja { margin-left: auto; font-family: 'Zen Kaku Gothic New', 'Yu Gothic', sans-serif; font-weight: 700; letter-spacing: 0.06em; } .ds-shield { display: inline-flex; align-items: center; justify-content: center; min-width: 1.9em; height: 1.9em; padding: 0 0.35em; border-radius: 0.38em; background: #fff; color: #0b3f9c; font-weight: 800; line-height: 1; } .ds-board dl { margin: 0; } .ds-board dl > div { display: flex; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.3); } .ds-board dl > div:last-child { border-bottom: 0; } .ds-board dt { font-size: 1.2rem; font-weight: 600; } .ds-board dt small { display: block; font-size: 0.75rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.78; } .ds-board dd { margin-left: auto; font-family: 'Overpass Mono', ui-monospace, monospace; font-size: 1.9rem; font-weight: 600; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; white-space: nowrap; } .ds-board dd sub { vertical-align: baseline; font-size: 0.5em; font-weight: 400; margin-left: 0.3em; letter-spacing: 0; }"
+    },
+    {
+      "name": "Punto de detalle",
+      "kind": "custom",
+      "refersTo": "detail-spot",
+      "description": "Punto sobre la foto: aro cian con núcleo de lámpara; al abrir se rellena de cian; etiqueta en placa de señal.",
+      "html": "<div class=\"ds-spot-stage\"><button type=\"button\" class=\"ds-spot\" aria-expanded=\"false\"><span class=\"ds-spot-ring\"></span><span class=\"ds-spot-label\">Ópticas</span></button></div>",
+      "css": ".ds-spot-stage { position: relative; width: 240px; height: 120px; background: #000; } .ds-spot { position: absolute; left: 50%; top: 40%; width: 44px; height: 44px; margin: -22px 0 0 -22px; border: 0; border-radius: 50%; background: none; cursor: pointer; display: grid; place-items: center; transition: transform 0.16s cubic-bezier(0.23,1,0.32,1); } .ds-spot-ring { position: relative; width: 22px; height: 22px; border-radius: 50%; border: 2px solid rgb(64,224,255); background: #000; box-shadow: 0 0 0 3px rgba(0,0,0,0.75), 0 2px 8px rgba(0,0,0,0.8), 0 0 14px rgba(64,224,255,0.5); transition: transform 0.25s cubic-bezier(0.23,1,0.32,1), background-color 0.2s ease, box-shadow 0.25s ease; } .ds-spot-ring::after { content: ''; position: absolute; inset: 5px; border-radius: 50%; background: rgb(196,238,255); } .ds-spot-label { position: absolute; left: 50%; top: calc(100% - 2px); translate: -50% 0; padding: 3px 9px; border-radius: 4px; white-space: nowrap; background: #0b3f9c; color: #fff; font: 800 0.72rem/1.4 Overpass, Arial, sans-serif; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0; transform: translateY(-4px); transition: opacity 0.2s cubic-bezier(0.23,1,0.32,1), transform 0.2s cubic-bezier(0.23,1,0.32,1); pointer-events: none; } .ds-spot:hover .ds-spot-ring, .ds-spot[aria-expanded='true'] .ds-spot-ring { transform: scale(1.15); } .ds-spot[aria-expanded='true'] .ds-spot-ring { background: rgb(64,224,255); box-shadow: 0 0 0 4px rgba(0,0,0,0.4), 0 0 22px rgba(64,224,255,0.9); } .ds-spot:hover .ds-spot-label, .ds-spot:focus-visible .ds-spot-label, .ds-spot[aria-expanded='true'] .ds-spot-label { opacity: 1; transform: none; } .ds-spot:active { transform: scale(0.94); } .ds-spot:focus-visible { outline: 2px solid rgb(64,224,255); outline-offset: 3px; }"
+    },
+    {
+      "name": "Marcador numerado + fila de pieza",
+      "kind": "chip",
+      "refersTo": "part-marker",
+      "description": "Marcador mono sobre el despiece enlazado a su fila; el activo se enciende en cian.",
+      "html": "<div class=\"ds-parts-demo\"><button class=\"ds-pt is-on\" type=\"button\"><span>1</span></button><button class=\"ds-pt\" type=\"button\"><span>2</span></button><button class=\"ds-part is-on\" type=\"button\"><span class=\"ds-part-n\">1</span><span class=\"ds-part-name\">Bloque de hierro fundido</span></button></div>",
+      "css": ".ds-parts-demo { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; width: 360px; padding: 12px; background: #000; font-family: Overpass, Arial, sans-serif; color: #f2f5f8; } .ds-pt { width: 40px; height: 40px; border: 0; background: none; cursor: pointer; display: grid; place-items: center; transition: transform 0.16s cubic-bezier(0.23,1,0.32,1); } .ds-pt span { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: #000; border: 2px solid rgba(196,238,255,0.9); color: #fff; font: 600 0.78rem/1 'Overpass Mono', ui-monospace, monospace; box-shadow: 0 0 0 3px rgba(0,0,0,0.5), 0 0 12px rgba(64,224,255,0.45); transition: background-color 0.2s ease, color 0.2s ease, transform 0.25s cubic-bezier(0.23,1,0.32,1), box-shadow 0.25s ease; } .ds-pt:hover span, .ds-pt.is-on span { background: rgb(64,224,255); border-color: rgb(64,224,255); color: #001018; transform: scale(1.18); box-shadow: 0 0 0 3px rgba(0,0,0,0.6), 0 0 24px rgba(64,224,255,0.95); } .ds-pt:active { transform: scale(0.92); } .ds-pt:focus-visible, .ds-part:focus-visible { outline: 2px solid rgb(64,224,255); outline-offset: 3px; } .ds-part { width: 100%; display: grid; grid-template-columns: 30px minmax(0,1fr); column-gap: 14px; align-items: baseline; text-align: left; padding: 12px 10px 12px 0; border: 0; border-bottom: 1px solid rgba(150,190,255,0.14); background: none; color: inherit; cursor: pointer; font: inherit; transition: background-color 0.2s ease; } .ds-part-n { font: 600 0.82rem/1 'Overpass Mono', ui-monospace, monospace; color: #a3afbc; transition: color 0.2s ease; } .ds-part-name { font-weight: 600; transition: color 0.2s ease; } .ds-part.is-on, .ds-part:hover { background: linear-gradient(90deg, rgba(64,224,255,0.1), rgba(64,224,255,0)); } .ds-part.is-on .ds-part-n, .ds-part.is-on .ds-part-name { color: rgb(64,224,255); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Shuto nocturna",
+    "overview": "**Invariantes del museo (todas las páginas).** El fondo es negro puro (#000) en todas partes: lo exige el medio OLED y no se rebaja a un gris oscuro. Cada sala tiene una barra superior con la vuelta al Hall arriba a la izquierda (`../index.html`, flecha a la izquierda y la palabra \"Hall\"). Todas las páginas terminan en un pie con la misma información (proyecto conceptual, las marcas pertenecen a sus propietarios, enlace \"Privacidad y preferencias\" con `data-open-privacy`), aunque cada sala le da su propio estilo. Todas cargan el módulo común de consentimiento `assets/museo-consent.{css,js}` y lo adaptan solo con `--mc-accent` (tripleta R, G, B), `--mc-primary` y `--mc-primary-ink`, sin sobrescribir sus clases. En el Hall, la tarjeta de cada sala anuncia su mundo en miniatura. La de la R34 tiene la foto en penumbra en reposo; con hover o foco se enciende, pasa la farola fría por encima y la placa de ruta B 湾岸線 cambia de azul de señal profundo a azul de señal.\n\n**Mundo de la Sala 02.** La sala es una vuelta de noche por la ruta B (Wangan) de la autopista metropolitana de Tokio. Sobre el negro OLED, la única luz es la de las farolas LED: una banda blanca y fría con un poco de cian que barre la carrocería azul Bayside. La navegación y los títulos están hechos con el sistema japonés de señales de orientación: paneles azules con un filete blanco interior, escudo de ruta, flechas de carril, postes kilométricos, un panel de destinos y distancias, y placas de salida. Se usa el azul de las señales de carretera general, no el verde de autopista. La fotografía es la protagonista; la interfaz habla como la señalización vial: breve, en mayúsculas, con las cifras en columnas.\n\nRitmo pausado y oscuro, con poca densidad salvo en las tablas técnicas. El movimiento es luz que pasa: un barrido de farola, un brillo retrorreflectante que cruza una señal, una marca de carril que se enciende según se avanza. Rechazos confirmados: la página de producto (titular + foto + fila de tarjetas iguales) y el decorado synthwave anterior (sol magenta, rejilla Tron).",
+    "keyCharacteristics": [
+      "Negro OLED #000 como único fondo; la profundidad sale de la luz, no de superficies grises.",
+      "Las señales de orientación azules son a la vez los títulos, la navegación, las pestañas, las cifras y las salidas.",
+      "Tres familias con un papel cada una: Overpass para las señales, Overpass Mono para las cifras tabulares y Zen Kaku Gothic New para el kana.",
+      "Barrido de farola y brillo retrorreflectante como único lenguaje de luz en movimiento.",
+      "Enfoque óptico: la foto se desenfoca y oscurece, y solo queda nítido un círculo alrededor de la pieza elegida.",
+      "Escenario fijo: en los despieces cambia el contenido, nunca el marco."
+    ],
+    "rules": [
+      { "name": "The Lamp Light Rule", "body": "La luz en movimiento es siempre el blanco frío de la lámpara LED, en `mix-blend-mode: screen`, con poca opacidad (pico 0,17). El cian marca lo que está encendido o activo; nunca es un color de relleno.", "section": "colors" },
+      { "name": "The Signage Blue Rule", "body": "Un panel azul en esta sala es siempre una señal: azul de señal, filete blanco interior y tinta blanca. Nada más usa un relleno azul.", "section": "colors" },
+      { "name": "The Black Is The Road Rule", "body": "No hay superficies grises ni tarjetas elevadas sobre el fondo. Fuera de las señales, cualquier contenedor es negro #000 con un filete azulado.", "section": "colors" },
+      { "name": "The One Mono Rule", "body": "Toda cifra con unidad (PS, N·m, cc, kg, mm, años, códigos de chasis) va en Overpass Mono con `tabular-nums`. La sans nunca compone cifras de datos.", "section": "typography" },
+      { "name": "The Bilingual Sign Rule", "body": "Cada señal lleva su línea en kana con `lang=\"ja\"`. El kana es parte de la señal, no un adorno suelto sobre la página.", "section": "typography" },
+      { "name": "The Lit Not Lifted Rule", "body": "Un elemento activo se enciende (cian, halo), no se eleva. Las únicas sombras de caída son las de las placas de señal y las vistas de detalle.", "section": "elevation" }
+    ],
+    "dos": [
+      "**Do** mantener #000 como fondo de toda página del museo y la vuelta al Hall arriba a la izquierda en cada sala.",
+      "**Do** adaptar el módulo común de consentimiento solo con `--mc-accent`, `--mc-primary` y `--mc-primary-ink` (en la R34: cian 64, 224, 255; azul de señal; tinta blanca).",
+      "**Do** construir todo título y navegación de la R34 como señal: azul de señal, filete blanco interior a 5px, radio de 8px, escudo de ruta y línea de kana.",
+      "**Do** componer toda cifra en Overpass Mono con `tabular-nums` y etiquetar como estimación cualquier dato no oficial (p. ej. \"≈ 330 PS · estimación habitual, no oficial\").",
+      "**Do** reservar el cian para lo encendido o activo y el blanco frío de lámpara para la luz que pasa.",
+      "**Do** usar el enfoque óptico para señalar una pieza en una foto, en vez de flechas o recuadros superpuestos.",
+      "**Do** cambiar solo el contenido dentro de un escenario fijo cuando haya varias vistas de un mismo marco.",
+      "**Do** dar una alternativa estática a cada barrido o brillo con `prefers-reduced-motion`."
+    ],
+    "donts": [
+      "**Don't** aplicar a la R34 la tipografía, el rojo ni la luz de galería del F40 y el Hall, ni llevar el sistema de señales de la R34 a otra sala.",
+      "**Don't** usar el verde de las señales de autopista; la sala usa el azul de las señales de carretera general.",
+      "**Don't** volver al decorado synthwave (sol magenta, rejilla Tron) ni al patrón de página de producto (titular + foto + fila de tarjetas iguales).",
+      "**Don't** poner etiquetas sueltas o antetítulos en mayúsculas sobre los títulos de sección; el título ya es una señal con su escudo y su kana.",
+      "**Don't** usar superficies grises o tarjetas elevadas sobre el negro; los contenedores son negros con un filete azulado.",
+      "**Don't** usar glifos tipográficos como iconos; las flechas y marcas son SVG de trazo blanco."
+    ]
+  }
+}

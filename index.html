@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <script>document.documentElement.classList.add("js");</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#000000" />
+  <title>Museo digital del automóvil · Hall</title>
+  <meta name="description" content="Museo digital del automóvil: elige una sala y explora la historia, la anatomía y la ingeniería de cada leyenda." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@700&display=swap&text=%E6%B9%BE%E5%B2%B8%E7%B7%9A" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/museo-consent.css" />
+  <link rel="stylesheet" href="assets/museo-transiciones.css" />
+
+  <link rel="stylesheet" href="engine/hall.css" />
+  <!-- preload:hall · lo escribe tools/build-data.mjs: la foto del primer coche del Hall (LCP) -->
+  <link rel="preload" as="image" href="f40/img/f40-perfil.avif" type="image/avif" fetchpriority="high" />
+  <!-- /preload:hall -->
+</head>
+<body>
+
+  <!-- Nivel de negro por píxel (igual que en las salas): el fondo gris de estudio
+       de las fotos pasa a negro puro #000 sin desenfocar nada. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <filter id="blackpoint" color-interpolation-filters="sRGB">
+      <feComponentTransfer>
+        <feFuncR type="linear" slope="1.1628" intercept="-0.1628" />
+        <feFuncG type="linear" slope="1.1628" intercept="-0.1628" />
+        <feFuncB type="linear" slope="1.1628" intercept="-0.1628" />
+      </feComponentTransfer>
+    </filter>
+    <!-- Negro OLED suave: lleva a #000 sólo los niveles 0–10 sin tocar los colores (el Hall usa #blackpoint en sus fotos) -->
+    <filter id="oled" color-interpolation-filters="sRGB"><feComponentTransfer><feFuncR type="linear" slope="1.04" intercept="-0.04" /><feFuncG type="linear" slope="1.04" intercept="-0.04" /><feFuncB type="linear" slope="1.04" intercept="-0.04" /></feComponentTransfer>
+    </filter>
+  </svg>
+
+  <header class="topbar">
+    <a href="index.html" class="wordmark" aria-label="Museo digital del automóvil · Hall">Museo <span>Digital</span></a>
+    <span class="topbar__meta">Hall principal</span>
+  </header>
+
+  <!-- Showroom a pantalla completa: lo monta engine/hall-orbit.js desde data/cars.js -->
+  <main class="showroom">
+    <h1 class="sr">Museo digital del automóvil: elige una sala</h1>
+    <noscript><p class="noscript-rooms">Activa JavaScript para ver el showroom, o entra directamente: <a href="f40/index.html">Sala 01 · Ferrari F40</a> · <a href="r34/index.html">Sala 02 · Nissan Skyline GT-R R34</a> · <a href="p1/index.html">Sala 03 · McLaren P1</a> · <a href="m3/index.html">Sala 04 · BMW M3 E30</a>.</p></noscript>
+  </main>
+
+  <div class="footer-slot"></div>
+
+  <script src="engine/core.js"></script>
+  <script src="engine/hall.js"></script>
+  <script src="engine/hall-orbit.js"></script>
+  <!-- Aviso de almacenamiento y política de privacidad: módulo común del museo -->
+  <script src="assets/museo-consent.js"></script>
+
+</body>
+</html>

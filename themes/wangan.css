@@ -1,0 +1,109 @@
+/* =========================================================
+   TEMA · WANGAN
+   Noche en la autopista metropolitana de Tokio: señales de
+   orientación japonesas (panel azul con filete blanco) como
+   navegación y títulos, luz de farolas LED en cian, cifras en
+   monoespaciada tabular. Usado por: Sala 02 · Nissan Skyline GT-R R34.
+   ========================================================= */
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@300;400;600;800&family=Overpass+Mono:wght@400;600&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap");
+
+:root {
+  --text: #f2f5f8;
+  --text-soft: #d7e8f5;
+  --text-body: #c6cfd9;
+  --text-2: #a3afbc;         /* gris azulado, 9:1 sobre negro */
+  --text-3: #7d8995;         /* notas y pies, 5,5:1 sobre negro */
+  --line: rgba(150, 190, 255, 0.14);
+  --line-2: rgba(170, 205, 255, 0.28);
+  --accent: 64, 224, 255;    /* reflejo cian del asfalto mojado */
+  --accent-2: 196, 238, 255; /* farola LED: blanco frío */
+  --accent-3: 40, 92, 255;   /* azul eléctrico Bayside */
+  --accent-ink: #001018;
+  --panel: #0b3f9c;          /* azul de señal de orientación japonesa */
+  --panel-2: #072c70;
+  --panel-ink: #ffffff;
+  --plaque-rule: rgba(255, 255, 255, 0.92);
+  --radius-plaque: 8px;
+
+  --font-body: "Overpass", "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-body);
+  --font-data: "Overpass Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --font-kana: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+
+  --ease: cubic-bezier(0.23, 1, 0.32, 1);
+  --out: cubic-bezier(0.23, 1, 0.32, 1);
+  --inout: cubic-bezier(0.77, 0, 0.175, 1);
+  --topbar: 64px;
+  --glass: rgba(0, 6, 18, 0.85);
+  --blur: blur(10px);
+  --shadow-card: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 2px 4px rgba(0, 0, 0, 0.6), 0 18px 40px -12px rgba(0, 0, 0, 0.85);
+  --shadow-ctrl: 0 1px 2px rgba(0, 0, 0, 0.7), 0 6px 14px -4px rgba(0, 0, 0, 0.65);
+  --shadow-pin: 0 0 0 3px rgba(0, 0, 0, 0.5), 0 0 12px rgba(64, 224, 255, 0.45);
+  --shadow-pin-active: 0 0 0 3px rgba(0, 0, 0, 0.6), 0 0 24px rgba(64, 224, 255, 0.95);
+  --gr: 64; --gg: 224; --gb: 255; --gk: 0.8;
+
+  --mc-accent: 64, 224, 255;
+  --mc-primary: #0b3f9c;
+  --mc-primary-ink: #fff;
+}
+@media (color-gamut: p3) { :root { --panel: color(display-p3 0.05 0.24 0.62); } }
+
+body { font-weight: 400; }
+html { scrollbar-color: #26313d #000; scrollbar-width: thin; }
+::-webkit-scrollbar { width: 10px; height: 8px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: #26313d; border-radius: 10px; border: 2px solid #000; }
+
+/* Aparición: sube desenfocada y se aclara, en cascada (--i) */
+html.js .rv { transform: translate3d(0, 18px, 0); filter: blur(6px); }
+html.js .rv.is-in { transform: none; filter: none; transition: opacity 0.8s var(--out), transform 0.9s var(--out), filter 0.8s var(--out); transition-delay: calc(var(--i, 0) * 70ms); }
+
+/* ---------- Cabecera: banda negra opaca y navegación como ruta ---------- */
+.progress { height: 3px; }
+.progress__bar { background: repeating-linear-gradient(90deg, rgba(var(--accent-2), 0.9) 0 26px, transparent 26px 44px); clip-path: inset(0 calc((1 - var(--progress, 0)) * 100%) 0 0); }
+.topbar { height: var(--topbar); background: #000; }
+.topbar::after { content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 28px; pointer-events: none; background: linear-gradient(180deg, #000, rgba(0, 0, 0, 0)); }
+.topbar__right { display: contents; }     /* ruta al centro, conmutador a la derecha */
+.wordmark { display: none; }
+.back { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-2); transition: color 0.2s ease; }
+.route { gap: clamp(14px, 2.2vw, 30px); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-2); }
+.route a { padding: 8px 0; transition: color 0.2s ease; }
+.route a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 2px; height: 2px; background: rgb(var(--accent)); transform: scaleX(0); transform-origin: 0 50%; transition: transform 0.25s var(--out); }
+.route a[aria-current="true"] { color: var(--text); }
+.route a[aria-current="true"]::after { transform: scaleX(1); }
+@media (hover: hover) and (pointer: fine) {
+  .back:hover, .route a:hover { color: var(--text); }
+  .back:hover svg { transform: translateX(-3px); }
+}
+/* Conmutador de modo: una señal con dos carriles; el activo se invierte */
+.modes { padding: 4px; gap: 2px; border-radius: 7px; background: var(--panel); box-shadow: inset 0 0 0 2px var(--panel), inset 0 0 0 3.5px var(--plaque-rule), 0 2px 4px rgba(0, 0, 0, 0.6); }
+.modes button { position: relative; height: 30px; padding: 0 14px; border-radius: 4px; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255, 255, 255, 0.78); }
+.modes button[aria-pressed="true"] { background: #fff; color: var(--panel); }
+
+/* ---------- Salidas: señales de salida (EXIT 出口) ---------- */
+.exits { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 960px; margin: clamp(56px, 9vh, 96px) auto 0; padding: 0 var(--gutter); }
+.exit {
+  isolation: isolate; overflow: hidden; padding: 18px 22px 18px 18px;
+  background: var(--panel); color: var(--panel-ink); border-radius: 8px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 2px 4px rgba(0, 0, 0, 0.6), 0 18px 40px -12px rgba(0, 0, 0, 0.85);
+}
+.exit::before { content: ""; position: absolute; inset: 5px; z-index: -1; pointer-events: none; border: 2px solid var(--plaque-rule); border-radius: 5px; }
+.exit__tag { flex: none; display: grid; place-items: center; padding: 4px 8px 3px; border-radius: 4px; background: #fff; color: var(--panel); font-size: 0.78rem; line-height: 1.05; text-align: center; }
+.exit__tag b { display: block; font-family: var(--font-display); font-weight: 800; font-size: 0.72rem; letter-spacing: 0.1em; }
+.exit__thumb { display: none; }
+.exit__label { font-family: var(--font-data); font-size: 0.74rem; opacity: 0.8; }
+.exit strong { font-size: 1.08rem; font-weight: 800; line-height: 1.15; }
+.exit__sub { font-size: 0.84rem; opacity: 0.82; }
+.exit__arrow { order: 3; margin-left: auto; }
+.exit__arrow svg { width: 26px; height: 20px; stroke-width: 2.4; }
+@media (hover: hover) and (pointer: fine) { .exit:hover { filter: brightness(1.18); } }
+
+/* ---------- Pie ---------- */
+.footer { margin-top: clamp(80px, 12vh, 130px); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 760px) {
+  :root { --topbar: 58px; }
+  .back span { display: none; }
+  .modes button { padding: 0 10px; font-size: 0.72rem; letter-spacing: 0.08em; }
+}

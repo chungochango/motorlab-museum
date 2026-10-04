@@ -1,0 +1,19 @@
+/* =========================================================
+   MUSEO · TRANSICIONES ENTRE PÁGINAS
+   Hall ⇄ Sala 01 ⇄ Sala 02 con View Transitions entre documentos.
+   Todas las páginas tienen fondo negro OLED: la página que sale se
+   apaga deprisa y la que entra aparece desde el negro, igual en
+   ambas direcciones. Los navegadores sin soporte navegan sin efecto.
+   ========================================================= */
+@view-transition { navigation: auto; }
+
+::view-transition-group(root) { background: #000; }
+::view-transition-old(root) { animation: museo-vt-out 200ms cubic-bezier(0.23, 1, 0.32, 1) both; }
+::view-transition-new(root) { animation: museo-vt-in 460ms cubic-bezier(0.23, 1, 0.32, 1) 120ms both; }
+
+@keyframes museo-vt-out { to { opacity: 0; } }
+@keyframes museo-vt-in { from { opacity: 0; transform: scale(1.012); } }
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
+}

@@ -1,0 +1,90 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "r34/index.html"
+        ],
+        "createdAt": "2026-10-02T09:16:57.418Z",
+        "reason": "brief del usuario: pide explícitamente 'efectos de brillo sutiles en cian sobre el fondo OLED' para datos y puntos clave"
+      },
+      {
+        "rule": "clipped-overflow-container",
+        "value": "*",
+        "files": [
+          "r34/index.html"
+        ],
+        "createdAt": "2026-10-02T09:17:50.647Z",
+        "reason": "body overflow-x es la protección contra scroll horizontal en móvil; el recorte real de la portada ya se corrigió"
+      },
+      {
+        "rule": "buried-raster",
+        "value": "*",
+        "files": [
+          "r34/index.html"
+        ],
+        "createdAt": "2026-10-02T09:38:59.881Z",
+        "reason": "la capa .optic__sharp está a opacidad 0 a propósito: es el plano nítido del enfoque óptico y se muestra al enfocar una pieza"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "r34/index.html"
+        ],
+        "createdAt": "2026-10-02T09:39:00.097Z",
+        "reason": "filas de datos separadas por filetes finos (tablas, lista de piezas, panel de cifras): el filete es separador, no un contenedor; revisado por el finish reviewer"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "inter",
+        "createdAt": "2026-10-02T10:48:15.180Z",
+        "reason": "tipografía existente de la sala F40 y del Hall (mundo Maranello), anterior a DESIGN.md; se documenta en DESIGN.md"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "r34/index.html"
+        ],
+        "createdAt": "2026-10-02T10:52:49.941Z",
+        "reason": "barrido de farola en bucle = movimiento firma del contrato de dirección de la sala R34, aceptado en la revisión final; se desactiva con prefers-reduced-motion"
+      },
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "createdAt": "2026-10-02T10:52:50.144Z",
+        "reason": "Inter es la tipografía existente del mundo Maranello (Sala F40 y Hall), anterior a esta sesión; sólo se ha movido a themes/maranello.css en el refactor"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "titillium web",
+        "createdAt": "2026-10-02T15:26:49.563Z"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "jetbrains mono",
+        "createdAt": "2026-10-02T16:02:19.531Z"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "barlow condensed",
+        "createdAt": "2026-10-04T10:38:02.639Z"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "saira",
+        "createdAt": "2026-10-04T14:41:15.700Z"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "ibm plex mono",
+        "createdAt": "2026-10-04T14:41:15.917Z"
+      }
+    ]
+  }
+}

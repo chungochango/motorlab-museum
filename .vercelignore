@@ -1,0 +1,19 @@
+# Archivos que NO se suben a Vercel. Lo que se publica es dist/ (tools/build-dist.mjs), que ya
+# deja fuera todo esto; este archivo sólo aligera la subida. tools/ SÍ se sube: Vercel ejecuta
+# tools/build-dist.mjs al desplegar. Netlify no tiene archivo equivalente: también publica dist/.
+.claude/
+.impeccable/
+dist/
+node_modules/
+*.md
+f40/styles.css
+f40/script.js
+# Originales PNG de los renders: la web sirve sus copias .jpg/.webp/.avif.
+# Si algún día el catálogo usa un .png, quítalo de esta lista.
+f40/img/*.png
+r34/img/*.png
+p1/img/*.png
+m3/img/*.png
+gt3rs/img/*.png
+# Notas de procedencia de las imágenes convertidas (tools/images.mjs): no se publican
+*/img/*.json

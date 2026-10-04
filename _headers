@@ -1,0 +1,29 @@
+# ARCHIVO GENERADO por tools/build-headers.mjs — no lo edites a mano.
+# Netlify y Cloudflare Pages. Fuente de la política: tools/build-headers.mjs
+
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-WZRJfWvsnNCPcxzZwvyhovnZGqhZaC+8gPGPRbx6wTk='; style-src 'self' https://fonts.googleapis.com; style-src-elem 'self' https://fonts.googleapis.com; style-src-attr 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self'; media-src 'self'; connect-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), browsing-topics=()
+  Strict-Transport-Security: max-age=63072000; includeSubDomains
+  Cross-Origin-Opener-Policy: same-origin
+
+/f40/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/r34/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/p1/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/m3/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/gt3rs/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/f40/f40-engine.mp3
+  Cache-Control: public, max-age=31536000, immutable

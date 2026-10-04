@@ -1,0 +1,21 @@
+/* =========================================================
+   MUSEO · HALL
+   Carga data/cars.json, rellena el recuento de salas de la
+   cabecera y el pie con el aviso legal, y avisa (museo:hall)
+   para que engine/hall-orbit.js monte el showroom.
+   ========================================================= */
+(async () => {
+  "use strict";
+  const M = window.Museo;
+  const data = await M.loadData();
+  data.cars.forEach(M.resolveImages);
+
+  const n = data.cars.filter((c) => c.status !== "coming_soon").length, soon = data.cars.length - n;
+  document.querySelector(".topbar__meta").textContent = `Hall principal · ${n} ${n === 1 ? "sala" : "salas"}${soon ? ` · ${soon} en desarrollo` : ""}`;
+  const marks = [...new Set(data.cars.flatMap((c) => c.marks || []))];
+  document.querySelector(".footer-slot").outerHTML = M.footer(marks);
+  document.documentElement.classList.add("is-ready");
+  M.hallReady = true;
+  M.hallCars = data.cars;
+  document.dispatchEvent(new CustomEvent("museo:hall", { detail: { cars: data.cars } }));
+})();

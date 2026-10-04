@@ -1,0 +1,14 @@
+# Netlify · Museo digital del automóvil
+# Se publica sólo dist/, que genera tools/build-dist.mjs (sin originales PNG, notas ni herramientas).
+#
+# Cabeceras de seguridad (CSP, X-Frame-Options, nosniff, Referrer-Policy…) y caché inmutable de
+# imágenes y audio: están en dist/_headers, generado por tools/build-headers.mjs desde la misma
+# definición que vercel.json. No se repiten aquí a propósito: Netlify aplica a la vez netlify.toml
+# y _headers, y una cabecera declarada en los dos sitios se une con comas (una CSP duplicada se rompe).
+
+[build]
+  command = "node tools/build-dist.mjs"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
