@@ -34,7 +34,7 @@ async function walk(dir, skip = () => false) {
 }
 
 /* ---------- Qué se publica ---------- */
-["index.html", "_headers", "data/cars.json", "data/cars.js"].forEach(add);
+["index.html", "_headers", "data/cars.json", "data/cars.js", "robots.txt", "sitemap.xml"].forEach(add);
 await walk("engine");
 await walk("themes");
 await walk("assets", (p) => p.endsWith(".md"));
