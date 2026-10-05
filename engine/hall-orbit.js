@@ -190,6 +190,8 @@
       animate(dest, duration, () => { phase = ((dest % N) + N) % N; place(); });
     };
     const step = (d) => goTo(active + d);
+    // Para el índice de salas (engine/hall-index.js): trae una sala al frente y, si está en desarrollo, abre su avance
+    M.hallGo = (i) => { goTo(i); if (soon(cars[i])) setTeaser(i, true); };
 
     section.querySelector(".orbit__arrow--prev").addEventListener("click", () => step(-1));
     section.querySelector(".orbit__arrow--next").addEventListener("click", () => step(1));

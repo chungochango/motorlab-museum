@@ -35,6 +35,7 @@ Con servidor (`http://`), el motor lee `cars.json` directamente. Sin servidor, u
   "years": "1987 — 1992",         // periodo de producción, como se muestra
   "theme": "maranello",           // themes/<tema>.css: maranello (F40) · wangan (R34) · woking (P1) · motorsport (M3) · weissach (GT3 RS)
   "country": "Alemania", "category": "Turismo de Homologación Grupo A / DTM",   // opcionales, informativos
+  "tags": ["supercar", "turbo"],   // filtros del índice del Hall: supercar · competicion · moto · turbo · atmosferico
   "pendingImages": true,          // opcional: fotos aún no subidas (aviso en vez de error)
   "status": "coming_soon",       // opcional: sala en desarrollo. Sale en el Hall apagada, con la insignia «Sala en desarrollo // Próximamente»
                                   // y un avance (hall.teaser + specsPreview) en vez de enlace; no necesita specs, sections ni carpeta index.html

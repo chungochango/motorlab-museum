@@ -24,6 +24,10 @@
       "model": "F40",
       "year": 1987,
       "years": "1987 — 1992",
+      "tags": [
+        "supercar",
+        "turbo"
+      ],
       "theme": "maranello",
       "palette": {
         "accent": "#d40000",
@@ -1508,6 +1512,9 @@
       "badge": "R34",
       "year": 1999,
       "years": "1999 — 2002",
+      "tags": [
+        "turbo"
+      ],
       "theme": "wangan",
       "palette": {
         "accent": "#4096ff",
@@ -2283,6 +2290,10 @@
       "model": "P1",
       "year": 2013,
       "years": "2013 — 2015",
+      "tags": [
+        "supercar",
+        "turbo"
+      ],
       "theme": "woking",
       "palette": {
         "accent": "#FF8C00",
@@ -3208,6 +3219,10 @@
       "years": "1986 — 1991",
       "country": "Alemania",
       "category": "Turismo de Homologación Grupo A / DTM",
+      "tags": [
+        "competicion",
+        "atmosferico"
+      ],
       "theme": "motorsport",
       "palette": {
         "accent": "#E2231A",
@@ -3780,6 +3795,10 @@
       "years": "2023",
       "country": "Alemania",
       "category": "Weissach Package // Nordschleife Track Weapon",
+      "tags": [
+        "supercar",
+        "atmosferico"
+      ],
       "theme": "weissach",
       "palette": {
         "accent": "#C5A059",
@@ -4360,6 +4379,10 @@
       "theme": "santagata",
       "country": "Italia",
       "category": "Superdeportivo híbrido enchufable (HPEV)",
+      "tags": [
+        "supercar",
+        "turbo"
+      ],
       "palette": {
         "accent": "#39ff14",
         "body": "#39ff14",
@@ -5520,6 +5543,10 @@
       "theme": "motorsport",
       "country": "Alemania",
       "category": "Turismo de Homologación Grupo A / DTM",
+      "tags": [
+        "competicion",
+        "atmosferico"
+      ],
       "status": "coming_soon",
       "palette": {
         "accent": "#C0C5CC",
@@ -5593,6 +5620,9 @@
       "theme": "wangan",
       "country": "Japón",
       "category": "Gran turismo",
+      "tags": [
+        "turbo"
+      ],
       "status": "coming_soon",
       "palette": {
         "accent": "#E8590C",
