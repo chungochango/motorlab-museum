@@ -143,6 +143,11 @@ html.js:not(.has-orbit) main { min-height: 100svh; }   /* reserva el sitio mient
 .hall--wangan .orbit__media::after { content: ""; position: absolute; inset: 0; pointer-events: none; mix-blend-mode: screen; transform: translateX(-100%); }
 .hall--maranello .orbit__media::after { background: linear-gradient(105deg, rgba(255, 170, 120, 0) 35%, rgba(255, 170, 120, 0.13) 50%, rgba(255, 170, 120, 0) 65%); }
 .hall--wangan .orbit__media::after { background: linear-gradient(100deg, rgba(196, 238, 255, 0) 35%, rgba(196, 238, 255, 0.15) 50%, rgba(196, 238, 255, 0) 65%); }
+/* MotoLab: barrido ámbar de cuentarrevoluciones, inclinado como la moto en curva */
+.hall--motolab .orbit__media::after { content: ""; position: absolute; inset: 0; pointer-events: none; mix-blend-mode: screen; transform: translateX(-100%); background: linear-gradient(117deg, rgba(255, 176, 32, 0) 38%, rgba(255, 176, 32, 0.13) 50%, rgba(255, 176, 32, 0) 62%); }
+.hall--motolab .orbit__soon { border-radius: 0; clip-path: polygon(7px 0, 100% 0, calc(100% - 7px) 100%, 0 100%); padding-inline: 16px; border-color: rgba(255, 176, 32, 0.6); }
+.hall--motolab .orbit__soon::before { background: rgb(255, 176, 32); box-shadow: 0 0 8px rgba(255, 176, 32, 0.8); }
+.hall--motolab .orbit__soon i { color: rgb(255, 176, 32); }
 .orbit__slot.is-active .orbit__media::after { transform: translateX(100%); transition: transform 1.3s var(--ease) 0.35s; }
 
 /* ---------- Salas "próximamente" (status: coming_soon) ---------- */

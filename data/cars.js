@@ -5699,7 +5699,7 @@ window.MUSEO = {
       "badge": "R",
       "year": 2019,
       "years": "2019 — presente",
-      "theme": "maranello",
+      "theme": "motolab",
       "country": "Italia",
       "category": "Superbike de homologación WSBK",
       "tags": [

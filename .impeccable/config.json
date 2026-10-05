@@ -109,6 +109,18 @@
         ],
         "createdAt": "2026-10-05T09:51:41.406Z",
         "reason": "false positive: no scrolling content; the only looping motion on this page is the shared engine's scroll-cue line in engine/sala.css (pre-existing, used by every room)"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "saira condensed",
+        "createdAt": "2026-10-05T21:09:22.037Z",
+        "reason": "Claude: cada sala define su tipografía en su tema (PRODUCT.md, identidad por sala); DESIGN.md sólo documenta la Sala 02"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "saira semi condensed",
+        "createdAt": "2026-10-05T21:09:22.133Z",
+        "reason": "Claude: cada sala define su tipografía en su tema (PRODUCT.md, identidad por sala); DESIGN.md sólo documenta la Sala 02"
       }
     ]
   }

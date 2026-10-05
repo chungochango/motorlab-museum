@@ -1,0 +1,336 @@
+/* =========================================================
+   TEMA · MOTOLAB
+   El ala de dos ruedas del museo: un box de telemetría de
+   MotoGP de noche. Grafito (#060607), blanco hueso y el ámbar
+   del cuentarrevoluciones (#FFB020) como luz de datos; el color
+   de cada moto llega por el halo ambiental (--glow), así el
+   tema sirve a todas las salas MotoLab.
+   La firma es la inclinación: botones, rótulos, cifras y placas
+   se tumban como una moto en curva (--lean, un paralelogramo de
+   63° de ángulo de inclinación); los puntos son esferas de
+   cuentarrevoluciones con su arco y zona roja, y la barra de
+   progreso es una tira de régimen graduada.
+   Saira Condensed (rótulos de dorsal y carenado) para títulos,
+   Saira Semi Condensed con cifras tabulares para los datos e
+   Inter para el texto.
+   Usado por: Sala 19 // MotoLab 01 · Ducati Panigale V4 R.
+   ========================================================= */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Saira+Condensed:wght@500;600;700&family=Saira+Semi+Condensed:wght@400;500;600&display=swap");
+
+:root {
+  --bg: #060607;
+  --text: #eceae4;              /* blanco hueso */
+  --text-soft: #d6d3cb;
+  --text-body: #b3b0a8;
+  --text-2: #96938c;            /* 6,6:1 sobre #060607 */
+  --text-3: #75726c;            /* notas y pies, 4,5:1 */
+  --line: rgba(236, 234, 228, 0.1);
+  --line-2: rgba(236, 234, 228, 0.2);
+  --accent: 255, 176, 32;       /* ámbar del cuentarrevoluciones */
+  --accent-2: 255, 214, 138;    /* ámbar claro: valores y luz de datos */
+  --accent-3: 255, 176, 32;
+  --accent-ink: #120c02;        /* texto oscuro sobre ámbar */
+  --panel: #0d0d0f;
+  --panel-2: #111114;
+  --panel-ink: #eceae4;
+  --plaque-rule: rgba(255, 176, 32, 0.5);
+  --radius-plaque: 2px;
+  --redline: 230, 36, 36;       /* zona roja del cuentarrevoluciones */
+
+  --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Saira Condensed", "Arial Narrow", "Inter", sans-serif;
+  --font-data: "Saira Semi Condensed", "Arial Narrow", "Inter", sans-serif;
+  --font-kana: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --out: cubic-bezier(0.23, 1, 0.32, 1);
+  --inout: cubic-bezier(0.77, 0, 0.175, 1);
+  --topbar: 68px;
+  --glass: rgba(6, 6, 7, 0.86);
+  --blur: blur(12px);
+
+  /* Inclinación: el desplazamiento horizontal del paralelogramo (moto tumbada en curva) */
+  --lean: 14px;
+  --lean-s: 7px;
+  --clip-lean: polygon(var(--lean) 0, 100% 0, calc(100% - var(--lean)) 100%, 0 100%);
+  --clip-lean-s: polygon(var(--lean-s) 0, 100% 0, calc(100% - var(--lean-s)) 100%, 0 100%);
+
+  /* Grafito: chapa anodizada con un brillo cepillado muy tenue */
+  --graphite:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.012) 0 1px, rgba(255, 255, 255, 0) 1px 3px),
+    linear-gradient(165deg, #131316, #0a0a0c 55%, #0e0e10);
+  /* Tira de régimen: marcas cada 10 % y zona roja al final */
+  --tach-ticks: repeating-linear-gradient(90deg, rgba(236, 234, 228, 0.22) 0 1px, transparent 1px 10%);
+
+  --shadow-card:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 1px 1px rgba(0, 0, 0, 0.8), 0 10px 22px -6px rgba(0, 0, 0, 0.7),
+    0 40px 80px -30px rgba(0, 0, 0, 0.9), 0 30px 70px -40px rgba(var(--glow), calc(0.45 * var(--gk)));
+  --shadow-ctrl: 0 1px 2px rgba(0, 0, 0, 0.8), 0 8px 18px -6px rgba(0, 0, 0, 0.7);
+  --shadow-pin: 0 2px 4px rgba(0, 0, 0, 0.7), 0 0 14px rgba(255, 176, 32, 0.35);
+  --shadow-pin-active: 0 3px 6px rgba(0, 0, 0, 0.7), 0 0 24px rgba(255, 176, 32, 0.8);
+
+  --mc-accent: 255, 176, 32;
+  --mc-primary: #ffb020;
+  --mc-primary-ink: #120c02;
+
+  /* Halo del suelo por defecto (la sala lo sustituye por el color de su moto) */
+  --gr: 204; --gg: 0; --gb: 0; --gk: 0.85;
+  --edge: linear-gradient(90deg, rgb(255, 176, 32), rgb(255, 214, 138));
+}
+
+body { font-weight: 300; }
+::selection { background: rgb(var(--accent)); color: var(--accent-ink); }
+:focus-visible { outline: 2px solid rgb(var(--accent)); outline-offset: 3px; border-radius: 0; }
+html { scrollbar-color: #2b2a27 #060607; scrollbar-width: thin; }
+::-webkit-scrollbar { width: 10px; height: 8px; }
+::-webkit-scrollbar-track { background: #060607; }
+::-webkit-scrollbar-thumb { background: #2b2a27; border: 2px solid #060607; }
+
+/* Box de noche: luz cenital cálida y rayado de pista inclinado, muy tenue, que se apaga hacia abajo */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 45% at 50% -8%, rgba(255, 176, 32, 0.07), rgba(255, 176, 32, 0) 70%),
+    repeating-linear-gradient(117deg, rgba(236, 234, 228, 0.022) 0 1px, rgba(236, 234, 228, 0) 1px 38px);
+  -webkit-mask-image: linear-gradient(180deg, #000 0, rgba(0, 0, 0, 0.5) 45%, rgba(0, 0, 0, 0.12) 100%);
+  mask-image: linear-gradient(180deg, #000 0, rgba(0, 0, 0, 0.5) 45%, rgba(0, 0, 0, 0.12) 100%);
+}
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: 45; pointer-events: none;
+  background: radial-gradient(ellipse 120% 95% at 50% 46%, rgba(0, 0, 0, 0) 56%, rgba(0, 0, 0, 0.28) 82%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+.m-historia, .m-tecnico { animation: modeIn 0.4s var(--ease); }
+@keyframes modeIn { from { opacity: 0; transform: translateX(-6px) skewX(-3deg); } to { opacity: 1; transform: none; } }
+/* Aparición: entra tumbada y se endereza, como una moto a la salida de la curva */
+html.js .rv { transform: translate3d(-12px, 12px, 0) skewX(-2.5deg); transition: opacity 0.8s var(--out), transform 0.9s var(--out); transition-delay: calc(var(--i, 0) * 70ms); }
+html.js .rv.is-in { transform: none; }
+
+/* =========================================================
+   CABECERA · tira de régimen como barra de progreso
+   ========================================================= */
+.progress { height: 3px; background: var(--tach-ticks), rgba(236, 234, 228, 0.05); }
+.progress__bar {
+  background: linear-gradient(90deg, rgb(var(--accent)) 0 86%, rgb(var(--redline)) 86%) 0 0 / 100vw 100% no-repeat;
+  box-shadow: 0 0 10px rgba(255, 176, 32, 0.6); transform-origin: 0 50%; transform: scaleX(var(--progress, 0));
+}
+.topbar { height: var(--topbar); background: linear-gradient(180deg, rgba(6, 6, 7, 0.95), rgba(6, 6, 7, 0.6) 70%, rgba(6, 6, 7, 0)); }
+.topbar__left { gap: 18px; }
+.topbar__right { gap: clamp(14px, 2.4vw, 30px); }
+.back {
+  gap: 8px; padding: 8px 18px 8px 16px; clip-path: var(--clip-lean-s);
+  background: rgba(255, 176, 32, 0.08); box-shadow: inset 0 0 0 1px rgba(255, 176, 32, 0.32);
+  font-family: var(--font-display); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-soft);
+  transition: background 0.25s, color 0.25s;
+}
+.back svg { width: 14px; height: 10px; stroke-width: 1.6; transition: transform 0.25s var(--out); }
+.wordmark { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; }
+.wordmark__model { color: rgb(var(--accent)); }
+.route { gap: clamp(14px, 2.4vw, 30px); }
+.route a { position: relative; padding: 6px 0; font-family: var(--font-display); font-size: 0.84rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-2); transition: color 0.25s; }
+.route a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: rgb(var(--accent)); clip-path: polygon(3px 0, 100% 0, calc(100% - 3px) 100%, 0 100%); transform: scaleX(0); transform-origin: 0 50%; transition: transform 0.3s var(--out); }
+.route a[aria-current="true"] { color: var(--text); }
+.route a[aria-current="true"]::after { transform: scaleX(1); }
+.modes { padding: 3px 5px; gap: 2px; clip-path: var(--clip-lean-s); background: #0f0f11; box-shadow: inset 0 0 0 1px rgba(255, 176, 32, 0.28); }
+.modes button { padding: 5px 14px; clip-path: var(--clip-lean-s); font-family: var(--font-display); font-size: 0.76rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-2); transition: color 0.2s, background 0.2s; }
+.modes button[aria-pressed="true"] { color: var(--accent-ink); background: rgb(var(--accent)); }
+@media (hover: hover) and (pointer: fine) {
+  .back:hover { background: rgba(255, 176, 32, 0.16); color: var(--text); }
+  .back:hover svg { transform: translateX(-3px); }
+  .route a:hover, .modes button:hover { color: var(--text); }
+  .modes button[aria-pressed="true"]:hover { color: var(--accent-ink); }
+}
+
+/* =========================================================
+   TÍTULOS Y RÓTULOS
+   ========================================================= */
+.eyebrow, .hero-cine__years, .hero-cine__facts span, .fact dt, .card__num, .scroll-cue { font-family: var(--font-display); font-weight: 600; letter-spacing: 0.2em; }
+/* Marca de inclinación: un paralelogramo ámbar tumbado */
+.eyebrow::before { content: ""; display: inline-block; width: 16px; height: 9px; margin-right: 12px; vertical-align: 0; background: rgb(var(--accent)); clip-path: polygon(5px 0, 100% 0, calc(100% - 5px) 100%, 0 100%); }
+.eyebrow b, .card__num { color: rgb(var(--accent)); }
+.section-title, .facts__title { font-weight: 700; text-transform: uppercase; letter-spacing: 0; line-height: 0.98; }
+.section-title { font-size: clamp(2.2rem, 5.2vw, 4rem); }
+.section-intro b { color: rgb(var(--accent-2)); font-weight: 500; }
+.rule { height: 2px; background: var(--edge); clip-path: polygon(2px 0, 100% 0, calc(100% - 2px) 100%, 0 100%); }
+
+/* =========================================================
+   PORTADA · box de noche con el halo de la moto en el suelo
+   ========================================================= */
+.hero-cine__bg.js-car { opacity: 0.32; filter: url(#oled) contrast(1.1); }
+.hero-cine__shade { background: radial-gradient(closest-side, rgba(6, 6, 7, 0.8), rgba(6, 6, 7, 0.45) 60%, rgba(6, 6, 7, 0)); }
+/* Foco cenital del box y una línea de vértice inclinada (la trazada) cruzando el fondo */
+.hero-cine::before {
+  content: ""; position: absolute; z-index: 0; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 34% 70% at 50% 0, rgba(255, 214, 138, 0.09), rgba(255, 214, 138, 0) 70%),
+    linear-gradient(117deg, transparent 0 calc(50% - 0.5px), rgba(255, 176, 32, 0.16) calc(50% - 0.5px) calc(50% + 0.5px), transparent calc(50% + 0.5px));
+}
+.hero-cine__floor {
+  height: 34%;
+  background:
+    linear-gradient(180deg, rgba(6, 6, 7, 0), rgba(6, 6, 7, 0.7) 40%, #060607 92%),
+    radial-gradient(ellipse 50% 40% at 50% 10%, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0) 70%);
+}
+.hero-cine__lines span { height: 2px; background: linear-gradient(90deg, rgba(var(--accent), 0), rgb(var(--accent))); }
+.hero-cine__title {
+  font-size: clamp(3.4rem, min(14vw, 23svh), 12rem); font-weight: 700; letter-spacing: 0.01em; text-transform: uppercase; line-height: 0.88;
+  color: var(--text);
+}
+.hero-cine__years { font-size: 0.86rem; color: rgb(var(--accent)); }
+.hero-cine__lead em { color: rgb(var(--accent-2)); font-style: normal; }
+/* Cifras de la portada: celdas inclinadas como las pantallas del cuadro de una moto */
+.hero-cine__facts { gap: 8px; border-top: 0; margin-top: 34px; }
+.hero-cine__facts div { position: relative; padding: 14px clamp(20px, 3.2vw, 34px) 12px; clip-path: var(--clip-lean); background: rgba(13, 13, 15, 0.86); box-shadow: inset 0 0 0 1px rgba(255, 176, 32, 0.22); }
+.hero-cine__facts div + div { border-left: 0; }
+.hero-cine__facts div::before { content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 2px; background: var(--edge); opacity: 0.85; }
+.hero-cine__facts strong { font-family: var(--font-data); font-weight: 600; font-variant-numeric: tabular-nums; letter-spacing: 0; color: var(--text); }
+.hero-cine__facts span { color: var(--text-2); }
+.scroll-cue { color: var(--text-2); }
+.scroll-cue i { width: 2px; background: linear-gradient(rgb(var(--accent)), rgba(var(--accent), 0)); }
+
+/* =========================================================
+   TARJETAS · grafito con filo ámbar inclinado
+   ========================================================= */
+.card { border: 0; border-radius: 0; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
+.card::after {
+  border-radius: 2px;
+  background:
+    linear-gradient(117deg, rgb(var(--accent)) 0 22px, rgba(0, 0, 0, 0) 22px) 0 0 / 34px 2px no-repeat,
+    linear-gradient(90deg, rgba(255, 176, 32, 0.45), rgba(255, 176, 32, 0) 45%) 0 0 / 100% 1px no-repeat,
+    var(--graphite);
+  box-shadow: inset 0 0 0 1px rgba(236, 234, 228, 0.07), var(--shadow-card);
+}
+.card::before { inset: -30% -20%; }
+.card__title { font-weight: 700; text-transform: uppercase; letter-spacing: 0.01em; line-height: 1.04; }
+.card__media { border-radius: 2px; background: #060607; }
+.specs-list { border-top-color: rgba(255, 176, 32, 0.3); }
+.specs-list div { border-bottom-color: var(--line); }
+.specs-list dd { font-family: var(--font-data); font-variant-numeric: tabular-nums; color: rgb(var(--accent-2)); }
+
+/* =========================================================
+   PUNTOS · esferas de cuentarrevoluciones (arco de 270° con zona roja)
+   ========================================================= */
+.hs { border: 1px solid rgba(255, 176, 32, 0.75); background: rgba(6, 6, 7, 0.88); color: var(--text); font-family: var(--font-data); font-weight: 600; box-shadow: var(--shadow-pin); }
+.hs::after {
+  inset: -7px; border: 0;
+  background: conic-gradient(from 225deg, rgba(255, 176, 32, 0.75) 0 210deg, rgb(var(--redline)) 210deg 270deg, transparent 270deg);
+  -webkit-mask: radial-gradient(closest-side, transparent calc(100% - 2px), #000 calc(100% - 1.5px));
+  mask: radial-gradient(closest-side, transparent calc(100% - 2px), #000 calc(100% - 1.5px));
+  opacity: 0.55; transition: opacity 0.3s, inset 0.3s var(--ease);
+}
+.hs:hover { border-color: rgb(var(--accent)); }
+.hs.is-active { background: rgb(var(--accent)); border-color: rgb(var(--accent)); color: var(--accent-ink); box-shadow: var(--shadow-pin-active); }
+.hs.is-active::after { inset: -10px; opacity: 1; }
+.hs__label { border-radius: 0; clip-path: var(--clip-lean-s); border: 0; padding-inline: 14px; background: rgba(6, 6, 7, 0.92); box-shadow: inset 0 0 0 1px rgba(255, 176, 32, 0.35); font-family: var(--font-display); font-weight: 600; letter-spacing: 0.12em; }
+.hs.is-active .hs__label { box-shadow: inset 0 0 0 1px rgba(255, 176, 32, 0.85); }
+
+/* =========================================================
+   EXTERIOR (anatomy-tabs)
+   ========================================================= */
+.anatomy__head {
+  max-width: 680px; padding: 0 28px 22px 0;
+  background: linear-gradient(180deg, rgba(6, 6, 7, 0.95) 0%, rgba(6, 6, 7, 0.7) 70%, rgba(6, 6, 7, 0) 100%);
+}
+.anatomy__stage { margin-top: clamp(8px, 2vw, 28px); }
+.car-figure > img.photo { filter: url(#oled) contrast(1.06); }
+.tabs button { font-family: var(--font-display); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.9rem; border-left-width: 2px; }
+.tabs button small { font-family: var(--font-data); }
+.tabs button[aria-selected="true"] { border-left-color: rgb(var(--accent)); background: linear-gradient(90deg, rgba(255, 176, 32, 0.1), rgba(255, 176, 32, 0) 80%); }
+.link path { stroke: rgb(var(--accent)) !important; }
+
+/* =========================================================
+   HISTORIA (story-road) · trazada con dorsales
+   ========================================================= */
+.plaque { background: var(--graphite); clip-path: var(--clip-lean); box-shadow: none; }
+.plaque::before { inset: 0; border: 0; border-radius: 0; background: linear-gradient(90deg, rgba(255, 176, 32, 0.75), rgba(255, 176, 32, 0) 60%) 0 100% / 100% 2px no-repeat; }
+.plaque--head h2 { font-weight: 700; text-transform: uppercase; letter-spacing: 0.01em; }
+/* Escudo = dorsal de carreras: placa clara con número negro */
+.shield { min-width: 2.2em; height: 1.9em; padding: 0 0.4em; border-radius: 0.35em; background: var(--text); color: #060607; font-family: var(--font-display); font-size: 0.9em; font-weight: 700; }
+.road::before { left: 17px; width: 2px; background: repeating-linear-gradient(180deg, rgba(255, 176, 32, 0.22) 0 30px, transparent 30px 52px); }
+.road__dash { left: 17px; width: 2px; background: repeating-linear-gradient(180deg, rgb(var(--accent)) 0 30px, transparent 30px 52px); box-shadow: 0 0 10px rgba(255, 176, 32, 0.6); }
+.km__post { left: -56px; width: 40px; height: 30px; padding: 0; border-radius: 6px; background: var(--text); color: #060607; box-shadow: 0 0 0 3px #060607, 0 0 0 4px rgba(255, 176, 32, 0.55); font-size: 0; }
+.km__post b { font-family: var(--font-display); font-size: 1rem; font-weight: 700; }
+.km h3 { font-weight: 700; text-transform: uppercase; letter-spacing: 0.01em; }
+.km p b { color: rgb(var(--accent-2)); font-weight: 500; }
+.story__photo .optic { border-radius: 2px; }
+.data { border-top-color: rgba(255, 176, 32, 0.3); }
+.data dd { font-family: var(--font-data); font-variant-numeric: tabular-nums; color: rgb(var(--accent-2)); }
+
+/* =========================================================
+   DESPIECES (parts-gallery)
+   ========================================================= */
+.dive__index a { font-family: var(--font-display); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; font-size: 0.9rem; border-left-width: 2px; }
+.dive__index a small { font-family: var(--font-data); }
+.dive__index a.is-active { background: linear-gradient(90deg, rgba(255, 176, 32, 0.1), rgba(255, 176, 32, 0) 80%); }
+.piece__media::after { background: radial-gradient(ellipse 50% 50% at 50% 60%, rgba(var(--glow), 0.16), rgba(var(--glow), 0) 70%); }
+.view img { filter: url(#oled) contrast(1.05); }
+.switch button { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.1em; }
+.legend__item b { display: inline-grid; place-items: center; width: 24px; height: 24px; margin-right: 10px; border-radius: 50%; border: 1px solid rgba(255, 176, 32, 0.75); color: var(--text); font-family: var(--font-data); font-size: 0.7rem; font-weight: 600; }
+.legend li.is-active .legend__item b { background: rgb(var(--accent)); color: var(--accent-ink); }
+.legend__hint { font-family: var(--font-display); letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-3); }
+
+/* =========================================================
+   CIFRAS (facts-counters + specs-board) · cuadro de instrumentos
+   ========================================================= */
+.facts__grid { gap: 10px; border-top: 0; }
+.fact { position: relative; clip-path: var(--clip-lean); border: 0 !important; background: var(--graphite); box-shadow: inset 0 0 0 1px rgba(236, 234, 228, 0.07); }
+/* Bajo cada cifra, su tira de régimen */
+.fact::before { content: ""; position: absolute; left: var(--lean); right: var(--lean); bottom: 10px; height: 3px; pointer-events: none; background: var(--tach-ticks), linear-gradient(90deg, rgba(255, 176, 32, 0.55) 0 86%, rgba(var(--redline), 0.8) 86%); }
+.fact dt { color: var(--text-2); }
+.fact dd { font-family: var(--font-data); font-weight: 500; font-variant-numeric: tabular-nums; color: var(--text); }
+.fact dd small { color: rgb(var(--accent)); }
+.board { background: var(--graphite); }
+.board__top { border-bottom-color: rgba(255, 176, 32, 0.45); }
+.board__top h2 { text-transform: uppercase; font-weight: 700; letter-spacing: 0.03em; }
+.board dl > div { border-bottom-color: var(--line); }
+.board dt { font-family: var(--font-display); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+.board dt small { color: var(--text-2); opacity: 1; letter-spacing: 0.04em; text-transform: none; font-family: var(--font-body); }
+.board dd { font-family: var(--font-data); font-variant-numeric: tabular-nums; color: rgb(var(--accent-2)); font-weight: 500; }
+.board dd sub { margin-left: 6px; font-size: 0.5em; vertical-align: baseline; color: var(--text-2); }
+.board__note { max-width: 960px; margin: 16px auto 0; font-size: 0.82rem; color: var(--text-3); }
+
+/* =========================================================
+   SALIDAS Y PIE
+   ========================================================= */
+.exits { max-width: 1080px; margin: clamp(56px, 9vh, 96px) auto 0; padding: 0 var(--gutter) clamp(80px, 12vh, 130px); grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 12px; }
+.exit { gap: 18px; min-height: 96px; padding: 18px 30px; border: 0; border-radius: 0; clip-path: var(--clip-lean); background: var(--graphite); box-shadow: inset 0 0 0 1px rgba(236, 234, 228, 0.09); transition: box-shadow 0.25s; }
+.exit__tag { display: none; }
+.exit__label { font-family: var(--font-display); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgb(var(--accent)); }
+.exit strong { margin-top: 4px; font-family: var(--font-display); font-size: clamp(1.2rem, 1.9vw, 1.5rem); font-weight: 700; text-transform: uppercase; line-height: 1.1; color: var(--text); }
+.exit__sub { margin-top: 2px; font-size: 0.86rem; color: var(--text-2); }
+.exit__arrow { color: rgb(var(--accent)); }
+.exit:focus-visible { box-shadow: inset 0 0 0 2px rgb(var(--accent)); }
+@media (hover: hover) and (pointer: fine) {
+  .exit:hover { box-shadow: inset 0 0 0 1px rgba(255, 176, 32, 0.6), inset 0 -40px 60px -40px rgba(var(--glow), 0.3); }
+}
+.footer { border-top-color: rgba(255, 176, 32, 0.12); }
+.footer__meta { font-family: var(--font-display); font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 760px) {
+  :root { --topbar: 60px; --lean: 10px; }
+  .exits { grid-template-columns: minmax(0, 1fr); }
+  .hero-cine__facts { gap: 6px; }
+  .hero-cine__facts div { padding-left: 14px; padding-right: 14px; }
+}
+@media (max-width: 480px) {
+  .topbar { gap: 10px; }
+  .topbar__left { gap: 10px; }
+  .back { padding: 8px 12px; }
+  .back span { display: none; }
+  .wordmark { font-size: 0.82rem; letter-spacing: 0.12em; }
+  .wordmark__make { display: none; }
+  .topbar__right { gap: 6px; }
+  .modes button { display: inline-flex; align-items: center; min-height: 30px; padding: 0 10px; font-size: 0.7rem; letter-spacing: 0.06em; }
+  .hero-cine__facts span { letter-spacing: 0.08em; }
+}
+@media (max-width: 360px) {
+  .wordmark { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .m-historia, .m-tecnico { animation: none; }
+  html.js .rv { transform: none; }
+}
