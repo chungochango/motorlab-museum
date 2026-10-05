@@ -35,6 +35,8 @@ async function walk(dir, skip = () => false) {
 
 /* ---------- Qué se publica ---------- */
 ["index.html", "_headers", "data/cars.json", "data/cars.js", "robots.txt", "sitemap.xml"].forEach(add);
+// Imágenes para redes sociales (og:image) que no están en el catálogo: X/Facebook no leen AVIF y no todos leen WebP
+["f40/img/f40-perfil.jpg"].forEach(add);
 await walk("engine");
 await walk("themes");
 await walk("assets", (p) => p.endsWith(".md"));
