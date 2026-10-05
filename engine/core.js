@@ -296,7 +296,7 @@
       <div class="progress" aria-hidden="true"><span class="progress__bar"></span></div>
       <header class="topbar">
         <div class="topbar__left">
-          <a href="${esc(ctx.hallUrl)}" class="back" aria-label="Volver al Hall del museo">${ARROW_BACK}<span>Hall</span></a>
+          <a href="${esc(ctx.hallUrl)}" class="back" aria-label="Volver al Hall de MotorLab Museum">${ARROW_BACK}<img class="brand-logo" src="${url("assets/logo-mark.png")}" width="28" height="28" alt="" /><span class="back__brand">MotorLab Museum</span></a>
           <a href="#${car.sections[0].id}" class="wordmark" aria-label="${esc(car.name)} · inicio de la sala"><span class="wordmark__make">${esc(car.make)} </span><span class="wordmark__model">${esc(car.model)}</span></a>
         </div>
         <div class="topbar__right">

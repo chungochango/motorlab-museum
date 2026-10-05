@@ -59,7 +59,8 @@ body::after {
   position: absolute; inset: 0 0 auto 0; z-index: 20; height: var(--topbar);
   display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 0 var(--gutter);
 }
-.wordmark { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.4em; text-transform: uppercase; white-space: nowrap; }
+.wordmark { display: inline-flex; align-items: center; gap: 12px; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.4em; text-transform: uppercase; white-space: nowrap; }
+.brand-logo { flex: none; display: block; width: 28px; height: 28px; mix-blend-mode: screen; }
 .wordmark span { color: var(--grey); font-weight: 300; }
 .topbar__meta { font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--grey); }
 

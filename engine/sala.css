@@ -127,6 +127,11 @@ html.js .rv.is-in { opacity: 1; }
 .topbar__left, .topbar__right { display: flex; align-items: center; }
 .back { display: inline-flex; align-items: center; gap: 10px; min-height: 32px; }
 .back svg { width: 16px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.25s var(--out); }
+/* Logo de MotorLab Museum en el botón del Hall: fondo negro de la imagen fundido con screen (sin caja visible) */
+.brand-logo { flex: none; display: block; width: 26px; height: 26px; mix-blend-mode: screen; }
+.back__brand { white-space: nowrap; }
+/* El rótulo sólo cuando cabe: entre 1101 y 1359 px la ruta de secciones ocupa ese sitio; en móvil queda el logo */
+@media (min-width: 1101px) and (max-width: 1359px), (max-width: 760px) { .back .back__brand { display: none; } }
 .wordmark { white-space: nowrap; }
 .route { display: flex; }
 .route a { position: relative; }

@@ -23,7 +23,9 @@ const data = JSON.parse(await readFile(join(root, "data/cars.json"), "utf8"));
 const pages = ["index.html", ...data.cars.filter((c) => c.status !== "coming_soon").map((c) => `${c.slug}/index.html`)];   // las salas "próximamente" no tienen página
 const hashes = new Set();
 for (const p of pages) {
-  const html = await readFile(join(root, p), "utf8");
+  // Saltos de línea LF: los que publica el despliegue (el repositorio guarda LF aunque Windows
+  // muestre CRLF con core.autocrlf); con CRLF el hash no coincidiría y el navegador bloquearía el script
+  const html = (await readFile(join(root, p), "utf8")).replace(/\r\n/g, "\n");
   for (const [, code] of html.matchAll(/<script>([\s\S]*?)<\/script>/g)) {
     hashes.add(`'sha256-${createHash("sha256").update(code, "utf8").digest("base64")}'`);
   }
