@@ -26,6 +26,7 @@
   cars.forEach(M.resolveImages);                    // también las demás: las salidas muestran la siguiente sala
   const car = cars[index];
   const store = M.store(car.id, car.slug);
+  const web = /^https?:$/.test(location.protocol);
 
   /* Precarga de la imagen de portada en cuanto se conoce, antes de cargar tema y
      módulos: así su descarga no espera al resto (es la imagen que marca el LCP).
@@ -37,8 +38,9 @@
     room: M.pad2(index + 1),
     prev: cars[(index - 1 + cars.length) % cars.length],
     next: cars[(index + 1) % cars.length],
-    hallUrl: M.url(data.museum.hall),
-    roomUrl: (c) => M.url(`${c.slug}/index.html`),
+    // URLs limpias en la web publicada (/ y /<slug>/); con file:// hacen falta los index.html
+    hallUrl: web ? "/" : M.url(data.museum.hall),
+    roomUrl: (c) => (web ? `/${c.slug}/` : M.url(`${c.slug}/index.html`)),
   };
 
   /* ---------- Metadatos de la página ---------- */

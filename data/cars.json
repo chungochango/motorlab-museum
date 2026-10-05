@@ -3,7 +3,7 @@
   "museum": {
     "name": "Museo digital del automóvil",
     "hall": "index.html",
-    "legal": "Este sitio web es un proyecto interactivo sin ánimo de lucro de divulgación técnica, diseño frontend y homenaje al automovilismo. Los nombres, emblemas y marcas comerciales (Ferrari, Nissan, McLaren, BMW, Porsche, Bilstein, Brembo y asociadas) son propiedad exclusiva de sus respectivos fabricantes y se exhiben bajo fines exclusivamente educativos e ilustrativos.",
+    "legal": "Este sitio web es un proyecto interactivo sin ánimo de lucro de divulgación técnica, diseño frontend y homenaje al automovilismo. Los nombres, emblemas y marcas comerciales (Ferrari, Nissan, McLaren, BMW, Porsche, Lamborghini, Bilstein, Brembo y asociadas) son propiedad exclusiva de sus respectivos fabricantes y se exhiben bajo fines exclusivamente educativos e ilustrativos.",
     "privacy": [
       "Sin cookies de rastreo, analítica ni publicidad.",
       "No se recogen ni almacenan datos personales: no hay formularios, cuentas ni un servidor propio que los reciba.",
@@ -12,7 +12,7 @@
       "El alojamiento web puede registrar datos técnicos de acceso (como la IP) igual que cualquier servidor; este sitio no los consulta ni los cruza.",
       "La web no carga scripts de terceros: una política de seguridad de contenidos (CSP) estricta sólo permite su propio código."
     ],
-    "trademarks": "Ferrari, Nissan, McLaren, BMW, Porsche y proveedores asociados (Brembo, Michelin, Bilstein, etc.) son marcas registradas de sus respectivos propietarios. Este sitio web es un proyecto educativo de diseño e ingeniería frontend sin fines comerciales ni afiliación oficial con las marcas mencionadas."
+    "trademarks": "Ferrari, Nissan, McLaren, BMW, Porsche, Lamborghini y proveedores asociados (Brembo, Michelin, Bilstein, etc.) son marcas registradas de sus respectivos propietarios. Este sitio web es un proyecto educativo de diseño e ingeniería frontend sin fines comerciales ni afiliación oficial con las marcas mencionadas."
   },
   "cars": [
     {
@@ -4347,6 +4347,1165 @@
           "decimals": 1
         }
       }
+    },
+    {
+      "id": "lamborghini-temerario",
+      "slug": "temerario",
+      "name": "Lamborghini Temerario",
+      "brand": "Lamborghini",
+      "make": "Lamborghini",
+      "model": "Temerario",
+      "year": 2025,
+      "years": "2025 – presente",
+      "theme": "santagata",
+      "country": "Italia",
+      "category": "Superdeportivo híbrido enchufable (HPEV)",
+      "palette": {
+        "accent": "#39ff14",
+        "body": "#39ff14",
+        "note": "Verde shock; el tema santagata define el resto de la paleta (lima #CCFF00, negro obsidiana #080808, carbono)",
+        "hallAccent": "57, 255, 20"
+      },
+      "marks": [
+        "Lamborghini",
+        "Temerario"
+      ],
+      "exitLine": "El V8 híbrido de 10.000 rpm que releva al Huracán",
+      "meta": {
+        "title": "Lamborghini Temerario · 2025",
+        "description": "Sala 06 del museo digital del automóvil: exterior interactivo, historia, despieces y cifras del Lamborghini Temerario, el híbrido de 920 CV con V8 biturbo a 10.000 rpm."
+      },
+      "specs": {
+        "power": {
+          "label": "Potencia combinada",
+          "value": 920,
+          "unit": "CV",
+          "note": "676 kW"
+        },
+        "thermal": {
+          "label": "Motor V8",
+          "value": 800,
+          "unit": "CV",
+          "note": "4.0 biturbo Hot-V"
+        },
+        "electric": {
+          "label": "Motores eléctricos",
+          "value": 120,
+          "unit": "CV",
+          "note": "3 de flujo axial"
+        },
+        "redline": {
+          "label": "Régimen máximo",
+          "value": 10000,
+          "unit": "rpm"
+        },
+        "acceleration": {
+          "label": "0 – 100 km/h",
+          "value": 2.7,
+          "unit": "s",
+          "decimals": 1
+        },
+        "topSpeed": {
+          "label": "Velocidad máxima",
+          "value": 343,
+          "unit": "km/h"
+        },
+        "engine": {
+          "label": "Motor",
+          "value": "V8 4.0 biturbo",
+          "note": "Hot-V · 10.000 rpm"
+        },
+        "hybrid": {
+          "label": "Sistema híbrido",
+          "value": "3 e-motores",
+          "note": "Flujo axial · batería en el túnel central"
+        },
+        "transmission": {
+          "label": "Transmisión",
+          "value": "DCT 8 vel.",
+          "note": "Doble embrague · transversal"
+        },
+        "drivetrain": {
+          "label": "Tracción",
+          "value": "e-AWD",
+          "note": "Integral eléctrica · torque vectoring"
+        },
+        "chassis": {
+          "label": "Chasis",
+          "value": "Aluminio",
+          "note": "Bastidor integral spaceframe"
+        }
+      },
+      "images": {
+        "temerario-hero": {
+          "role": "hero",
+          "src": "temerario/img/temerario-hero.jpg",
+          "w": 1536,
+          "h": 1024,
+          "alt": "Lamborghini Temerario verde lima en vista tres cuartos delantera, con las luces hexagonales encendidas sobre suelo negro mojado"
+        },
+        "temerario-perfil": {
+          "role": "hero",
+          "src": "temerario/img/temerario-perfil.jpg",
+          "w": 1774,
+          "h": 887,
+          "alt": "Lamborghini Temerario verde lima de perfil en un estudio industrial con tubos de luz cenitales"
+        },
+        "detalle-faro": {
+          "role": "detail",
+          "src": "temerario/img/detalle-faro.jpg",
+          "w": 1536,
+          "h": 1024,
+          "alt": "Detalle del frontal mojado por la lluvia: faro LED afilado y luz diurna hexagonal sobre rejilla de panal"
+        },
+        "detalle-zaga": {
+          "role": "detail",
+          "src": "temerario/img/detalle-zaga.jpg",
+          "w": 1536,
+          "h": 1024,
+          "alt": "Zaga del Temerario con pilotos hexagonales rojos, salida de escape central hexagonal y difusor de carbono"
+        },
+        "despiece-motor": {
+          "role": "exploded",
+          "src": "temerario/img/despiece-motor.jpg",
+          "w": 1672,
+          "h": 941,
+          "alt": "Motor V8 biturbo aislado con cubierta de fibra de carbono, dos turbocompresores y colectores de escape"
+        },
+        "despiece-caja": {
+          "role": "exploded",
+          "src": "temerario/img/despiece-caja.jpg",
+          "w": 1672,
+          "h": 941,
+          "alt": "Caja de cambios de doble embrague y ocho velocidades en aluminio mecanizado, con placa 8-Speed DCT"
+        },
+        "despiece-chasis": {
+          "role": "exploded",
+          "src": "temerario/img/despiece-chasis.jpg",
+          "w": 1672,
+          "h": 941,
+          "alt": "Bastidor spaceframe de aluminio desnudo, sin carrocería, en un estudio con tubos de luz verde"
+        },
+        "despiece-suspension": {
+          "role": "exploded",
+          "src": "temerario/img/despiece-suspension.jpg",
+          "w": 1672,
+          "h": 941,
+          "alt": "Esquina de suspensión con trapecios, amortiguador y disco carbocerámico con pinza verde"
+        },
+        "despiece-electrico": {
+          "role": "exploded",
+          "src": "temerario/img/despiece-electrico.jpg",
+          "w": 1672,
+          "h": 941,
+          "alt": "Batería de alto voltaje con módulos iluminados en verde unida por cables naranjas a un motor eléctrico de flujo axial"
+        }
+      },
+      "hall": {
+        "text": "El relevo del Huracán: un V8 biturbo que gira a 10.000 rpm y tres motores eléctricos para sumar 920 CV. Exterior interactivo, historia, despieces y cifras.",
+        "specs": [
+          [
+            "920 CV",
+            "Combinados"
+          ],
+          [
+            "10.000 rpm",
+            "V8 biturbo"
+          ],
+          [
+            "343 km/h",
+            "Vel. máxima"
+          ]
+        ],
+        "image": {
+          "ref": "temerario-perfil",
+          "fit": "contain"
+        }
+      },
+      "sections": [
+        {
+          "type": "hero-cinematic",
+          "id": "inicio",
+          "kicker": [
+            "Sant'Agata Bolognese",
+            "Sala 06"
+          ],
+          "title": "Temerario",
+          "image": "temerario-hero",
+          "lead": {
+            "historia": "El sucesor del Huracán no se conforma con relevarlo: un <em>V8 biturbo que gira a 10.000 rpm</em> y tres motores eléctricos convierten al Temerario en el Lamborghini de motor central más extremo de su generación.",
+            "tecnico": "V8 de <em>4.0 litros</em> con turbos en la «V caliente», tres motores eléctricos de flujo axial y batería en el túnel central. <em>920 CV combinados</em> (676 kW), caja de doble embrague de 8 velocidades y tracción integral eléctrica."
+          },
+          "facts": {
+            "historia": [
+              [
+                "920 CV",
+                "Combinados"
+              ],
+              [
+                "2,7 s",
+                "0 – 100 km/h"
+              ],
+              [
+                "343 km/h",
+                "Vel. máxima"
+              ]
+            ],
+            "tecnico": [
+              [
+                "10.000 rpm",
+                "Corte V8"
+              ],
+              [
+                "800 + 120",
+                "CV térmicos + eléctricos"
+              ],
+              [
+                "8 vel.",
+                "DCT transversal"
+              ]
+            ]
+          },
+          "cue": {
+            "label": "Exterior",
+            "target": "exterior",
+            "aria": "Ir al exterior interactivo"
+          }
+        },
+        {
+          "type": "anatomy-tabs",
+          "id": "exterior",
+          "nav": "Exterior",
+          "kicker": [
+            "Exterior",
+            "vista lateral"
+          ],
+          "title": "Hexágonos, aristas y aire",
+          "intro": "Pulsa un punto sobre el coche o una pestaña para abrir su ficha. Cambia a <b>Modo Técnico</b> en la cabecera para ver los datos de ingeniería; el faro y la zaga se abren en detalle dentro de su tarjeta.",
+          "image": {
+            "ref": "temerario-perfil",
+            "alt": "Lamborghini Temerario de perfil, con los puntos interactivos del exterior"
+          },
+          "points": [
+            {
+              "x": 8,
+              "y": 58.6,
+              "side": "t",
+              "label": "Faro hexagonal",
+              "aria": "Frontal y firma luminosa hexagonal",
+              "num": "01 · Firma luminosa",
+              "title": "Frontal y faro hexagonal",
+              "image": "detalle-faro",
+              "historia": {
+                "text": [
+                  "El Temerario se reconoce de noche antes de verse entero: dos hexágonos de luz diurna flotan en las tomas del paragolpes, separados del faro principal, que queda reducido a una ranura afilada bajo el capó.",
+                  "El hexágono es una de las formas que más se repiten en el diseño de Lamborghini, y aquí deja de ser un detalle para convertirse en la cara del coche."
+                ],
+                "specs": [
+                  [
+                    "Luz diurna",
+                    "Hexágono LED independiente"
+                  ],
+                  [
+                    "Faro principal",
+                    "Ranura LED afilada"
+                  ],
+                  [
+                    "Motivo",
+                    "Hexágono · panal"
+                  ]
+                ]
+              },
+              "tecnico": {
+                "text": [
+                  "La luz diurna se aloja dentro de la propia toma de aire: el hexágono no tapa el paso del flujo, que atraviesa la rejilla de panal hacia los radiadores frontales. El faro principal, muy estrecho, libera superficie para el capó y para las entradas.",
+                  "Bajo el paragolpes, un labio de fibra de carbono separa el aire que va al fondo plano del que rodea la carrocería."
+                ],
+                "specs": [
+                  [
+                    "Iluminación",
+                    "LED integral"
+                  ],
+                  [
+                    "Tomas frontales",
+                    "Refrigeración de radiadores"
+                  ],
+                  [
+                    "Labio inferior",
+                    "Fibra de carbono"
+                  ]
+                ]
+              }
+            },
+            {
+              "x": 28.5,
+              "y": 57.5,
+              "side": "b",
+              "label": "Ruedas y frenos",
+              "aria": "Llantas y frenos carbocerámicos",
+              "num": "02 · Contacto con el suelo",
+              "title": "Llantas y frenos carbocerámicos",
+              "historia": {
+                "text": [
+                  "Detrás de los radios negros asoman las pinzas en el mismo verde de la carrocería, mordiendo discos carbocerámicos de gran diámetro. Son el contrapeso necesario de 920 CV: tan importante frenar como acelerar.",
+                  "Las llantas, de diseño en Y, repiten la geometría angulosa del resto del coche."
+                ],
+                "specs": [
+                  [
+                    "Discos",
+                    "Carbocerámicos"
+                  ],
+                  [
+                    "Pinzas",
+                    "Monobloque · color carrocería"
+                  ],
+                  [
+                    "Llantas",
+                    "Radios en Y"
+                  ]
+                ]
+              },
+              "tecnico": {
+                "text": [
+                  "El freno carbocerámico pesa mucho menos que uno de acero y aguanta temperaturas muy superiores sin fatiga, lo que reduce la masa no suspendida y mantiene el tacto del pedal vuelta tras vuelta.",
+                  "Parte de la deceleración la hacen además los motores eléctricos delanteros, que recuperan energía para la batería antes de que actúen los discos."
+                ],
+                "specs": [
+                  [
+                    "Material",
+                    "Cerámica reforzada con carbono"
+                  ],
+                  [
+                    "Recuperación",
+                    "Frenada regenerativa en el eje delantero"
+                  ],
+                  [
+                    "Ventaja",
+                    "Menor masa no suspendida"
+                  ]
+                ]
+              }
+            },
+            {
+              "x": 47.9,
+              "y": 33.8,
+              "side": "t",
+              "label": "Habitáculo",
+              "aria": "Habitáculo y puesto de conducción",
+              "num": "03 · Puesto de mando",
+              "title": "Habitáculo",
+              "historia": {
+                "text": [
+                  "La cabina se adelanta y se encoge bajo un techo muy bajo, con el parabrisas casi tumbado. Dentro, el lenguaje es el de un caza: interruptores protegidos, pantallas digitales y un volante con los mandos de los modos de conducción.",
+                  "Detrás de los respaldos sólo hay una cosa: el motor."
+                ],
+                "specs": [
+                  [
+                    "Plazas",
+                    "2"
+                  ],
+                  [
+                    "Posición",
+                    "Baja · cabina adelantada"
+                  ],
+                  [
+                    "Motor",
+                    "Central trasero, a la espalda"
+                  ]
+                ]
+              },
+              "tecnico": {
+                "text": [
+                  "La arquitectura de motor central obliga a llevar el habitáculo hacia delante para que el V8 y la caja queden entre los ejes, con el reparto de masas lo más centrado posible.",
+                  "Los modos de conducción gestionan a la vez el V8, los tres motores eléctricos, la caja y el reparto de par entre ejes y entre ruedas."
+                ],
+                "specs": [
+                  [
+                    "Arquitectura",
+                    "Motor central trasero"
+                  ],
+                  [
+                    "Gestión",
+                    "Modos de conducción integrados"
+                  ],
+                  [
+                    "Instrumentación",
+                    "Digital"
+                  ]
+                ]
+              }
+            },
+            {
+              "x": 60.9,
+              "y": 51.9,
+              "side": "b",
+              "label": "Tomas laterales",
+              "aria": "Tomas de aire laterales y aerodinámica",
+              "num": "04 · Aerodinámica",
+              "title": "Tomas laterales",
+              "historia": {
+                "text": [
+                  "El costado se hunde en una gran toma tallada detrás de la puerta: es la boca por la que respira la parte trasera del coche. Las aristas que la rodean continúan hacia la zaga y le dan al Temerario su aspecto de cuña.",
+                  "Bajo la puerta, un faldón de carbono pega visualmente el coche al suelo."
+                ],
+                "specs": [
+                  [
+                    "Toma",
+                    "Tras la puerta"
+                  ],
+                  [
+                    "Faldón",
+                    "Fibra de carbono"
+                  ],
+                  [
+                    "Silueta",
+                    "Cuña de motor central"
+                  ]
+                ]
+              },
+              "tecnico": {
+                "text": [
+                  "Un V8 biturbo de 800 CV genera muchísimo calor: las tomas laterales alimentan los intercambiadores y el vano motor, mientras el faldón controla el aire que pasa entre el costado y el suelo para que no levante el coche a alta velocidad.",
+                  "La refrigeración y el apoyo aerodinámico se diseñan juntos: cada entrada tiene una salida pensada en la zaga."
+                ],
+                "specs": [
+                  [
+                    "Función",
+                    "Refrigeración del vano motor"
+                  ],
+                  [
+                    "Flujo inferior",
+                    "Controlado por el faldón"
+                  ],
+                  [
+                    "Salida",
+                    "Por la zaga y el difusor"
+                  ]
+                ]
+              }
+            },
+            {
+              "x": 76.1,
+              "y": 30.4,
+              "side": "t",
+              "label": "Vano motor",
+              "aria": "Vano motor del V8 Hot-V",
+              "num": "05 · Propulsión",
+              "title": "Vano motor",
+              "historia": {
+                "text": [
+                  "Bajo la luneta trasera descansa el corazón del coche: un V8 biturbo nuevo, el sucesor del V10 atmosférico del Huracán. Se deja ver a través de la tapa, como en todos los Lamborghini de motor central.",
+                  "Su cifra más llamativa no es la potencia, sino el régimen: corta a 10.000 rpm."
+                ],
+                "specs": [
+                  [
+                    "Motor",
+                    "V8 4.0 biturbo"
+                  ],
+                  [
+                    "Potencia V8",
+                    "800 CV"
+                  ],
+                  [
+                    "Régimen máximo",
+                    "10.000 rpm"
+                  ]
+                ]
+              },
+              "tecnico": {
+                "text": [
+                  "Configuración Hot-V: los dos turbocompresores se alojan dentro de la V que forman las bancadas, con un recorrido de gases de escape muy corto. El motor es más compacto y los turbos responden antes.",
+                  "Entre el V8 y la caja trabaja uno de los tres motores eléctricos, que arranca el motor, genera energía y rellena el par mientras los turbos cargan."
+                ],
+                "specs": [
+                  [
+                    "Cilindrada",
+                    "4.0 L"
+                  ],
+                  [
+                    "Sobrealimentación",
+                    "Biturbo Hot-V"
+                  ],
+                  [
+                    "Motor eléctrico trasero",
+                    "Entre V8 y caja"
+                  ]
+                ]
+              }
+            },
+            {
+              "x": 92.2,
+              "y": 39.5,
+              "side": "b",
+              "label": "Zaga y escape",
+              "aria": "Zaga, pilotos y escape central",
+              "num": "06 · Zaga",
+              "title": "Zaga y escape central",
+              "image": "detalle-zaga",
+              "historia": {
+                "text": [
+                  "La zaga repite el hexágono tres veces: dos pilotos rojos y, en el centro, la salida de escape, un único hexágono enorme encastrado entre ellos. Por debajo, el difusor de carbono parece un juego de cuchillas.",
+                  "A través de las lamas de la tapa trasera se ve el V8, iluminado como una pieza de exposición."
+                ],
+                "specs": [
+                  [
+                    "Pilotos",
+                    "Hexagonales"
+                  ],
+                  [
+                    "Escape",
+                    "Salida central hexagonal"
+                  ],
+                  [
+                    "Difusor",
+                    "Fibra de carbono"
+                  ]
+                ]
+              },
+              "tecnico": {
+                "text": [
+                  "Con los turbos en el centro de la V, el escape puede salir por el eje del coche con una sola boca, alta y centrada. El difusor acelera el aire que sale del fondo plano y genera carga aerodinámica sin depender sólo del alerón.",
+                  "El alerón trasero, integrado en la tapa, completa el equilibrio aerodinámico entre ejes."
+                ],
+                "specs": [
+                  [
+                    "Salida de escape",
+                    "Única, central"
+                  ],
+                  [
+                    "Carga aerodinámica",
+                    "Difusor + alerón"
+                  ],
+                  [
+                    "Material",
+                    "Carbono a la vista"
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "story-road",
+          "id": "historia",
+          "nav": "Historia",
+          "title": "La historia",
+          "intro": "De la década del V10 atmosférico a un V8 híbrido que gira más alto que nunca: cinco paradas para entender el Temerario.",
+          "posts": [
+            {
+              "post": "1",
+              "title": "El relevo del Huracán",
+              "historia": "Durante diez años el <b>Huracán</b> fue el Lamborghini más vendido de motor central, con su V10 atmosférico. Su sucesor se presentó en <b>agosto de 2024</b> en la Monterey Car Week con una misión difícil: ser más rápido, más eficiente y conservar el carácter.",
+              "tecnico": [
+                [
+                  "Presentación",
+                  "Agosto de 2024",
+                  "Monterey Car Week"
+                ],
+                [
+                  "Predecesor",
+                  "Huracán",
+                  "2014 – 2024 · V10 atmosférico"
+                ],
+                [
+                  "Posición",
+                  "Motor central trasero"
+                ]
+              ]
+            },
+            {
+              "post": "2",
+              "title": "Un nombre de plaza de toros",
+              "historia": "Como manda la tradición de Sant'Agata, el nombre viene del mundo de los <b>toros de lidia</b>. En castellano, <b>temerario</b> es quien se lanza al peligro sin medir el riesgo: una declaración de intenciones para un coche que corta a 10.000 rpm.",
+              "tecnico": [
+                [
+                  "Nombre",
+                  "Temerario"
+                ],
+                [
+                  "Significado",
+                  "Audaz, que desafía el riesgo"
+                ],
+                [
+                  "Fábrica",
+                  "Sant'Agata Bolognese (Italia)"
+                ]
+              ]
+            },
+            {
+              "post": "3",
+              "title": "Electrificar para ir más rápido",
+              "historia": "El Temerario completa la gama <b>íntegramente híbrida</b> de Lamborghini, junto al Revuelto y al Urus SE. Aquí la electricidad no está para ahorrar: rellena el par mientras los turbos cargan y reparte la fuerza entre las ruedas delanteras.",
+              "tecnico": [
+                [
+                  "Tipo",
+                  "HPEV",
+                  "High Performance Electrified Vehicle"
+                ],
+                [
+                  "Motores eléctricos",
+                  "3 de flujo axial",
+                  "2 delante · 1 entre V8 y caja"
+                ],
+                [
+                  "Potencia eléctrica",
+                  "120 CV"
+                ]
+              ]
+            },
+            {
+              "post": "4",
+              "title": "Diez mil vueltas por minuto",
+              "historia": "Abandonar el V10 atmosférico obligaba a compensar el sonido y la emoción. La respuesta fue un <b>V8 biturbo</b> capaz de girar a <b>10.000 rpm</b>, un régimen propio de un motor de competición y excepcional en un coche turboalimentado de serie.",
+              "tecnico": [
+                [
+                  "Motor",
+                  "V8 4.0 biturbo",
+                  "Turbos en la V (Hot-V)"
+                ],
+                [
+                  "Potencia V8",
+                  "800 CV"
+                ],
+                [
+                  "Régimen máximo",
+                  "10.000 rpm"
+                ]
+              ]
+            },
+            {
+              "post": "5",
+              "title": "920 CV sobre las cuatro ruedas",
+              "historia": "Sumados, el V8 y los tres motores eléctricos entregan <b>920 CV</b>. Con la tracción integral eléctrica y el torque vectoring, el Temerario pasa de 0 a 100 km/h en <b>2,7 segundos</b> y llega a <b>343 km/h</b>.",
+              "tecnico": [
+                [
+                  "Potencia combinada",
+                  "920 CV",
+                  "676 kW"
+                ],
+                [
+                  "0 – 100 km/h",
+                  "2,7 s"
+                ],
+                [
+                  "Velocidad máxima",
+                  "343 km/h"
+                ]
+              ]
+            }
+          ],
+          "photo": {
+            "image": {
+              "ref": "temerario-hero",
+              "alt": "Lamborghini Temerario en vista tres cuartos delantera"
+            },
+            "caption": "Tres hexágonos de luz y una cuña verde lima: la cara del sucesor del Huracán."
+          }
+        },
+        {
+          "type": "parts-gallery",
+          "id": "despieces",
+          "nav": "Despieces",
+          "kicker": [
+            "Despieces",
+            "pieza a pieza"
+          ],
+          "title": "Cinco sistemas, 920 caballos",
+          "intro": "Cada componente aislado, con sus puntos clave señalados sobre la propia pieza. Activa el <b>Modo Técnico</b> en la cabecera para ver la ficha de ingeniería.",
+          "items": [
+            {
+              "id": "p-motor",
+              "index": "Motor V8 biturbo",
+              "num": "01 · Propulsión térmica",
+              "title": "Motor V8 biturbo Hot-V",
+              "views": [
+                {
+                  "image": "despiece-motor",
+                  "points": [
+                    {
+                      "x": 6.6,
+                      "y": 35.1,
+                      "side": "r",
+                      "label": "Turbocompresor",
+                      "title": "Turbocompresores",
+                      "desc": "Uno por bancada. En la disposición Hot-V van dentro de la V que forman los cilindros: el escape llega a la turbina por el camino más corto y la respuesta al acelerador es más rápida."
+                    },
+                    {
+                      "x": 59.8,
+                      "y": 30,
+                      "side": "t",
+                      "label": "Cubierta de carbono",
+                      "title": "Cubierta y admisión",
+                      "desc": "La tapa de fibra de carbono cubre el colector de admisión. Por los conductos laterales llega el aire ya comprimido por los turbos y enfriado en los intercambiadores."
+                    },
+                    {
+                      "x": 59.8,
+                      "y": 74.4,
+                      "side": "b",
+                      "label": "Escape",
+                      "title": "Colectores de escape",
+                      "desc": "Recogen los gases de cada bancada y los conducen hacia las turbinas. Trabajan a temperaturas altísimas, por eso el vano motor necesita tanta ventilación."
+                    },
+                    {
+                      "x": 28.7,
+                      "y": 63.8,
+                      "side": "l",
+                      "label": "Distribución",
+                      "title": "Distribución y accesorios",
+                      "desc": "Para girar a 10.000 rpm las piezas móviles tienen que ser muy ligeras y la distribución muy precisa: a ese régimen cada pistón sube y baja más de 160 veces por segundo."
+                    }
+                  ],
+                  "historia": {
+                    "text": [
+                      "El Temerario se despide del V10 atmosférico del Huracán con un V8 biturbo nuevo. El reto era que no perdiera lo que hacía especial a su antecesor: la rabia al subir de vueltas.",
+                      "La solución es un motor que corta a 10.000 rpm, una cifra propia de la competición y excepcional en un turbo de producción."
+                    ],
+                    "specs": [
+                      [
+                        "Configuración",
+                        "V8 biturbo"
+                      ],
+                      [
+                        "Cilindrada",
+                        "4.0 L"
+                      ],
+                      [
+                        "Potencia",
+                        "800 CV"
+                      ],
+                      [
+                        "Régimen máximo",
+                        "10.000 rpm"
+                      ]
+                    ]
+                  },
+                  "tecnico": {
+                    "text": [
+                      "Turbos en la V caliente (Hot-V): los colectores de escape y las turbinas quedan en el centro del motor, lo que acorta el circuito de gases, compacta el conjunto y mejora la respuesta.",
+                      "Detrás del V8 trabaja el motor eléctrico trasero, que hace de motor de arranque y generador y rellena el par por debajo del punto en que los turbos entran en carga."
+                    ],
+                    "specs": [
+                      [
+                        "Motor",
+                        "4.0 L V8 biturbo Hot-V"
+                      ],
+                      [
+                        "Potencia",
+                        "800 CV"
+                      ],
+                      [
+                        "Régimen máximo",
+                        "10.000 rpm"
+                      ],
+                      [
+                        "Apoyo eléctrico",
+                        "Motor de flujo axial trasero"
+                      ]
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "id": "p-caja",
+              "index": "Transmisión 8-Speed DCT",
+              "num": "02 · Transmisión",
+              "title": "Caja de doble embrague de 8 velocidades",
+              "views": [
+                {
+                  "image": "despiece-caja",
+                  "points": [
+                    {
+                      "x": 19.7,
+                      "y": 35,
+                      "side": "t",
+                      "label": "Campana",
+                      "title": "Campana de embragues",
+                      "desc": "Aloja los dos embragues: uno gobierna las marchas pares y otro las impares. Mientras una marcha transmite el par, la siguiente ya está preseleccionada."
+                    },
+                    {
+                      "x": 41.9,
+                      "y": 24.4,
+                      "side": "t",
+                      "label": "Mecatrónica",
+                      "title": "Mecatrónica",
+                      "desc": "La unidad electrohidráulica que mueve embragues y horquillas. Decide en milésimas de segundo, coordinada con el V8 y con los motores eléctricos."
+                    },
+                    {
+                      "x": 57.4,
+                      "y": 52,
+                      "side": "b",
+                      "label": "8 velocidades",
+                      "title": "Carter de 8 velocidades",
+                      "desc": "Ocho relaciones permiten mantener el V8 cerca de su zona de máxima potencia en aceleración y desmultiplicar mucho en crucero."
+                    },
+                    {
+                      "x": 86.7,
+                      "y": 42.5,
+                      "side": "l",
+                      "label": "Salida",
+                      "title": "Salida al eje trasero",
+                      "desc": "Por este extremo el par llega al diferencial y a las ruedas traseras. El eje delantero no recibe par mecánico: lo mueven sus propios motores eléctricos."
+                    }
+                  ],
+                  "historia": {
+                    "text": [
+                      "Cambiar de marcha sin cortar el empuje: esa es la promesa de una caja de doble embrague. En el Temerario las ocho marchas se encadenan sin pausa audible, incluso a 10.000 rpm.",
+                      "Va montada en posición transversal, detrás del motor, para que el conjunto sea más compacto."
+                    ],
+                    "specs": [
+                      [
+                        "Tipo",
+                        "Doble embrague (DCT)"
+                      ],
+                      [
+                        "Marchas",
+                        "8"
+                      ],
+                      [
+                        "Posición",
+                        "Transversal"
+                      ]
+                    ]
+                  },
+                  "tecnico": {
+                    "text": [
+                      "La disposición transversal acorta el tren motriz y deja más espacio entre ejes para el motor y la batería.",
+                      "Las relaciones se reparten en dos ejes primarios, uno para pares y otro para impares, cada uno con su embrague."
+                    ],
+                    "specs": [
+                      [
+                        "Transmisión",
+                        "8-Speed DCT"
+                      ],
+                      [
+                        "Disposición",
+                        "Transversal, tras el V8"
+                      ],
+                      [
+                        "Tracción mecánica",
+                        "Eje trasero"
+                      ],
+                      [
+                        "Integración",
+                        "Con el motor eléctrico trasero"
+                      ]
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "id": "p-chasis",
+              "index": "Chasis spaceframe",
+              "num": "03 · Estructura",
+              "title": "Bastidor spaceframe de aluminio",
+              "views": [
+                {
+                  "image": "despiece-chasis",
+                  "points": [
+                    {
+                      "x": 41.9,
+                      "y": 19.1,
+                      "side": "b",
+                      "label": "Arco de techo",
+                      "title": "Arco de techo",
+                      "desc": "El arco superior une los pilares delanteros y traseros y protege la célula de los ocupantes en caso de vuelco."
+                    },
+                    {
+                      "x": 61.6,
+                      "y": 49,
+                      "side": "t",
+                      "label": "Torreta",
+                      "title": "Torretas de suspensión",
+                      "desc": "Fundiciones de aluminio donde se anclan amortiguadores y trapecios. Su rigidez determina la precisión de la dirección."
+                    },
+                    {
+                      "x": 89.7,
+                      "y": 63.8,
+                      "side": "l",
+                      "label": "Frontal",
+                      "title": "Estructura de impacto frontal",
+                      "desc": "Perfiles diseñados para deformarse de forma controlada y absorber la energía de un choque antes de que llegue al habitáculo."
+                    },
+                    {
+                      "x": 31.1,
+                      "y": 57.4,
+                      "side": "b",
+                      "label": "Umbral",
+                      "title": "Umbrales laterales",
+                      "desc": "Largueros profundos que recorren el costado bajo las puertas: trabajan a flexión y torsión y alojan a su lado el túnel central de la batería."
+                    },
+                    {
+                      "x": 7.8,
+                      "y": 42.5,
+                      "side": "r",
+                      "label": "Subchasis trasero",
+                      "title": "Subchasis trasero",
+                      "desc": "Soporta el V8, la caja y la suspensión trasera. Es la zona que más esfuerzos recibe: 920 CV entran por aquí."
+                    }
+                  ],
+                  "historia": {
+                    "text": [
+                      "Bajo la carrocería verde no hay fibra de carbono estructural, sino una jaula de aluminio: un bastidor integral spaceframe hecho de perfiles, fundiciones y chapas unidos entre sí.",
+                      "Es el esqueleto que tiene que sostener un motor, tres motores eléctricos y una batería sin perder rigidez."
+                    ],
+                    "specs": [
+                      [
+                        "Tipo",
+                        "Spaceframe integral"
+                      ],
+                      [
+                        "Material",
+                        "Aluminio"
+                      ],
+                      [
+                        "Elementos",
+                        "Perfiles · fundiciones · chapas"
+                      ]
+                    ]
+                  },
+                  "tecnico": {
+                    "text": [
+                      "El spaceframe combina perfiles extruidos, piezas de fundición en los nudos de mayor carga y chapas en los paneles. Cada material está donde mejor trabaja, lo que permite ganar rigidez torsional sin penalizar el peso.",
+                      "Un chasis más rígido deja que la suspensión haga su trabajo: el coche reacciona antes y de forma más predecible."
+                    ],
+                    "specs": [
+                      [
+                        "Chasis",
+                        "Bastidor integral spaceframe"
+                      ],
+                      [
+                        "Material",
+                        "Aluminio"
+                      ],
+                      [
+                        "Batería",
+                        "Alojada en el túnel central"
+                      ],
+                      [
+                        "Objetivo",
+                        "Máxima rigidez torsional"
+                      ]
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "id": "p-suspension",
+              "index": "Suspensión y frenos",
+              "num": "04 · Chasis dinámico",
+              "title": "Suspensión y frenos carbocerámicos",
+              "views": [
+                {
+                  "image": "despiece-suspension",
+                  "points": [
+                    {
+                      "x": 67,
+                      "y": 68,
+                      "side": "b",
+                      "label": "Disco carbocerámico",
+                      "title": "Disco carbocerámico",
+                      "desc": "Cerámica reforzada con fibra de carbono: más ligero que el acero y estable a temperaturas muy altas. Las perforaciones ayudan a evacuar calor y gases."
+                    },
+                    {
+                      "x": 89.7,
+                      "y": 47.8,
+                      "side": "l",
+                      "label": "Pinza",
+                      "title": "Pinza de freno",
+                      "desc": "Pinza monobloque de varios pistones, en el verde de la carrocería. Reparte la presión de forma uniforme sobre la pastilla."
+                    },
+                    {
+                      "x": 45.5,
+                      "y": 30,
+                      "side": "t",
+                      "label": "Amortiguador",
+                      "title": "Conjunto muelle-amortiguador",
+                      "desc": "Muelle helicoidal y amortiguador de dureza regulable electrónicamente: firme en circuito y más filtrado en carretera."
+                    },
+                    {
+                      "x": 35.9,
+                      "y": 60,
+                      "side": "b",
+                      "label": "Trapecio inferior",
+                      "title": "Trapecio inferior",
+                      "desc": "Brazo de aluminio forjado de una suspensión de doble trapecio: mantiene la rueda perpendicular al asfalto cuando el coche se apoya en curva."
+                    }
+                  ],
+                  "historia": {
+                    "text": [
+                      "Una esquina del Temerario parece una pieza de joyería industrial: aluminio forjado, carbono y un disco de freno del tamaño de una llanta de utilitario.",
+                      "Su trabajo es menos vistoso que el del motor, pero decisivo: convertir 920 CV en velocidad en curva y en frenadas repetibles."
+                    ],
+                    "specs": [
+                      [
+                        "Suspensión",
+                        "Doble trapecio"
+                      ],
+                      [
+                        "Frenos",
+                        "Carbocerámicos"
+                      ],
+                      [
+                        "Pinzas",
+                        "Color carrocería"
+                      ]
+                    ]
+                  },
+                  "tecnico": {
+                    "text": [
+                      "Doble trapecio en ambos ejes, con brazos de aluminio forjado y amortiguación regulable. La geometría prioriza el control de caída de la rueda con el coche muy cargado lateralmente.",
+                      "Los discos carbocerámicos reducen la masa no suspendida y la inercia rotacional, y en el eje delantero trabajan junto a la frenada regenerativa de los motores eléctricos."
+                    ],
+                    "specs": [
+                      [
+                        "Esquema",
+                        "Doble trapecio delante y detrás"
+                      ],
+                      [
+                        "Amortiguación",
+                        "Regulable electrónicamente"
+                      ],
+                      [
+                        "Discos",
+                        "Carbocerámicos"
+                      ],
+                      [
+                        "Recuperación",
+                        "Regenerativa en el eje delantero"
+                      ]
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "id": "p-electrico",
+              "index": "Batería y flujo axial",
+              "num": "05 · Propulsión eléctrica",
+              "title": "Batería central y motor de flujo axial",
+              "views": [
+                {
+                  "image": "despiece-electrico",
+                  "points": [
+                    {
+                      "x": 38.9,
+                      "y": 40.4,
+                      "side": "t",
+                      "label": "Batería",
+                      "title": "Batería de alto voltaje",
+                      "desc": "Va en el túnel central, entre los asientos: la masa más baja y centrada posible. Alimenta los tres motores y se recarga en marcha con el V8 y en las frenadas."
+                    },
+                    {
+                      "x": 89.7,
+                      "y": 35,
+                      "side": "l",
+                      "label": "Motor de flujo axial",
+                      "title": "Motor de flujo axial",
+                      "desc": "Rotor y estátor en forma de disco, enfrentados: el campo magnético va en la dirección del eje. Resultado: un motor muy corto y con mucho par para su tamaño."
+                    },
+                    {
+                      "x": 53.8,
+                      "y": 27.6,
+                      "side": "t",
+                      "label": "Cableado HV",
+                      "title": "Cableado de alto voltaje",
+                      "desc": "Los cables naranjas identifican por norma los circuitos de alta tensión. Unen la batería con la electrónica de potencia de cada motor."
+                    },
+                    {
+                      "x": 52.6,
+                      "y": 76.5,
+                      "side": "b",
+                      "label": "Electrónica",
+                      "title": "Electrónica de potencia",
+                      "desc": "Inversores y unidades de control que convierten la corriente continua de la batería en la corriente alterna que mueve los motores, y al revés al regenerar."
+                    }
+                  ],
+                  "historia": {
+                    "text": [
+                      "La parte eléctrica del Temerario no está para circular en silencio, sino para atacar. Tres motores eléctricos de flujo axial suman 120 CV y llegan donde el V8 no puede: al instante, sin esperar a los turbos.",
+                      "Dos mueven las ruedas delanteras, una cada una, y el tercero va entre el V8 y la caja."
+                    ],
+                    "specs": [
+                      [
+                        "Motores eléctricos",
+                        "3 de flujo axial"
+                      ],
+                      [
+                        "Potencia eléctrica",
+                        "120 CV"
+                      ],
+                      [
+                        "Batería",
+                        "Túnel central"
+                      ]
+                    ]
+                  },
+                  "tecnico": {
+                    "text": [
+                      "El motor de flujo axial es más corto y ligero que uno radial de la misma potencia, lo que permite colocar uno en cada rueda delantera sin árbol ni diferencial mecánico entre ellas.",
+                      "Con un motor por rueda, el reparto de par a izquierda y derecha es puramente eléctrico: es el torque vectoring activo, que ayuda a cerrar la trayectoria en curva."
+                    ],
+                    "specs": [
+                      [
+                        "Tipo de motor",
+                        "Flujo axial"
+                      ],
+                      [
+                        "Número",
+                        "3 (2 delanteros + 1 trasero)"
+                      ],
+                      [
+                        "Potencia eléctrica",
+                        "120 CV"
+                      ],
+                      [
+                        "Batería",
+                        "Alto voltaje · túnel central"
+                      ]
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "facts-counters",
+          "id": "cifras",
+          "nav": "Cifras",
+          "kicker": [
+            "Cifras",
+            "ficha técnica"
+          ],
+          "title": "920 CV en seis cifras",
+          "specs": [
+            "power",
+            "acceleration",
+            "topSpeed",
+            "redline",
+            "thermal",
+            "electric"
+          ]
+        },
+        {
+          "type": "specs-board",
+          "id": "ficha",
+          "shield": "06",
+          "title": "Ficha técnica",
+          "specs": [
+            "engine",
+            "hybrid",
+            "power",
+            "transmission",
+            "drivetrain",
+            "chassis"
+          ],
+          "note": "Datos de fábrica del Lamborghini Temerario. Potencia combinada: 920 CV (676 kW)."
+        }
+      ]
     }
   ]
 }

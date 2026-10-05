@@ -32,16 +32,19 @@ for (const p of pages) {
 /* ---------- Política ---------- */
 const FONTS_CSS = "https://fonts.googleapis.com";
 const FONTS_FILES = "https://fonts.gstatic.com";
+// Google Analytics 4 (gtag.js en el <head> de todas las páginas)
+const GA_SCRIPT = "https://www.googletagmanager.com";
+const GA_BEACON = "https://www.google-analytics.com https://analytics.google.com https://*.google-analytics.com";
 const csp = [
   "default-src 'self'",
-  `script-src 'self' ${[...hashes].join(" ")}`,             // sin 'unsafe-inline' ni eval
+  `script-src 'self' ${[...hashes].join(" ")} ${GA_SCRIPT}`,   // sin 'unsafe-inline' ni eval
   `style-src 'self' ${FONTS_CSS}`,
   `style-src-elem 'self' ${FONTS_CSS}`,                       // hojas y <style>: sólo propias + Google Fonts
   "style-src-attr 'unsafe-inline'",                           // atributos style="" que el motor genera desde los datos (coordenadas, proporciones)
   `font-src 'self' ${FONTS_FILES}`,
-  "img-src 'self'",
+  `img-src 'self' data: ${GA_BEACON} ${GA_SCRIPT}`,      // data: para los SVG en línea de los temas
   "media-src 'self'",                                         // sonido del motor
-  "connect-src 'self'",                                       // fetch de data/cars.json
+  `connect-src 'self' ${GA_BEACON}`,                      // fetch de data/cars.json + envíos de GA4
   "manifest-src 'self'",
   "object-src 'none'",
   "base-uri 'self'",
@@ -57,7 +60,7 @@ const security = {
   "Referrer-Policy": "strict-origin-when-cross-origin",
   "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), browsing-topics=()",
   "Strict-Transport-Security": "max-age=63072000; includeSubDomains",
-  "Cross-Origin-Opener-Policy": "same-origin",
+  "Cross-Origin-Opener-Policy": "same-origin-allow-popups",
 };
 
 /* Caché:
@@ -80,6 +83,9 @@ const vercel = {
   framework: null,
   buildCommand: "node tools/build-dist.mjs",
   outputDirectory: "dist",
+  // URLs limpias: /temerario/ en vez de /temerario/index.html
+  cleanUrls: true,
+  trailingSlash: true,
   headers: [
     { source: "/(.*)", headers: Object.entries(security).map(([key, value]) => ({ key, value })) },
     { source: `/(.*)\\.(${MEDIA_EXT.join("|")})`, headers: [{ key: "Cache-Control", value: IMMUTABLE }] },

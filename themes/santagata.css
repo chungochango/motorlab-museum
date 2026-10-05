@@ -1,0 +1,339 @@
+/* =========================================================
+   TEMA · SANT'AGATA
+   Box de Sant'Agata Bolognese de noche: negro obsidiana
+   (#080808), fibra de carbono oscura y verde shock (#39FF14)
+   con lima neón (#CCFF00) como luz de borde. Cortes en ángulo
+   en tarjetas y botones, y hexágonos (la firma de luz del coche)
+   en los puntos, los postes y la trama del fondo. Chakra Petch
+   (angulosa) para títulos y rótulos, JetBrains Mono para las
+   cifras e Inter para el texto. Suelo de asfalto pulido y
+   tubos de luz cenitales en la portada.
+   Usado por: Sala 06 · Lamborghini Temerario.
+   ========================================================= */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Chakra+Petch:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;600&display=swap");
+
+:root {
+  --bg: #080808;
+  --text: #f3f6ef;
+  --text-soft: #d9e6cf;
+  --text-body: #b4bcae;
+  --text-2: #9aa392;            /* 7:1 sobre #080808 */
+  --text-3: #6f776a;            /* notas y pies, 4,6:1 */
+  --line: rgba(204, 255, 0, 0.12);
+  --line-2: rgba(204, 255, 0, 0.26);
+  --accent: 57, 255, 20;        /* verde shock */
+  --accent-2: 204, 255, 0;      /* lima neón */
+  --accent-3: 57, 255, 20;
+  --accent-ink: #050505;        /* texto negro sobre verde */
+  --panel: #0e0f0d;
+  --panel-2: #121410;
+  --panel-ink: #f3f6ef;
+  --plaque-rule: rgba(57, 255, 20, 0.55);
+  --radius-plaque: 0px;
+
+  --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Chakra Petch", "Inter", Arial, sans-serif;
+  --font-data: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --font-kana: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --out: cubic-bezier(0.23, 1, 0.32, 1);
+  --inout: cubic-bezier(0.77, 0, 0.175, 1);
+  --topbar: 68px;
+  --glass: rgba(8, 8, 8, 0.86);
+  --blur: blur(12px);
+
+  /* Corte en ángulo de tarjetas y botones (esquinas superior izquierda e inferior derecha) */
+  --cut: 18px;
+  --cut-s: 8px;
+  --clip: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
+  --clip-s: polygon(var(--cut-s) 0, 100% 0, 100% calc(100% - var(--cut-s)), calc(100% - var(--cut-s)) 100%, 0 100%, 0 var(--cut-s));
+
+  /* Fibra de carbono: sarga 2×2 en dos diagonales sobre negro */
+  --carbon:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.028) 0 2px, rgba(255, 255, 255, 0) 2px 4px),
+    repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.5) 0 2px, rgba(0, 0, 0, 0) 2px 4px),
+    linear-gradient(160deg, #141513, #0a0a09 60%, #0d0e0c);
+
+  /* Hexágonos (SVG en línea: la CSP admite data: en imágenes) */
+  --hex: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 30'%3E%3Cpath d='M13 1.5 24.5 8.1v13.8L13 28.5 1.5 21.9V8.1Z' fill='%23080808' fill-opacity='.72' stroke='%23CCFF00' stroke-width='1.4'/%3E%3C/svg%3E");
+  --hex-on: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 30'%3E%3Cpath d='M13 1.5 24.5 8.1v13.8L13 28.5 1.5 21.9V8.1Z' fill='%2339FF14' stroke='%23CCFF00' stroke-width='1.4'/%3E%3C/svg%3E");
+  --hex-ring: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 30'%3E%3Cpath d='M13 1.5 24.5 8.1v13.8L13 28.5 1.5 21.9V8.1Z' fill='none' stroke='%2339FF14' stroke-width='1'/%3E%3C/svg%3E");
+  --hex-grid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'%3E%3Cpath d='M28 1 54 16v31L28 62 2 47V16Z M28 62v35 M2 16-26 1 M54 16 82 1' fill='none' stroke='%23CCFF00' stroke-opacity='.07' stroke-width='1'/%3E%3C/svg%3E");
+
+  --shadow-card:
+    0 1px 1px rgba(0, 0, 0, 0.8), 0 10px 22px -6px rgba(0, 0, 0, 0.7),
+    0 40px 80px -30px rgba(0, 0, 0, 0.9), 0 30px 70px -40px rgba(var(--glow), calc(0.4 * var(--gk)));
+  --shadow-ctrl: 0 1px 2px rgba(0, 0, 0, 0.8), 0 8px 18px -6px rgba(0, 0, 0, 0.7);
+  --shadow-pin: 0 0 14px rgba(57, 255, 20, 0.45);
+  --shadow-pin-active: 0 0 26px rgba(57, 255, 20, 0.95);
+
+  --mc-accent: 57, 255, 20;
+  --mc-primary: #39ff14;
+  --mc-primary-ink: #050505;
+
+  /* Halo del suelo: verde shock */
+  --gr: 57; --gg: 255; --gb: 20; --gk: 0.75;
+  --edge: linear-gradient(90deg, rgb(57, 255, 20), rgb(204, 255, 0));
+}
+@media (color-gamut: p3) {
+  :root { --accent: 57, 255, 20; }
+}
+
+body { font-weight: 400; }
+::selection { background: rgb(var(--accent)); color: #050505; }
+:focus-visible { outline: 2px solid rgb(var(--accent-2)); outline-offset: 3px; border-radius: 0; }
+html { scrollbar-color: #2a3324 #080808; scrollbar-width: thin; }
+::-webkit-scrollbar { width: 10px; height: 8px; }
+::-webkit-scrollbar-track { background: #080808; }
+::-webkit-scrollbar-thumb { background: #2a3324; border: 2px solid #080808; }
+
+/* Trama hexagonal fija, muy tenue, que se apaga hacia abajo (luz cenital sobre la pared del box) */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 45% at 50% -8%, rgba(204, 255, 0, 0.09), rgba(204, 255, 0, 0) 70%),
+    var(--hex-grid) 50% 0 / 56px 97px;
+  -webkit-mask-image: linear-gradient(180deg, #000 0, rgba(0, 0, 0, 0.55) 45%, rgba(0, 0, 0, 0.15) 100%);
+  mask-image: linear-gradient(180deg, #000 0, rgba(0, 0, 0, 0.55) 45%, rgba(0, 0, 0, 0.15) 100%);
+}
+/* Viñeta de alto contraste */
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: 45; pointer-events: none;
+  background: radial-gradient(ellipse 120% 95% at 50% 46%, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.3) 82%, rgba(0, 0, 0, 0.6) 100%);
+}
+
+.m-historia, .m-tecnico { animation: modeIn 0.4s var(--ease); }
+@keyframes modeIn { from { opacity: 0; transform: translateX(-6px); } to { opacity: 1; transform: none; } }
+/* Aparición: entra en diagonal, como un corte */
+html.js .rv { transform: translate3d(-14px, 14px, 0); transition: opacity 0.8s var(--out), transform 0.9s var(--out); transition-delay: calc(var(--i, 0) * 70ms); }
+html.js .rv.is-in { transform: none; }
+
+/* =========================================================
+   CABECERA
+   ========================================================= */
+.progress { height: 2px; background: rgba(204, 255, 0, 0.06); }
+.progress__bar { background: var(--edge); box-shadow: 0 0 10px rgba(57, 255, 20, 0.8); transform-origin: 0 50%; transform: scaleX(var(--progress, 0)); }
+.topbar { height: var(--topbar); background: linear-gradient(180deg, rgba(8, 8, 8, 0.95), rgba(8, 8, 8, 0.6) 70%, rgba(8, 8, 8, 0)); }
+.topbar::after { content: ""; position: absolute; left: var(--gutter); bottom: 6px; width: 64px; height: 2px; background: var(--edge); clip-path: polygon(0 0, 100% 0, calc(100% - 2px) 100%, 0 100%); pointer-events: none; }
+.topbar__left { gap: 18px; }
+.topbar__right { gap: clamp(14px, 2.4vw, 30px); }
+.back {
+  gap: 8px; padding: 8px 14px 8px 12px; clip-path: var(--clip-s);
+  background: rgba(57, 255, 20, 0.08); box-shadow: inset 0 0 0 1px rgba(57, 255, 20, 0.35);
+  font-family: var(--font-display); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-soft);
+  transition: background 0.25s, color 0.25s;
+}
+.back svg { width: 14px; height: 10px; stroke-width: 1.6; transition: transform 0.25s var(--out); }
+.wordmark { font-family: var(--font-display); font-size: 0.86rem; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; }
+.wordmark__model { color: rgb(var(--accent)); text-shadow: 0 0 14px rgba(57, 255, 20, 0.5); }
+.route { gap: clamp(14px, 2.4vw, 30px); }
+.route a { position: relative; padding: 6px 0; font-family: var(--font-display); font-size: 0.76rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-2); transition: color 0.25s; }
+.route a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--edge); transform: scaleX(0); transform-origin: 0 50%; transition: transform 0.3s var(--out); }
+.route a[aria-current="true"] { color: var(--text); }
+.route a[aria-current="true"]::after { transform: scaleX(1); }
+.modes { padding: 3px; gap: 2px; clip-path: var(--clip-s); background: #0e0f0d; box-shadow: inset 0 0 0 1px rgba(57, 255, 20, 0.3); }
+.modes button { padding: 5px 13px; clip-path: var(--clip-s); font-family: var(--font-display); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-2); transition: color 0.2s, background 0.2s; }
+.modes button[aria-pressed="true"] { color: #050505; background: var(--edge); }
+@media (hover: hover) and (pointer: fine) {
+  .back:hover { background: rgba(57, 255, 20, 0.16); color: var(--text); }
+  .back:hover svg { transform: translateX(-3px); }
+  .route a:hover, .modes button:hover { color: var(--text); }
+  .modes button[aria-pressed="true"]:hover { color: #050505; }
+}
+
+/* =========================================================
+   TÍTULOS Y RÓTULOS
+   ========================================================= */
+.eyebrow, .hero-cine__years, .hero-cine__facts span, .fact dt, .card__num, .scroll-cue { font-family: var(--font-display); font-weight: 600; letter-spacing: 0.24em; }
+.eyebrow::before { content: ""; display: inline-block; width: 9px; height: 10px; margin-right: 12px; vertical-align: -1px; background: var(--hex-on) center / contain no-repeat; filter: drop-shadow(0 0 6px rgba(57, 255, 20, 0.8)); }
+.eyebrow b, .card__num { color: rgb(var(--accent-2)); }
+.section-title, .facts__title { font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; line-height: 1.02; }
+.section-title { font-size: clamp(2rem, 4.8vw, 3.6rem); }
+.section-intro b { color: rgb(var(--accent-2)); font-weight: 500; }
+.rule { height: 2px; background: var(--edge); }
+
+/* =========================================================
+   PORTADA · tubos de luz cenitales y suelo de asfalto pulido
+   ========================================================= */
+.hero-cine__bg.js-car { opacity: 0.34; filter: url(#oled) contrast(1.12) saturate(1.1); }
+.hero-cine__shade { background: radial-gradient(closest-side, rgba(8, 8, 8, 0.78), rgba(8, 8, 8, 0.45) 60%, rgba(8, 8, 8, 0)); }
+/* Tubos de luz: tres barras cenitales con su cono de luz hacia el suelo */
+.hero-cine::before {
+  content: ""; position: absolute; z-index: 0; left: 0; right: 0; top: 0; height: 100%; pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent 0 14%, rgba(204, 255, 0, 0.85) 14% 30%, transparent 30% 42%, rgba(204, 255, 0, 0.85) 42% 58%, transparent 58% 70%, rgba(204, 255, 0, 0.85) 70% 86%, transparent 86%) 0 calc(var(--topbar) + 8px) / 100% 2px no-repeat,
+    radial-gradient(ellipse 22% 60% at 22% 0, rgba(204, 255, 0, 0.1), rgba(204, 255, 0, 0) 70%),
+    radial-gradient(ellipse 22% 60% at 50% 0, rgba(204, 255, 0, 0.12), rgba(204, 255, 0, 0) 70%),
+    radial-gradient(ellipse 22% 60% at 78% 0, rgba(204, 255, 0, 0.1), rgba(204, 255, 0, 0) 70%);
+  filter: drop-shadow(0 0 8px rgba(57, 255, 20, 0.6));
+}
+/* Suelo: asfalto pulido con brillo especular y reflejo de los tubos */
+.hero-cine__floor {
+  height: 34%;
+  background:
+    linear-gradient(180deg, rgba(8, 8, 8, 0), rgba(8, 8, 8, 0.7) 40%, #080808 92%),
+    repeating-linear-gradient(90deg, rgba(204, 255, 0, 0) 0 22%, rgba(204, 255, 0, 0.05) 22% 22.4%, rgba(204, 255, 0, 0) 22.4% 50%),
+    radial-gradient(ellipse 50% 40% at 50% 10%, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0) 70%);
+}
+.hero-cine__lines span { height: 2px; background: linear-gradient(90deg, rgba(var(--accent), 0), rgb(var(--accent))); box-shadow: 0 0 10px rgba(57, 255, 20, 0.6); }
+.hero-cine__title {
+  font-size: clamp(3.2rem, min(13vw, 22svh), 11rem); font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; line-height: 0.9;
+  color: rgb(var(--accent-2));
+  text-shadow: 0 0 28px rgba(57, 255, 20, 0.4), 0 0 2px rgba(204, 255, 0, 0.6);
+}
+.hero-cine__years { font-size: 0.78rem; color: var(--text-soft); }
+.hero-cine__lead em { color: rgb(var(--accent-2)); }
+/* Cifras de la portada como un HUD: celdas cortadas con borde verde */
+.hero-cine__facts { gap: 10px; border-top: 0; margin-top: 34px; }
+.hero-cine__facts div { position: relative; padding: 14px clamp(16px, 3vw, 30px) 12px; clip-path: var(--clip-s); background: rgba(14, 15, 13, 0.82); box-shadow: inset 0 0 0 1px rgba(57, 255, 20, 0.28); }
+.hero-cine__facts div + div { border-left: 0; }
+.hero-cine__facts div::before { content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 2px; background: var(--edge); opacity: 0.85; }
+.hero-cine__facts strong { font-family: var(--font-data); font-weight: 600; letter-spacing: -0.02em; color: var(--text); }
+.hero-cine__facts span { color: var(--text-2); }
+.scroll-cue { color: var(--text-2); }
+.scroll-cue i { width: 2px; background: linear-gradient(rgb(var(--accent)), rgba(var(--accent), 0)); }
+
+/* =========================================================
+   TARJETAS · carbono con cortes en ángulo y filo verde
+   ========================================================= */
+.card { border: 0; border-radius: 0; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
+.card::after {
+  border-radius: 0; clip-path: var(--clip);
+  background:
+    linear-gradient(135deg, rgb(var(--accent)) 0 calc(var(--cut) * 0.7071 + 1.5px), rgba(0, 0, 0, 0) 0),
+    linear-gradient(315deg, rgb(var(--accent-2)) 0 calc(var(--cut) * 0.7071 + 1.5px), rgba(0, 0, 0, 0) 0),
+    linear-gradient(90deg, rgba(57, 255, 20, 0.5), rgba(57, 255, 20, 0) 40%) 0 0 / 100% 1px no-repeat,
+    var(--carbon);
+  box-shadow: inset 0 0 0 1px rgba(204, 255, 0, 0.12);
+}
+.card::before { inset: -30% -20%; }
+.card__title { font-weight: 700; text-transform: uppercase; letter-spacing: 0.01em; line-height: 1.08; }
+.card__media { clip-path: var(--clip-s); background: #080808; }
+.specs-list { border-top-color: rgba(57, 255, 20, 0.3); }
+.specs-list div { border-bottom-color: var(--line); }
+.specs-list dd { color: rgb(var(--accent-2)); }
+
+/* =========================================================
+   PUNTOS HEXAGONALES
+   ========================================================= */
+.hs { width: 26px; height: 30px; border: 0; border-radius: 0; background: var(--hex) center / 100% 100% no-repeat; color: var(--text); font-family: var(--font-data); font-weight: 600; filter: drop-shadow(0 0 6px rgba(57, 255, 20, 0.55)); box-shadow: none; }
+.hs::after { inset: -7px -6px; border: 0; border-radius: 0; background: var(--hex-ring) center / 100% 100% no-repeat; opacity: 0.55; transition: opacity 0.3s, inset 0.3s var(--ease); }
+.hs::before { border: 0; border-radius: 0; background: var(--hex-ring) center / 100% 100% no-repeat; }
+.hs:hover { background: var(--hex) center / 100% 100% no-repeat; filter: drop-shadow(0 0 10px rgba(57, 255, 20, 0.9)); }
+.hs.is-active { background: var(--hex-on) center / 100% 100% no-repeat; color: #050505; box-shadow: none; filter: drop-shadow(0 0 14px rgba(57, 255, 20, 0.95)); }
+.hs.is-active::after { inset: -10px -9px; opacity: 0.9; }
+.hs__label { border-radius: 0; clip-path: var(--clip-s); border: 0; background: rgba(8, 8, 8, 0.9); box-shadow: inset 0 0 0 1px rgba(57, 255, 20, 0.35); font-family: var(--font-display); font-weight: 600; letter-spacing: 0.16em; }
+.hs.is-active .hs__label { background: rgba(14, 22, 8, 0.94); box-shadow: inset 0 0 0 1px rgba(57, 255, 20, 0.8); }
+
+/* =========================================================
+   EXTERIOR (anatomy-tabs) · suelo reflectante bajo el coche
+   ========================================================= */
+/* El texto nunca se apoya sobre los tubos de luz de la foto: la foto empieza debajo del encabezado
+   (el motor la sube por debajo del texto) y el bloque lleva su propio fondo negro por si se acercan */
+.anatomy__head {
+  max-width: 680px; padding: 0 28px 22px 0;
+  background: linear-gradient(180deg, rgba(8, 8, 8, 0.95) 0%, rgba(8, 8, 8, 0.7) 70%, rgba(8, 8, 8, 0) 100%);
+}
+.anatomy__stage { margin-top: clamp(8px, 2vw, 28px); }
+.car-figure > img.photo { filter: url(#oled) contrast(1.08); }
+.car-figure__glow { background: radial-gradient(ellipse 46% 24% at 50% 86%, rgba(57, 255, 20, 0.2), rgba(57, 255, 20, 0) 70%) !important; }
+.tabs button { font-family: var(--font-display); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.8rem; border-left-width: 2px; }
+.tabs button small { font-family: var(--font-data); }
+.tabs button[aria-selected="true"] { border-left-color: rgb(var(--accent)); background: linear-gradient(90deg, rgba(57, 255, 20, 0.1), rgba(57, 255, 20, 0) 80%); }
+.link path { stroke: rgb(var(--accent)) !important; filter: drop-shadow(0 0 4px rgba(57, 255, 20, 0.8)); }
+
+/* =========================================================
+   HISTORIA (story-road) · carril con postes hexagonales
+   ========================================================= */
+.plaque { background: var(--carbon); clip-path: var(--clip); box-shadow: none; }
+.plaque::before { inset: 0; border: 0; border-radius: 0; background: linear-gradient(135deg, rgb(var(--accent)) 0 calc(var(--cut) * 0.7071 + 2px), rgba(0, 0, 0, 0) 0), linear-gradient(90deg, rgba(57, 255, 20, 0.7), rgba(57, 255, 20, 0) 60%) 0 100% / 100% 2px no-repeat; }
+.plaque--head h2 { font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; }
+.shield { width: 2.1em; height: 2.4em; min-width: 0; padding: 0; border-radius: 0; clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); background: var(--edge); color: #050505; font-family: var(--font-display); font-size: 0.86em; font-weight: 700; }
+.road::before { left: 17px; width: 2px; background: repeating-linear-gradient(180deg, rgba(204, 255, 0, 0.25) 0 30px, transparent 30px 52px); }
+.road__dash { left: 17px; width: 2px; background: repeating-linear-gradient(180deg, rgb(var(--accent)) 0 30px, transparent 30px 52px); box-shadow: 0 0 12px rgba(57, 255, 20, 0.9); }
+.km__post { left: -56px; width: 36px; height: 40px; padding: 0; border-radius: 0; clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); background: var(--edge); color: #050505; box-shadow: none; font-size: 0; }
+.km__post b { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; }
+.km h3 { font-weight: 700; text-transform: uppercase; letter-spacing: 0.01em; }
+.km p b { color: rgb(var(--accent-2)); font-weight: 500; }
+.story__photo .optic { border-radius: 0; clip-path: var(--clip); }
+.data { border-top-color: rgba(57, 255, 20, 0.3); }
+.data dd { color: rgb(var(--accent-2)); }
+
+/* =========================================================
+   DESPIECES (parts-gallery)
+   ========================================================= */
+.dive__index a { font-family: var(--font-display); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; font-size: 0.8rem; border-left-width: 2px; }
+.dive__index a small { font-family: var(--font-data); }
+.dive__index a.is-active { background: linear-gradient(90deg, rgba(57, 255, 20, 0.1), rgba(57, 255, 20, 0) 80%); }
+.piece__media::after { background: radial-gradient(ellipse 50% 50% at 50% 60%, rgba(57, 255, 20, 0.16), rgba(57, 255, 20, 0) 70%); }
+.view img { filter: url(#oled) contrast(1.06); }
+.switch button { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.12em; }
+.legend__item b { display: inline-grid; place-items: center; width: 22px; height: 25px; margin-right: 10px; background: var(--hex) center / 100% 100% no-repeat; color: var(--text); font-family: var(--font-data); font-size: 0.66rem; font-weight: 600; }
+.legend li.is-active .legend__item b { background-image: var(--hex-on); color: #050505; }
+.legend__hint { font-family: var(--font-display); letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-3); }
+
+/* =========================================================
+   CIFRAS (facts-counters + specs-board) · HUD
+   ========================================================= */
+.facts__grid { gap: 10px; border-top: 0; }
+.fact { position: relative; clip-path: var(--clip); border: 0 !important; background: var(--carbon); box-shadow: inset 0 0 0 1px rgba(204, 255, 0, 0.1); }
+.fact::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(135deg, rgb(var(--accent)) 0 calc(var(--cut) * 0.7071 + 1.5px), rgba(0, 0, 0, 0) 0), linear-gradient(90deg, rgba(57, 255, 20, 0), rgba(57, 255, 20, 0.6) 50%, rgba(57, 255, 20, 0)) 0 100% / 100% 1px no-repeat; }
+.fact dt { color: var(--text-2); }
+.fact dd { font-weight: 300; color: var(--text); }
+.fact dd span { text-shadow: 0 0 22px rgba(57, 255, 20, 0.35); }
+.fact dd small { color: rgb(var(--accent-2)); }
+.board { background: var(--carbon); }
+.board__top { border-bottom-color: rgba(57, 255, 20, 0.45); }
+.board__top h2 { text-transform: uppercase; font-weight: 700; letter-spacing: 0.04em; }
+.board dl > div { border-bottom-color: var(--line); }
+.board dt { font-family: var(--font-display); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+.board dt small { color: var(--text-2); opacity: 1; letter-spacing: 0.06em; text-transform: none; font-family: var(--font-body); }
+.board dd { color: rgb(var(--accent-2)); font-weight: 400; }
+.board dd sub { margin-left: 6px; font-size: 0.5em; vertical-align: baseline; color: var(--text-2); }
+.board__note { max-width: 960px; margin: 16px auto 0; font-size: 0.82rem; color: var(--text-3); }
+
+/* =========================================================
+   SALIDAS Y PIE
+   ========================================================= */
+.exits { max-width: 1080px; margin: clamp(56px, 9vh, 96px) auto 0; padding: 0 var(--gutter) clamp(80px, 12vh, 130px); grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 12px; }
+.exit { gap: 18px; min-height: 96px; padding: 18px 24px; border: 0; border-radius: 0; clip-path: var(--clip); background: var(--carbon); box-shadow: inset 0 0 0 1px rgba(204, 255, 0, 0.14); transition: box-shadow 0.25s; }
+.exit__tag { display: none; }
+.exit__label { font-family: var(--font-display); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgb(var(--accent-2)); }
+.exit strong { margin-top: 4px; font-family: var(--font-display); font-size: clamp(1.1rem, 1.8vw, 1.35rem); font-weight: 700; text-transform: uppercase; line-height: 1.15; color: var(--text); }
+.exit__sub { margin-top: 2px; font-size: 0.86rem; color: var(--text-2); }
+.exit__arrow { color: rgb(var(--accent)); }
+.exit:focus-visible { box-shadow: inset 0 0 0 2px rgb(var(--accent)); }
+@media (hover: hover) and (pointer: fine) {
+  .exit:hover { box-shadow: inset 0 0 0 1px rgba(57, 255, 20, 0.7), inset 0 -40px 60px -40px rgba(57, 255, 20, 0.25); }
+}
+.footer { border-top-color: rgba(57, 255, 20, 0.14); }
+.footer__meta { font-family: var(--font-display); font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 760px) {
+  :root { --topbar: 60px; --cut: 14px; }
+  .exits { grid-template-columns: minmax(0, 1fr); }
+  .hero-cine__facts { gap: 6px; }
+  .hero-cine__facts div { padding-left: 10px; padding-right: 10px; }
+}
+@media (max-width: 480px) {
+  .topbar { gap: 10px; }
+  .topbar__left { gap: 10px; }
+  .back { padding: 8px 10px; }
+  .back span { display: none; }
+  .wordmark { font-size: 0.74rem; letter-spacing: 0.16em; }
+  .wordmark__make { display: none; }
+  .topbar__right { gap: 6px; }
+  .modes button { display: inline-flex; align-items: center; min-height: 30px; padding: 0 9px; font-size: 0.62rem; letter-spacing: 0.08em; }
+  .hero-cine__facts span { letter-spacing: 0.08em; }
+}
+@media (max-width: 360px) {
+  .wordmark { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .m-historia, .m-tecnico { animation: none; }
+  html.js .rv { transform: none; }
+}

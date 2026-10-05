@@ -32,8 +32,7 @@
 </head>
 <body>
 
-  <!-- Nivel de negro por píxel (igual que en las salas): el fondo gris de estudio
-       de las fotos pasa a negro puro #000 sin desenfocar nada. -->
+  <!-- Nivel de negro por píxel: el fondo gris de estudio pasa a negro puro #000 sin desenfocar nada -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <filter id="blackpoint" color-interpolation-filters="sRGB">
       <feComponentTransfer>
@@ -42,20 +41,24 @@
         <feFuncB type="linear" slope="1.1628" intercept="-0.1628" />
       </feComponentTransfer>
     </filter>
-    <!-- Negro OLED suave: lleva a #000 sólo los niveles 0–10 sin tocar los colores (el Hall usa #blackpoint en sus fotos) -->
-    <filter id="oled" color-interpolation-filters="sRGB"><feComponentTransfer><feFuncR type="linear" slope="1.04" intercept="-0.04" /><feFuncG type="linear" slope="1.04" intercept="-0.04" /><feFuncB type="linear" slope="1.04" intercept="-0.04" /></feComponentTransfer>
+    <filter id="oled" color-interpolation-filters="sRGB">
+      <feComponentTransfer>
+        <feFuncR type="linear" slope="1.04" intercept="-0.04" />
+        <feFuncG type="linear" slope="1.04" intercept="-0.04" />
+        <feFuncB type="linear" slope="1.04" intercept="-0.04" />
+      </feComponentTransfer>
     </filter>
   </svg>
 
   <header class="topbar">
-    <a href="index.html" class="wordmark" aria-label="Museo digital del automóvil · Hall">Museo <span>Digital</span></a>
+    <a href="/" class="wordmark" aria-label="Museo digital del automóvil · Hall">Museo <span>Digital</span></a>
     <span class="topbar__meta">Hall principal</span>
   </header>
 
-  <!-- Showroom a pantalla completa: lo monta engine/hall-orbit.js desde data/cars.js -->
+  <!-- Showroom a pantalla completa: montado por engine/hall-orbit.js desde data/cars.js -->
   <main class="showroom">
     <h1 class="sr">Museo digital del automóvil: elige una sala</h1>
-    <noscript><p class="noscript-rooms">Activa JavaScript para ver el showroom, o entra directamente: <a href="f40/index.html">Sala 01 · Ferrari F40</a> · <a href="r34/index.html">Sala 02 · Nissan Skyline GT-R R34</a> · <a href="p1/index.html">Sala 03 · McLaren P1</a> · <a href="m3/index.html">Sala 04 · BMW M3 E30</a>.</p></noscript>
+    <noscript><p class="noscript-rooms">Activa JavaScript para ver el showroom, o entra directamente: <a href="f40/">Sala 01 · Ferrari F40</a> · <a href="r34/">Sala 02 · Nissan Skyline GT-R R34</a> · <a href="p1/">Sala 03 · McLaren P1</a> · <a href="m3/">Sala 04 · BMW M3 E30</a> · <a href="gt3rs/">Sala 05 · Porsche 911 GT3 RS</a> · <a href="temerario/">Sala 06 · Lamborghini Temerario</a>.</p></noscript>
   </main>
 
   <div class="footer-slot"></div>
@@ -63,7 +66,6 @@
   <script src="engine/core.js"></script>
   <script src="engine/hall.js"></script>
   <script src="engine/hall-orbit.js"></script>
-  <!-- Aviso de almacenamiento y política de privacidad: módulo común del museo -->
   <script src="assets/museo-consent.js"></script>
 
 </body>

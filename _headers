@@ -2,13 +2,13 @@
 # Netlify y Cloudflare Pages. Fuente de la política: tools/build-headers.mjs
 
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-WZRJfWvsnNCPcxzZwvyhovnZGqhZaC+8gPGPRbx6wTk='; style-src 'self' https://fonts.googleapis.com; style-src-elem 'self' https://fonts.googleapis.com; style-src-attr 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self'; media-src 'self'; connect-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-uiUjQA8D+/bikG8C4IrLF4Lm4o/HCduJ+MUv7SPsXmU=' 'sha256-WZRJfWvsnNCPcxzZwvyhovnZGqhZaC+8gPGPRbx6wTk=' 'sha256-62eB7xrWx2Ni2r7zyZB7490oo8XosO/89Q/vXmm00U4=' https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com; style-src-elem 'self' https://fonts.googleapis.com; style-src-attr 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com https://analytics.google.com https://*.google-analytics.com https://www.googletagmanager.com; media-src 'self'; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://*.google-analytics.com; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), browsing-topics=()
   Strict-Transport-Security: max-age=63072000; includeSubDomains
-  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Opener-Policy: same-origin-allow-popups
 
 /f40/img/*
   Cache-Control: public, max-age=31536000, immutable
@@ -23,6 +23,9 @@
   Cache-Control: public, max-age=31536000, immutable
 
 /gt3rs/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/temerario/img/*
   Cache-Control: public, max-age=31536000, immutable
 
 /f40/f40-engine.mp3

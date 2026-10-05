@@ -15,5 +15,6 @@ r34/img/*.png
 p1/img/*.png
 m3/img/*.png
 gt3rs/img/*.png
+temerario/img/*.png
 # Notas de procedencia de las imágenes convertidas (tools/images.mjs): no se publican
 */img/*.json

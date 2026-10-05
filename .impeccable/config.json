@@ -68,7 +68,8 @@
       {
         "rule": "design-system-font",
         "value": "jetbrains mono",
-        "createdAt": "2026-10-02T16:02:19.531Z"
+        "createdAt": "2026-10-02T16:02:19.531Z",
+        "reason": "per-room theme data font, same pattern as IBM Plex Mono in weissach.css"
       },
       {
         "rule": "design-system-font",
@@ -84,6 +85,30 @@
         "rule": "design-system-font",
         "value": "ibm plex mono",
         "createdAt": "2026-10-04T14:41:15.917Z"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "chakra petch",
+        "createdAt": "2026-10-05T09:48:39.729Z",
+        "reason": "per-room theme font: each themes/*.css brings its own type (Saira, Overpass…); DESIGN.md documents only the Wangan room; Sala 06 asked for its own identity"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "temerario/index.html"
+        ],
+        "createdAt": "2026-10-05T09:49:03.838Z",
+        "reason": "user brief for Sala 06 asks for neon shock-green/lime lighting and edge lights"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "temerario/index.html"
+        ],
+        "createdAt": "2026-10-05T09:51:41.406Z",
+        "reason": "false positive: no scrolling content; the only looping motion on this page is the shared engine's scroll-cue line in engine/sala.css (pre-existing, used by every room)"
       }
     ]
   }
