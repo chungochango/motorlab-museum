@@ -38,6 +38,7 @@ Con servidor (`http://`), el motor lee `cars.json` directamente. Sin servidor, u
   "pendingImages": true,          // opcional: fotos aún no subidas (aviso en vez de error)
   "status": "coming_soon",       // opcional: sala en desarrollo. Sale en el Hall apagada, con la insignia «Sala en desarrollo // Próximamente»
                                   // y un avance (hall.teaser + specsPreview) en vez de enlace; no necesita specs, sections ni carpeta index.html
+                                  // hall.teaser: { badge: "En modelado", lines: ["Sala 08 · En modelado", "…"] }; badge sustituye a «Próximamente»
   "palette": {
     "accent": "#d40000",          // color de la sala
     "body": "#d40000",            // color de carrocería de referencia

@@ -69,7 +69,7 @@
                   ${M.img(c.hall.image, { lazy: i > 1 && i < N - 1, priority: i === 0, extra: 'draggable="false"' })}
                   <span class="orbit__floor"></span>
                 </span>
-              ${soon(c) ? `</span><span class="orbit__soon" aria-hidden="true">Sala en desarrollo <i>//</i> Próximamente</span>` : "</a>"}
+              ${soon(c) ? `</span><span class="orbit__soon" aria-hidden="true">Sala en desarrollo <i>//</i> ${esc(c.hall.teaser?.badge || "Próximamente")}</span>` : "</a>"}
             </div>`).join("")}
         </div>
         <button type="button" class="orbit__arrow orbit__arrow--prev" aria-label="Sala anterior">${ARROW("M15 6H1M6 1L1 6l5 5")}</button>

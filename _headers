@@ -28,5 +28,11 @@
 /temerario/img/*
   Cache-Control: public, max-age=31536000, immutable
 
+/190e/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/supra/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
 /f40/f40-engine.mp3
   Cache-Control: public, max-age=31536000, immutable

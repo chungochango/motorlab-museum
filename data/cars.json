@@ -5506,6 +5506,151 @@
           "note": "Datos de fábrica del Lamborghini Temerario. Potencia combinada: 920 CV (676 kW)."
         }
       ]
+    },
+    {
+      "id": "mercedes-190e-evo2",
+      "slug": "190e",
+      "name": "Mercedes-Benz 190E 2.5-16 Evolution II",
+      "brand": "Mercedes-Benz",
+      "make": "Mercedes-Benz",
+      "model": "190E 2.5-16",
+      "badge": "Evolution II",
+      "year": 1990,
+      "years": "1990",
+      "theme": "motorsport",
+      "country": "Alemania",
+      "category": "Turismo de Homologación Grupo A / DTM",
+      "status": "coming_soon",
+      "palette": {
+        "accent": "#C0C5CC",
+        "body": "#1C2230",
+        "hallAccent": "192, 197, 204"
+      },
+      "marks": [
+        "Mercedes-Benz",
+        "190E",
+        "Evolution II",
+        "Cosworth"
+      ],
+      "images": {
+        "190e-perfil": {
+          "role": "hero",
+          "src": "190e/img/190e-perfil.jpg",
+          "w": 1672,
+          "h": 941,
+          "alt": "Mercedes-Benz 190E 2.5-16 Evolution II negro azulado de perfil sobre suelo de estudio reflectante",
+          "formats": [
+            "avif",
+            "webp"
+          ]
+        }
+      },
+      "hall": {
+        "text": "La respuesta de Stuttgart al M3 E30: culata Cosworth de carrera corta a 7.700 rpm y un paquete aerodinámico regulable nacido para el DTM.",
+        "specs": [
+          [
+            "235 CV",
+            "2.5 16V Cosworth"
+          ],
+          [
+            "7.700 rpm",
+            "Carrera corta"
+          ],
+          [
+            "502 uds.",
+            "Homologación"
+          ]
+        ],
+        "image": {
+          "ref": "190e-perfil",
+          "fit": "contain"
+        },
+        "teaser": {
+          "badge": "Próxima apertura",
+          "lines": [
+            "Sala 07 · Próxima apertura",
+            "Duelo DTM contra el BMW M3 E30"
+          ]
+        }
+      },
+      "specsPreview": {
+        "engine": "4 cil. 2.463 cc · culata Cosworth 16V",
+        "power": "235 CV a 7.200 rpm · corte a 7.700",
+        "downforce": "Alerón y faldones regulables · paquete DTM",
+        "transmission": "Getrag 5 vel. dog-leg · autoblocante"
+      }
+    },
+    {
+      "id": "toyota-supra-a80",
+      "slug": "supra",
+      "name": "Toyota Supra RZ MK4 (A80)",
+      "brand": "Toyota",
+      "make": "Toyota",
+      "model": "Supra RZ",
+      "badge": "MK4 (A80)",
+      "year": 1993,
+      "years": "1993 — 2002",
+      "theme": "wangan",
+      "country": "Japón",
+      "category": "Gran turismo",
+      "status": "coming_soon",
+      "palette": {
+        "accent": "#E8590C",
+        "body": "#B8BCC2",
+        "hallAccent": "232, 89, 12"
+      },
+      "marks": [
+        "Toyota",
+        "Supra",
+        "2JZ-GTE",
+        "Getrag"
+      ],
+      "images": {
+        "supra-perfil": {
+          "role": "hero",
+          "src": "supra/img/supra-perfil.jpg",
+          "w": 1672,
+          "h": 941,
+          "alt": "Toyota Supra RZ MK4 (A80) plateado de perfil sobre suelo de estudio reflectante",
+          "formats": [
+            "avif",
+            "webp"
+          ]
+        }
+      },
+      "hall": {
+        "text": "El 2JZ-GTE de bloque de hierro fundido con dos turbos secuenciales y la caja manual Getrag V160 de 6 velocidades: la base de los tuners de 1.000 CV.",
+        "specs": [
+          [
+            "280 PS",
+            "Homologados"
+          ],
+          [
+            "2JZ-GTE",
+            "6 en línea biturbo"
+          ],
+          [
+            "6 vel.",
+            "Getrag V160"
+          ]
+        ],
+        "image": {
+          "ref": "supra-perfil",
+          "fit": "contain"
+        },
+        "teaser": {
+          "badge": "En modelado",
+          "lines": [
+            "Sala 08 · En modelado",
+            "Bloque de hierro y turbos secuenciales"
+          ]
+        }
+      },
+      "specsPreview": {
+        "engine": "2JZ-GTE 3.0 · bloque de hierro fundido",
+        "power": "280 PS · turbos secuenciales CT20",
+        "transmission": "Getrag V160 manual de 6 velocidades"
+      }
     }
   ]
 }
