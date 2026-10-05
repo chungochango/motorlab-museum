@@ -5578,7 +5578,7 @@ window.MUSEO = {
         }
       },
       "hall": {
-        "text": "La respuesta de Stuttgart al M3 E30: culata Cosworth de carrera corta a 7.700 rpm y un paquete aerodinámico regulable nacido para el DTM.",
+        "text": "La respuesta de Stuttgart al M3 E30: culata Cosworth 16V de carrera corta a 7.700 rpm, suspensión trasera autonivelante y aerodinámica regulable del DTM.",
         "specs": [
           [
             "235 CV",
@@ -5609,7 +5609,7 @@ window.MUSEO = {
         "engine": "4 cil. 2.463 cc · culata Cosworth 16V",
         "power": "235 CV a 7.200 rpm · corte a 7.700",
         "downforce": "Alerón y faldones regulables · paquete DTM",
-        "transmission": "Getrag 5 vel. dog-leg · autoblocante"
+        "suspension": "Trasera autonivelante · altura regulable"
       }
     },
     {
@@ -5683,8 +5683,87 @@ window.MUSEO = {
       },
       "specsPreview": {
         "engine": "2JZ-GTE 3.0 · bloque de hierro fundido",
-        "power": "280 PS · turbos secuenciales CT20",
+        "power": "280 PS · turbos secuenciales CT12B (CT20 en el RZ japonés)",
         "transmission": "Getrag V160 manual de 6 velocidades"
+      }
+    },
+    {
+      "id": "ducati-panigale-v4r",
+      "slug": "panigale",
+      "room": "19",
+      "roomTag": "MotoLab 01",
+      "name": "Ducati Panigale V4 R",
+      "brand": "Ducati",
+      "make": "Ducati",
+      "model": "Panigale V4",
+      "badge": "R",
+      "year": 2019,
+      "years": "2019 — presente",
+      "theme": "maranello",
+      "country": "Italia",
+      "category": "Superbike de homologación WSBK",
+      "tags": [
+        "moto"
+      ],
+      "status": "coming_soon",
+      "palette": {
+        "accent": "#CC0000",
+        "body": "#CC0000",
+        "hallAccent": "204, 0, 0"
+      },
+      "marks": [
+        "Ducati",
+        "Panigale",
+        "Desmosedici",
+        "Ducati Corse",
+        "Akrapovič"
+      ],
+      "images": {
+        "panigale-perfil": {
+          "role": "hero",
+          "src": "panigale/img/panigale-perfil.jpg",
+          "w": 1672,
+          "h": 941,
+          "alt": "Ducati Panigale V4 R roja de perfil sobre suelo de estudio reflectante",
+          "formats": [
+            "avif",
+            "webp"
+          ]
+        }
+      },
+      "hall": {
+        "text": "Abre MotoLab: el V4 Desmosedici Stradale R de 998 cc gira a 16.500 rpm con distribución desmodrómica, sobre un chasis Front Frame y alerones biplano heredados de MotoGP.",
+        "specs": [
+          [
+            "998 cc",
+            "V4 Desmosedici Stradale R"
+          ],
+          [
+            "16.500 rpm",
+            "Régimen máximo"
+          ],
+          [
+            "Biplano",
+            "Alerones de MotoGP"
+          ]
+        ],
+        "image": {
+          "ref": "panigale-perfil",
+          "fit": "contain"
+        },
+        "teaser": {
+          "badge": "Inauguración MotoLab",
+          "lines": [
+            "Sala 19 // MotoLab 01 · Inauguración MotoLab",
+            "Primera sala de dos ruedas del museo"
+          ]
+        }
+      },
+      "specsPreview": {
+        "engine": "V4 Desmosedici Stradale R · 998 cc",
+        "power": "Hasta 16.500 rpm · distribución desmodrómica",
+        "chassis": "Front Frame de aluminio · motor portante",
+        "downforce": "Alerones biplano derivados de MotoGP"
       }
     }
   ]

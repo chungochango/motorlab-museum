@@ -23,12 +23,14 @@
   const finePointer = matchMedia("(hover: hover) and (pointer: fine)");
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const pad2 = (n) => String(n).padStart(2, "0");
+  // Número de sala: el orden en cars.json, salvo que el coche fije el suyo ("room": "19")
+  const roomNo = (car, i) => car.room || pad2(i + 1);
 
   // Raíz del museo: la carpeta que contiene engine/ (funciona con http:// y con file://)
   const ROOT = new URL("../", document.currentScript.src);
   const url = (p) => (p ? new URL(p, ROOT).href : "");
 
-  Object.assign(Museo, { $, $$, clamp, esc, pad2, url, reduceMotion, finePointer });
+  Object.assign(Museo, { $, $$, clamp, esc, pad2, roomNo, url, reduceMotion, finePointer });
 
   /* Imagen que todavía no se ha subido (sala recién añadida a cars.json): se oculta en vez de
      mostrar el icono de imagen rota; la sala funciona igual y la foto aparece en cuanto exista.

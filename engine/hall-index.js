@@ -7,7 +7,8 @@
        número de sala), sin distinguir acentos ni mayúsculas;
      · filtros por categoría técnica (campo "tags" de cada coche
        en data/cars.json); cada píldora lleva su recuento y se
-       desactiva si no hay ninguna sala que mostrar;
+       desactiva si no hay ninguna sala que mostrar; "En desarrollo"
+       reúne las próximas salas (status "coming_soon");
      · límite inicial de PAGE salas y botón "Cargar más salas".
    Las salas abiertas enlazan a su página; las que están en
    desarrollo suben al showroom, las ponen al frente y abren
@@ -24,6 +25,7 @@
     ["moto", "Motos"],
     ["turbo", "Turbo"],
     ["atmosferico", "Atmosférico"],
+    ["soon", "En desarrollo"],          // no es un "tag": agrupa las salas con status "coming_soon"
   ];
   const ARROW = '<svg viewBox="0 0 16 12" aria-hidden="true"><path d="M1 6h14M10 1l5 5-5 5" /></svg>';
   const SEARCH = '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5.25" /><path d="M11 11l3.5 3.5" /></svg>';
@@ -35,7 +37,7 @@
     const cars = e?.detail?.cars || M?.hallCars;
     const main = document.querySelector(".showroom");
     if (!M || !cars?.length || !main) return;
-    const { esc, url, pad2 } = M;
+    const { esc, url } = M;
     const soon = (c) => c.status === "coming_soon";
     const engine = (c) => c.specs?.engine?.value || c.specsPreview?.engine || "";
     const accent = (c) => c.palette?.hallAccent || M.hexToRgb(c.palette?.accent || "#e2e4e8");
@@ -43,7 +45,7 @@
 
     const rooms = cars.map((c, i) => ({
       c, i, tags: c.tags || [],
-      text: norm([`sala ${pad2(i + 1)}`, c.name, c.brand, c.make, c.model, c.badge, engine(c), c.years, c.category,
+      text: norm([`sala ${M.roomNo(c, i)}`, c.roomTag, c.name, c.brand, c.make, c.model, c.badge, engine(c), c.years, c.category,
         ...(c.hall?.specs || []).flat(), ...Object.values(c.specsPreview || {}),
         ...(c.tags || []).map((t) => FILTERS.find(([k]) => k === t)?.[1])].join(" ")),
     }));
@@ -68,7 +70,7 @@
       </div>
       <ul class="idx__grid" role="list">
         ${rooms.map(({ c, i }) => {
-          const meta = `<span class="idx__meta"><span>Sala ${pad2(i + 1)}</span>${soon(c)
+          const meta = `<span class="idx__meta"><span>Sala ${M.roomNo(c, i)}${c.roomTag ? ` // ${esc(c.roomTag)}` : ""}</span>${soon(c)
             ? `<span class="idx__status"><span class="hall__dot" aria-hidden="true"></span>${esc(c.hall?.teaser?.badge || "Próximamente")}</span>`
             : `<span>${esc(c.years)}</span>`}</span>`;
           const inner = `
@@ -82,7 +84,7 @@
           return `
           <li class="idx__item${soon(c) ? " is-soon" : ""}" data-i="${i}" style="--accent: ${accent(c)}" hidden>
             ${soon(c)
-              ? `<button type="button" class="idx__card" aria-label="${esc(c.name)}, sala ${pad2(i + 1)}: ${esc(c.hall?.teaser?.badge || "en desarrollo")}. Ver avance">${inner}</button>`
+              ? `<button type="button" class="idx__card" aria-label="${esc(c.name)}, sala ${M.roomNo(c, i)}: ${esc(c.hall?.teaser?.badge || "en desarrollo")}. Ver avance">${inner}</button>`
               : `<a class="idx__card" href="${esc(url(`${c.slug}/index.html`))}">${inner}</a>`}
           </li>`;
         }).join("")}
@@ -106,7 +108,7 @@
     const state = { q: "", cat: "all", limit: PAGE };
 
     const matchesQuery = (r) => state.q.split(/\s+/).every((w) => r.text.includes(w));
-    const inCat = (r, cat) => cat === "all" || r.tags.includes(cat);
+    const inCat = (r, cat) => cat === "all" || (cat === "soon" ? soon(r.c) : r.tags.includes(cat));
 
     const render = ({ focusFrom = -1 } = {}) => {
       const hits = rooms.filter((r) => matchesQuery(r) && inCat(r, state.cat));

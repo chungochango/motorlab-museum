@@ -38,7 +38,7 @@
     /* Salas "próximamente" (status: "coming_soon"): se ven en el anillo, pero en vez de entrar
        abren un avance con la telemetría anticipada (hall.teaser + specsPreview) */
     const soon = (c) => c.status === "coming_soon";
-    const PREVIEW = { engine: "Motor", power: "Potencia", downforce: "Carga aerodinámica", transmission: "Transmisión" };
+    const PREVIEW = { engine: "Motor", power: "Potencia", downforce: "Carga aerodinámica", transmission: "Transmisión", suspension: "Suspensión", chassis: "Chasis" };
     const teaser = (c, i) => {
       const t = c.hall.teaser || {};
       return `
@@ -88,7 +88,7 @@
       </div>
 
       <nav class="orbit__dots" aria-label="Elegir sala">
-        ${cars.map((c, i) => `<button type="button" data-go="${i}" aria-label="Sala ${pad2(i + 1)}: ${esc(c.name)}"${i ? "" : ' aria-current="true"'}><span>${pad2(i + 1)}</span></button>`).join("")}
+        ${cars.map((c, i) => `<button type="button" data-go="${i}" aria-label="Sala ${M.roomNo(c, i)}: ${esc(c.name)}"${i ? "" : ' aria-current="true"'}><span>${M.roomNo(c, i)}</span></button>`).join("")}
       </nav>
       <p class="sr orbit__live" aria-live="polite"></p>`;
 
