@@ -71,6 +71,8 @@ const inDist = (p) => files.has(posix.normalize(p));
 for (const page of ["index.html", ...rooms.map((c) => `${c.slug}/index.html`)]) {
   const html = await readFile(join(root, page), "utf8");
   for (const [, ref] of html.matchAll(/(?:src|href)="([^"#?:]+)"/g)) {
+    // Skip Vercel platform-specific paths (analytics, speed insights, etc.)
+    if (ref.startsWith("/_vercel/")) continue;
     // URLs limpias: una carpeta ("/", "f40/", "/temerario/") sirve su index.html; "/…" va desde la raíz
     const file = ref.endsWith("/") ? `${ref}index.html` : ref;
     const target = file.startsWith("/") ? file.slice(1) : posix.normalize(posix.join(posix.dirname(page), file));
