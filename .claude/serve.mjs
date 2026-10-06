@@ -1,6 +1,6 @@
 // Servidor estático mínimo para previsualizar el museo en local (sin dependencias).
 import { createServer } from "node:http";
-import { readFile } from "node:fs/promises";
+import { readFile, stat } from "node:fs/promises";
 import { extname, join, normalize } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -33,7 +33,10 @@ const types = {
 };
 
 createServer(async (req, res) => {
-  const r = route(decodeURIComponent(new URL(req.url, "http://x").pathname));
+  // Como en producción: un archivo que existe se sirve tal cual; la reescritura sólo cubre lo que falta
+  const asked = decodeURIComponent(new URL(req.url, "http://x").pathname);
+  const exists = await stat(join(root, asked.endsWith("/") ? `${asked}index.html` : asked)).then((s) => s.isFile(), () => false);
+  const r = exists ? { path: asked, code: 200 } : route(asked);
   if (r.code === 301) { res.writeHead(301, { Location: r.path }).end(); return; }
   let path = r.path;
   if (path.endsWith("/")) path += "index.html";

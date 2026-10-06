@@ -100,12 +100,9 @@ const vercel = {
   // URLs limpias: /temerario/ en vez de /temerario/index.html
   cleanUrls: true,
   trailingSlash: true,
-  // Primero la página de cada sala, apuntando a su index.html: una reescritura de Vercel NO resuelve
-  // el index.html de una carpeta (/190e/ → /rooms/cars/190e/ daba 404); después, el resto de archivos
-  rewrites: rewrites.flatMap(({ from, to }) => [
-    { source: `${from}/`, destination: `${to}/index.html` },
-    { source: `${from}/:path+`, destination: `${to}/:path+` },
-  ]),
+  // Sólo archivos (/f40/img/…): la página /f40/ la publica build-dist como archivo real (dist/f40/index.html),
+  // porque Vercel no sirve el index.html de una carpeta a través de una reescritura
+  rewrites: rewrites.map(({ from, to }) => ({ source: `${from}/:path+`, destination: `${to}/:path+` })),
   headers: [
     { source: "/(.*)", headers: Object.entries(security).map(([key, value]) => ({ key, value })) },
     { source: `/(.*)\\.(${MEDIA_EXT.join("|")})`, headers: [{ key: "Cache-Control", value: IMMUTABLE }] },

@@ -65,6 +65,17 @@ for (const f of [...files].sort()) {
     bytes += s.size;
   } catch { problems.push(`falta en el proyecto: ${f}`); }
 }
+/* Página de cada sala también en su URL pública (dist/f40/index.html): Vercel no sirve el index.html
+   de una carpeta a través de una reescritura (/f40/ → /rooms/cars/f40/ daba 404 en producción), así que
+   la página va como archivo real. Sus rutas relativas (../../../engine/…) desde /f40/ llegan igual a la
+   raíz, y sus imágenes salen del catálogo (rooms/…). El resto de /f40/… (imágenes compartidas, Open
+   Graph) sigue llegando por la reescritura de archivos. */
+for (const c of rooms) {
+  if (dirOf(c) === c.slug) continue;
+  await mkdir(join(out, c.slug), { recursive: true });
+  await copyFile(join(root, dirOf(c), "index.html"), join(out, c.slug, "index.html"));
+  files.add(`${c.slug}/index.html`);
+}
 
 /* ---------- Comprobación de rutas dentro de dist/ ---------- */
 const inDist = (p) => files.has(posix.normalize(p));

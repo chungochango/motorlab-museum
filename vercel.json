@@ -7,72 +7,36 @@
   "trailingSlash": true,
   "rewrites": [
     {
-      "source": "/f40/",
-      "destination": "/rooms/cars/f40/index.html"
-    },
-    {
       "source": "/f40/:path+",
       "destination": "/rooms/cars/f40/:path+"
-    },
-    {
-      "source": "/r34/",
-      "destination": "/rooms/cars/r34/index.html"
     },
     {
       "source": "/r34/:path+",
       "destination": "/rooms/cars/r34/:path+"
     },
     {
-      "source": "/p1/",
-      "destination": "/rooms/cars/p1/index.html"
-    },
-    {
       "source": "/p1/:path+",
       "destination": "/rooms/cars/p1/:path+"
-    },
-    {
-      "source": "/m3/",
-      "destination": "/rooms/cars/m3/index.html"
     },
     {
       "source": "/m3/:path+",
       "destination": "/rooms/cars/m3/:path+"
     },
     {
-      "source": "/gt3rs/",
-      "destination": "/rooms/cars/gt3rs/index.html"
-    },
-    {
       "source": "/gt3rs/:path+",
       "destination": "/rooms/cars/gt3rs/:path+"
-    },
-    {
-      "source": "/temerario/",
-      "destination": "/rooms/cars/temerario/index.html"
     },
     {
       "source": "/temerario/:path+",
       "destination": "/rooms/cars/temerario/:path+"
     },
     {
-      "source": "/190e/",
-      "destination": "/rooms/cars/190e/index.html"
-    },
-    {
       "source": "/190e/:path+",
       "destination": "/rooms/cars/190e/:path+"
     },
     {
-      "source": "/supra/",
-      "destination": "/rooms/cars/supra/index.html"
-    },
-    {
       "source": "/supra/:path+",
       "destination": "/rooms/cars/supra/:path+"
-    },
-    {
-      "source": "/panigale/",
-      "destination": "/rooms/bikes/panigale/index.html"
     },
     {
       "source": "/panigale/:path+",
