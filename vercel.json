@@ -5,6 +5,44 @@
   "outputDirectory": "dist",
   "cleanUrls": true,
   "trailingSlash": true,
+  "rewrites": [
+    {
+      "source": "/f40/:path*",
+      "destination": "/rooms/cars/f40/:path*"
+    },
+    {
+      "source": "/r34/:path*",
+      "destination": "/rooms/cars/r34/:path*"
+    },
+    {
+      "source": "/p1/:path*",
+      "destination": "/rooms/cars/p1/:path*"
+    },
+    {
+      "source": "/m3/:path*",
+      "destination": "/rooms/cars/m3/:path*"
+    },
+    {
+      "source": "/gt3rs/:path*",
+      "destination": "/rooms/cars/gt3rs/:path*"
+    },
+    {
+      "source": "/temerario/:path*",
+      "destination": "/rooms/cars/temerario/:path*"
+    },
+    {
+      "source": "/190e/:path*",
+      "destination": "/rooms/cars/190e/:path*"
+    },
+    {
+      "source": "/supra/:path*",
+      "destination": "/rooms/cars/supra/:path*"
+    },
+    {
+      "source": "/panigale/:path*",
+      "destination": "/rooms/bikes/panigale/:path*"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

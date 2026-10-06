@@ -1,0 +1,20 @@
+# ARCHIVO GENERADO por tools/build-headers.mjs — no lo edites a mano.
+# URLs públicas de las salas → su carpeta en rooms/ (200 = reescritura: la dirección no cambia).
+/f40  /f40/  301
+/f40/*  /rooms/cars/f40/:splat  200
+/r34  /r34/  301
+/r34/*  /rooms/cars/r34/:splat  200
+/p1  /p1/  301
+/p1/*  /rooms/cars/p1/:splat  200
+/m3  /m3/  301
+/m3/*  /rooms/cars/m3/:splat  200
+/gt3rs  /gt3rs/  301
+/gt3rs/*  /rooms/cars/gt3rs/:splat  200
+/temerario  /temerario/  301
+/temerario/*  /rooms/cars/temerario/:splat  200
+/190e  /190e/  301
+/190e/*  /rooms/cars/190e/:splat  200
+/supra  /supra/  301
+/supra/*  /rooms/cars/supra/:splat  200
+/panigale  /panigale/  301
+/panigale/*  /rooms/bikes/panigale/:splat  200

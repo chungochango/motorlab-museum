@@ -4,6 +4,7 @@
    Una única definición genera:
      · vercel.json  → Vercel
      · _headers     → Netlify y Cloudflare Pages (mismo formato)
+     · _redirects   → Netlify y Cloudflare Pages: URLs públicas de las salas
    Uso:  node tools/build-headers.mjs   (también lo llama build-data.mjs)
 
    · Los hash de los <script> en línea se calculan leyendo los HTML:
@@ -20,7 +21,8 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const data = JSON.parse(await readFile(join(root, "data/cars.json"), "utf8"));
 
 /* ---------- Hash de los scripts en línea de todas las páginas ---------- */
-const pages = ["index.html", ...data.cars.filter((c) => c.status !== "coming_soon").map((c) => `${c.slug}/index.html`)];   // las salas "próximamente" no tienen página
+const dirOf = (c) => c.dir || c.slug;
+const pages = ["index.html", ...data.cars.filter((c) => c.status !== "coming_soon").map((c) => `${dirOf(c)}/index.html`)];   // las salas "próximamente" no tienen página
 const hashes = new Set();
 for (const p of pages) {
   // Saltos de línea LF: los que publica el despliegue (el repositorio guarda LF aunque Windows
@@ -75,8 +77,18 @@ const security = {
      en dos reglas, y una regla general chocaría con la de los medios. */
 const IMMUTABLE = "public, max-age=31536000, immutable";
 const MEDIA_EXT = ["jpg", "jpeg", "png", "webp", "avif", "gif", "svg", "mp3", "woff2", "woff"];
-const imageDirs = [...new Set(data.cars.flatMap((c) => Object.values(c.images || {}).map((im) => `/${im.src.slice(0, im.src.lastIndexOf("/"))}/*`)))];
-const audioFiles = data.cars.filter((c) => c.audio?.src).map((c) => `/${c.audio.src}`);
+// Cada carpeta de imágenes en su ruta real (/rooms/cars/f40/img/*) y en la pública (/f40/img/*, la de los
+// enlaces compartidos y Open Graph), que llega por la reescritura de su sala
+const imageDirs = [...new Set(data.cars.flatMap((c) => Object.values(c.images || {}).flatMap((im) => {
+  const dir = im.src.slice(0, im.src.lastIndexOf("/"));
+  return [`/${dir}/*`, `/${c.slug}${dir.slice(dirOf(c).length)}/*`];
+})))];
+const audioFiles = data.cars.filter((c) => c.audio?.src).flatMap((c) => [`/${c.audio.src}`, `/${c.slug}${c.audio.src.slice(dirOf(c).length)}`]);
+
+/* URLs públicas de las salas: /f40/… se sirve desde rooms/cars/f40/… (el código vive ordenado por alas;
+   las direcciones compartidas, el sitemap y Open Graph no cambian). Incluye las salas en desarrollo:
+   sus imágenes ya se enlazan desde el Hall. */
+const rewrites = data.cars.filter((c) => dirOf(c) !== c.slug).map((c) => ({ from: `/${c.slug}`, to: `/${dirOf(c)}` }));
 
 /* ---------- vercel.json ---------- */
 const vercel = {
@@ -88,6 +100,7 @@ const vercel = {
   // URLs limpias: /temerario/ en vez de /temerario/index.html
   cleanUrls: true,
   trailingSlash: true,
+  rewrites: rewrites.map(({ from, to }) => ({ source: `${from}/:path*`, destination: `${to}/:path*` })),
   headers: [
     { source: "/(.*)", headers: Object.entries(security).map(([key, value]) => ({ key, value })) },
     { source: `/(.*)\\.(${MEDIA_EXT.join("|")})`, headers: [{ key: "Cache-Control", value: IMMUTABLE }] },
@@ -107,4 +120,12 @@ const netlify = [
 ].join("\n");
 await writeFile(join(root, "_headers"), netlify);
 
-console.log(`✔ vercel.json y _headers generados · ${hashes.size} hash de script en línea · caché inmutable en: ${[...imageDirs, ...audioFiles].join(", ")}`);
+/* ---------- _redirects (Netlify / Cloudflare Pages): reescrituras 200, no redirecciones ---------- */
+await writeFile(join(root, "_redirects"), [
+  "# ARCHIVO GENERADO por tools/build-headers.mjs — no lo edites a mano.",
+  "# URLs públicas de las salas → su carpeta en rooms/ (200 = reescritura: la dirección no cambia).",
+  ...rewrites.flatMap(({ from, to }) => [`${from}  ${from}/  301`, `${from}/*  ${to}/:splat  200`]),   // sin barra → con barra (como trailingSlash en Vercel)
+  "",
+].join("\n"));
+
+console.log(`✔ vercel.json, _headers y _redirects generados · ${rewrites.length} salas reescritas · ${hashes.size} hash de script en línea · caché inmutable en: ${[...imageDirs, ...audioFiles].join(", ")}`);

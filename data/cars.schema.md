@@ -17,7 +17,7 @@ Con servidor (`http://`), el motor lee `cars.json` directamente. Sin servidor, u
 
 ## Añadir un coche
 
-1. Crea la carpeta `<slug>/` y copia `f40/index.html` cambiando sólo `data-car="<id>"`. Sus imágenes van en `<slug>/img/` con nombres limpios (`<slug>-perfil.jpg`, `despiece-motor.jpg`…); conserva allí los originales `.png` (no se publican: ver `.vercelignore`).
+1. Crea la carpeta `rooms/cars/<slug>/` (o `rooms/bikes/<slug>/` para una moto) y copia `rooms/cars/f40/index.html` cambiando sólo `data-car="<id>"` y el `canonical`. Sus imágenes van en `rooms/cars/<slug>/img/` con nombres limpios (`<slug>-perfil.jpg`, `despiece-motor.jpg`…); conserva allí los originales `.png` (no se publican: ver `.vercelignore`). En el catálogo, `dir` apunta a esa carpeta; la URL pública sigue siendo `/<slug>/` gracias a las reescrituras que genera `tools/build-headers.mjs` (`vercel.json` y `_redirects`).
 2. Añade un objeto a `cars` (el orden decide el número de sala y la "siguiente sala").
    Si la sala se publica antes que sus fotos, añade `"pendingImages": true`: `build-data.mjs` avisa de las que faltan en vez de fallar, y la web oculta los huecos sin iconos de imagen rota. Quítalo cuando estén todas.
 3. Ejecuta `SHARP_DIR=<carpeta con sharp> node tools/images.mjs` (formatos modernos + `cars.js`) o, si no conviertes imágenes, `node tools/build-data.mjs`.
@@ -27,7 +27,10 @@ Con servidor (`http://`), el motor lee `cars.json` directamente. Sin servidor, u
 ```jsonc
 {
   "id": "ferrari-f40",            // identificador único; clave de memoria museo.<id>
-  "slug": "f40",                  // carpeta de la sala (URL: /f40/)
+  "slug": "f40",                  // URL pública de la sala: /f40/ (se reescribe a su carpeta)
+  "dir": "rooms/cars/f40",        // carpeta de la sala: rooms/cars/<slug> o rooms/bikes/<slug> (motos)
+  "wing": "dos-ruedas",           // opcional: ala temática (museum.wings). Sus salas van tras un separador en los indicadores del Hall
+  "room": "M-01",                 // opcional: número propio de sala; sin él, el orden en cars (01, 02…). Úsalo con "wing"
   "name": "Ferrari F40",
   "brand": "Ferrari",
   "make": "Ferrari", "model": "F40", "badge": "R34",   // cabecera y Hall (badge opcional)

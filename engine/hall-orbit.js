@@ -26,7 +26,7 @@
     const main = document.querySelector(".showroom");
     if (!M || !cars?.length || !main) return;
     const { esc, url, pad2 } = M;
-    const roomUrl = (c) => esc(url(`${c.slug}/index.html`));
+    const roomUrl = (c) => esc(M.roomHref(c));
 
     const N = cars.length;
     const STEP = 360 / Math.max(N, 3);         // con 2 coches, el de espera queda a 120° (a un lado, no tapado)
@@ -38,6 +38,11 @@
     /* Salas "próximamente" (status: "coming_soon"): se ven en el anillo, pero en vez de entrar
        abren un avance con la telemetría anticipada (hall.teaser + specsPreview) */
     const soon = (c) => c.status === "coming_soon";
+    // Alas temáticas: una sala con "wing" no sigue la numeración principal (M-01) y lleva su rótulo
+    const wing = (c) => (c.wing && M.wings?.[c.wing]) || null;
+    const wingTag = (c) => (wing(c) ? `<span class="hall__wing" style="--wing: ${wing(c).accent || "226, 228, 232"}"><b>${esc(wing(c).label)}</b>${wing(c).name ? ` · ${esc(wing(c).name)}` : ""}</span>` : "");
+    // Separador antes de la primera sala de cada ala (los indicadores se agrupan por ala)
+    const opensWing = (c, i) => wing(c) && !(i && cars[i - 1].wing === c.wing);
     const PREVIEW = { engine: "Motor", power: "Potencia", downforce: "Carga aerodinámica", transmission: "Transmisión", suspension: "Suspensión", chassis: "Chasis" };
     const teaser = (c, i) => {
       const t = c.hall.teaser || {};
@@ -79,6 +84,7 @@
       <div class="orbit__panel">
         ${cars.map((c, i) => `
           <article class="orbit__info hall--${c.theme}" data-i="${i}" style="--accent: ${accent(c)}"${i ? " inert" : ""}>
+            ${wingTag(c)}
             <h2 class="hall__name">${name(c)}</h2>
             <span class="hall__years">${esc(c.years)}</span>
             <p class="hall__text">${esc(c.hall.text)}</p>
@@ -88,7 +94,7 @@
       </div>
 
       <nav class="orbit__dots" aria-label="Elegir sala">
-        ${cars.map((c, i) => `<button type="button" data-go="${i}" aria-label="Sala ${M.roomNo(c, i)}: ${esc(c.name)}"${i ? "" : ' aria-current="true"'}><span>${M.roomNo(c, i)}</span></button>`).join("")}
+        ${cars.map((c, i) => `${opensWing(c, i) ? `<span class="orbit__dots-sep" aria-hidden="true"></span>` : ""}<button type="button" data-go="${i}"${wing(c) ? ` class="is-wing" style="--wing: ${wing(c).accent || "226, 228, 232"}"` : ""} aria-label="Sala ${M.roomNo(c, i)}${wing(c) ? ` · ${esc(wing(c).label)}` : ""}: ${esc(c.name)}"${i ? "" : ' aria-current="true"'}><span>${M.roomNo(c, i)}</span></button>`).join("")}
       </nav>
       <p class="sr orbit__live" aria-live="polite"></p>`;
 

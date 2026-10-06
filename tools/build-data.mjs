@@ -28,6 +28,11 @@ for (const car of data.cars) {
     if (car[k] === undefined) problems.push(`${where}: falta "${k}"`);
   }
   if (ids.has(car.id)) problems.push(`${where}: id repetido`);
+  // Carpeta de la sala (rooms/cars/<slug> o rooms/bikes/<slug>): debe existir; si la sala está abierta, con su index.html
+  if (car.dir) {
+    try { await access(join(root, car.status === "coming_soon" ? car.dir : `${car.dir}/index.html`)); }
+    catch { problems.push(`${where}: no existe ${car.status === "coming_soon" ? car.dir : `${car.dir}/index.html`}`); }
+  }
   ids.add(car.id);
   for (const [key, im] of Object.entries(car.images || {})) {
     if (im.hires) {                                    // variante de alta resolución para la cámara (opcional)

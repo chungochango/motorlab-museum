@@ -23,14 +23,20 @@
   const finePointer = matchMedia("(hover: hover) and (pointer: fine)");
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const pad2 = (n) => String(n).padStart(2, "0");
-  // Número de sala: el orden en cars.json, salvo que el coche fije el suyo ("room": "19")
+  // Número de sala: el orden en cars.json, salvo que el coche fije el suyo (un ala propia: "room": "M-01")
   const roomNo = (car, i) => car.room || pad2(i + 1);
 
   // Raíz del museo: la carpeta que contiene engine/ (funciona con http:// y con file://)
   const ROOT = new URL("../", document.currentScript.src);
   const url = (p) => (p ? new URL(p, ROOT).href : "");
 
-  Object.assign(Museo, { $, $$, clamp, esc, pad2, roomNo, url, reduceMotion, finePointer });
+  // Carpeta de una sala (rooms/cars/f40) y su enlace: en la web, la URL pública limpia (/f40/, que
+  // vercel.json y _redirects reescriben a su carpeta); con file://, el index.html de la carpeta
+  const web = /^https?:$/.test(location.protocol);
+  const roomDir = (car) => car.dir || car.slug;
+  const roomHref = (car) => (web ? `/${car.slug}/` : url(`${roomDir(car)}/index.html`));
+
+  Object.assign(Museo, { $, $$, clamp, esc, pad2, roomNo, roomDir, roomHref, url, reduceMotion, finePointer });
 
   /* Imagen que todavía no se ha subido (sala recién añadida a cars.json): se oculta en vez de
      mostrar el icono de imagen rota; la sala funciona igual y la foto aparece en cuanto exista.
@@ -327,7 +333,7 @@
         ${tag}
         ${dir === "prev" ? `<span class="exit__arrow exit__arrow--back">${ARROW_BACK}</span>` : ""}
         ${c.hall?.image ? `<span class="exit__thumb" aria-hidden="true">${Museo.img(c.hall.image, { alt: "" })}</span>` : ""}
-        <span class="exit__txt"><span class="exit__label">${dir === "prev" ? "Anterior" : "Siguiente"} · Sala ${pad2(ctx.cars.indexOf(c) + 1)}</span><strong>${esc(c.name)}</strong><span class="exit__sub">${esc(c.exitLine || c.years || "")}</span></span>
+        <span class="exit__txt"><span class="exit__label">${dir === "prev" ? "Anterior" : "Siguiente"} · Sala ${ctx.roomOf(c)}</span><strong>${esc(c.name)}</strong><span class="exit__sub">${esc(c.exitLine || c.years || "")}</span></span>
         ${dir === "next" ? `<span class="exit__arrow">${ARROW_NEXT}</span>` : ""}
       </a>`;
     // Anterior y siguiente en el anillo de salas (con dos salas, ambas son la misma: sólo "siguiente")

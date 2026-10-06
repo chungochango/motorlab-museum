@@ -8,6 +8,13 @@ window.MUSEO = {
   "museum": {
     "name": "Museo digital del automóvil",
     "hall": "index.html",
+    "wings": {
+      "dos-ruedas": {
+        "label": "Ala dos ruedas",
+        "name": "MotoLab Paddock",
+        "accent": "255, 176, 32"
+      }
+    },
     "legal": "Este sitio web es un proyecto interactivo sin ánimo de lucro de divulgación técnica, diseño frontend y homenaje al automovilismo. Los nombres, emblemas y marcas comerciales (Ferrari, Nissan, McLaren, BMW, Porsche, Lamborghini, Bilstein, Brembo y asociadas) son propiedad exclusiva de sus respectivos fabricantes y se exhiben bajo fines exclusivamente educativos e ilustrativos.",
     "privacy": [
       "Sin cookies de rastreo, analítica ni publicidad.",
@@ -23,6 +30,7 @@ window.MUSEO = {
     {
       "id": "ferrari-f40",
       "slug": "f40",
+      "dir": "rooms/cars/f40",
       "name": "Ferrari F40",
       "brand": "Ferrari",
       "make": "Ferrari",
@@ -96,7 +104,7 @@ window.MUSEO = {
       "images": {
         "f40-perfil": {
           "role": "hero",
-          "src": "f40/img/f40-perfil.webp",
+          "src": "rooms/cars/f40/img/f40-perfil.webp",
           "w": 1536,
           "h": 1024,
           "alt": "Ferrari F40 rojo de perfil sobre suelo de estudio reflectante",
@@ -107,7 +115,7 @@ window.MUSEO = {
         },
         "pieza-motor": {
           "role": "exploded",
-          "src": "f40/img/pieza-motor.webp",
+          "src": "rooms/cars/f40/img/pieza-motor.webp",
           "w": 1536,
           "h": 1024,
           "alt": "Motor V8 biturbo desmontado con turbos, colectores y cajas de admisión",
@@ -118,7 +126,7 @@ window.MUSEO = {
         },
         "pieza-cockpit": {
           "role": "exploded",
-          "src": "f40/img/pieza-cockpit.webp",
+          "src": "rooms/cars/f40/img/pieza-cockpit.webp",
           "w": 1536,
           "h": 1024,
           "alt": "Habitáculo del F40 sobre el chasis tubular, con asientos baquet rojos",
@@ -129,7 +137,7 @@ window.MUSEO = {
         },
         "pieza-aero": {
           "role": "exploded",
-          "src": "f40/img/pieza-aero.webp",
+          "src": "rooms/cars/f40/img/pieza-aero.webp",
           "w": 1536,
           "h": 1024,
           "alt": "Zaga del F40 con alerón integrado y paneles de fibra de carbono",
@@ -140,7 +148,7 @@ window.MUSEO = {
         },
         "pieza-chasis": {
           "role": "exploded",
-          "src": "f40/img/pieza-chasis.webp",
+          "src": "rooms/cars/f40/img/pieza-chasis.webp",
           "w": 1536,
           "h": 1024,
           "alt": "Chasis tubular completo del F40 visto de perfil",
@@ -151,7 +159,7 @@ window.MUSEO = {
         },
         "pieza-suspension": {
           "role": "exploded",
-          "src": "f40/img/pieza-suspension.webp",
+          "src": "rooms/cars/f40/img/pieza-suspension.webp",
           "w": 1536,
           "h": 1024,
           "alt": "Eje trasero completo con suspensión de doble horquilla, diferencial, semiejes y frenos",
@@ -162,7 +170,7 @@ window.MUSEO = {
         },
         "pieza-frenos": {
           "role": "exploded",
-          "src": "f40/img/pieza-frenos.webp",
+          "src": "rooms/cars/f40/img/pieza-frenos.webp",
           "w": 1536,
           "h": 1024,
           "alt": "Disco de freno perforado con pinza roja",
@@ -173,7 +181,7 @@ window.MUSEO = {
         },
         "pieza-llanta": {
           "role": "exploded",
-          "src": "f40/img/pieza-llanta.webp",
+          "src": "rooms/cars/f40/img/pieza-llanta.webp",
           "w": 1024,
           "h": 1536,
           "alt": "Llanta Speedline de cinco radios con neumático Pirelli P Zero",
@@ -184,7 +192,7 @@ window.MUSEO = {
         },
         "pieza-capo": {
           "role": "exploded",
-          "src": "f40/img/pieza-capo.webp",
+          "src": "rooms/cars/f40/img/pieza-capo.webp",
           "w": 1536,
           "h": 1024,
           "alt": "Tapa del motor de composite con lamas de ventilación",
@@ -216,7 +224,7 @@ window.MUSEO = {
         }
       },
       "colors": {
-        "base": "f40/img/f40-perfil.webp",
+        "base": "rooms/cars/f40/img/f40-perfil.webp",
         "default": "rosso",
         "list": [
           {
@@ -257,7 +265,7 @@ window.MUSEO = {
         ]
       },
       "audio": {
-        "src": "f40/f40-engine.mp3",
+        "src": "rooms/cars/f40/f40-engine.mp3",
         "label": "Escuchar el V8",
         "subject": "el sonido del V8"
       },
@@ -1510,6 +1518,7 @@ window.MUSEO = {
     {
       "id": "nissan-skyline-r34",
       "slug": "r34",
+      "dir": "rooms/cars/r34",
       "name": "Nissan Skyline GT-R R34",
       "brand": "Nissan",
       "make": "Nissan",
@@ -1583,7 +1592,7 @@ window.MUSEO = {
       "images": {
         "r34-hero": {
           "role": "hero",
-          "src": "r34/img/r34-hero.jpg",
+          "src": "rooms/cars/r34/img/r34-hero.jpg",
           "w": 1672,
           "h": 941,
           "alt": "Nissan Skyline GT-R R34 azul Bayside de perfil, de noche, sobre suelo mojado",
@@ -1594,7 +1603,7 @@ window.MUSEO = {
         },
         "r34-opticas-despiece": {
           "role": "exploded",
-          "src": "r34/img/r34-opticas-despiece.jpg",
+          "src": "rooms/cars/r34/img/r34-opticas-despiece.jpg",
           "w": 1536,
           "h": 1024,
           "alt": "Despiece simétrico de los pilotos traseros del GT-R: dos grupos ópticos circulares por lado, anillos de luz, carcasas y cableado",
@@ -1605,7 +1614,7 @@ window.MUSEO = {
         },
         "r34-rueda-despiece": {
           "role": "exploded",
-          "src": "r34/img/r34-rueda-despiece.jpg",
+          "src": "rooms/cars/r34/img/r34-rueda-despiece.jpg",
           "w": 1536,
           "h": 1024,
           "alt": "Despiece en línea de la rueda: neumático, llanta de cinco radios, disco perforado, pinza Brembo dorada y pastillas",
@@ -1616,7 +1625,7 @@ window.MUSEO = {
         },
         "r34-trasera": {
           "role": "detail",
-          "src": "r34/img/r34-trasera.jpg",
+          "src": "rooms/cars/r34/img/r34-trasera.jpg",
           "w": 1672,
           "h": 941,
           "alt": "Tres cuartos trasero del R34: aleta ensanchada, pilotos redondos y alerón",
@@ -1627,7 +1636,7 @@ window.MUSEO = {
         },
         "despiece-aleron": {
           "role": "exploded",
-          "src": "r34/img/despiece-aleron.jpg",
+          "src": "rooms/cars/r34/img/despiece-aleron.jpg",
           "w": 1536,
           "h": 1024,
           "alt": "Despiece del alerón trasero de carbono con sus soportes de aluminio",
@@ -1638,7 +1647,7 @@ window.MUSEO = {
         },
         "r34-motor-despiece": {
           "role": "exploded",
-          "src": "r34/img/r34-motor-despiece.jpg",
+          "src": "rooms/cars/r34/img/r34-motor-despiece.jpg",
           "w": 1536,
           "h": 1024,
           "alt": "Despiece del RB26DETT: bloque de seis cilindros en línea, culata y árboles de levas, pistones y cigüeñal, colector de admisión, colectores de escape con dos turbos e intercooler",
@@ -1649,7 +1658,7 @@ window.MUSEO = {
         },
         "despiece-chasis": {
           "role": "exploded",
-          "src": "r34/img/despiece-chasis.jpg",
+          "src": "rooms/cars/r34/img/despiece-chasis.jpg",
           "w": 1536,
           "h": 1024,
           "alt": "Despiece del chasis: monocasco, subchasis, caja de cambios, transferencia y semiejes",
@@ -1660,7 +1669,7 @@ window.MUSEO = {
         },
         "despiece-suspension": {
           "role": "exploded",
-          "src": "r34/img/despiece-suspension.jpg",
+          "src": "rooms/cars/r34/img/despiece-suspension.jpg",
           "w": 1536,
           "h": 1024,
           "alt": "Despiece de la suspensión y la dirección: amortiguadores, brazos, cremallera y actuador trasero",
@@ -1671,7 +1680,7 @@ window.MUSEO = {
         },
         "despiece-frenos": {
           "role": "exploded",
-          "src": "r34/img/despiece-frenos.jpg",
+          "src": "rooms/cars/r34/img/despiece-frenos.jpg",
           "w": 1536,
           "h": 1024,
           "alt": "Despiece del freno Brembo: pinza dorada, pastillas, disco, buje y latiguillo",
@@ -1682,7 +1691,7 @@ window.MUSEO = {
         },
         "r34-cabina": {
           "role": "detail",
-          "src": "r34/img/r34-cabina.jpg",
+          "src": "rooms/cars/r34/img/r34-cabina.jpg",
           "w": 1672,
           "h": 941,
           "alt": "Puesto de conducción del R34 de noche: pantalla multifunción, cuadro de instrumentos, volante y palanca de seis marchas",
@@ -1693,7 +1702,7 @@ window.MUSEO = {
         },
         "r34-hall": {
           "role": "hero",
-          "src": "r34/img/r34-hall.jpg",
+          "src": "rooms/cars/r34/img/r34-hall.jpg",
           "w": 1672,
           "h": 941,
           "alt": "Nissan Skyline GT-R R34 azul Bayside de perfil sobre fondo negro y suelo mojado",
@@ -2289,6 +2298,7 @@ window.MUSEO = {
     {
       "id": "mclaren-p1",
       "slug": "p1",
+      "dir": "rooms/cars/p1",
       "name": "McLaren P1",
       "brand": "McLaren",
       "make": "McLaren",
@@ -2364,7 +2374,7 @@ window.MUSEO = {
       "images": {
         "p1-perfil": {
           "role": "hero",
-          "src": "p1/img/p1-perfil.jpg",
+          "src": "rooms/cars/p1/img/p1-perfil.jpg",
           "w": 1600,
           "h": 800,
           "alt": "McLaren P1 naranja de perfil, mirando a la izquierda, sobre suelo negro reflectante",
@@ -2375,7 +2385,7 @@ window.MUSEO = {
         },
         "despiece-aleron": {
           "role": "exploded",
-          "src": "p1/img/despiece-aleron.jpg",
+          "src": "rooms/cars/p1/img/despiece-aleron.jpg",
           "w": 1536,
           "h": 1024,
           "alt": "Despiece del alerón trasero activo: ala de fibra de carbono sobre sus actuadores hidráulicos",
@@ -2386,7 +2396,7 @@ window.MUSEO = {
         },
         "despiece-motor": {
           "role": "exploded",
-          "src": "p1/img/despiece-motor.jpg",
+          "src": "rooms/cars/p1/img/despiece-motor.jpg",
           "w": 1536,
           "h": 1024,
           "alt": "Motor V8 biturbo M838TQ con el cableado naranja de alta tensión del sistema híbrido",
@@ -2397,7 +2407,7 @@ window.MUSEO = {
         },
         "despiece-chasis": {
           "role": "exploded",
-          "src": "p1/img/despiece-chasis.jpg",
+          "src": "rooms/cars/p1/img/despiece-chasis.jpg",
           "w": 1536,
           "h": 1024,
           "alt": "Monocasco MonoCage de fibra de carbono desnudo, con el techo y la toma de aire integrados",
@@ -2408,7 +2418,7 @@ window.MUSEO = {
         },
         "despiece-bateria": {
           "role": "exploded",
-          "src": "p1/img/despiece-bateria.jpg",
+          "src": "rooms/cars/p1/img/despiece-bateria.jpg",
           "w": 1536,
           "h": 1024,
           "alt": "Módulo de baterías de iones de litio con su radiador y circuito de refrigeración líquida",
@@ -2419,7 +2429,7 @@ window.MUSEO = {
         },
         "despiece-suspension": {
           "role": "exploded",
-          "src": "p1/img/despiece-suspension.jpg",
+          "src": "rooms/cars/p1/img/despiece-suspension.jpg",
           "w": 1536,
           "h": 1024,
           "alt": "Conjunto de suspensión: brazo, amortiguador y acumuladores hidráulicos en negro",
@@ -2430,7 +2440,7 @@ window.MUSEO = {
         },
         "despiece-frenos": {
           "role": "exploded",
-          "src": "p1/img/despiece-frenos.jpg",
+          "src": "rooms/cars/p1/img/despiece-frenos.jpg",
           "w": 1536,
           "h": 1024,
           "alt": "Disco de freno carbocerámico perforado con pinza Akebono naranja",
@@ -3215,6 +3225,7 @@ window.MUSEO = {
     {
       "id": "bmw-m3-e30",
       "slug": "m3",
+      "dir": "rooms/cars/m3",
       "name": "BMW M3 E30 Sport Evolution",
       "brand": "BMW",
       "make": "BMW",
@@ -3299,7 +3310,7 @@ window.MUSEO = {
       "images": {
         "m3-perfil": {
           "role": "hero",
-          "src": "m3/img/m3-perfil.jpg",
+          "src": "rooms/cars/m3/img/m3-perfil.jpg",
           "w": 1536,
           "h": 1024,
           "alt": "BMW M3 E30 rojo de perfil, mirando a la izquierda, sobre suelo negro mojado",
@@ -3310,7 +3321,7 @@ window.MUSEO = {
         },
         "despiece-motor": {
           "role": "exploded",
-          "src": "m3/img/despiece-motor.jpg",
+          "src": "rooms/cars/m3/img/despiece-motor.jpg",
           "w": 1536,
           "h": 1024,
           "alt": "Motor S14 de cuatro cilindros con mariposas independientes y colector de escape tubular",
@@ -3321,7 +3332,7 @@ window.MUSEO = {
         },
         "despiece-caja": {
           "role": "exploded",
-          "src": "m3/img/despiece-caja.jpg",
+          "src": "rooms/cars/m3/img/despiece-caja.jpg",
           "w": 1536,
           "h": 1024,
           "alt": "Caja de cambios manual Getrag 265 con su radiador auxiliar de aceite",
@@ -3332,7 +3343,7 @@ window.MUSEO = {
         },
         "despiece-diferencial": {
           "role": "exploded",
-          "src": "m3/img/despiece-diferencial.jpg",
+          "src": "rooms/cars/m3/img/despiece-diferencial.jpg",
           "w": 1536,
           "h": 1024,
           "alt": "Diferencial autoblocante trasero con carcasa de aletas de refrigeración",
@@ -3343,7 +3354,7 @@ window.MUSEO = {
         },
         "despiece-suspension": {
           "role": "exploded",
-          "src": "m3/img/despiece-suspension.jpg",
+          "src": "rooms/cars/m3/img/despiece-suspension.jpg",
           "w": 1536,
           "h": 1024,
           "alt": "Conjunto de suspensión delantera con amortiguador Bilstein, brazo de aluminio y freno",
@@ -3354,7 +3365,7 @@ window.MUSEO = {
         },
         "despiece-frenos": {
           "role": "exploded",
-          "src": "m3/img/despiece-frenos.jpg",
+          "src": "rooms/cars/m3/img/despiece-frenos.jpg",
           "w": 1536,
           "h": 1536,
           "alt": "Disco de freno perforado con pinza Brembo negra",
@@ -3365,7 +3376,7 @@ window.MUSEO = {
         },
         "despiece-aero": {
           "role": "exploded",
-          "src": "m3/img/despiece-aero.jpg",
+          "src": "rooms/cars/m3/img/despiece-aero.jpg",
           "w": 1536,
           "h": 1024,
           "alt": "Alerón trasero y splitter delantero del kit aerodinámico con su tornillería",
@@ -3791,6 +3802,7 @@ window.MUSEO = {
     {
       "id": "porsche-gt3-rs",
       "slug": "gt3rs",
+      "dir": "rooms/cars/gt3rs",
       "name": "Porsche 911 GT3 RS (992)",
       "brand": "Porsche",
       "make": "Porsche",
@@ -3826,7 +3838,7 @@ window.MUSEO = {
       "images": {
         "gt3rs-perfil": {
           "role": "hero",
-          "src": "gt3rs/img/gt3rs-perfil.jpg",
+          "src": "rooms/cars/gt3rs/img/gt3rs-perfil.jpg",
           "w": 1536,
           "h": 1024,
           "alt": "Porsche 911 GT3 RS púrpura de perfil, mirando a la izquierda, sobre suelo negro mojado",
@@ -3835,7 +3847,7 @@ window.MUSEO = {
             "webp"
           ],
           "hires": {
-            "src": "gt3rs/img/gt3rs-perfil-hd.jpg",
+            "src": "rooms/cars/gt3rs/img/gt3rs-perfil-hd.jpg",
             "w": 2000,
             "h": 1334,
             "formats": [
@@ -3846,7 +3858,7 @@ window.MUSEO = {
         },
         "despiece-motor": {
           "role": "exploded",
-          "src": "gt3rs/img/despiece-motor.jpg",
+          "src": "rooms/cars/gt3rs/img/despiece-motor.jpg",
           "w": 1536,
           "h": 1024,
           "alt": "Render ilustrativo de un motor de competición de alto régimen con trompetas de admisión individuales",
@@ -3857,7 +3869,7 @@ window.MUSEO = {
         },
         "despiece-caja": {
           "role": "exploded",
-          "src": "gt3rs/img/despiece-caja.jpg",
+          "src": "rooms/cars/gt3rs/img/despiece-caja.jpg",
           "w": 1536,
           "h": 1024,
           "alt": "Caja de cambios de doble embrague de siete velocidades con su electrónica y radiador de aceite",
@@ -3868,7 +3880,7 @@ window.MUSEO = {
         },
         "despiece-diferencial": {
           "role": "exploded",
-          "src": "gt3rs/img/despiece-diferencial.jpg",
+          "src": "rooms/cars/gt3rs/img/despiece-diferencial.jpg",
           "w": 1536,
           "h": 1024,
           "alt": "Diferencial trasero autoblocante electrónico con actuador y carcasa nervada",
@@ -3879,7 +3891,7 @@ window.MUSEO = {
         },
         "despiece-suspension": {
           "role": "exploded",
-          "src": "gt3rs/img/despiece-suspension.jpg",
+          "src": "rooms/cars/gt3rs/img/despiece-suspension.jpg",
           "w": 1312,
           "h": 1199,
           "alt": "Suspensión de dobles trapecios con brazos de aluminio mecanizado, amortiguador y manguetas",
@@ -3890,7 +3902,7 @@ window.MUSEO = {
         },
         "despiece-frenos": {
           "role": "exploded",
-          "src": "gt3rs/img/despiece-frenos.jpg",
+          "src": "rooms/cars/gt3rs/img/despiece-frenos.jpg",
           "w": 1312,
           "h": 1199,
           "alt": "Disco carbocerámico perforado con pinza Porsche amarilla de seis pistones y buje de tuerca central",
@@ -3901,7 +3913,7 @@ window.MUSEO = {
         },
         "despiece-aero": {
           "role": "exploded",
-          "src": "gt3rs/img/despiece-aleron.jpg",
+          "src": "rooms/cars/gt3rs/img/despiece-aleron.jpg",
           "w": 1536,
           "h": 1024,
           "alt": "Despiece del alerón trasero de doble plano en fibra de carbono con su actuador central, placas laterales y soportes de aluminio mecanizado",
@@ -4375,6 +4387,7 @@ window.MUSEO = {
     {
       "id": "lamborghini-temerario",
       "slug": "temerario",
+      "dir": "rooms/cars/temerario",
       "name": "Lamborghini Temerario",
       "brand": "Lamborghini",
       "make": "Lamborghini",
@@ -4467,63 +4480,63 @@ window.MUSEO = {
       "images": {
         "temerario-hero": {
           "role": "hero",
-          "src": "temerario/img/temerario-hero.jpg",
+          "src": "rooms/cars/temerario/img/temerario-hero.jpg",
           "w": 1536,
           "h": 1024,
           "alt": "Lamborghini Temerario verde lima en vista tres cuartos delantera, con las luces hexagonales encendidas sobre suelo negro mojado"
         },
         "temerario-perfil": {
           "role": "hero",
-          "src": "temerario/img/temerario-perfil.jpg",
+          "src": "rooms/cars/temerario/img/temerario-perfil.jpg",
           "w": 1774,
           "h": 887,
           "alt": "Lamborghini Temerario verde lima de perfil en un estudio industrial con tubos de luz cenitales"
         },
         "detalle-faro": {
           "role": "detail",
-          "src": "temerario/img/detalle-faro.jpg",
+          "src": "rooms/cars/temerario/img/detalle-faro.jpg",
           "w": 1536,
           "h": 1024,
           "alt": "Detalle del frontal mojado por la lluvia: faro LED afilado y luz diurna hexagonal sobre rejilla de panal"
         },
         "detalle-zaga": {
           "role": "detail",
-          "src": "temerario/img/detalle-zaga.jpg",
+          "src": "rooms/cars/temerario/img/detalle-zaga.jpg",
           "w": 1536,
           "h": 1024,
           "alt": "Zaga del Temerario con pilotos hexagonales rojos, salida de escape central hexagonal y difusor de carbono"
         },
         "despiece-motor": {
           "role": "exploded",
-          "src": "temerario/img/despiece-motor.jpg",
+          "src": "rooms/cars/temerario/img/despiece-motor.jpg",
           "w": 1672,
           "h": 941,
           "alt": "Motor V8 biturbo aislado con cubierta de fibra de carbono, dos turbocompresores y colectores de escape"
         },
         "despiece-caja": {
           "role": "exploded",
-          "src": "temerario/img/despiece-caja.jpg",
+          "src": "rooms/cars/temerario/img/despiece-caja.jpg",
           "w": 1672,
           "h": 941,
           "alt": "Caja de cambios de doble embrague y ocho velocidades en aluminio mecanizado, con placa 8-Speed DCT"
         },
         "despiece-chasis": {
           "role": "exploded",
-          "src": "temerario/img/despiece-chasis.jpg",
+          "src": "rooms/cars/temerario/img/despiece-chasis.jpg",
           "w": 1672,
           "h": 941,
           "alt": "Bastidor spaceframe de aluminio desnudo, sin carrocería, en un estudio con tubos de luz verde"
         },
         "despiece-suspension": {
           "role": "exploded",
-          "src": "temerario/img/despiece-suspension.jpg",
+          "src": "rooms/cars/temerario/img/despiece-suspension.jpg",
           "w": 1672,
           "h": 941,
           "alt": "Esquina de suspensión con trapecios, amortiguador y disco carbocerámico con pinza verde"
         },
         "despiece-electrico": {
           "role": "exploded",
-          "src": "temerario/img/despiece-electrico.jpg",
+          "src": "rooms/cars/temerario/img/despiece-electrico.jpg",
           "w": 1672,
           "h": 941,
           "alt": "Batería de alto voltaje con módulos iluminados en verde unida por cables naranjas a un motor eléctrico de flujo axial"
@@ -5538,6 +5551,7 @@ window.MUSEO = {
     {
       "id": "mercedes-190e-evo2",
       "slug": "190e",
+      "dir": "rooms/cars/190e",
       "name": "Mercedes-Benz 190E 2.5-16 Evolution II",
       "brand": "Mercedes-Benz",
       "make": "Mercedes-Benz",
@@ -5635,7 +5649,7 @@ window.MUSEO = {
       "images": {
         "190e-perfil": {
           "role": "hero",
-          "src": "190e/img/190e-perfil.jpg",
+          "src": "rooms/cars/190e/img/190e-perfil.jpg",
           "w": 1672,
           "h": 941,
           "alt": "Mercedes-Benz 190E 2.5-16 Evolution II negro azulado de perfil sobre suelo de estudio reflectante",
@@ -5646,7 +5660,7 @@ window.MUSEO = {
         },
         "despiece-motor": {
           "role": "exploded",
-          "src": "190e/img/despiece-motor.jpg",
+          "src": "rooms/cars/190e/img/despiece-motor.jpg",
           "w": 941,
           "h": 1672,
           "alt": "Despiece del motor 2.5-16: admisión, culata con dos árboles de levas, junta, pistones, cigüeñal, bloque y cárter",
@@ -5657,7 +5671,7 @@ window.MUSEO = {
         },
         "despiece-aero": {
           "role": "exploded",
-          "src": "190e/img/despiece-aero.jpg",
+          "src": "rooms/cars/190e/img/despiece-aero.jpg",
           "w": 941,
           "h": 1672,
           "alt": "Despiece del kit aerodinámico del Evolution II: alerón trasero, spoiler, tapa del maletero, aletines, faldones y paragolpes delantero con labio",
@@ -5668,7 +5682,7 @@ window.MUSEO = {
         },
         "despiece-sls": {
           "role": "exploded",
-          "src": "190e/img/despiece-sls.jpg",
+          "src": "rooms/cars/190e/img/despiece-sls.jpg",
           "w": 941,
           "h": 1672,
           "alt": "Despiece de la suspensión hidroneumática: esfera de gas, válvula, cilindro hidráulico, muelle, brazos y freno",
@@ -5679,7 +5693,7 @@ window.MUSEO = {
         },
         "despiece-caja": {
           "role": "exploded",
-          "src": "190e/img/despiece-caja.jpg",
+          "src": "rooms/cars/190e/img/despiece-caja.jpg",
           "w": 941,
           "h": 1672,
           "alt": "Despiece de la caja de cambios de cinco velocidades y del diferencial trasero",
@@ -5690,7 +5704,7 @@ window.MUSEO = {
         },
         "despiece-frenos": {
           "role": "exploded",
-          "src": "190e/img/despiece-frenos.jpg",
+          "src": "rooms/cars/190e/img/despiece-frenos.jpg",
           "w": 941,
           "h": 1672,
           "alt": "Despiece de freno y rueda: amortiguador, pinza, pastillas, disco ventilado, llanta y neumático",
@@ -5701,7 +5715,7 @@ window.MUSEO = {
         },
         "despiece-cockpit": {
           "role": "exploded",
-          "src": "190e/img/despiece-cockpit.jpg",
+          "src": "rooms/cars/190e/img/despiece-cockpit.jpg",
           "w": 941,
           "h": 1672,
           "alt": "Despiece del puesto de conducción: cuadro de instrumentos, volante, consola central, pomo y mando de altura",
@@ -5712,7 +5726,7 @@ window.MUSEO = {
         },
         "despiece-multilink": {
           "role": "exploded",
-          "src": "190e/img/despiece-multilink.jpg",
+          "src": "rooms/cars/190e/img/despiece-multilink.jpg",
           "w": 941,
           "h": 1672,
           "alt": "Despiece del eje trasero multibrazo: subchasis, brazos, amortiguadores, manguetas, semiejes y diferencial",
@@ -6364,6 +6378,7 @@ window.MUSEO = {
     {
       "id": "toyota-supra-a80",
       "slug": "supra",
+      "dir": "rooms/cars/supra",
       "name": "Toyota Supra RZ MK4 (A80)",
       "brand": "Toyota",
       "make": "Toyota",
@@ -6392,7 +6407,7 @@ window.MUSEO = {
       "images": {
         "supra-perfil": {
           "role": "hero",
-          "src": "supra/img/supra-perfil.jpg",
+          "src": "rooms/cars/supra/img/supra-perfil.jpg",
           "w": 1672,
           "h": 941,
           "alt": "Toyota Supra RZ MK4 (A80) plateado de perfil sobre suelo de estudio reflectante",
@@ -6439,8 +6454,9 @@ window.MUSEO = {
     {
       "id": "ducati-panigale-v4r",
       "slug": "panigale",
-      "room": "19",
-      "roomTag": "MotoLab 01",
+      "dir": "rooms/bikes/panigale",
+      "room": "M-01",
+      "wing": "dos-ruedas",
       "name": "Ducati Panigale V4 R",
       "brand": "Ducati",
       "make": "Ducati",
@@ -6470,7 +6486,7 @@ window.MUSEO = {
       "images": {
         "panigale-perfil": {
           "role": "hero",
-          "src": "panigale/img/panigale-perfil.jpg",
+          "src": "rooms/bikes/panigale/img/panigale-perfil.jpg",
           "w": 1672,
           "h": 941,
           "alt": "Ducati Panigale V4 R roja de perfil sobre suelo de estudio reflectante",
@@ -6503,8 +6519,8 @@ window.MUSEO = {
         "teaser": {
           "badge": "Inauguración MotoLab",
           "lines": [
-            "Sala 19 // MotoLab 01 · Inauguración MotoLab",
-            "Primera sala de dos ruedas del museo"
+            "Sala M-01 · Inauguración MotoLab",
+            "Primera sala del Ala dos ruedas"
           ]
         }
       },

@@ -35,12 +35,14 @@
   if (heroImg?.src) document.head.appendChild(M.preloadLink(heroImg, { picture: !heroImg.noPicture && !(car.sections[0].type === "hero-cinematic" && car.colors) }));
   const ctx = {
     car, cars, index, store,
-    room: M.pad2(index + 1),
+    // Número de sala del catálogo completo (cuentan también las salas en desarrollo; un ala propia lo fija: "M-01")
+    room: M.roomNo(car, data.cars.indexOf(car)),
+    roomOf: (c) => M.roomNo(c, data.cars.indexOf(c)),
     prev: cars[(index - 1 + cars.length) % cars.length],
     next: cars[(index + 1) % cars.length],
     // URLs limpias en la web publicada (/ y /<slug>/); con file:// hacen falta los index.html
     hallUrl: web ? "/" : M.url(data.museum.hall),
-    roomUrl: (c) => (web ? `/${c.slug}/` : M.url(`${c.slug}/index.html`)),
+    roomUrl: M.roomHref,                              // /f40/ en la web; rooms/cars/f40/index.html con file://
   };
 
   /* ---------- Metadatos de la página ---------- */

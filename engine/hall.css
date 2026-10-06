@@ -240,6 +240,29 @@ html.js:not(.has-orbit) main { min-height: 100svh; }   /* reserva el sitio mient
 .orbit__dots button[aria-current="true"] { color: var(--white); }
 .orbit__dots button[aria-current="true"] span { border-bottom-color: currentColor; }
 @media (hover: hover) and (pointer: fine) { .orbit__dots button:hover { color: var(--white); } }
+/* Alas temáticas: separador fino antes de cada ala y su número (M-01) con el color del ala */
+.orbit__dots-sep { flex: none; align-self: center; width: 1px; height: 18px; margin: 0 10px; background: rgba(255, 255, 255, 0.22); }
+.orbit__dots button.is-wing { color: rgba(var(--wing), 0.7); }
+.orbit__dots button.is-wing[aria-current="true"] { color: rgb(var(--wing)); }
+@media (hover: hover) and (pointer: fine) { .orbit__dots button.is-wing:hover { color: rgb(var(--wing)); } }
+
+/* Rótulo del ala sobre el nombre (anillo e índice): paralelogramo tumbado, como el tema MotoLab */
+.hall__wing {
+  display: inline-flex; align-items: center; gap: 0.5em; width: fit-content; margin-bottom: 10px; padding: 4px 14px;
+  clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+  background: rgba(var(--wing), 0.12); box-shadow: inset 0 0 0 1px rgba(var(--wing), 0.5);
+  font-size: 0.62rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--platinum);
+}
+.hall__wing b { font-weight: 600; color: rgb(var(--wing)); }
+.idx__body .hall__wing { margin: 0 0 4px; }
+/* Móvil: los diez indicadores (01–08 | M-01) caben en una fila de 375 px */
+@media (max-width: 720px) {
+  .orbit__dots { gap: 0; }
+  .orbit__dots button { min-width: 30px; padding: 0 2px; font-size: 0.72rem; letter-spacing: 0.04em; }
+  .orbit__dots-sep { margin: 0 6px; }
+  /* La insignia "Sala en desarrollo // …" no puede salirse de la pantalla */
+  .orbit__soon { width: max-content; max-width: calc(100vw - 2 * var(--gutter)); white-space: normal; text-align: center; font-size: 0.58rem; letter-spacing: 0.14em; }
+}
 
 /* Imagen todavía no subida: sin icono de imagen rota (el pedestal queda vacío) */
 img.is-missing { visibility: hidden; }

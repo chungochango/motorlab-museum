@@ -45,9 +45,9 @@
         ${M.plaqueHead(c)}
         <div class="duel__board rv" data-rv="repeat" style="--i:2">
           <div class="duel__head">
-            <span class="duel__car duel__car--a"><b>${esc(ctx.car.name)}</b><small>Sala ${M.pad2(ctx.index + 1)} · esta sala</small></span>
+            <span class="duel__car duel__car--a"><b>${esc(ctx.car.name)}</b><small>Sala ${ctx.room} · esta sala</small></span>
             <span class="duel__score" aria-label="Marcador: ${score.a} a ${score.b}">${score.a}<i>–</i>${score.b}</span>
-            <a class="duel__car duel__car--b" href="${esc(ctx.roomUrl(rival))}"><b>${esc(rival.name)}</b><small>Sala ${M.pad2(ctx.cars.indexOf(rival) + 1)} · ir a la sala →</small></a>
+            <a class="duel__car duel__car--b" href="${esc(ctx.roomUrl(rival))}"><b>${esc(rival.name)}</b><small>Sala ${ctx.roomOf(rival)} · ir a la sala →</small></a>
           </div>
           <ol class="duel__rows">
             ${rows.map((x) => `

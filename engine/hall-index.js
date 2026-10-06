@@ -39,13 +39,14 @@
     if (!M || !cars?.length || !main) return;
     const { esc, url } = M;
     const soon = (c) => c.status === "coming_soon";
+    const wing = (c) => (c.wing && M.wings?.[c.wing]) || null;     // ala temática (Ala dos ruedas · MotoLab Paddock)
     const engine = (c) => c.specs?.engine?.value || c.specsPreview?.engine || "";
     const accent = (c) => c.palette?.hallAccent || M.hexToRgb(c.palette?.accent || "#e2e4e8");
     const name = (c) => (c.badge && c.name.endsWith(c.badge) ? `${esc(c.name.slice(0, -c.badge.length).trim())} <small>${esc(c.badge)}</small>` : esc(c.name));
 
     const rooms = cars.map((c, i) => ({
       c, i, tags: c.tags || [],
-      text: norm([`sala ${M.roomNo(c, i)}`, c.roomTag, c.name, c.brand, c.make, c.model, c.badge, engine(c), c.years, c.category,
+      text: norm([`sala ${M.roomNo(c, i)}`, wing(c)?.label, wing(c)?.name, c.name, c.brand, c.make, c.model, c.badge, engine(c), c.years, c.category,
         ...(c.hall?.specs || []).flat(), ...Object.values(c.specsPreview || {}),
         ...(c.tags || []).map((t) => FILTERS.find(([k]) => k === t)?.[1])].join(" ")),
     }));
@@ -70,12 +71,13 @@
       </div>
       <ul class="idx__grid" role="list">
         ${rooms.map(({ c, i }) => {
-          const meta = `<span class="idx__meta"><span>Sala ${M.roomNo(c, i)}${c.roomTag ? ` // ${esc(c.roomTag)}` : ""}</span>${soon(c)
+          const meta = `<span class="idx__meta"><span>Sala ${M.roomNo(c, i)}</span>${soon(c)
             ? `<span class="idx__status"><span class="hall__dot" aria-hidden="true"></span>${esc(c.hall?.teaser?.badge || "Próximamente")}</span>`
             : `<span>${esc(c.years)}</span>`}</span>`;
           const inner = `
             <span class="idx__media">${M.img(c.hall.image, { alt: "", lazy: true, extra: 'draggable="false"' })}<span class="idx__floor"></span></span>
             <span class="idx__body">
+              ${wing(c) ? `<span class="hall__wing" style="--wing: ${wing(c).accent || "226, 228, 232"}"><b>${esc(wing(c).label)}</b>${wing(c).name ? ` · ${esc(wing(c).name)}` : ""}</span>` : ""}
               <span class="idx__name">${name(c)}</span>
               <span class="idx__engine">${esc(engine(c))}</span>
               ${meta}
@@ -85,7 +87,7 @@
           <li class="idx__item${soon(c) ? " is-soon" : ""}" data-i="${i}" style="--accent: ${accent(c)}" hidden>
             ${soon(c)
               ? `<button type="button" class="idx__card" aria-label="${esc(c.name)}, sala ${M.roomNo(c, i)}: ${esc(c.hall?.teaser?.badge || "en desarrollo")}. Ver avance">${inner}</button>`
-              : `<a class="idx__card" href="${esc(url(`${c.slug}/index.html`))}">${inner}</a>`}
+              : `<a class="idx__card" href="${esc(M.roomHref(c))}">${inner}</a>`}
           </li>`;
         }).join("")}
       </ul>

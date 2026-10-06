@@ -10,31 +10,61 @@
   Strict-Transport-Security: max-age=63072000; includeSubDomains
   Cross-Origin-Opener-Policy: same-origin-allow-popups
 
+/rooms/cars/f40/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
 /f40/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/rooms/cars/r34/img/*
   Cache-Control: public, max-age=31536000, immutable
 
 /r34/img/*
   Cache-Control: public, max-age=31536000, immutable
 
+/rooms/cars/p1/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
 /p1/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/rooms/cars/m3/img/*
   Cache-Control: public, max-age=31536000, immutable
 
 /m3/img/*
   Cache-Control: public, max-age=31536000, immutable
 
+/rooms/cars/gt3rs/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
 /gt3rs/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/rooms/cars/temerario/img/*
   Cache-Control: public, max-age=31536000, immutable
 
 /temerario/img/*
   Cache-Control: public, max-age=31536000, immutable
 
+/rooms/cars/190e/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
 /190e/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/rooms/cars/supra/img/*
   Cache-Control: public, max-age=31536000, immutable
 
 /supra/img/*
   Cache-Control: public, max-age=31536000, immutable
 
+/rooms/bikes/panigale/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
 /panigale/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/rooms/cars/f40/f40-engine.mp3
   Cache-Control: public, max-age=31536000, immutable
 
 /f40/f40-engine.mp3

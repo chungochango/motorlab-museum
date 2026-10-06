@@ -6,18 +6,21 @@
 dist/
 node_modules/
 *.md
-f40/styles.css
-f40/script.js
+rooms/cars/f40/styles.css
+rooms/cars/f40/script.js
 # Originales PNG de los renders: la web sirve sus copias .jpg/.webp/.avif.
 # Si algún día el catálogo usa un .png, quítalo de esta lista.
-f40/img/*.png
-r34/img/*.png
-p1/img/*.png
-m3/img/*.png
-gt3rs/img/*.png
-temerario/img/*.png
+rooms/cars/f40/img/*.png
+rooms/cars/r34/img/*.png
+rooms/cars/p1/img/*.png
+rooms/cars/m3/img/*.png
+rooms/cars/gt3rs/img/*.png
+rooms/cars/temerario/img/*.png
+rooms/cars/190e/img/*.png
+rooms/cars/supra/img/*.png
+rooms/bikes/panigale/img/*.png
 # Notas de procedencia de las imágenes convertidas (tools/images.mjs): no se publican
-*/img/*.json
+rooms/*/*/img/*.json
 
 # Proyecto del vídeo promocional (Remotion): no forma parte de la web
 promo/

@@ -34,13 +34,14 @@ async function walk(dir, skip = () => false) {
 }
 
 /* ---------- Qué se publica ---------- */
-["index.html", "_headers", "data/cars.json", "data/cars.js", "robots.txt", "sitemap.xml"].forEach(add);
+["index.html", "_headers", "_redirects", "data/cars.json", "data/cars.js", "robots.txt", "sitemap.xml"].forEach(add);
 // Imágenes para redes sociales (og:image) que no están en el catálogo: X/Facebook no leen AVIF y no todos leen WebP
-["f40/img/f40-perfil.jpg"].forEach(add);
+["rooms/cars/f40/img/f40-perfil.jpg"].forEach(add);
 await walk("engine");
 await walk("themes");
 await walk("assets", (p) => p.endsWith(".md"));
-for (const c of rooms) add(`${c.slug}/index.html`);
+const dirOf = (c) => c.dir || c.slug;          // carpeta de la sala: rooms/cars/f40 (su URL pública sigue siendo /f40/)
+for (const c of rooms) add(`${dirOf(c)}/index.html`);
 for (const c of data.cars) {
   for (const im of Object.values(c.images || {})) {
     for (const v of [im, im.hires].filter(Boolean)) {
@@ -67,13 +68,18 @@ for (const f of [...files].sort()) {
 
 /* ---------- Comprobación de rutas dentro de dist/ ---------- */
 const inDist = (p) => files.has(posix.normalize(p));
+// URL pública de una sala → su carpeta real (las mismas reescrituras que vercel.json y _redirects): "f40/…" → "rooms/cars/f40/…"
+const publicToReal = (p) => {
+  const c = data.cars.find((x) => p === x.slug || p.startsWith(`${x.slug}/`));
+  return c && dirOf(c) !== c.slug ? dirOf(c) + p.slice(c.slug.length) : p;
+};
 // 1) Enlaces locales de cada página (src/href relativos)
-for (const page of ["index.html", ...rooms.map((c) => `${c.slug}/index.html`)]) {
+for (const page of ["index.html", ...rooms.map((c) => `${dirOf(c)}/index.html`)]) {
   const html = await readFile(join(root, page), "utf8");
   for (const [, ref] of html.matchAll(/(?:src|href)="([^"#?:]+)"/g)) {
     // URLs limpias: una carpeta ("/", "f40/", "/temerario/") sirve su index.html; "/…" va desde la raíz
     const file = ref.endsWith("/") ? `${ref}index.html` : ref;
-    const target = file.startsWith("/") ? file.slice(1) : posix.normalize(posix.join(posix.dirname(page), file));
+    const target = publicToReal(file.startsWith("/") ? file.slice(1) : posix.normalize(posix.join(posix.dirname(page), file)));
     if (!inDist(target)) problems.push(`${page} → ${ref} (no está en dist)`);
   }
 }
