@@ -3,3 +3,6 @@ dist/
 node_modules/
 .DS_Store
 Thumbs.db
+
+# Vídeo promocional (Remotion): renders y fotogramas de prueba
+promo/out/
