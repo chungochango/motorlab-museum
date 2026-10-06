@@ -33,7 +33,7 @@ Con servidor (`http://`), el motor lee `cars.json` directamente. Sin servidor, u
   "make": "Ferrari", "model": "F40", "badge": "R34",   // cabecera y Hall (badge opcional)
   "year": 1987,                   // año de presentación
   "years": "1987 — 1992",         // periodo de producción, como se muestra
-  "theme": "maranello",           // themes/<tema>.css: maranello (F40) · wangan (R34) · woking (P1) · motorsport (M3) · weissach (GT3 RS) · santagata (Temerario) · motolab (salas de motos)
+  "theme": "maranello",           // themes/<tema>.css: maranello (F40) · wangan (R34) · woking (P1) · motorsport (M3) · weissach (GT3 RS) · santagata (Temerario) · stuttgart (190E) · motolab (salas de motos)
   "country": "Alemania", "category": "Turismo de Homologación Grupo A / DTM",   // opcionales, informativos
   "tags": ["supercar", "turbo"],   // filtros del índice del Hall: supercar · competicion · moto · turbo · atmosferico
   "pendingImages": true,          // opcional: fotos aún no subidas (aviso en vez de error)
@@ -102,7 +102,7 @@ Un texto que cambia con el modo se escribe `{ "historia": "…", "tecnico": "…
 
 ## Módulos disponibles
 
-`hero-cinematic` · `hero-plate` · `anatomy-tabs` · `parts-gallery` · `story-road` · `systems-lanes` · `facts-counters` · `specs-board` · `homologation-bay` (box de homologación con cámara, panel de detalle y reglaje calle/competición; formato en la cabecera de `engine/modules/homologation-bay.js`) · `telemetry-lab` (laboratorio de túnel de viento: su formato está documentado en la cabecera de `engine/modules/telemetry-lab.js`; la geometría `rig` se mide en % sobre la foto de perfil). Cualquier sala puede usar cualquier módulo con cualquier tema.
+`hero-cinematic` · `hero-plate` · `anatomy-tabs` · `parts-gallery` · `story-road` · `systems-lanes` · `facts-counters` · `specs-board` · `homologation-bay` (box de homologación con cámara, panel de detalle y reglaje calle/competición; formato en la cabecera de `engine/modules/homologation-bay.js`) · `duel-board` (duelo de fichas contra otra sala del catálogo: `rival` es su id y cada fila `{ spec, better: "high"|"low", verdict }` compara la misma clave de `specs`; formato en la cabecera de `engine/modules/duel-board.js`) · `telemetry-lab` (laboratorio de túnel de viento: su formato está documentado en la cabecera de `engine/modules/telemetry-lab.js`; la geometría `rig` se mide en % sobre la foto de perfil). Cualquier sala puede usar cualquier módulo con cualquier tema.
 
 ## Despliegue
 

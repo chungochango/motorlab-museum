@@ -121,6 +121,21 @@
         "value": "saira semi condensed",
         "createdAt": "2026-10-05T21:09:22.133Z",
         "reason": "Claude: cada sala define su tipografía en su tema (PRODUCT.md, identidad por sala); DESIGN.md sólo documenta la Sala 02"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "archivo",
+        "createdAt": "2026-10-06T10:15:06.350Z",
+        "reason": "Claude: cada sala define su tipografía en su tema (PRODUCT.md, identidad por sala); DESIGN.md sólo documenta la Sala 02"
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "themes/stuttgart.css"
+        ],
+        "createdAt": "2026-10-06T10:20:30.780Z",
+        "reason": "Claude: falso positivo; las líneas 148 y 190 son el doble filete superior a todo el ancho (top:0, height:6px), firma del tema, no un borde lateral"
       }
     ]
   }

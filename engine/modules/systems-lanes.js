@@ -8,6 +8,8 @@
             lanes:[{ key, kana, name, code, image, caption, title, line,
                      historia, tecnico:[[dt,dd,small]],
                      parts:[{ x, y, name, short, desc, value }] }] }
+   Un despiece vertical (más alto que ancho) se maqueta en columna estrecha
+   con altura limitada a la pantalla, para que la ficha quede al lado.
    ========================================================= */
 (() => {
   const M = window.Museo;
@@ -31,7 +33,7 @@
 
         <div class="stage">
           ${c.lanes.map((l, i) => `
-            <article class="lane-panel${i === 0 ? " is-active" : ""}" id="${c.id}-lane-${l.key}" role="tabpanel" aria-labelledby="${c.id}-tab-${l.key}">
+            <article class="lane-panel${i === 0 ? " is-active" : ""}${l.image.h > l.image.w ? " is-portrait" : ""}" id="${c.id}-lane-${l.key}" role="tabpanel" aria-labelledby="${c.id}-tab-${l.key}">
               <figure class="lane-panel__fig">
                 ${M.optic.markup(l.image, { inner: l.parts.map((p, k) => `<button type="button" class="pt" style="--x:${p.x}%;--y:${p.y}%" data-part="${k + 1}" aria-label="${k + 1} · ${esc(p.short || p.name)}"><span>${k + 1}</span></button>`).join("") })}
                 ${l.caption ? `<figcaption>${esc(l.caption)}</figcaption>` : ""}

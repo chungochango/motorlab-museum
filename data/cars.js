@@ -5545,25 +5545,93 @@ window.MUSEO = {
       "badge": "Evolution II",
       "year": 1990,
       "years": "1990",
-      "theme": "motorsport",
+      "theme": "stuttgart",
       "country": "Alemania",
       "category": "Turismo de Homologación Grupo A / DTM",
       "tags": [
         "competicion",
         "atmosferico"
       ],
-      "status": "coming_soon",
       "palette": {
-        "accent": "#C0C5CC",
+        "accent": "#E2E8F0",
         "body": "#1C2230",
+        "note": "Negro azulado de la carrocería; el tema stuttgart pone plata, basalto, filo plata-grafito y turquesa DTM en lo técnico",
         "hallAccent": "192, 197, 204"
       },
       "marks": [
         "Mercedes-Benz",
         "190E",
         "Evolution II",
-        "Cosworth"
+        "Cosworth",
+        "Getrag",
+        "Bosch"
       ],
+      "exitLine": "El monstruo aerodinámico del DTM desarrollado con Cosworth",
+      "meta": {
+        "title": "Mercedes-Benz 190E 2.5-16 Evolution II · Sala 07 · Museo digital del automóvil",
+        "description": "Sala 07 del museo digital del automóvil: el Mercedes-Benz 190E 2.5-16 Evolution II del DTM. Motor con culata Cosworth, kit aerodinámico de Cx 0,29, suspensión SLS, caja dog-leg y duelo contra el BMW M3 E30."
+      },
+      "specs": {
+        "power": {
+          "label": "Potencia",
+          "value": 235,
+          "unit": "CV",
+          "note": "a 7.200 rpm · corte a 7.700 rpm"
+        },
+        "torque": {
+          "label": "Par",
+          "value": 245,
+          "unit": "Nm",
+          "note": "a 5.000 rpm"
+        },
+        "topSpeed": {
+          "label": "Velocidad máxima",
+          "value": 250,
+          "unit": "km/h"
+        },
+        "acceleration": {
+          "label": "0 – 100 km/h",
+          "value": 7.1,
+          "unit": "s",
+          "decimals": 1
+        },
+        "weight": {
+          "label": "Peso",
+          "value": 1340,
+          "unit": "kg"
+        },
+        "displacement": {
+          "label": "Cilindrada",
+          "value": 2463,
+          "unit": "cc",
+          "note": "97,3 × 82,8 mm"
+        },
+        "production": {
+          "label": "Unidades",
+          "value": 502
+        },
+        "drag": {
+          "label": "Coeficiente aerodinámico",
+          "value": 0.29,
+          "unit": "Cx",
+          "decimals": 2
+        },
+        "engine": {
+          "label": "Motor",
+          "value": "M102 2.5-16 · culata Cosworth",
+          "note": "4 cilindros · DOHC 16V"
+        },
+        "transmission": {
+          "label": "Caja",
+          "value": "Getrag 5 velocidades",
+          "note": "dog-leg"
+        },
+        "drivetrain": {
+          "label": "Tracción",
+          "value": "Trasera",
+          "note": "autoblocante ASD"
+        }
+      },
       "images": {
         "190e-perfil": {
           "role": "hero",
@@ -5575,18 +5643,95 @@ window.MUSEO = {
             "avif",
             "webp"
           ]
+        },
+        "despiece-motor": {
+          "role": "exploded",
+          "src": "190e/img/despiece-motor.jpg",
+          "w": 941,
+          "h": 1672,
+          "alt": "Despiece del motor 2.5-16: admisión, culata con dos árboles de levas, junta, pistones, cigüeñal, bloque y cárter",
+          "formats": [
+            "avif",
+            "webp"
+          ]
+        },
+        "despiece-aero": {
+          "role": "exploded",
+          "src": "190e/img/despiece-aero.jpg",
+          "w": 941,
+          "h": 1672,
+          "alt": "Despiece del kit aerodinámico del Evolution II: alerón trasero, spoiler, tapa del maletero, aletines, faldones y paragolpes delantero con labio",
+          "formats": [
+            "avif",
+            "webp"
+          ]
+        },
+        "despiece-sls": {
+          "role": "exploded",
+          "src": "190e/img/despiece-sls.jpg",
+          "w": 941,
+          "h": 1672,
+          "alt": "Despiece de la suspensión hidroneumática: esfera de gas, válvula, cilindro hidráulico, muelle, brazos y freno",
+          "formats": [
+            "avif",
+            "webp"
+          ]
+        },
+        "despiece-caja": {
+          "role": "exploded",
+          "src": "190e/img/despiece-caja.jpg",
+          "w": 941,
+          "h": 1672,
+          "alt": "Despiece de la caja de cambios de cinco velocidades y del diferencial trasero",
+          "formats": [
+            "avif",
+            "webp"
+          ]
+        },
+        "despiece-frenos": {
+          "role": "exploded",
+          "src": "190e/img/despiece-frenos.jpg",
+          "w": 941,
+          "h": 1672,
+          "alt": "Despiece de freno y rueda: amortiguador, pinza, pastillas, disco ventilado, llanta y neumático",
+          "formats": [
+            "avif",
+            "webp"
+          ]
+        },
+        "despiece-cockpit": {
+          "role": "exploded",
+          "src": "190e/img/despiece-cockpit.jpg",
+          "w": 941,
+          "h": 1672,
+          "alt": "Despiece del puesto de conducción: cuadro de instrumentos, volante, consola central, pomo y mando de altura",
+          "formats": [
+            "avif",
+            "webp"
+          ]
+        },
+        "despiece-multilink": {
+          "role": "exploded",
+          "src": "190e/img/despiece-multilink.jpg",
+          "w": 941,
+          "h": 1672,
+          "alt": "Despiece del eje trasero multibrazo: subchasis, brazos, amortiguadores, manguetas, semiejes y diferencial",
+          "formats": [
+            "avif",
+            "webp"
+          ]
         }
       },
       "hall": {
-        "text": "La respuesta de Stuttgart al M3 E30: culata Cosworth 16V de carrera corta a 7.700 rpm, suspensión trasera autonivelante y aerodinámica regulable del DTM.",
+        "text": "La respuesta de Stuttgart al M3 E30: culata Cosworth de carrera corta a 7.700 rpm, suspensión SLS y el kit aerodinámico más radical del DTM.",
         "specs": [
           [
             "235 CV",
             "2.5 16V Cosworth"
           ],
           [
-            "7.700 rpm",
-            "Carrera corta"
+            "Cx 0,29",
+            "Kit Evo II"
           ],
           [
             "502 uds.",
@@ -5596,21 +5741,625 @@ window.MUSEO = {
         "image": {
           "ref": "190e-perfil",
           "fit": "contain"
-        },
-        "teaser": {
-          "badge": "Próxima apertura",
-          "lines": [
-            "Sala 07 · Próxima apertura",
-            "Duelo DTM contra el BMW M3 E30"
-          ]
         }
       },
-      "specsPreview": {
-        "engine": "4 cil. 2.463 cc · culata Cosworth 16V",
-        "power": "235 CV a 7.200 rpm · corte a 7.700",
-        "downforce": "Alerón y faldones regulables · paquete DTM",
-        "suspension": "Trasera autonivelante · altura regulable"
-      }
+      "sections": [
+        {
+          "type": "hero-cinematic",
+          "id": "inicio",
+          "nav": "Historia",
+          "kicker": [
+            "Alemania",
+            "Grupo A / DTM"
+          ],
+          "title": "190E",
+          "image": "190e-perfil",
+          "lead": {
+            "historia": "El <em>monstruo aerodinámico del DTM</em>: Mercedes-Benz y Cosworth convirtieron una berlina de ejecutivo en un arma de homologación. Sólo se fabricaron <em>502</em>.",
+            "tecnico": "Cuatro cilindros <em>M102 de 2.463 cc</em> con culata Cosworth: <em>235 CV a 7.200 rpm</em> y corte a 7.700, caja Getrag dog-leg y un kit aerodinámico con <em>Cx 0,29</em>."
+          },
+          "facts": {
+            "historia": [
+              [
+                "1990",
+                "Evolution II"
+              ],
+              [
+                "502",
+                "Unidades"
+              ],
+              [
+                "1992",
+                "Título DTM"
+              ]
+            ],
+            "tecnico": [
+              [
+                "235 CV",
+                "A 7.200 rpm"
+              ],
+              [
+                "245 Nm",
+                "A 5.000 rpm"
+              ],
+              [
+                "Cx 0,29",
+                "Kit Evo II"
+              ]
+            ]
+          },
+          "cue": {
+            "label": "Despieces",
+            "target": "despieces",
+            "aria": "Ir a los despieces"
+          }
+        },
+        {
+          "type": "systems-lanes",
+          "id": "despieces",
+          "nav": "Despieces",
+          "shield": "07",
+          "title": "Siete sistemas",
+          "intro": "Elige un sistema. Cada uno aparece desmontado: pasa el ratón o pulsa un número para enfocar la pieza, y cambia a <b>Técnico</b> para ver las cifras.",
+          "hint": "Pulsa un número o una fila para fijar el enfoque; vuelve a pulsar para soltarlo. Las imágenes son despieces ilustrativos.",
+          "lanes": [
+            {
+              "key": "motor",
+              "name": "Motor",
+              "code": "M102 · Cosworth",
+              "image": "despiece-motor",
+              "caption": "Despiece ilustrativo del motor 2.5-16.",
+              "title": "Motor 2.5-16",
+              "line": "2.463 cc · 4 cilindros · DOHC 16V · culata Cosworth",
+              "historia": "Mercedes-Benz encargó a Cosworth la culata de 16 válvulas del 190E. Para el Evolution, el motor ganó diámetro y perdió carrera: un cuatro cilindros más «cuadrado» que gira más alto y llega a 7.700 rpm.",
+              "tecnico": [
+                [
+                  "Diámetro × carrera",
+                  "97,3 × 82,8 mm",
+                  "carrera corta: el 2.5-16 de serie tenía 87,2 mm"
+                ],
+                [
+                  "Cilindrada",
+                  "2.463 cc"
+                ],
+                [
+                  "Potencia",
+                  "235 CV",
+                  "a 7.200 rpm"
+                ],
+                [
+                  "Par",
+                  "245 Nm",
+                  "a 5.000 rpm"
+                ],
+                [
+                  "Corte de inyección",
+                  "7.700 rpm"
+                ],
+                [
+                  "Alimentación",
+                  "Bosch KE-Jetronic"
+                ]
+              ],
+              "parts": [
+                {
+                  "x": 50,
+                  "y": 33,
+                  "name": "Culata Cosworth de flujo cruzado",
+                  "short": "Culata",
+                  "desc": "Dos árboles de levas y cuatro válvulas por cilindro; la admisión entra por un lado y el escape sale por el otro.",
+                  "value": "DOHC · 16 válvulas"
+                },
+                {
+                  "x": 40,
+                  "y": 9,
+                  "name": "Admisión",
+                  "short": "Admisión",
+                  "desc": "Lleva el aire a los cuatro cilindros.",
+                  "value": "Inyección Bosch KE-Jetronic"
+                },
+                {
+                  "x": 52,
+                  "y": 49,
+                  "name": "Pistones",
+                  "short": "Pistones",
+                  "desc": "Más anchos que en el motor de serie, para compensar la carrera más corta.",
+                  "value": "Ø 97,3 mm"
+                },
+                {
+                  "x": 40,
+                  "y": 57,
+                  "name": "Cigüeñal de carrera corta",
+                  "short": "Cigüeñal",
+                  "desc": "Con menos recorrido, el pistón va más despacio a igual régimen: el motor puede girar más alto.",
+                  "value": "Carrera 82,8 mm"
+                },
+                {
+                  "x": 48,
+                  "y": 74,
+                  "name": "Bloque M102",
+                  "short": "Bloque",
+                  "desc": "El bloque de cuatro cilindros de la familia M102, la base de los 190E de gasolina.",
+                  "value": "4 cilindros en línea"
+                }
+              ]
+            },
+            {
+              "key": "aero",
+              "name": "Aerodinámica",
+              "code": "Kit Evo II · Cx 0,29",
+              "image": "despiece-aero",
+              "caption": "Despiece ilustrativo del kit aerodinámico del Evolution II.",
+              "title": "Kit aerodinámico",
+              "line": "Alerón regulable · spoiler de luneta · labio delantero ajustable",
+              "historia": "El kit del Evolution II se desarrolló con el profesor Richard Eppler, de la Universidad de Stuttgart. Pese al alerón enorme, el coche se quedó en un Cx de 0,29: carga a alta velocidad sin pagar resistencia.",
+              "tecnico": [
+                [
+                  "Coeficiente",
+                  "Cx 0,29"
+                ],
+                [
+                  "Alerón trasero",
+                  "Regulable",
+                  "incidencia ajustable"
+                ],
+                [
+                  "Delante",
+                  "Labio ajustable"
+                ],
+                [
+                  "Pasos de rueda",
+                  "Ensanchados",
+                  "para las llantas de 17 pulgadas"
+                ]
+              ],
+              "parts": [
+                {
+                  "x": 50,
+                  "y": 7,
+                  "name": "Alerón trasero regulable",
+                  "short": "Alerón",
+                  "desc": "La pieza que dio fama al Evolution II: su incidencia se puede ajustar.",
+                  "value": "Incidencia ajustable"
+                },
+                {
+                  "x": 52,
+                  "y": 19,
+                  "name": "Spoiler de luneta",
+                  "short": "Spoiler",
+                  "desc": "Ordena el aire que baja por la luneta antes de que llegue al alerón.",
+                  "value": "Sobre la luneta"
+                },
+                {
+                  "x": 32,
+                  "y": 41,
+                  "name": "Aletines ensanchados",
+                  "short": "Aletines",
+                  "desc": "Cubren unas vías más anchas y las llantas de 17 pulgadas.",
+                  "value": "Delante y detrás"
+                },
+                {
+                  "x": 45,
+                  "y": 52,
+                  "name": "Faldones laterales",
+                  "short": "Faldones",
+                  "desc": "Cierran los costados para que entre menos aire bajo el coche.",
+                  "value": "Entre los ejes"
+                },
+                {
+                  "x": 40,
+                  "y": 74,
+                  "name": "Labio delantero ajustable",
+                  "short": "Labio",
+                  "desc": "Equilibra la carga del eje delantero con la del alerón trasero.",
+                  "value": "Ajustable"
+                }
+              ]
+            },
+            {
+              "key": "sls",
+              "name": "Suspensión",
+              "code": "SLS hidroneumática",
+              "image": "despiece-sls",
+              "caption": "Despiece ilustrativo de la suspensión hidroneumática.",
+              "title": "Suspensión SLS",
+              "line": "Nivelación hidroneumática · altura regulable desde el habitáculo",
+              "historia": "Además del muelle, la suspensión apoya en un cilindro hidráulico unido a una esfera con gas a presión. El sistema mantiene la altura aunque el coche vaya cargado, y en el Evolution el conductor podía cambiarla con un mando del salpicadero.",
+              "tecnico": [
+                [
+                  "Sistema",
+                  "SLS",
+                  "nivelación hidroneumática"
+                ],
+                [
+                  "Mando",
+                  "Salpicadero",
+                  "altura de carrocería regulable"
+                ],
+                [
+                  "Muelle de gas",
+                  "Esfera de nitrógeno",
+                  "membrana entre gas y aceite"
+                ]
+              ],
+              "parts": [
+                {
+                  "x": 14,
+                  "y": 11,
+                  "name": "Esfera hidroneumática",
+                  "short": "Esfera",
+                  "desc": "Una membrana separa el aceite del nitrógeno a presión: el gas hace de muelle.",
+                  "value": "Nitrógeno · aceite"
+                },
+                {
+                  "x": 60,
+                  "y": 7,
+                  "name": "Válvula de nivel",
+                  "short": "Válvula",
+                  "desc": "Mete o saca aceite del cilindro para devolver la carrocería a su altura.",
+                  "value": "Control de altura"
+                },
+                {
+                  "x": 50,
+                  "y": 28,
+                  "name": "Cilindro hidráulico",
+                  "short": "Cilindro",
+                  "desc": "Recibe el aceite a presión y sostiene parte del peso.",
+                  "value": "Hidráulico"
+                },
+                {
+                  "x": 40,
+                  "y": 60,
+                  "name": "Muelle helicoidal",
+                  "short": "Muelle",
+                  "desc": "Sostiene el coche; el sistema hidráulico corrige la altura.",
+                  "value": "Acero"
+                },
+                {
+                  "x": 25,
+                  "y": 75,
+                  "name": "Brazos de suspensión",
+                  "short": "Brazos",
+                  "desc": "Guían la rueda en su recorrido.",
+                  "value": "Aluminio y acero"
+                }
+              ]
+            },
+            {
+              "key": "caja",
+              "name": "Transmisión",
+              "code": "Getrag 5 vel. · ASD",
+              "image": "despiece-caja",
+              "caption": "Despiece ilustrativo de la caja de cambios y del diferencial.",
+              "title": "Caja y diferencial",
+              "line": "Manual de 5 velocidades dog-leg · autoblocante ASD",
+              "historia": "Primera abajo a la izquierda, fuera de la H: la disposición dog-leg deja segunda, tercera, cuarta y quinta en una H limpia, que es donde se conduce rápido. Detrás, el diferencial ASD se bloquea cuando detecta que una rueda patina.",
+              "tecnico": [
+                [
+                  "Caja",
+                  "Getrag de 5 velocidades",
+                  "dog-leg · 1.ª abajo a la izquierda"
+                ],
+                [
+                  "Diferencial",
+                  "ASD",
+                  "autoblocante de bloqueo electrohidráulico"
+                ]
+              ],
+              "parts": [
+                {
+                  "x": 66,
+                  "y": 5,
+                  "name": "Palanca dog-leg",
+                  "short": "Palanca",
+                  "desc": "Primera queda sola, abajo a la izquierda; el resto forma una H.",
+                  "value": "5 velocidades"
+                },
+                {
+                  "x": 17,
+                  "y": 23,
+                  "name": "Campana de embrague",
+                  "short": "Campana",
+                  "desc": "Une la caja al motor y aloja el embrague.",
+                  "value": "Aluminio"
+                },
+                {
+                  "x": 57,
+                  "y": 34,
+                  "name": "Horquillas selectoras",
+                  "short": "Horquillas",
+                  "desc": "Desplazan los sincronizadores para engranar cada marcha.",
+                  "value": "Una por pareja de marchas"
+                },
+                {
+                  "x": 45,
+                  "y": 42,
+                  "name": "Ejes de la caja",
+                  "short": "Ejes",
+                  "desc": "Los piñones de cada marcha, siempre engranados entre sí.",
+                  "value": "Primario y secundario"
+                },
+                {
+                  "x": 60,
+                  "y": 86,
+                  "name": "Diferencial autoblocante ASD",
+                  "short": "Diferencial",
+                  "desc": "Reparte el par entre las ruedas traseras y se bloquea si una patina.",
+                  "value": "Bloqueo electrohidráulico"
+                }
+              ]
+            },
+            {
+              "key": "frenos",
+              "name": "Frenos y llantas",
+              "code": "17 pulgadas",
+              "image": "despiece-frenos",
+              "caption": "Despiece ilustrativo de freno y rueda.",
+              "title": "Frenos y llantas",
+              "line": "Discos ventilados · llantas Evolution II de 17 pulgadas",
+              "historia": "El Evolution II estrenó llantas de 17 pulgadas, enormes para una berlina de 1990, con neumáticos anchos y bajos que le dieron una pisada de coche de carreras.",
+              "tecnico": [
+                [
+                  "Llantas",
+                  "17 pulgadas",
+                  "específicas del Evolution II"
+                ],
+                [
+                  "Neumáticos",
+                  "245/40 ZR 17"
+                ],
+                [
+                  "Discos delanteros",
+                  "Ventilados"
+                ]
+              ],
+              "parts": [
+                {
+                  "x": 65,
+                  "y": 20,
+                  "name": "Pinza de freno",
+                  "short": "Pinza",
+                  "desc": "Aprieta las pastillas contra el disco.",
+                  "value": "Delante"
+                },
+                {
+                  "x": 45,
+                  "y": 24,
+                  "name": "Pastillas",
+                  "short": "Pastillas",
+                  "desc": "El material que roza el disco y convierte la velocidad en calor.",
+                  "value": "Dos por pinza"
+                },
+                {
+                  "x": 34,
+                  "y": 52,
+                  "name": "Disco ventilado",
+                  "short": "Disco",
+                  "desc": "Dos caras unidas por aletas: el aire circula por dentro y lo enfría.",
+                  "value": "Ventilado"
+                },
+                {
+                  "x": 68,
+                  "y": 62,
+                  "name": "Llanta de 17 pulgadas",
+                  "short": "Llanta",
+                  "desc": "Una medida enorme para una berlina de su época.",
+                  "value": "17\""
+                },
+                {
+                  "x": 90,
+                  "y": 50,
+                  "name": "Neumático",
+                  "short": "Neumático",
+                  "desc": "Ancho y de perfil bajo.",
+                  "value": "245/40 ZR 17"
+                }
+              ]
+            },
+            {
+              "key": "cockpit",
+              "name": "Cockpit",
+              "code": "Mandos de homologación",
+              "image": "despiece-cockpit",
+              "caption": "Despiece ilustrativo del puesto de conducción.",
+              "title": "Puesto de conducción",
+              "line": "Cuentavueltas hasta 7.700 rpm · mando de altura · pomo dog-leg",
+              "historia": "Por dentro sigue siendo un Mercedes-Benz 190. Lo que delata al Evolution está en los detalles: el cuentavueltas con la zona roja alta, el mando para cambiar la altura y el esquema dog-leg en el pomo.",
+              "tecnico": [
+                [
+                  "Cuentavueltas",
+                  "Zona roja alta",
+                  "corte a 7.700 rpm"
+                ],
+                [
+                  "Mando de altura",
+                  "Salpicadero",
+                  "suspensión SLS"
+                ],
+                [
+                  "Pomo",
+                  "Esquema dog-leg"
+                ]
+              ],
+              "parts": [
+                {
+                  "x": 55,
+                  "y": 9,
+                  "name": "Cuadro de instrumentos",
+                  "short": "Cuadro",
+                  "desc": "Cuentavueltas en el centro y velocímetro a la izquierda.",
+                  "value": "Zona roja alta"
+                },
+                {
+                  "x": 24,
+                  "y": 25,
+                  "name": "Volante",
+                  "short": "Volante",
+                  "desc": "De tres radios, forrado en piel.",
+                  "value": "Tres radios"
+                },
+                {
+                  "x": 34,
+                  "y": 53,
+                  "name": "Pomo dog-leg",
+                  "short": "Pomo",
+                  "desc": "Lleva grabado el esquema con la primera abajo a la izquierda.",
+                  "value": "5 velocidades"
+                },
+                {
+                  "x": 82,
+                  "y": 63,
+                  "name": "Mando de altura de carrocería",
+                  "short": "Mando SLS",
+                  "desc": "Sube o baja la carrocería a través de la suspensión hidroneumática.",
+                  "value": "Suspensión SLS"
+                },
+                {
+                  "x": 63,
+                  "y": 50,
+                  "name": "Consola central",
+                  "short": "Consola",
+                  "desc": "Climatización e interruptores, como en cualquier 190.",
+                  "value": "Climatización"
+                }
+              ]
+            },
+            {
+              "key": "multilink",
+              "name": "Eje trasero",
+              "code": "Multibrazo · 5 brazos",
+              "image": "despiece-multilink",
+              "caption": "Despiece ilustrativo del eje trasero multibrazo.",
+              "title": "Eje trasero multibrazo",
+              "line": "Cinco brazos por rueda · subchasis propio",
+              "historia": "El 190 (W201) estrenó en 1982 el eje trasero multibrazo de Mercedes-Benz: cinco brazos por rueda que controlan cada movimiento por separado. En curva, esa precisión era una ventaja en el DTM, y la fórmula acabó extendiéndose por toda la industria.",
+              "tecnico": [
+                [
+                  "Concepto",
+                  "Multibrazo",
+                  "5 brazos por rueda"
+                ],
+                [
+                  "Estreno",
+                  "Mercedes-Benz 190 (W201)",
+                  "1982"
+                ]
+              ],
+              "parts": [
+                {
+                  "x": 22,
+                  "y": 27,
+                  "name": "Brazos de suspensión",
+                  "short": "Brazos",
+                  "desc": "Cinco por rueda: cada uno controla un movimiento distinto.",
+                  "value": "5 por rueda"
+                },
+                {
+                  "x": 10,
+                  "y": 50,
+                  "name": "Mangueta y buje",
+                  "short": "Mangueta",
+                  "desc": "Donde se unen los brazos y gira la rueda.",
+                  "value": "Una por lado"
+                },
+                {
+                  "x": 30,
+                  "y": 51,
+                  "name": "Semieje",
+                  "short": "Semieje",
+                  "desc": "Lleva el par del diferencial a cada rueda.",
+                  "value": "Con juntas homocinéticas"
+                },
+                {
+                  "x": 51,
+                  "y": 52,
+                  "name": "Diferencial",
+                  "short": "Diferencial",
+                  "desc": "Reparte el par entre las dos ruedas traseras.",
+                  "value": "Autoblocante ASD"
+                },
+                {
+                  "x": 50,
+                  "y": 84,
+                  "name": "Subchasis trasero",
+                  "short": "Subchasis",
+                  "desc": "Soporta todo el eje y lo une a la carrocería.",
+                  "value": "Acero"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "duel-board",
+          "id": "duelo",
+          "nav": "Duelo",
+          "shield": "VS",
+          "title": "Duelo en el DTM",
+          "intro": "Las dos fichas de calle frente a frente: el 190E Evolution II contra el BMW M3 Sport Evolution de la Sala 04. Gana cada fila la cifra mejor.",
+          "rival": "bmw-m3-e30",
+          "rows": [
+            {
+              "spec": "power",
+              "better": "high",
+              "verdict": {
+                "historia": "Prácticamente un empate: tres caballos de diferencia.",
+                "tecnico": "235 CV a 7.200 rpm frente a 238 CV a 7.000 rpm."
+              }
+            },
+            {
+              "spec": "torque",
+              "better": "high",
+              "verdict": {
+                "historia": "El Mercedes empuja algo más a medio régimen.",
+                "tecnico": "245 Nm a 5.000 rpm frente a 240 Nm a 4.750 rpm."
+              }
+            },
+            {
+              "spec": "topSpeed",
+              "better": "high",
+              "verdict": {
+                "historia": "La aerodinámica del Evolution II compensa su tamaño.",
+                "tecnico": "Cx 0,29 con el kit completo."
+              }
+            },
+            {
+              "spec": "acceleration",
+              "better": "low",
+              "verdict": {
+                "historia": "El M3, 140 kg más ligero, sale antes.",
+                "tecnico": "7,1 s frente a 6,5 s de 0 a 100 km/h."
+              }
+            },
+            {
+              "spec": "weight",
+              "better": "low",
+              "verdict": {
+                "historia": "La berlina de Stuttgart es más grande y pesa más.",
+                "tecnico": "1.340 kg frente a 1.200 kg."
+              }
+            }
+          ],
+          "note": {
+            "historia": "En la ficha gana el M3 por la mínima. En la pista se repartieron los títulos: BMW ganó el DTM en 1987 y 1989 con el M3, y Klaus Ludwig se llevó el de 1992 con el 190E Evolution II.",
+            "tecnico": "Cifras de serie de las fichas del museo: el M3 Sport Evolution según BMW y el 190E 2.5-16 Evolution II según Mercedes-Benz."
+          }
+        },
+        {
+          "type": "facts-counters",
+          "id": "cifras",
+          "kicker": "Ficha técnica",
+          "title": "Cifras del Evolution II",
+          "specs": [
+            "power",
+            "torque",
+            "topSpeed",
+            "acceleration",
+            "weight",
+            "production"
+          ]
+        }
+      ]
     },
     {
       "id": "toyota-supra-a80",

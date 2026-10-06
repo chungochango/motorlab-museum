@@ -450,6 +450,53 @@ html.js .rv.is-in { opacity: 1; }
 .fact dt { font-size: 0.66rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-2); margin-bottom: 10px; }
 .fact dd { font-family: var(--font-data); font-size: clamp(1.9rem, 4.4vw, 2.9rem); font-weight: 200; line-height: 1; font-variant-numeric: tabular-nums; }
 .fact dd small { font-size: 0.85rem; font-weight: 400; color: var(--text-2); letter-spacing: 0.1em; }
+/* =========================================================
+   MÓDULO · duel-board
+   Dos fichas enfrentadas: valor | barra ← rótulo → barra | valor.
+   Las barras crecen desde el rótulo central hacia fuera (--k es
+   la fracción del mayor de los dos valores).
+   ========================================================= */
+.duel__board { max-width: 1080px; margin: clamp(28px, 4vh, 44px) auto 0; }
+.duel__head { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: end; gap: 18px; padding-bottom: 18px; border-bottom: 1px solid var(--line-2); }
+.duel__car { display: grid; gap: 4px; min-width: 0; }
+.duel__car b { font-family: var(--font-display); font-size: clamp(1.05rem, 1.8vw, 1.4rem); font-weight: 700; line-height: 1.15; }
+.duel__car small { font-size: 0.78rem; letter-spacing: 0.08em; color: var(--text-2); }
+.duel__car--a b { color: rgb(var(--accent)); }
+.duel__car--b { text-align: right; }
+a.duel__car--b { transition: color 0.2s ease; }
+@media (hover: hover) and (pointer: fine) { a.duel__car--b:hover small { color: var(--text); } }
+.duel__score { font-family: var(--font-data); font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; }
+.duel__score i { font-style: normal; margin: 0 0.25em; color: var(--text-3); }
+.duel__rows { list-style: none; }
+.duel__row {
+  display: grid; grid-template-columns: minmax(84px, auto) minmax(0, 1fr) minmax(120px, auto) minmax(0, 1fr) minmax(84px, auto);
+  align-items: center; column-gap: 14px; padding: 16px 0 14px; border-bottom: 1px solid var(--line); transition: background-color 0.2s ease;
+}
+.duel__row.is-hot { background: linear-gradient(90deg, rgba(var(--accent), 0.06), rgba(var(--accent), 0) 30%, rgba(var(--accent), 0) 70%, rgba(var(--accent-3), 0.06)); }
+.duel__label { grid-column: 3; text-align: center; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-2); }
+.duel__val { font-family: var(--font-data); font-size: clamp(1.15rem, 2vw, 1.5rem); font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--text-2); transition: color 0.3s ease; }
+.duel__val small { font-size: 0.6em; letter-spacing: 0.06em; color: var(--text-3); }
+.duel__val.is-win { color: var(--text); font-weight: 600; }
+.duel__val--a { grid-column: 1; grid-row: 1; }
+.duel__val--b { grid-column: 5; grid-row: 1; text-align: right; }
+.duel__bar { grid-row: 1; height: 8px; border-radius: 1px; background: var(--line-2); transform: scaleX(0); transition: transform 1.1s var(--ease); }
+.duel__bar--a { grid-column: 2; transform-origin: 100% 50%; }
+.duel__bar--b { grid-column: 4; transform-origin: 0 50%; }
+.duel__bar--a.is-win { background: rgb(var(--accent)); }
+.duel__bar--b.is-win { background: rgb(var(--accent-3)); }
+.duel__board.is-on .duel__bar { transform: scaleX(var(--k)); }
+.duel__verdict { grid-column: 1 / -1; margin-top: 8px; font-size: 0.86rem; line-height: 1.5; color: var(--text-body); text-align: center; }
+.duel__note { margin-top: 22px; font-size: 0.92rem; line-height: 1.65; color: var(--text-body); max-width: 70ch; }
+@media (max-width: 640px) {
+  .duel__head { grid-template-columns: 1fr 1fr; }
+  .duel__score { grid-column: 1 / -1; grid-row: 1; text-align: center; }
+  .duel__row { grid-template-columns: auto minmax(0, 1fr) minmax(0, 1fr) auto; row-gap: 8px; }
+  .duel__label { grid-column: 1 / -1; grid-row: 1; }
+  .duel__val--a, .duel__val--b, .duel__bar { grid-row: 2; }
+  .duel__val--a { grid-column: 1; } .duel__bar--a { grid-column: 2; } .duel__bar--b { grid-column: 3; } .duel__val--b { grid-column: 4; }
+}
+@media (prefers-reduced-motion: reduce) { .duel__bar { transition: none; } }
+
 /* Cifras: 3 columnas en escritorio, 2 en tablet y una en móvil; un número impar se cierra a todo el ancho */
 @media (max-width: 1023px) {
   .facts__grid { grid-template-columns: repeat(2, 1fr); }
@@ -559,6 +606,9 @@ html.js .plaque--hero { animation: plaqueIn 0.9s var(--out) 0.35s both; }
 html.js .lane-panel { opacity: 0; visibility: hidden; transform: translateY(6px); filter: blur(4px); transition: opacity 0.15s ease, transform 0.15s ease, filter 0.15s ease, visibility 0s linear 0.15s; }
 html.js .lane-panel.is-active { opacity: 1; visibility: visible; transform: none; filter: none; transition: opacity 0.32s var(--out) 0.06s, transform 0.4s var(--out) 0.06s, filter 0.32s var(--out) 0.06s, visibility 0s; }
 .lane-panel__fig .optic { width: 100%; border-radius: 6px; }
+/* Despiece vertical: columna estrecha y foto con la altura de la pantalla como tope */
+.lane-panel.is-portrait { grid-template-columns: minmax(0, 0.8fr) minmax(320px, 1.2fr); }
+.lane-panel.is-portrait .lane-panel__fig .optic { width: auto; max-width: 100%; height: min(calc(100svh - var(--topbar) - 120px), 860px); margin-inline: auto; }
 .lane-panel__fig figcaption { margin-top: 10px; font-size: 0.8rem; color: var(--text-3); }
 .pt { position: absolute; z-index: 3; left: var(--x); top: var(--y); width: 40px; height: 40px; margin: -20px 0 0 -20px; display: grid; place-items: center; transition: transform 0.16s var(--out); }
 .pt span { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: #000; border: 2px solid rgba(var(--accent-2), 0.9); color: #fff; font-family: var(--font-data); font-size: 0.78rem; font-weight: 600; box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.5), 0 0 12px rgba(var(--accent), 0.45); transition: background-color 0.2s ease, color 0.2s ease, transform 0.25s var(--out), box-shadow 0.25s ease; }
@@ -609,7 +659,8 @@ html.js .lane-panel.is-active { opacity: 1; visibility: visible; transform: none
   }
   .lanes::-webkit-scrollbar { display: none; }
   .lane { flex: 0 0 clamp(170px, 30vw, 220px); scroll-snap-align: start; scroll-snap-stop: always; }
-  .lane-panel { grid-template-columns: minmax(0, 1fr); }
+  .lane-panel, .lane-panel.is-portrait { grid-template-columns: minmax(0, 1fr); }
+  .lane-panel.is-portrait .lane-panel__fig .optic { height: min(68svh, 640px); }
 }
 @media (max-width: 900px) {
   .anatomy__panel { grid-template-columns: minmax(0, 1fr); margin-top: 18px; }
