@@ -4,7 +4,15 @@
   "description": "Vídeo promocional vertical de MotorLab Museum (Remotion)",
   "scripts": {
     "studio": "remotion studio src/index.ts",
-    "render": "remotion render src/index.ts PromoVideo out/motorlab-promo.mp4"
+    "render": "remotion render src/index.ts PromoVideo out/motorlab-promo.mp4",
+    "spotlight:temerario": "remotion render src/index.ts Spotlight-temerario out/spotlight-temerario.mp4",
+    "spotlight:f40": "remotion render src/index.ts Spotlight-f40 out/spotlight-f40.mp4",
+    "mclaren": "remotion render src/index.ts McLarenPromo out/mclaren-promo.mp4",
+    "gt3rs": "remotion render src/index.ts GT3RSPromo out/porsche-gt3rs-30s.mp4",
+    "mclaren-hybrid": "remotion render src/index.ts McLarenHybrid out/mclaren-hybrid-30s.mp4",
+    "sfx": "node scripts/sfx.mjs",
+    "r34": "remotion render src/index.ts R34Mfd out/r34-mfd-25s.mp4",
+    "m3": "remotion render src/index.ts M3Dtm out/m3-e30-dtm-25s.mp4"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.533",
