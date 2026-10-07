@@ -13,6 +13,8 @@ Con servidor (`http://`), el motor lee `cars.json` directamente. Sin servidor, u
 
 ## Datos del museo
 
+`museum.tracks` guarda los circuitos que comparten las salas: `{ name, lengthKm, viewBox, d, source }`, con el trazado real a escala (de OpenStreetMap; `source` es su atribución, que se muestra bajo el plano). El módulo `track-telemetry` los cita por su clave (`"track": "nordschleife"`).
+
 `museum.legal` es el aviso legal y `museum.privacy` la lista de puntos de privacidad técnica: los dos se muestran en la ventana «Info legal» del pie de todas las páginas (`Museo.footer` en `engine/core.js`). La política completa y el consentimiento siguen en `assets/museo-consent.js`.
 
 ## Añadir un coche
@@ -105,7 +107,7 @@ Un texto que cambia con el modo se escribe `{ "historia": "…", "tecnico": "…
 
 ## Módulos disponibles
 
-`hero-cinematic` · `hero-plate` · `anatomy-tabs` · `parts-gallery` · `story-road` · `systems-lanes` · `facts-counters` · `specs-board` · `homologation-bay` (box de homologación con cámara, panel de detalle y reglaje calle/competición; formato en la cabecera de `engine/modules/homologation-bay.js`) · `boost-stage` (simulador de turbos secuenciales: deslizador de régimen y etapas `{ key, from, title, text, readouts }`) · `tolerance-stages` (etapas de preparación con el estado de cada pieza y la marca de dato oficial o no) · `duel-board` (duelo de fichas contra otra sala del catálogo: `rival` es su id y cada fila `{ spec, better: "high"|"low", verdict }` compara la misma clave de `specs`; formato en la cabecera de `engine/modules/duel-board.js`) · `telemetry-lab` (laboratorio de túnel de viento: su formato está documentado en la cabecera de `engine/modules/telemetry-lab.js`; la geometría `rig` se mide en % sobre la foto de perfil). Cualquier sala puede usar cualquier módulo con cualquier tema.
+`hero-cinematic` · `hero-plate` · `anatomy-tabs` · `parts-gallery` · `story-road` · `systems-lanes` · `facts-counters` · `specs-board` · `homologation-bay` (box de homologación con cámara, panel de detalle y reglaje calle/competición; formato en la cabecera de `engine/modules/homologation-bay.js`) · `boost-stage` (simulador de turbos secuenciales: deslizador de régimen y etapas `{ key, from, title, text, readouts }`) · `tolerance-stages` (etapas de preparación con el estado de cada pieza y la marca de dato oficial o no) · `duel-board` (duelo de fichas contra otra sala del catálogo: `rival` es su id y cada fila `{ spec, better: "high"|"low", verdict }` compara la misma clave de `specs`; formato en la cabecera de `engine/modules/duel-board.js`) · `track-telemetry` (Track Blueprint: plano del circuito con cursor, deslizador de vuelta, salpicadero de velocidad, marcha, régimen, fuerzas G y pedales, y ficha de cada curva crítica; formato en la cabecera de `engine/modules/track-telemetry.js`; trae su propia hoja `track-telemetry.css`) · `telemetry-lab` (laboratorio de túnel de viento: su formato está documentado en la cabecera de `engine/modules/telemetry-lab.js`; la geometría `rig` se mide en % sobre la foto de perfil). Cualquier sala puede usar cualquier módulo con cualquier tema. Un módulo con estilos propios se registra con `{ css: true }` y `engine/sala.js` carga `engine/modules/<tipo>.css`.
 
 ## Despliegue
 

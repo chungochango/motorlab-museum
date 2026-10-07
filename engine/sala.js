@@ -35,6 +35,7 @@
   if (heroImg?.src) document.head.appendChild(M.preloadLink(heroImg, { picture: !heroImg.noPicture && !(car.sections[0].type === "hero-cinematic" && car.colors) }));
   const ctx = {
     car, cars, index, store,
+    museum: data.museum,                            // datos comunes (alas, circuitos…)
     // Número de sala del catálogo completo (cuentan también las salas en desarrollo; un ala propia lo fija: "M-01")
     room: M.roomNo(car, data.cars.indexOf(car)),
     roomOf: (c) => M.roomNo(c, data.cars.indexOf(c)),
@@ -58,6 +59,8 @@
       M.loadCSS(`themes/${car.theme}.css`),
       ...types.filter((t) => !M.module(t)).map((t) => M.loadScript(`engine/modules/${t}.js`)),
     ]);
+    // Un módulo con su propia hoja de estilos se declara { css: true }: engine/modules/<tipo>.css
+    await Promise.all(types.filter((t) => M.module(t)?.css).map((t) => M.loadCSS(`engine/modules/${t}.css`)));
   } catch (err) {
     console.error(err);
   }
