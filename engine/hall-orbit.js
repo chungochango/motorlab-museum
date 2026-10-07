@@ -43,7 +43,7 @@
     const wingTag = (c) => (wing(c) ? `<span class="hall__wing" style="--wing: ${wing(c).accent || "226, 228, 232"}"><b>${esc(wing(c).label)}</b>${wing(c).name ? ` · ${esc(wing(c).name)}` : ""}</span>` : "");
     // Separador antes de la primera sala de cada ala (los indicadores se agrupan por ala)
     const opensWing = (c, i) => wing(c) && !(i && cars[i - 1].wing === c.wing);
-    const PREVIEW = { engine: "Motor", power: "Potencia", downforce: "Carga aerodinámica", transmission: "Transmisión", suspension: "Suspensión", chassis: "Chasis" };
+    const PREVIEW = { engine: "Motor", power: "Potencia", downforce: "Carga aerodinámica", transmission: "Transmisión", suspension: "Suspensión", chassis: "Chasis", drivetrain: "Tracción", weight: "Peso" };
     const teaser = (c, i) => {
       const t = c.hall.teaser || {};
       return `

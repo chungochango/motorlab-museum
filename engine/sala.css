@@ -497,6 +497,89 @@ a.duel__car--b { transition: color 0.2s ease; }
 }
 @media (prefers-reduced-motion: reduce) { .duel__bar { transition: none; } }
 
+/* =========================================================
+   MÓDULO · boost-stage (turbos secuenciales)
+   El esquema reacciona a data-stage del contenedor:
+   primario · precarga · paralelo. --spin = periodo de giro.
+   ========================================================= */
+.boost__rig { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(300px, 1fr); gap: clamp(20px, 3vw, 44px); align-items: start; margin-top: clamp(28px, 4vh, 44px); --spin: 1.4s; }
+.boost__diagram { width: 100%; height: auto; display: block; font-family: var(--font-data); }
+.boost__diagram text { font-size: 15px; letter-spacing: 0.12em; fill: var(--text-2); }
+.boost__engine rect { fill: var(--panel-2); stroke: var(--line-2); stroke-width: 2; }
+.boost__pipe { fill: none; stroke: var(--line-2); stroke-width: 10; stroke-linecap: round; stroke-linejoin: round; }
+.boost__pipe--t2 { opacity: 0.5; transition: opacity 0.4s var(--out); }
+.boost__flow { fill: none; stroke: rgb(var(--accent)); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 10 14; opacity: 0; transition: opacity 0.4s var(--out); animation: boostFlow 0.8s linear infinite; }
+@keyframes boostFlow { to { stroke-dashoffset: -24; } }
+.boost__flow--intake, .boost__flow--t1, .boost__flow--c1 { opacity: 0.9; }
+.boost__turbo circle { fill: var(--panel); stroke: var(--line-2); stroke-width: 3; transition: stroke 0.4s var(--out); }
+.boost__wheel line { stroke: var(--text-2); stroke-width: 3; stroke-linecap: round; }
+.boost__wheel.t1 { animation: boostSpin var(--spin) linear infinite; }
+.boost__wheel.t2 { animation: boostSpin calc(var(--spin) * 1.6) linear infinite; animation-play-state: paused; }
+@keyframes boostSpin { to { transform: rotate(360deg); } }
+.boost__turbo--t1 circle { stroke: rgb(var(--accent)); }
+.boost__valve rect { fill: var(--panel-2); stroke: var(--line-2); stroke-width: 2; transition: stroke 0.4s var(--out); }
+.boost__flap { stroke: var(--text); stroke-width: 4; stroke-linecap: round; transform-box: fill-box; transform-origin: center; transform: rotate(0deg); transition: transform 0.5s var(--out); }
+.boost__cooler rect { fill: var(--panel-2); stroke: var(--line-2); stroke-width: 2; }
+.boost__cooler line { stroke: var(--line-2); stroke-width: 2; }
+/* Precarga: la válvula de escape se entreabre y el turbo 2 gira sin soplar */
+.boost__rig[data-stage="precarga"] .boost__flow--t2 { opacity: 0.45; }
+.boost__rig[data-stage="precarga"] .boost__valve--ecv .boost__flap { transform: rotate(45deg); }
+.boost__rig[data-stage="precarga"] .boost__wheel.t2 { animation-play-state: running; animation-duration: calc(var(--spin) * 2.4); }
+.boost__rig[data-stage="precarga"] .boost__valve--ecv rect { stroke: rgb(var(--accent)); }
+/* Paralelo: las dos válvulas abiertas y los dos turbos soplando */
+.boost__rig[data-stage="paralelo"] .boost__pipe--t2 { opacity: 1; }
+.boost__rig[data-stage="paralelo"] .boost__flow--t2, .boost__rig[data-stage="paralelo"] .boost__flow--c2 { opacity: 0.9; }
+.boost__rig[data-stage="paralelo"] .boost__valve .boost__flap { transform: rotate(90deg); }
+.boost__rig[data-stage="paralelo"] .boost__valve rect, .boost__rig[data-stage="paralelo"] .boost__turbo--t2 circle { stroke: rgb(var(--accent)); }
+.boost__rig[data-stage="paralelo"] .boost__wheel.t2 { animation-play-state: running; animation-duration: var(--spin); }
+.boost__panel { display: grid; gap: 16px; }
+.boost__rpm { display: flex; justify-content: space-between; align-items: baseline; }
+.boost__rpm label { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-2); }
+.boost__rpm-value { font-family: var(--font-data); font-size: clamp(1.8rem, 3.4vw, 2.6rem); font-variant-numeric: tabular-nums; color: var(--text); }
+.boost__rpm-value span { color: rgb(var(--accent)); }
+.boost__slider { width: 100%; accent-color: rgb(var(--accent)); height: 28px; cursor: pointer; }
+.boost__presets { display: flex; flex-wrap: wrap; gap: 8px; }
+.boost__presets button { padding: 8px 14px; border-radius: 3px; border: 1px solid var(--line-2); font-size: 0.78rem; letter-spacing: 0.06em; color: var(--text-soft); transition: border-color 0.2s ease, color 0.2s ease; }
+@media (hover: hover) and (pointer: fine) { .boost__presets button:hover { border-color: rgb(var(--accent)); color: var(--text); } }
+.boost__tag { display: inline-block; font-family: var(--font-data); font-size: 0.74rem; letter-spacing: 0.14em; color: rgb(var(--accent)); }
+.boost__info h3 { margin-top: 6px; font-family: var(--font-display); font-size: clamp(1.3rem, 2.2vw, 1.7rem); line-height: 1.15; }
+.boost__info > p { margin-top: 10px; color: var(--text-body); line-height: 1.65; }
+.boost__info .data { margin-top: 14px; }
+.boost__note { font-size: 0.8rem; color: var(--text-3); }
+@media (max-width: 900px) { .boost__rig { grid-template-columns: minmax(0, 1fr); } }
+/* Móvil: el esquema se reduce a un tercio; sus rótulos crecen para seguir leyéndose (~9 px reales) */
+@media (max-width: 600px) { .boost__diagram text { font-size: 27px; letter-spacing: 0.04em; } }
+@media (prefers-reduced-motion: reduce) { .boost__flow, .boost__wheel.t1, .boost__wheel.t2 { animation: none; } .boost__flap { transition: none; } }
+
+/* =========================================================
+   MÓDULO · tolerance-stages (etapas de preparación)
+   ========================================================= */
+.tolerance__tabs { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-top: clamp(28px, 4vh, 44px); }
+.tolerance__tabs [role="tab"] { display: grid; gap: 6px; text-align: left; padding: 16px 18px; border-radius: 3px; background: var(--panel-2); border: 1px solid var(--line); color: var(--text-2); transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease; }
+.tolerance__tabs [role="tab"][aria-selected="true"] { background: var(--panel); border-color: rgb(var(--accent)); color: var(--text); }
+.tolerance__label { font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase; }
+.tolerance__power { font-family: var(--font-data); font-size: clamp(1.2rem, 2vw, 1.5rem); font-variant-numeric: tabular-nums; }
+.tolerance__tabs [role="tab"][aria-selected="true"] .tolerance__power { color: rgb(var(--accent)); }
+.tolerance__stage { margin-top: 18px; }
+.tolerance__panel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(20px, 3vw, 44px); padding: clamp(20px, 3vw, 32px); border-radius: 3px; background: var(--panel); border: 1px solid var(--line); }
+.tolerance__panel[hidden] { display: none; }
+.tolerance__badge { display: inline-block; padding: 4px 10px; border-radius: 2px; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; border: 1px solid var(--line-2); color: var(--text-soft); }
+.tolerance__badge.is-unofficial { border-color: rgb(var(--accent)); color: rgb(var(--accent)); }
+.tolerance__head h3 { margin-top: 12px; font-family: var(--font-display); font-size: clamp(1.3rem, 2.2vw, 1.7rem); line-height: 1.15; }
+.tolerance__head p { margin-top: 10px; color: var(--text-body); line-height: 1.65; }
+.tolerance__parts { list-style: none; border-top: 1px solid var(--line-2); }
+.tolerance__parts li { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.tolerance__part { font-weight: 600; }
+.tolerance__state { font-family: var(--font-data); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; border: 1px solid var(--line-2); color: var(--text-2); }
+.tolerance__parts .is-reforzar .tolerance__state { border-color: rgb(var(--accent)); color: rgb(var(--accent)); }
+.tolerance__parts .is-sustituir .tolerance__state { background: rgb(var(--accent)); border-color: rgb(var(--accent)); color: var(--accent-ink); }
+.tolerance__note { grid-column: 1 / -1; margin-top: 4px; font-size: 0.86rem; color: var(--text-2); line-height: 1.5; }
+.tolerance__why { margin-top: 18px; padding: clamp(20px, 3vw, 28px); border-radius: 3px; border: 1px solid var(--line-2); }
+.tolerance__why h3 { font-family: var(--font-display); font-size: 1.15rem; }
+.tolerance__why p { margin-top: 8px; color: var(--text-body); line-height: 1.65; max-width: 75ch; }
+.tolerance__footnote { margin-top: 12px; font-size: 0.8rem; color: var(--text-3); }
+@media (max-width: 900px) { .tolerance__panel { grid-template-columns: minmax(0, 1fr); } }
+
 /* Cifras: 3 columnas en escritorio, 2 en tablet y una en móvil; un número impar se cierra a todo el ancho */
 @media (max-width: 1023px) {
   .facts__grid { grid-template-columns: repeat(2, 1fr); }

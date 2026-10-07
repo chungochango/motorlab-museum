@@ -16,5 +16,11 @@
 /190e/*  /rooms/cars/190e/:splat  200
 /supra  /supra/  301
 /supra/*  /rooms/cars/supra/:splat  200
+/quattro  /quattro/  301
+/quattro/*  /rooms/cars/quattro/:splat  200
+/rx7  /rx7/  301
+/rx7/*  /rooms/cars/rx7/:splat  200
+/evo  /evo/  301
+/evo/*  /rooms/cars/evo/:splat  200
 /panigale  /panigale/  301
 /panigale/*  /rooms/bikes/panigale/:splat  200

@@ -39,6 +39,18 @@
       "destination": "/rooms/cars/supra/:path+"
     },
     {
+      "source": "/quattro/:path+",
+      "destination": "/rooms/cars/quattro/:path+"
+    },
+    {
+      "source": "/rx7/:path+",
+      "destination": "/rooms/cars/rx7/:path+"
+    },
+    {
+      "source": "/evo/:path+",
+      "destination": "/rooms/cars/evo/:path+"
+    },
+    {
       "source": "/panigale/:path+",
       "destination": "/rooms/bikes/panigale/:path+"
     }

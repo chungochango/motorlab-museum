@@ -1,0 +1,44 @@
+[
+  {
+    "id": "01",
+    "file": "voz/190e-01.wav",
+    "start": 0.05,
+    "end": 3.17
+  },
+  {
+    "id": "02",
+    "file": "voz/190e-02.wav",
+    "start": 0.1,
+    "end": 8.43
+  },
+  {
+    "id": "03",
+    "file": "voz/190e-03.wav",
+    "start": 0.1,
+    "end": 7.03
+  },
+  {
+    "id": "04",
+    "file": "voz/190e-04.wav",
+    "start": 0.07,
+    "end": 8.85
+  },
+  {
+    "id": "05",
+    "file": "voz/190e-05.wav",
+    "start": 0.1,
+    "end": 6.22
+  },
+  {
+    "id": "06",
+    "file": "voz/190e-06.wav",
+    "start": 0.11,
+    "end": 5.96
+  },
+  {
+    "id": "07",
+    "file": "voz/190e-07.wav",
+    "start": 0.1,
+    "end": 3.75
+  }
+]

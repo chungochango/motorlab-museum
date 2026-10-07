@@ -12,7 +12,15 @@
     "mclaren-hybrid": "remotion render src/index.ts McLarenHybrid out/mclaren-hybrid-30s.mp4",
     "sfx": "node scripts/sfx.mjs",
     "r34": "remotion render src/index.ts R34Mfd out/r34-mfd-25s.mp4",
-    "m3": "remotion render src/index.ts M3Dtm out/m3-e30-dtm-25s.mp4"
+    "m3": "remotion render src/index.ts M3Dtm out/m3-e30-dtm-25s.mp4",
+    "f40-tiktok": "remotion render src/index.ts F40Tiktok out/f40-tiktok-45s.mp4",
+    "190e-tiktok": "remotion render src/index.ts Mercedes190eTiktok out/190e-tiktok-voz.mp4",
+    "voz-190e": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/voz.ps1 -Lines scripts/voz-190e.json -Prefix 190e -Voice Pablo -Rate 1.15",
+    "macbook": "remotion render src/index.ts MacbookShowcase out/macbook-showcase-30s.mp4 --crf=20",
+    "capturas": "node scripts/capturas.mjs",
+    "story": "remotion still src/index.ts StoryPoster out/story-exhibit-08.png --scale=2",
+    "story-p1": "remotion still src/index.ts StoryPosterP1 out/story-p1.png --scale=2",
+    "stories": "node scripts/stories.mjs"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.533",

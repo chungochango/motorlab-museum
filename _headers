@@ -58,6 +58,24 @@
 /supra/img/*
   Cache-Control: public, max-age=31536000, immutable
 
+/rooms/cars/quattro/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/quattro/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/rooms/cars/rx7/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/rx7/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/rooms/cars/evo/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/evo/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
 /rooms/bikes/panigale/img/*
   Cache-Control: public, max-age=31536000, immutable
 

@@ -1,0 +1,138 @@
+{
+  "width": 1440,
+  "height": 900,
+  "shots": {
+    "hall": {
+      "file": "web/hall.jpg",
+      "url": "/",
+      "click": {
+        "x": 720,
+        "y": 774,
+        "w": 216,
+        "h": 40
+      }
+    },
+    "f40-portada": {
+      "file": "web/f40-portada.jpg",
+      "url": "/f40/"
+    },
+    "f40-piezas": {
+      "file": "web/f40-piezas.jpg",
+      "url": "/f40/",
+      "index": {
+        "chasis": {
+          "x": 161,
+          "y": 610,
+          "w": 210,
+          "h": 44
+        },
+        "motor": {
+          "x": 161,
+          "y": 478,
+          "w": 210,
+          "h": 44
+        },
+        "aero": {
+          "x": 161,
+          "y": 566,
+          "w": 210,
+          "h": 44
+        }
+      }
+    },
+    "f40-chasis": {
+      "file": "web/f40-chasis.jpg",
+      "url": "/f40/",
+      "index": {
+        "chasis": {
+          "x": 161,
+          "y": 264,
+          "w": 210,
+          "h": 44
+        },
+        "motor": {
+          "x": 161,
+          "y": 132,
+          "w": 210,
+          "h": 44
+        },
+        "aero": {
+          "x": 161,
+          "y": 220,
+          "w": 210,
+          "h": 44
+        }
+      }
+    },
+    "f40-motor": {
+      "file": "web/f40-motor.jpg",
+      "url": "/f40/",
+      "index": {
+        "chasis": {
+          "x": 161,
+          "y": 264,
+          "w": 210,
+          "h": 44
+        },
+        "motor": {
+          "x": 161,
+          "y": 132,
+          "w": 210,
+          "h": 44
+        },
+        "aero": {
+          "x": 161,
+          "y": 220,
+          "w": 210,
+          "h": 44
+        }
+      }
+    },
+    "f40-aero": {
+      "file": "web/f40-aero.jpg",
+      "url": "/f40/",
+      "index": {
+        "chasis": {
+          "x": 161,
+          "y": 264,
+          "w": 210,
+          "h": 44
+        },
+        "motor": {
+          "x": 161,
+          "y": 132,
+          "w": 210,
+          "h": 44
+        },
+        "aero": {
+          "x": 161,
+          "y": 220,
+          "w": 210,
+          "h": 44
+        }
+      }
+    },
+    "190e-portada": {
+      "file": "web/190e-portada.jpg",
+      "url": "/190e/"
+    },
+    "190e-sistemas": {
+      "file": "web/190e-sistemas.jpg",
+      "url": "/190e/",
+      "click": {
+        "x": 372,
+        "y": 347,
+        "w": 164,
+        "h": 128
+      }
+    },
+    "190e-aero": {
+      "file": "web/190e-aero.jpg",
+      "url": "/190e/"
+    },
+    "190e-duelo": {
+      "file": "web/190e-duelo.jpg",
+      "url": "/190e/"
+    }
+  }
+}

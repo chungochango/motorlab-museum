@@ -6381,24 +6381,90 @@
       "badge": "MK4 (A80)",
       "year": 1993,
       "years": "1993 — 2002",
-      "theme": "wangan",
+      "theme": "midnight",
       "country": "Japón",
       "category": "Gran turismo",
       "tags": [
         "turbo"
       ],
-      "status": "coming_soon",
       "palette": {
-        "accent": "#E8590C",
+        "accent": "#FF9E1B",
         "body": "#B8BCC2",
-        "hallAccent": "232, 89, 12"
+        "note": "Ámbar del cuadro retroiluminado y plata de la carrocería; el tema midnight pone carbón, grafito y perla",
+        "hallAccent": "255, 158, 27"
       },
       "marks": [
         "Toyota",
         "Supra",
         "2JZ-GTE",
-        "Getrag"
+        "Getrag",
+        "Torsen"
       ],
+      "exitLine": "Ingeniería de precisión de los noventa: 2JZ-GTE y turbos secuenciales",
+      "meta": {
+        "title": "TOYOTA SUPRA A80 · SALA 08 · MOTORLAB MUSEUM",
+        "description": "Análisis técnico y despiece de ingeniería del Toyota Supra A80: motor 2JZ-GTE twin-turbo secuencial, transmisión Getrag V160 y aerodinámica."
+      },
+      "specs": {
+        "power": {
+          "label": "Potencia",
+          "value": 280,
+          "unit": "PS",
+          "note": "a 5.600 rpm · homologada (pacto de caballeros)"
+        },
+        "torque": {
+          "label": "Par",
+          "value": 431,
+          "unit": "Nm",
+          "note": "a 3.600 rpm (44 kgm)"
+        },
+        "topSpeed": {
+          "label": "Velocidad máxima",
+          "value": 180,
+          "unit": "km/h",
+          "note": "limitada electrónicamente, norma japonesa"
+        },
+        "displacement": {
+          "label": "Cilindrada",
+          "value": 2997,
+          "unit": "cc",
+          "note": "86 × 86 mm · 6 en línea"
+        },
+        "weight": {
+          "label": "Peso",
+          "value": 1510,
+          "unit": "kg",
+          "note": "RZ · orientativo, según año y equipamiento"
+        },
+        "acceleration": {
+          "label": "0 – 100 km/h (no oficial)",
+          "value": 4.6,
+          "unit": "s",
+          "decimals": 1,
+          "note": "prueba de prensa"
+        },
+        "drag": {
+          "label": "Coeficiente aerodinámico",
+          "value": 0.31,
+          "unit": "Cx",
+          "decimals": 2,
+          "note": "orientativo"
+        },
+        "engine": {
+          "label": "Motor",
+          "value": "2JZ-GTE",
+          "note": "6 en línea · biturbo secuencial CT20 · bloque de hierro"
+        },
+        "transmission": {
+          "label": "Caja",
+          "value": "Getrag V160",
+          "note": "6 velocidades · diferencial Torsen"
+        },
+        "drivetrain": {
+          "label": "Tracción",
+          "value": "Trasera"
+        }
+      },
       "images": {
         "supra-perfil": {
           "role": "hero",
@@ -6410,10 +6476,54 @@
             "avif",
             "webp"
           ]
+        },
+        "despiece-carroceria": {
+          "role": "exploded",
+          "src": "rooms/cars/supra/img/despiece-carroceria.jpg",
+          "w": 1672,
+          "h": 941,
+          "alt": "Despiece de la carrocería del Supra A80 separada del chasis, con el capó y el alerón levantados y líneas de aire",
+          "formats": [
+            "avif",
+            "webp"
+          ]
+        },
+        "despiece-motor": {
+          "role": "exploded",
+          "src": "rooms/cars/supra/img/despiece-motor.jpg",
+          "w": 1672,
+          "h": 941,
+          "alt": "Motor 2JZ-GTE de seis cilindros en línea con sus dos turbos, la distribución por correa y el colector de admisión",
+          "formats": [
+            "avif",
+            "webp"
+          ]
+        },
+        "despiece-turbos": {
+          "role": "exploded",
+          "src": "rooms/cars/supra/img/despiece-turbos.jpg",
+          "w": 1672,
+          "h": 941,
+          "alt": "Despiece de los turbos secuenciales: colector de escape, dos turbocompresores, actuadores, válvulas y tuberías",
+          "formats": [
+            "avif",
+            "webp"
+          ]
+        },
+        "despiece-transmision": {
+          "role": "exploded",
+          "src": "rooms/cars/supra/img/despiece-transmision.jpg",
+          "w": 1672,
+          "h": 941,
+          "alt": "Despiece de la transmisión: motor, caja Getrag V160, árbol de transmisión, diferencial, suspensión, frenos y escape",
+          "formats": [
+            "avif",
+            "webp"
+          ]
         }
       },
       "hall": {
-        "text": "El 2JZ-GTE de bloque de hierro fundido con dos turbos secuenciales y la caja manual Getrag V160 de 6 velocidades: la base de los tuners de 1.000 CV.",
+        "text": "El 2JZ-GTE de bloque de hierro fundido con dos turbos secuenciales y la caja manual Getrag V160 de 6 velocidades: ingeniería de precisión de los noventa.",
         "specs": [
           [
             "280 PS",
@@ -6431,19 +6541,885 @@
         "image": {
           "ref": "supra-perfil",
           "fit": "contain"
+        }
+      },
+      "sections": [
+        {
+          "type": "hero-cinematic",
+          "id": "inicio",
+          "nav": "Historia",
+          "kicker": [
+            "Japón",
+            "Gran turismo · Sala 08"
+          ],
+          "title": "SUPRA",
+          "image": "supra-perfil",
+          "lead": {
+            "historia": "Ingeniería de precisión, no tuning: Toyota diseñó el Supra A80 alrededor de un <em>seis en línea de hierro</em> sobredimensionado y dos turbos que trabajan <em>en relevo</em>.",
+            "tecnico": "<em>2JZ-GTE</em> de 2.997 cc con turbos secuenciales CT20: <em>280 PS homologados</em> a 5.600 rpm y 431 Nm a 3.600. Caja <em>Getrag V160</em> de 6 velocidades y diferencial Torsen."
+          },
+          "facts": {
+            "historia": [
+              [
+                "1993",
+                "Supra RZ"
+              ],
+              [
+                "2JZ-GTE",
+                "6 en línea"
+              ],
+              [
+                "280 PS",
+                "Homologados"
+              ]
+            ],
+            "tecnico": [
+              [
+                "280 PS",
+                "A 5.600 rpm"
+              ],
+              [
+                "431 Nm",
+                "A 3.600 rpm"
+              ],
+              [
+                "V160",
+                "Getrag 6 vel."
+              ]
+            ]
+          },
+          "cue": {
+            "label": "Despiece",
+            "target": "capas",
+            "aria": "Ir al despiece por capas"
+          }
+        },
+        {
+          "type": "systems-lanes",
+          "id": "capas",
+          "nav": "Despiece",
+          "shield": "08",
+          "title": "Cuatro capas",
+          "intro": "Desmonta el Supra capa a capa. Pasa el ratón o pulsa un número para enfocar la pieza, y cambia a <b>Técnico</b> para ver las cotas.",
+          "hint": "Pulsa un número o una fila para fijar el enfoque; vuelve a pulsar para soltarlo. Las imágenes son despieces ilustrativos.",
+          "lanes": [
+            {
+              "key": "carroceria",
+              "name": "Aerodinámica",
+              "code": "CAPA 01 // CARROCERÍA",
+              "image": "despiece-carroceria",
+              "caption": "Despiece ilustrativo de la carrocería sobre el chasis.",
+              "title": "Aerodinámica y carrocería",
+              "line": "CAPA 01 // ALERÓN // CAPÓ DE ALUMINIO // INTERCOOLER",
+              "historia": "La carrocería del A80 se dibujó en el túnel de viento: morro bajo, flancos redondeados y un alerón trasero que es casi una firma. El capó es de aluminio para quitar peso de delante, y el frontal canaliza aire fresco hacia el intercooler.",
+              "tecnico": [
+                [
+                  "Coeficiente",
+                  "Cx 0,31",
+                  "orientativo"
+                ],
+                [
+                  "Capó",
+                  "Aluminio"
+                ],
+                [
+                  "Alerón",
+                  "Trasero, de serie en el RZ"
+                ],
+                [
+                  "Refrigeración",
+                  "Intercooler frontal"
+                ]
+              ],
+              "parts": [
+                {
+                  "x": 84,
+                  "y": 12,
+                  "name": "Alerón trasero",
+                  "short": "Alerón",
+                  "desc": "La silueta del Supra: genera apoyo en el eje trasero a alta velocidad.",
+                  "value": "De serie en el RZ"
+                },
+                {
+                  "x": 28,
+                  "y": 13,
+                  "name": "Capó de aluminio",
+                  "short": "Capó",
+                  "desc": "Más ligero que el acero: menos peso sobre el eje delantero.",
+                  "value": "Aluminio"
+                },
+                {
+                  "x": 11,
+                  "y": 47,
+                  "name": "Toma frontal",
+                  "short": "Toma",
+                  "desc": "Lleva el aire al intercooler y al radiador.",
+                  "value": "Al intercooler"
+                },
+                {
+                  "x": 16,
+                  "y": 66,
+                  "name": "Intercooler",
+                  "short": "Intercooler",
+                  "desc": "Enfría el aire que comprimen los turbos antes de entrar al motor.",
+                  "value": "Aire-aire"
+                },
+                {
+                  "x": 62,
+                  "y": 30,
+                  "name": "Carrocería",
+                  "short": "Carrocería",
+                  "desc": "Formas redondeadas, pensadas para el túnel de viento.",
+                  "value": "Coupé 2+2"
+                }
+              ]
+            },
+            {
+              "key": "motor",
+              "name": "Bloque 2JZ-GTE",
+              "code": "CAPA 02 // CLOSED-DECK",
+              "image": "despiece-motor",
+              "caption": "Despiece ilustrativo del motor 2JZ-GTE.",
+              "title": "Bloque 2JZ-GTE",
+              "line": "2JZ-GTE // CLOSED-DECK // 6-IN-LINE",
+              "historia": "Un seis cilindros en línea con el bloque de hierro fundido y la parte superior cerrada (closed-deck): los cilindros quedan atados al bloque por arriba y no se deforman con la presión. Toyota lo dimensionó con mucho margen, y por eso se ha convertido en una leyenda.",
+              "tecnico": [
+                [
+                  "Configuración",
+                  "6 en línea · DOHC 24v"
+                ],
+                [
+                  "Bloque",
+                  "Hierro fundido",
+                  "cubierta cerrada (closed-deck)"
+                ],
+                [
+                  "Apoyos de bancada",
+                  "7"
+                ],
+                [
+                  "Diámetro × carrera",
+                  "86 × 86 mm",
+                  "motor cuadrado"
+                ],
+                [
+                  "Compresión",
+                  "8,5 : 1"
+                ]
+              ],
+              "parts": [
+                {
+                  "x": 58,
+                  "y": 72,
+                  "name": "Bloque de hierro closed-deck",
+                  "short": "Bloque",
+                  "desc": "Hierro fundido y cubierta cerrada: los cilindros no se deforman con la presión del turbo.",
+                  "value": "Hierro · 7 apoyos"
+                },
+                {
+                  "x": 45,
+                  "y": 22,
+                  "name": "Culata DOHC de 24 válvulas",
+                  "short": "Culata",
+                  "desc": "Dos árboles de levas y cuatro válvulas por cilindro.",
+                  "value": "DOHC · 24 v"
+                },
+                {
+                  "x": 63,
+                  "y": 42,
+                  "name": "Distribución por correa",
+                  "short": "Distribución",
+                  "desc": "La correa mueve los dos árboles de levas.",
+                  "value": "Correa dentada"
+                },
+                {
+                  "x": 80,
+                  "y": 25,
+                  "name": "Colector de admisión",
+                  "short": "Admisión",
+                  "desc": "Reparte el aire comprimido entre los seis cilindros.",
+                  "value": "6 conductos"
+                },
+                {
+                  "x": 27,
+                  "y": 46,
+                  "name": "Turbos secuenciales",
+                  "short": "Turbos",
+                  "desc": "Dos turbos que trabajan en relevo (ver el simulador).",
+                  "value": "2 × CT20"
+                }
+              ]
+            },
+            {
+              "key": "turbos",
+              "name": "Turbos secuenciales",
+              "code": "CAPA 03 // CT20 × 2",
+              "image": "despiece-turbos",
+              "caption": "Despiece ilustrativo del sistema de turbos.",
+              "title": "Turbos secuenciales",
+              "line": "CAPA 03 // CT20 × 2 // VÁLVULAS DE ESCAPE Y ADMISIÓN",
+              "historia": "Dos turbos iguales que no soplan a la vez: a bajo régimen sólo trabaja el primero, que responde pronto; a partir de unas 4.000 rpm unas válvulas abren paso al segundo y los dos soplan en paralelo. Respuesta abajo y potencia arriba.",
+              "tecnico": [
+                [
+                  "Turbos",
+                  "2 × CT20",
+                  "versión japonesa · CT12B en exportación"
+                ],
+                [
+                  "Funcionamiento",
+                  "Secuencial",
+                  "uno abajo, los dos arriba"
+                ],
+                [
+                  "Relevo",
+                  "≈ 3.500 – 4.000 rpm",
+                  "aproximado"
+                ]
+              ],
+              "parts": [
+                {
+                  "x": 33,
+                  "y": 12,
+                  "name": "Colector de escape",
+                  "short": "Colector",
+                  "desc": "Recoge los gases de los seis cilindros.",
+                  "value": "Fundición"
+                },
+                {
+                  "x": 28,
+                  "y": 50,
+                  "name": "Turbo primario",
+                  "short": "Turbo 1",
+                  "desc": "Trabaja desde abajo: el que da la respuesta inmediata.",
+                  "value": "CT20"
+                },
+                {
+                  "x": 64,
+                  "y": 48,
+                  "name": "Turbo secundario",
+                  "short": "Turbo 2",
+                  "desc": "Se une a partir de unas 4.000 rpm.",
+                  "value": "CT20"
+                },
+                {
+                  "x": 60,
+                  "y": 21,
+                  "name": "Válvula de control",
+                  "short": "Válvula",
+                  "desc": "Abre o cierra el paso del escape y del aire al segundo turbo.",
+                  "value": "Escape / admisión"
+                },
+                {
+                  "x": 5,
+                  "y": 35,
+                  "name": "Actuador de la wastegate",
+                  "short": "Actuador",
+                  "desc": "Limita la presión dejando pasar escape por fuera de la turbina.",
+                  "value": "Neumático"
+                }
+              ]
+            },
+            {
+              "key": "transmision",
+              "name": "Transmisión y chasis",
+              "code": "CAPA 04 // GETRAG V160",
+              "image": "despiece-transmision",
+              "caption": "Despiece ilustrativo de la transmisión y el chasis.",
+              "title": "Transmisión y chasis",
+              "line": "CAPA 04 // GETRAG V160 // TORSEN // 4 PISTONES",
+              "historia": "La caja manual Getrag V160 de seis velocidades se diseñó para el par del 2JZ y es casi tan famosa como el motor. Detrás, un diferencial Torsen reparte el empuje entre las ruedas traseras, y delante frena con pinzas de cuatro pistones.",
+              "tecnico": [
+                [
+                  "Caja",
+                  "Getrag V160",
+                  "manual de 6 velocidades"
+                ],
+                [
+                  "Diferencial",
+                  "Torsen",
+                  "autoblocante mecánico"
+                ],
+                [
+                  "Frenos delanteros",
+                  "Pinzas de 4 pistones"
+                ],
+                [
+                  "Tracción",
+                  "Trasera"
+                ]
+              ],
+              "parts": [
+                {
+                  "x": 46,
+                  "y": 33,
+                  "name": "Caja Getrag V160",
+                  "short": "Caja",
+                  "desc": "Manual de seis velocidades, pensada para el par del 2JZ.",
+                  "value": "6 velocidades"
+                },
+                {
+                  "x": 54,
+                  "y": 14,
+                  "name": "Palanca de cambios",
+                  "short": "Palanca",
+                  "desc": "Recorridos cortos y precisos.",
+                  "value": "Manual"
+                },
+                {
+                  "x": 64,
+                  "y": 34,
+                  "name": "Árbol de transmisión",
+                  "short": "Transmisión",
+                  "desc": "Lleva el par de la caja al eje trasero.",
+                  "value": "Al diferencial"
+                },
+                {
+                  "x": 77,
+                  "y": 24,
+                  "name": "Diferencial Torsen",
+                  "short": "Torsen",
+                  "desc": "Autoblocante mecánico: manda más par a la rueda que agarra.",
+                  "value": "Autoblocante"
+                },
+                {
+                  "x": 51,
+                  "y": 77,
+                  "name": "Freno delantero",
+                  "short": "Freno",
+                  "desc": "Pinza de cuatro pistones sobre disco ventilado.",
+                  "value": "4 pistones"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "boost-stage",
+          "id": "turbos",
+          "nav": "Turbos",
+          "shield": "T",
+          "title": "Turbos secuenciales en relevo",
+          "intro": "Mueve el régimen y mira cómo trabajan los dos turbos: uno abajo, los dos arriba. Las presiones son aproximadas.",
+          "rpm": {
+            "min": 1000,
+            "max": 6800,
+            "value": 2500
+          },
+          "presets": [
+            {
+              "label": "Bajas · < 4.000 rpm",
+              "rpm": 2500
+            },
+            {
+              "label": "Relevo · ≈ 3.800 rpm",
+              "rpm": 3800
+            },
+            {
+              "label": "Altas · > 4.000 rpm",
+              "rpm": 5600
+            }
+          ],
+          "stages": [
+            {
+              "key": "primario",
+              "from": 1000,
+              "label": "ETAPA 1 // TURBO PRIMARIO",
+              "title": "Sólo trabaja el turbo 1",
+              "text": {
+                "historia": "Todo el escape va al primer turbo. Al ser uno solo, gira enseguida: el coche empuja desde abajo sin el retardo de un turbo grande.",
+                "tecnico": "La válvula de escape está cerrada y el turbo 2 no recibe gases. El primario carga en solitario y llega a su presión de trabajo con muy poco régimen."
+              },
+              "readouts": [
+                [
+                  "Turbos soplando",
+                  "1"
+                ],
+                [
+                  "Válvula de escape",
+                  "Cerrada"
+                ],
+                [
+                  "Presión",
+                  "≈ 0,5 bar",
+                  "aproximada, no oficial"
+                ]
+              ]
+            },
+            {
+              "key": "precarga",
+              "from": 3500,
+              "label": "ETAPA 2 // PRECARGA",
+              "title": "El turbo 2 empieza a girar",
+              "text": {
+                "historia": "Antes de pedirle aire, el sistema pone a girar el segundo turbo para que no llegue en frío. Así el relevo no se nota como un tirón.",
+                "tecnico": "La válvula de escape se entreabre: parte de los gases mueven el turbo 2, pero su válvula de admisión sigue cerrada y todavía no sopla al motor."
+              },
+              "readouts": [
+                [
+                  "Turbos soplando",
+                  "1 (el 2 gira en vacío)"
+                ],
+                [
+                  "Válvula de escape",
+                  "Entreabierta"
+                ],
+                [
+                  "Presión",
+                  "≈ 0,6 bar",
+                  "aproximada, no oficial"
+                ]
+              ]
+            },
+            {
+              "key": "paralelo",
+              "from": 4000,
+              "label": "ETAPA 3 // PARALELO",
+              "title": "Los dos turbos soplan juntos",
+              "text": {
+                "historia": "A partir de unas 4.000 rpm se abren las dos válvulas y los turbos trabajan en paralelo: es cuando el Supra entrega toda su potencia.",
+                "tecnico": "Válvulas de escape y de admisión abiertas: los dos CT20 comprimen a la vez hacia el intercooler. Potencia homologada: 280 PS a 5.600 rpm."
+              },
+              "readouts": [
+                [
+                  "Turbos soplando",
+                  "2"
+                ],
+                [
+                  "Válvulas",
+                  "Abiertas"
+                ],
+                [
+                  "Presión",
+                  "≈ 0,8 bar",
+                  "aproximada, no oficial"
+                ],
+                [
+                  "Potencia",
+                  "280 PS",
+                  "homologada a 5.600 rpm"
+                ]
+              ]
+            }
+          ],
+          "note": "Esquema simplificado. Régimen de relevo y presiones aproximados: varían con la versión y no son cifras oficiales de Toyota."
+        },
+        {
+          "type": "tolerance-stages",
+          "id": "resistencia",
+          "nav": "Resistencia",
+          "shield": "R",
+          "title": "El mito de la resistencia del 2JZ",
+          "intro": "Por qué el 2JZ-GTE es el motor favorito de los preparadores. Las etapas de preparación son <b>cifras habituales del mundo de la preparación, no datos de Toyota</b>.",
+          "stages": [
+            {
+              "key": "serie",
+              "label": "De serie",
+              "power": "280 PS",
+              "official": true,
+              "title": "Tal como salió de fábrica",
+              "text": {
+                "historia": "Con 280 PS declarados, el motor va muy por debajo de lo que aguantan sus piezas. Toyota lo construyó con márgenes de seguridad enormes.",
+                "tecnico": "280 PS homologados a 5.600 rpm y 431 Nm a 3.600 rpm, con turbos CT20 secuenciales, compresión 8,5:1 y cigüeñal forjado sobre siete apoyos."
+              },
+              "parts": [
+                [
+                  "Bloque",
+                  "serie",
+                  "Hierro fundido, cubierta cerrada"
+                ],
+                [
+                  "Cigüeñal",
+                  "serie",
+                  "Forjado, 7 apoyos"
+                ],
+                [
+                  "Bielas y pistones",
+                  "serie"
+                ],
+                [
+                  "Turbos",
+                  "serie",
+                  "2 × CT20 secuenciales"
+                ],
+                [
+                  "Combustible",
+                  "serie"
+                ]
+              ]
+            },
+            {
+              "key": "bolt-on",
+              "label": "Preparación ligera",
+              "power": "450 – 550 CV",
+              "official": false,
+              "title": "Más presión, motor de serie",
+              "text": {
+                "historia": "Con escape, admisión, más combustible y más presión de turbo, muchos preparadores pasan de 450 CV sin abrir el motor: bloque, cigüeñal, bielas y pistones siguen siendo los de fábrica.",
+                "tecnico": "Presión cercana a 1,2 bar, mejoras de combustible y gestión; en el rango alto suele cambiarse el sistema secuencial por un turbo único. El interior del motor permanece de serie."
+              },
+              "parts": [
+                [
+                  "Bloque",
+                  "serie"
+                ],
+                [
+                  "Cigüeñal",
+                  "serie"
+                ],
+                [
+                  "Bielas y pistones",
+                  "serie"
+                ],
+                [
+                  "Turbos",
+                  "reforzar",
+                  "Más presión o un turbo único"
+                ],
+                [
+                  "Combustible",
+                  "reforzar",
+                  "Bomba e inyectores mayores"
+                ]
+              ]
+            },
+            {
+              "key": "high-boost",
+              "label": "Alta presión",
+              "power": "+800 CV",
+              "official": false,
+              "title": "El bloque sigue siendo el de fábrica",
+              "text": {
+                "historia": "Los preparadores que superan los 800 CV suelen cambiar bielas y pistones por piezas forjadas… pero conservan el bloque de hierro original. Eso es lo que hizo famoso al 2JZ.",
+                "tecnico": "Turbo único grande, gestión programable, combustible a medida y presiones muy por encima de las de serie. Bielas y pistones forjados de competición; bloque y a menudo cigüeñal de serie."
+              },
+              "parts": [
+                [
+                  "Bloque",
+                  "serie",
+                  "El de fábrica, la clave del mito"
+                ],
+                [
+                  "Cigüeñal",
+                  "serie",
+                  "A menudo el original"
+                ],
+                [
+                  "Bielas y pistones",
+                  "sustituir",
+                  "Forjados de competición"
+                ],
+                [
+                  "Turbos",
+                  "sustituir",
+                  "Un turbo único grande"
+                ],
+                [
+                  "Combustible y gestión",
+                  "sustituir"
+                ]
+              ]
+            }
+          ],
+          "why": {
+            "title": "La física detrás del mito",
+            "text": {
+              "historia": "El bloque es de hierro y su parte superior está cerrada: cada cilindro queda sujeto por arriba y no se ovaliza cuando el turbo aprieta. Debajo, el cigüeñal apoya en siete puntos, uno entre cada cilindro. Es un motor sobredimensionado para lo que tenía que mover.",
+              "tecnico": "Hierro fundido (más rígido que el aluminio a igual espesor), cubierta cerrada que ata las camisas al bloque y cigüeñal forjado con siete apoyos de bancada en un seis en línea, sin las vibraciones de un V6. Muchos bloques de aluminio de cubierta abierta necesitan refuerzos para soportar presiones que el 2JZ aguanta de serie."
+            }
+          },
+          "note": "Las potencias de preparación son orientativas y dependen de cada montaje; no son cifras de Toyota."
+        },
+        {
+          "type": "duel-board",
+          "id": "duelo",
+          "nav": "Duelo",
+          "shield": "VS",
+          "title": "Duelo JDM: Supra contra GT-R",
+          "intro": "La edad de oro japonesa frente a frente: el Supra A80 contra el Nissan Skyline GT-R R34 de la Sala 02. Gana cada fila la cifra mejor.",
+          "rival": "nissan-skyline-r34",
+          "rows": [
+            {
+              "spec": "power",
+              "better": "high",
+              "verdict": {
+                "historia": "Empate obligado: los dos declaraban los 280 PS del pacto de caballeros.",
+                "tecnico": "280 PS homologados en los dos; las cifras reales eran mayores en ambos."
+              }
+            },
+            {
+              "spec": "torque",
+              "better": "high",
+              "verdict": {
+                "historia": "El seis en línea de tres litros del Supra empuja más abajo.",
+                "tecnico": "431 Nm a 3.600 rpm frente a 392 Nm a 4.400 rpm."
+              }
+            },
+            {
+              "spec": "weight",
+              "better": "low",
+              "verdict": {
+                "historia": "El GT-R carga con el peso de su tracción total.",
+                "tecnico": "1.510 kg (orientativo) frente a 1.540 kg."
+              }
+            },
+            {
+              "spec": "topSpeed",
+              "better": "high",
+              "verdict": {
+                "historia": "Otra vez el pacto: los dos, limitados a 180 km/h en Japón.",
+                "tecnico": "Limitación electrónica de la norma japonesa en ambos."
+              }
+            }
+          ],
+          "note": {
+            "historia": "Dos filosofías: el Supra apuesta por la tracción trasera y la fuerza bruta de su seis en línea; el GT-R, por la tracción total ATTESA E-TS y la electrónica que reparte el par en cada curva.",
+            "tecnico": "Cifras de las fichas del museo: Supra RZ (JZA80) y Skyline GT-R (BNR34), versiones japonesas."
+          }
+        },
+        {
+          "type": "facts-counters",
+          "id": "cifras",
+          "kicker": "Ficha técnica",
+          "title": "Cifras del Supra RZ",
+          "specs": [
+            "power",
+            "torque",
+            "displacement",
+            "weight",
+            "acceleration",
+            "drag"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "audi-sport-quattro-s1",
+      "slug": "quattro",
+      "dir": "rooms/cars/quattro",
+      "name": "Audi Sport Quattro S1",
+      "brand": "Audi",
+      "make": "Audi",
+      "model": "Sport Quattro S1",
+      "badge": "E2 Grupo B",
+      "year": 1985,
+      "years": "1984 — 1986",
+      "country": "Alemania",
+      "category": "Rally · Grupo B",
+      "tags": [
+        "competicion",
+        "turbo"
+      ],
+      "status": "coming_soon",
+      "palette": {
+        "accent": "#FACC15",
+        "body": "#FFFFFF",
+        "hallAccent": "250, 204, 21"
+      },
+      "marks": [
+        "Audi",
+        "Quattro",
+        "Sport",
+        "Group B"
+      ],
+      "images": {
+        "quattro-hall": {
+          "role": "hero",
+          "src": "rooms/cars/quattro/img/quattro-perfil.jpg",
+          "w": 1672,
+          "h": 941,
+          "alt": "Audi Sport Quattro S1 blanco de perfil sobre suelo mojado en un garaje de hormigón",
+          "formats": [
+            "avif",
+            "webp"
+          ]
+        }
+      },
+      "hall": {
+        "text": "La máquina definitiva del Grupo B: motor de 5 cilindros 20V turbo colgado por delante del eje, batalla corta y tracción integral Quattro.",
+        "specs": [
+          [
+            "500+ CV",
+            "5 cil. 20V turbo · no oficial"
+          ],
+          [
+            "Batalla corta",
+            "Chasis recortado"
+          ],
+          [
+            "Quattro",
+            "Tracción integral"
+          ]
+        ],
+        "image": {
+          "ref": "quattro-hall",
+          "fit": "contain"
         },
         "teaser": {
-          "badge": "En modelado",
+          "badge": "Próximamente",
           "lines": [
-            "Sala 08 · En modelado",
-            "Bloque de hierro y turbos secuenciales"
+            "Sala 09 · Próximamente",
+            "Grupo B · tracción Quattro"
           ]
         }
       },
       "specsPreview": {
-        "engine": "2JZ-GTE 3.0 · bloque de hierro fundido",
-        "power": "280 PS · turbos secuenciales CT12B (CT20 en el RZ japonés)",
-        "transmission": "Getrag V160 manual de 6 velocidades"
+        "engine": "5 cilindros en línea 20V turbo",
+        "chassis": "Batalla corta, recortada en 320 mm",
+        "drivetrain": "Tracción total permanente Quattro"
+      }
+    },
+    {
+      "id": "mazda-rx7-fd3s",
+      "slug": "rx7",
+      "dir": "rooms/cars/rx7",
+      "name": "Mazda RX-7 Spirit R (FD3S)",
+      "brand": "Mazda",
+      "make": "Mazda",
+      "model": "RX-7",
+      "badge": "Spirit R Type-A",
+      "year": 2002,
+      "years": "1992 — 2002",
+      "country": "Japón",
+      "category": "Deportivo de motor rotativo",
+      "tags": [
+        "rotativo",
+        "turbo"
+      ],
+      "status": "coming_soon",
+      "palette": {
+        "accent": "#38BDF8",
+        "body": "#1E3A8A",
+        "hallAccent": "56, 189, 248"
+      },
+      "marks": [
+        "Mazda",
+        "RX-7",
+        "13B-REW",
+        "BBS",
+        "Recaro"
+      ],
+      "images": {
+        "rx7-hall": {
+          "role": "hero",
+          "src": "rooms/cars/rx7/img/rx7-perfil.jpg",
+          "w": 1672,
+          "h": 941,
+          "alt": "Mazda RX-7 FD3S azul de perfil sobre suelo mojado con reflejos ámbar",
+          "formats": [
+            "avif",
+            "webp"
+          ]
+        }
+      },
+      "hall": {
+        "text": "El cénit del motor rotativo Wankel: birrotor 13B-REW biturbo secuencial, chasis ultraligero y reparto de masas 50:50.",
+        "specs": [
+          [
+            "280 PS",
+            "13B-REW rotativo"
+          ],
+          [
+            "50:50",
+            "Reparto de masas"
+          ],
+          [
+            "1.270 kg",
+            "Spirit R Type A"
+          ]
+        ],
+        "image": {
+          "ref": "rx7-hall",
+          "fit": "contain"
+        },
+        "teaser": {
+          "badge": "En desarrollo",
+          "lines": [
+            "Sala 10 · En desarrollo",
+            "Motor rotativo Wankel"
+          ]
+        }
+      },
+      "specsPreview": {
+        "engine": "Wankel birrotor 13B-REW, biturbo secuencial",
+        "chassis": "Reparto de masas 50:50 · motor central delantero",
+        "weight": "1.270 kg (Spirit R Type A)"
+      }
+    },
+    {
+      "id": "mitsubishi-lancer-evo-viii-mr",
+      "slug": "evo",
+      "dir": "rooms/cars/evo",
+      "name": "Mitsubishi Lancer Evolution VIII MR FQ-400",
+      "brand": "Mitsubishi",
+      "make": "Mitsubishi",
+      "model": "Lancer Evolution",
+      "badge": "VIII MR FQ-400",
+      "year": 2004,
+      "years": "2003 — 2005",
+      "country": "Japón",
+      "category": "Berlina de homologación de rallies",
+      "tags": [
+        "turbo",
+        "rally"
+      ],
+      "status": "coming_soon",
+      "palette": {
+        "accent": "#EF4444",
+        "body": "#DC2626",
+        "hallAccent": "239, 68, 68"
+      },
+      "marks": [
+        "Mitsubishi",
+        "Lancer Evolution",
+        "FQ-400",
+        "Brembo",
+        "Bilstein"
+      ],
+      "images": {
+        "evo-hall": {
+          "role": "hero",
+          "src": "rooms/cars/evo/img/evo-perfil.jpg",
+          "w": 1672,
+          "h": 941,
+          "alt": "Mitsubishi Lancer Evolution rojo de perfil sobre suelo mojado con reflejos rojos",
+          "formats": [
+            "avif",
+            "webp"
+          ]
+        }
+      },
+      "hall": {
+        "text": "La berlina de rallies llevada al extremo: el 4G63T de 2.0 litros exprimido hasta 405 CV, junto a los diferenciales activos ACD y Super AYC.",
+        "specs": [
+          [
+            "405 CV",
+            "2.0L 4G63T turbo"
+          ],
+          [
+            "3,5 s",
+            "0 – 60 mph (dato de fábrica UK)"
+          ],
+          [
+            "Super AYC",
+            "Diferencial activo"
+          ]
+        ],
+        "image": {
+          "ref": "evo-hall",
+          "fit": "contain"
+        },
+        "teaser": {
+          "badge": "En modelado",
+          "lines": [
+            "Sala 11 · En modelado",
+            "Rally de calle · FQ-400"
+          ]
+        }
+      },
+      "specsPreview": {
+        "engine": "2.0L 4G63T DOHC 16V turbo (405 CV)",
+        "transmission": "Manual de 6 velocidades",
+        "drivetrain": "Tracción integral con ACD y Super AYC"
       }
     },
     {

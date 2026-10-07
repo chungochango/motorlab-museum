@@ -84,7 +84,8 @@
       {
         "rule": "design-system-font",
         "value": "ibm plex mono",
-        "createdAt": "2026-10-04T14:41:15.917Z"
+        "createdAt": "2026-10-04T14:41:15.917Z",
+        "reason": "Claude: cada sala define su tipografía en su tema (PRODUCT.md, identidad por sala); DESIGN.md sólo documenta la Sala 02"
       },
       {
         "rule": "design-system-font",
@@ -136,6 +137,12 @@
         ],
         "createdAt": "2026-10-06T10:20:30.780Z",
         "reason": "Claude: falso positivo; las líneas 148 y 190 son el doble filete superior a todo el ancho (top:0, height:6px), firma del tema, no un borde lateral"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "ibm plex sans",
+        "createdAt": "2026-10-07T10:41:05.524Z",
+        "reason": "Claude: cada sala define su tipografía en su tema (PRODUCT.md, identidad por sala); DESIGN.md sólo documenta la Sala 02"
       }
     ]
   }
