@@ -6,3 +6,6 @@ Thumbs.db
 
 # Vídeo promocional (Remotion): renders y fotogramas de prueba
 promo/out/
+
+# Hoja de ruta privada: sólo en local (no se sube a GitHub ni se publica)
+HOJA DE RUTA*.txt

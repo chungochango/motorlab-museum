@@ -24,3 +24,6 @@ rooms/*/*/img/*.json
 
 # Proyecto del vídeo promocional (Remotion): no forma parte de la web
 promo/
+
+# Hoja de ruta privada
+HOJA DE RUTA*.txt

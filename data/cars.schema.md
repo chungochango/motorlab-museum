@@ -8,6 +8,7 @@
 | `data/cars.js` | **Nadie** (generado) | Copia para abrir el museo con doble clic (`file://`) |
 | `tools/build-data.mjs` | — | Valida el JSON y regenera `cars.js` |
 | `tools/images.mjs` | — | Genera `.avif`/`.webp` y anota sus `formats` |
+| `tools/sync-roadmap.mjs` | — | Pone el `[ESTADO: …]` de cada sala en `HOJA DE RUTA MOTORLABMUSEUM.txt` (lo ejecuta `build-data.mjs`) |
 
 Con servidor (`http://`), el motor lee `cars.json` directamente. Sin servidor, usa `cars.js`. **Después de cualquier cambio en `cars.json`, ejecuta `node tools/build-data.mjs`** para que la versión de doble clic no se quede desfasada.
 

@@ -103,3 +103,7 @@ console.log(`✔ data/cars.js generado · ${data.cars.length} salas: ${data.cars
 }
 
 await import("./build-headers.mjs");
+
+// Hoja de ruta (HOJA DE RUTA MOTORLAB MUSEUM.txt): el estado de cada sala sale del catálogo
+const { syncRoadmap } = await import("./sync-roadmap.mjs");
+await syncRoadmap({ root, data });
