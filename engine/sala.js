@@ -14,8 +14,32 @@
   const M = window.Museo;
   const root = document.documentElement;
   const data = await M.loadData();
-  const cars = data.cars.filter((c) => c.status !== "coming_soon");   // las salas en desarrollo no entran en el recorrido
+  const cars = data.cars.filter((c) => M.isRoomOpen(c));   // las salas en desarrollo o aún sin abrir no entran en el recorrido
   const index = cars.findIndex((c) => c.id === root.dataset.car);
+
+  /* Sala con apertura programada (releaseDate) a la que se entra por URL antes de la fecha:
+     no se monta nada (ni tema, ni módulos, ni telemetría); sólo la pantalla de acceso
+     restringido con la fecha, la cuenta atrás y la vuelta al Hall. Al llegar la hora,
+     la cuenta atrás recarga la página y la sala se abre. */
+  const locked = index < 0 && data.cars.find((c) => c.id === root.dataset.car && M.isScheduled(c));
+  if (locked) {
+    const web = /^https?:$/.test(location.protocol);
+    const room = M.roomNo(locked, data.cars.indexOf(locked));
+    document.title = `Sala ${room} · En calibración · ${data.museum.name}`;
+    document.body.insertAdjacentHTML("afterbegin", `
+      <main id="sala" class="lock" style="--accent: ${locked.palette?.hallAccent || "226, 228, 232"}">
+        <section class="lock__panel" aria-labelledby="lock-title">
+          <p class="lock__tag"><span class="lock__dot" aria-hidden="true"></span>Acceso restringido</p>
+          <h1 id="lock-title">Sala ${M.esc(room)} · ${M.esc(locked.name)}</h1>
+          <p class="lock__text">Sala en calibración técnica hasta el <b>${M.esc(M.releaseLabel(locked))}</b> (hora de Madrid).</p>
+          <p class="lock__count" data-release="${M.esc(locked.releaseDate)}" data-after="Abriendo la sala…" data-reload aria-live="off"></p>
+          <a class="lock__back" href="${web ? "/" : M.url(data.museum.hall)}">${M.icons.ARROW_BACK}Volver al Hall</a>
+        </section>
+      </main>`);
+    M.countdowns();
+    root.classList.add("is-ready");
+    return;
+  }
 
   if (index < 0) {
     document.body.insertAdjacentHTML("afterbegin", `<p class="sala-error">Sala no encontrada: «${M.esc(root.dataset.car)}». Revisa data/cars.json.</p>`);

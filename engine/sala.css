@@ -54,6 +54,23 @@ body {
 html:not(.is-ready) body > :not(noscript) { opacity: 0; }
 html.is-ready body > * { transition: opacity 0.4s var(--out); }
 .sala-error { padding: 120px var(--gutter); color: var(--text-2); }
+
+/* Sala con apertura programada a la que se entra antes de la fecha (engine/sala.js) */
+.lock { min-height: 100vh; min-height: 100svh; display: grid; place-items: center; padding: 48px var(--gutter); font-family: "Helvetica Neue", Arial, sans-serif;
+  background: radial-gradient(ellipse 60% 40% at 50% 45%, rgba(var(--accent), 0.1), transparent 70%), #000; }
+.lock__panel { width: min(560px, 100%); display: grid; gap: 16px; padding: clamp(28px, 5vw, 44px); border: 1px solid rgba(var(--accent), 0.3); border-radius: 6px; background: #0a0a0a; }
+.lock__tag { display: flex; align-items: center; gap: 10px; font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-size: 0.74rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgb(var(--accent)); }
+.lock__dot { width: 8px; height: 8px; border-radius: 50%; background: rgb(var(--accent)); box-shadow: 0 0 10px rgba(var(--accent), 0.8); animation: lockBlink 1.6s ease-in-out infinite; }
+@keyframes lockBlink { 50% { opacity: 0.3; } }
+.lock h1 { font-size: clamp(1.6rem, 4vw, 2.3rem); font-weight: 300; line-height: 1.15; color: #f5f5f7; }
+.lock__text { color: #a9adb3; line-height: 1.6; }
+.lock__text b { color: #f5f5f7; font-weight: 500; }
+.lock__count { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-size: clamp(1.3rem, 3.4vw, 1.8rem); font-variant-numeric: tabular-nums; color: #f5f5f7; }
+.lock__back { justify-self: start; display: inline-flex; align-items: center; gap: 10px; margin-top: 8px; padding: 12px 20px; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 999px; font-size: 0.82rem; letter-spacing: 0.06em; color: #f5f5f7; transition: border-color 0.2s ease; }
+.lock__back svg { width: 16px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+.lock__back:focus-visible { outline: 2px solid rgb(var(--accent)); outline-offset: 3px; }
+@media (hover: hover) and (pointer: fine) { .lock__back:hover { border-color: rgb(var(--accent)); } }
+@media (prefers-reduced-motion: reduce) { .lock__dot { animation: none; } }
 .sala-noscript { max-width: 640px; margin: 18vh auto; padding: 0 var(--gutter); color: var(--text-2); }
 .sala-noscript a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
 

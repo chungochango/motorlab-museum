@@ -143,6 +143,11 @@
         "value": "ibm plex sans",
         "createdAt": "2026-10-07T10:41:05.524Z",
         "reason": "Claude: cada sala define su tipografía en su tema (PRODUCT.md, identidad por sala); DESIGN.md sólo documenta la Sala 02"
+      },
+      {
+        "rule": "overused-font",
+        "value": "helvetica",
+        "createdAt": "2026-10-08T10:14:53.156Z"
       }
     ]
   }

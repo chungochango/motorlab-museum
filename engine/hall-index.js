@@ -38,7 +38,13 @@
     const main = document.querySelector(".showroom");
     if (!M || !cars?.length || !main) return;
     const { esc, url } = M;
-    const soon = (c) => c.status === "coming_soon";
+    const soon = (c) => !M.isRoomOpen(c);            // próximamente o con apertura programada aún por llegar
+    // Apertura programada (releaseDate): fecha y cuenta atrás; al llegar, la insignia de siempre
+    // (o se recarga el Hall si la sala ya tiene página, para que se abra sola)
+    const badge = (c) => c.hall?.teaser?.badge || "Próximamente";
+    const opening = (c) => (M.isScheduled(c)
+      ? `<span data-release="${esc(c.releaseDate)}" data-after="${esc(badge(c))}"${c.status === "coming_soon" ? "" : " data-reload"}>Abre el ${esc(M.releaseLabel(c))}</span>`
+      : esc(badge(c)));
     const wing = (c) => (c.wing && M.wings?.[c.wing]) || null;     // ala temática (Ala dos ruedas · MotoLab Paddock)
     const engine = (c) => c.specs?.engine?.value || c.specsPreview?.engine || "";
     const accent = (c) => c.palette?.hallAccent || M.hexToRgb(c.palette?.accent || "#e2e4e8");
@@ -72,7 +78,7 @@
       <ul class="idx__grid" role="list">
         ${rooms.map(({ c, i }) => {
           const meta = `<span class="idx__meta"><span>Sala ${M.roomNo(c, i)}</span>${soon(c)
-            ? `<span class="idx__status"><span class="hall__dot" aria-hidden="true"></span>${esc(c.hall?.teaser?.badge || "Próximamente")}</span>`
+            ? `<span class="idx__status"><span class="hall__dot" aria-hidden="true"></span>${opening(c)}</span>`
             : `<span>${esc(c.years)}</span>`}</span>`;
           const inner = `
             <span class="idx__media">${M.img(c.hall.image, { alt: "", lazy: true, extra: 'draggable="false"' })}<span class="idx__floor"></span></span>
@@ -86,7 +92,7 @@
           return `
           <li class="idx__item${soon(c) ? " is-soon" : ""}" data-i="${i}" style="--accent: ${accent(c)}" hidden>
             ${soon(c)
-              ? `<button type="button" class="idx__card" aria-label="${esc(c.name)}, sala ${M.roomNo(c, i)}: ${esc(c.hall?.teaser?.badge || "en desarrollo")}. Ver avance">${inner}</button>`
+              ? `<button type="button" class="idx__card" aria-label="${esc(c.name)}, sala ${M.roomNo(c, i)}: ${M.isScheduled(c) ? `abre el ${esc(M.releaseLabel(c))}` : esc(c.hall?.teaser?.badge || "en desarrollo")}. Ver avance">${inner}</button>`
               : `<a class="idx__card" href="${esc(M.roomHref(c))}">${inner}</a>`}
           </li>`;
         }).join("")}
@@ -100,6 +106,7 @@
         <button type="button" class="idx__more" hidden>Cargar más salas<span class="idx__more-n"></span></button>
       </div>`;
     main.append(section);
+    M.countdowns();
 
     const input = section.querySelector("#idx-q");
     const pills = [...section.querySelectorAll(".idx__pill")];

@@ -38,6 +38,51 @@
 
   Object.assign(Museo, { $, $$, clamp, esc, pad2, roomNo, roomDir, roomHref, url, reduceMotion, finePointer });
 
+  /* ---------- Publicación programada ----------
+     "releaseDate" (ISO 8601 con zona: "2026-10-10T18:00:00+02:00") cierra una sala hasta esa
+     fecha; sin fecha, o con una ya pasada, está abierta. Abierta del todo = desbloqueada y con
+     página (status distinto de "coming_soon"). Es un cierre de presentación en el navegador:
+     los datos y la página ya están publicados, así que no sirve para ocultar nada sensible. */
+  const releaseTime = (car) => (car?.releaseDate ? Date.parse(car.releaseDate) : NaN);
+  const isRoomUnlocked = (car, now = Date.now()) => !(releaseTime(car) > now);
+  const isRoomOpen = (car, now) => car.status !== "coming_soon" && isRoomUnlocked(car, now);
+  const isScheduled = (car, now) => !isRoomUnlocked(car, now);
+  // Fecha de apertura en hora de Madrid (la del museo): "sáb 10 oct · 18:00 h"
+  const releaseFmt = new Intl.DateTimeFormat("es-ES", { timeZone: "Europe/Madrid", weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", hourCycle: "h23" });
+  const releaseLabel = (car) => {
+    const t = releaseTime(car);
+    if (Number.isNaN(t)) return "";
+    const p = Object.fromEntries(releaseFmt.formatToParts(t).map((x) => [x.type, x.value.replace(".", "")]));
+    return `${p.weekday} ${p.day} ${p.month} · ${p.hour}:${p.minute} h`;
+  };
+  // Cuenta atrás: "2 d 04 h 12 min" y, en el último día, "04:12:09"
+  const countdownText = (ms) => {
+    const s = Math.max(0, Math.floor(ms / 1000)), d = Math.floor(s / 86400), h = Math.floor((s % 86400) / 3600), m = Math.floor((s % 3600) / 60);
+    return d ? `${d} d ${pad2(h)} h ${pad2(m)} min` : `${pad2(h)}:${pad2(m)}:${pad2(s % 60)}`;
+  };
+  /* Pone en marcha las cuentas atrás de la página: cada [data-release="<ISO>"] muestra
+     "Abre en …". Al llegar a cero, si alguna lleva data-reload (la sala ya tiene página),
+     se recarga para abrirla; si no, el texto pasa a data-after ("Próximamente"). */
+  let countdownTimer = 0;
+  const countdowns = () => {
+    const tick = () => {
+      const els = $$("[data-release]");
+      if (!els.length) { clearInterval(countdownTimer); countdownTimer = 0; return; }
+      let reload = false;
+      els.forEach((el) => {
+        const left = Date.parse(el.dataset.release) - Date.now();
+        if (left > 0) { el.textContent = `Abre en ${countdownText(left)}`; return; }
+        if (el.hasAttribute("data-reload")) reload = true;
+        el.textContent = el.dataset.after || "Próximamente";
+        el.removeAttribute("data-release");
+      });
+      if (reload) location.reload();
+    };
+    tick();
+    if (!countdownTimer) countdownTimer = setInterval(tick, 1000);
+  };
+  Object.assign(Museo, { releaseTime, isRoomUnlocked, isRoomOpen, isScheduled, releaseLabel, countdownText, countdowns });
+
   /* Imagen que todavía no se ha subido (sala recién añadida a cars.json): se oculta en vez de
      mostrar el icono de imagen rota; la sala funciona igual y la foto aparece en cuanto exista.
      Una <picture> sin avif/webp cae al archivo original antes de marcarse como ausente. */

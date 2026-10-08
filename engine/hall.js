@@ -10,7 +10,7 @@
   const data = await M.loadData();
   data.cars.forEach(M.resolveImages);
 
-  const n = data.cars.filter((c) => c.status !== "coming_soon").length, soon = data.cars.length - n;
+  const n = data.cars.filter((c) => M.isRoomOpen(c)).length, soon = data.cars.length - n;   // abiertas ya (sin apertura pendiente)
   document.querySelector(".topbar__meta").textContent = `Hall principal · ${n} ${n === 1 ? "sala" : "salas"}${soon ? ` · ${soon} en desarrollo` : ""}`;
   const marks = [...new Set(data.cars.flatMap((c) => c.marks || []))];
   document.querySelector(".footer-slot").outerHTML = M.footer(marks);

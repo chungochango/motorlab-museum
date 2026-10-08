@@ -28,6 +28,9 @@ for (const car of data.cars) {
     if (car[k] === undefined) problems.push(`${where}: falta "${k}"`);
   }
   if (ids.has(car.id)) problems.push(`${where}: id repetido`);
+  // Apertura programada: fecha ISO 8601 con hora y zona horaria explícita, para que abra a la misma hora en todo el mundo
+  if (car.releaseDate !== undefined && car.releaseDate !== null && !(/^\d{4}-\d\d-\d\dT\d\d:\d\d(:\d\d)?(Z|[+-]\d\d:\d\d)$/.test(car.releaseDate) && !Number.isNaN(Date.parse(car.releaseDate))))
+    problems.push(`${where}: "releaseDate" no válida (${car.releaseDate}); usa ISO 8601 con zona: "2026-10-10T18:00:00+02:00"`);
   // Carpeta de la sala (rooms/cars/<slug> o rooms/bikes/<slug>): debe existir; si la sala está abierta, con su index.html
   if (car.dir) {
     try { await access(join(root, car.status === "coming_soon" ? car.dir : `${car.dir}/index.html`)); }

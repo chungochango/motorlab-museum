@@ -45,6 +45,10 @@ Con servidor (`http://`), el motor lee `cars.json` directamente. Sin servidor, u
   "status": "coming_soon",       // opcional: sala en desarrollo. Sale en el Hall apagada, con la insignia «Sala en desarrollo // Próximamente»
                                   // y un avance (hall.teaser + specsPreview) en vez de enlace; no necesita specs, sections ni carpeta index.html
                                   // hall.teaser: { badge: "En modelado", lines: ["Sala 08 · En modelado", "…"] }; badge sustituye a «Próximamente»
+  "releaseDate": "2026-10-10T18:00:00+02:00",   // opcional: apertura programada (ISO 8601 con zona). Antes de esa hora la sala sale cerrada en el Hall
+                                  // con fecha y cuenta atrás, no entra en el recorrido y su URL muestra «Acceso restringido»; al llegar la hora
+                                  // se abre sola, sin volver a publicar. Si sigue "coming_soon" (sin página), al vencer vuelve a «Próximamente».
+                                  // Es un cierre de presentación: los datos y la página ya son públicos.
   "palette": {
     "accent": "#d40000",          // color de la sala
     "body": "#d40000",            // color de carrocería de referencia

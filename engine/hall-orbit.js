@@ -35,9 +35,16 @@
     const ARROW = (d) => `<svg viewBox="0 0 16 12" aria-hidden="true"><path d="${d}" /></svg>`;
     const accent = (c) => c.palette?.hallAccent || M.hexToRgb(c.palette?.accent || "#e2e4e8");
     const ratio = (im) => (im?.w && im?.h ? (im.w / im.h).toFixed(4) : "1.5");
-    /* Salas "próximamente" (status: "coming_soon"): se ven en el anillo, pero en vez de entrar
-       abren un avance con la telemetría anticipada (hall.teaser + specsPreview) */
-    const soon = (c) => c.status === "coming_soon";
+    /* Salas cerradas: "próximamente" (status: "coming_soon") o con apertura programada aún por
+       llegar (releaseDate). Se ven en el anillo, pero en vez de entrar abren un avance con la
+       telemetría anticipada (hall.teaser + specsPreview) */
+    const soon = (c) => !M.isRoomOpen(c);
+    // Apertura programada (releaseDate): fecha y cuenta atrás; al llegar, la insignia de siempre
+    // (o se recarga el Hall si la sala ya tiene página, para que se abra sola)
+    const badge = (c) => c.hall?.teaser?.badge || "Próximamente";
+    const opening = (c) => (M.isScheduled(c)
+      ? `<span data-release="${esc(c.releaseDate)}" data-after="${esc(badge(c))}"${c.status === "coming_soon" ? "" : " data-reload"}>Abre el ${esc(M.releaseLabel(c))}</span>`
+      : esc(badge(c)));
     // Alas temáticas: una sala con "wing" no sigue la numeración principal (M-01) y lleva su rótulo
     const wing = (c) => (c.wing && M.wings?.[c.wing]) || null;
     const wingTag = (c) => (wing(c) ? `<span class="hall__wing" style="--wing: ${wing(c).accent || "226, 228, 232"}"><b>${esc(wing(c).label)}</b>${wing(c).name ? ` · ${esc(wing(c).name)}` : ""}</span>` : "");
@@ -53,7 +60,7 @@
         <div class="orbit__teaser" id="orbit-teaser-${i}" role="dialog" aria-label="${esc(t.title || "Telemetría anticipada")}: ${esc(c.name)}" hidden>
           <p class="orbit__teaser-head"><span class="hall__dot" aria-hidden="true"></span>${(t.lines || []).map((l) => `<span>${esc(l)}</span>`).join("")}</p>
           ${c.specsPreview ? `<dl>${Object.entries(c.specsPreview).map(([k, v]) => `<div><dt>${esc(PREVIEW[k] || k)}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>` : ""}
-          <p class="orbit__teaser-foot">Sala en desarrollo · aún no se puede visitar</p>
+          <p class="orbit__teaser-foot">${M.isScheduled(c) ? `Apertura programada · ${esc(M.releaseLabel(c))}` : "Sala en desarrollo · aún no se puede visitar"}</p>
         </div>`;
     };
     const name = (c) => (c.badge && c.name.endsWith(c.badge) ? `${esc(c.name.slice(0, -c.badge.length).trim())} <small>${esc(c.badge)}</small>` : esc(c.name));
@@ -74,7 +81,7 @@
                   ${M.img(c.hall.image, { lazy: i > 1 && i < N - 1, priority: i === 0, extra: 'draggable="false"' })}
                   <span class="orbit__floor"></span>
                 </span>
-              ${soon(c) ? `</span><span class="orbit__soon" aria-hidden="true">Sala en desarrollo <i>//</i> ${esc(c.hall.teaser?.badge || "Próximamente")}</span>` : "</a>"}
+              ${soon(c) ? `</span><span class="orbit__soon" aria-hidden="true">${c.status === "coming_soon" ? "Sala en desarrollo" : "Sala en calibración"} <i>//</i> ${opening(c)}</span>` : "</a>"}
             </div>`).join("")}
         </div>
         <button type="button" class="orbit__arrow orbit__arrow--prev" aria-label="Sala anterior">${ARROW("M15 6H1M6 1L1 6l5 5")}</button>
@@ -99,6 +106,7 @@
       <p class="sr orbit__live" aria-live="polite"></p>`;
 
     main.append(section);
+    M.countdowns();
     document.documentElement.classList.add("has-orbit");
 
     const stage = section.querySelector(".orbit__stage");
