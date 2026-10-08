@@ -21,10 +21,16 @@
             samples: [{ id, distancePercentage, cornerName, speedKmh,
                         gear, rpm, lateralG, longitudinalG,
                         throttlePercentage, brakePressureBar, note? }] }
-     · museum.tracks.<clave> = { name, lengthKm, viewBox, d, source }:
+     · museum.tracks.<clave> = { name, lengthKm, viewBox, d, closed?, source }:
        el trazado real a escala (d empieza en la línea de salida y va
        en el sentido de la marcha). Lo comparten todas las salas que
-       ruedan en ese circuito; "source" es su atribución;
+       ruedan en ese circuito; "source" es su atribución. Con
+       "closed": false es un recorrido de punto a punto (una subida):
+       sin vuelta completa, con salida parada y línea de meta;
+     · una muestra puede llevar "altitudeM": entonces el salpicadero
+       añade la altitud y el perfil del recorrido; y "timeS", el tiempo
+       desde la salida, que se usa tal cual (si falta, se estima
+       integrando la velocidad: no vale para una salida parada);
      · como el dibujo está a escala, el % de vuelta es el % de la
        longitud del trazado: cada muestra cae en su punto real;
      · lateralG > 0 = curva a derechas; longitudinalG < 0 = frenada;
@@ -55,6 +61,7 @@
       const crit = c.samples.filter((s) => s.note);
       const track = trackOf(c, ctx);
       if (!track) return `<!-- track-telemetry: falta el trazado «${esc(String(c.track))}» -->`;
+      const open = track.closed === false, alt = c.samples.some((s) => s.altitudeM != null);
       return `
       <section class="section ttel" id="${c.id}" aria-labelledby="${c.id}-title">
         ${M.plaqueHead(c)}
@@ -71,7 +78,8 @@
                     <circle class="ttel__mark-hit" r="22" /><circle class="ttel__mark-dot" r="6.5" /><text>${esc(s.cornerName)}</text>
                   </g>`).join("")}
               </g>
-              <g class="ttel__start" aria-hidden="true"><line /><text>SALIDA</text></g>
+              <g class="ttel__start" aria-hidden="true"><line /><text>${open ? "" : "SALIDA"}</text></g>
+              ${open ? `<g class="ttel__start ttel__finish" aria-hidden="true"><line /><text></text></g>` : ""}
               <g class="ttel__cursor" aria-hidden="true"><circle class="ttel__cursor-glow" r="20" /><circle class="ttel__cursor-dot" r="8" /></g>
             </svg>
             ${track.source ? `<small class="ttel__src">${esc(track.source)}</small>` : ""}
@@ -113,11 +121,19 @@
               <div class="ttel__pedal ttel__pedal--thr"><span class="ttel__vbar"><i data-k="thrBar"></i></span><b data-k="thr">0</b><small>% gas</small></div>
               <div class="ttel__pedal ttel__pedal--brk"><span class="ttel__vbar"><i data-k="brkBar"></i></span><b data-k="brk">0</b><small>bar</small></div>
             </div>
+            ${alt ? `
+            <div class="ttel__cell ttel__alt">
+              <span class="ttel__label">Altitud</span>
+              <p class="ttel__alt-n"><b data-k="alt">0</b><small>m</small></p>
+              <svg class="ttel__profile" viewBox="0 0 300 60" preserveAspectRatio="none" aria-hidden="true">
+                <path class="ttel__profile-area" /><path class="ttel__profile-line" /><line class="ttel__profile-now" y1="0" y2="60" />
+              </svg>
+            </div>` : ""}
           </div>
 
           <div class="ttel__scrub">
-            <button type="button" class="ttel__play" aria-pressed="false"><span class="ttel__play-ico" aria-hidden="true"></span><span class="ttel__play-txt">Reproducir vuelta</span></button>
-            <label class="sr" for="${c.id}-pos">Posición en la vuelta</label>
+            <button type="button" class="ttel__play" aria-pressed="false"><span class="ttel__play-ico" aria-hidden="true"></span><span class="ttel__play-txt">Reproducir ${open ? "subida" : "vuelta"}</span></button>
+            <label class="sr" for="${c.id}-pos">Posición en ${open ? "el recorrido" : "la vuelta"}</label>
             <input id="${c.id}-pos" class="ttel__range" type="range" min="0" max="100" step="0.05" value="0" />
             <p class="ttel__time"><span class="ttel__label">Tiempo</span><b data-k="time">0:00</b></p>
           </div>
@@ -135,11 +151,11 @@
     mount(el, c, ctx) {
       const track = trackOf(c, ctx);
       if (!track) return;
-      const L = track.lengthKm;
+      const L = track.lengthKm, open = track.closed === false;
       const samples = [...c.samples].sort((a, b) => a.distancePercentage - b.distancePercentage);
       const crit = samples.filter((s) => s.note);
       const k = (key) => $(`[data-k="${key}"]`, el);
-      const out = Object.fromEntries(["speed", "speedBar", "gear", "rpm", "lat", "lon", "thr", "thrBar", "brk", "brkBar", "time", "vtag", "vname", "vnote"].map((n) => [n, k(n)]));
+      const out = Object.fromEntries(["speed", "speedBar", "gear", "rpm", "lat", "lon", "thr", "thrBar", "brk", "brkBar", "time", "vtag", "vname", "vnote", "alt"].map((n) => [n, k(n)]));
       const svg = $(".ttel__svg", el), range = $(".ttel__range", el), play = $(".ttel__play", el);
       const cursor = $(".ttel__cursor", el), done = $(".ttel__done", el);
       const arc = $(".ttel__arc", el), gDot = $(".ttel__g-dot", el), gVec = $(".ttel__g-vec", el), kmOut = $(".ttel__km b", el);
@@ -152,14 +168,16 @@
       const total = path.getTotalLength();
       done.style.strokeDasharray = `0 ${total + 1}`;
       const lenAt = (pct) => (clamp(pct, 0, 100) / 100) * total;
-      const pointAt = (pct) => path.getPointAtLength(lenAt(pct) % total);
+      const pointAt = (pct) => path.getPointAtLength(open ? lenAt(pct) : lenAt(pct) % total);
 
       /* ---- Hitos y salida ---- */
       const box = svg.viewBox.baseVal, cx = box.x + box.width / 2, cy = box.y + box.height / 2;
+      const ls = Math.max(1, box.width / 1200);          // un plano más ancho necesita rótulos y marcas mayores
+      svg.style.setProperty("--ls", ls.toFixed(2));
       $$(".ttel__mark", el).forEach((g) => {
         const s = crit.find((x) => x.id === g.dataset.id);
         const p = pointAt(s.distancePercentage);
-        g.setAttribute("transform", `translate(${p.x.toFixed(1)} ${p.y.toFixed(1)})`);
+        g.setAttribute("transform", `translate(${p.x.toFixed(1)} ${p.y.toFixed(1)}) scale(${ls.toFixed(2)})`);
         // la etiqueta, hacia fuera del circuito (o hacia donde diga "label": n · s · e · w)
         const fixed = { n: [0, -1], s: [0, 1], e: [1, 0], w: [-1, 0] }[s.label];
         const dx = fixed ? fixed[0] : p.x - cx, dy = fixed ? fixed[1] : p.y - cy, n = Math.hypot(dx, dy) || 1;
@@ -171,13 +189,21 @@
       {
         const p0 = pointAt(0), p1 = pointAt(0.4), a = Math.atan2(p1.y - p0.y, p1.x - p0.x) + Math.PI / 2;
         const ln = $(".ttel__start line", el), tx = $(".ttel__start text", el);
-        ln.setAttribute("x1", (p0.x + Math.cos(a) * 18).toFixed(1)); ln.setAttribute("y1", (p0.y + Math.sin(a) * 18).toFixed(1));
-        ln.setAttribute("x2", (p0.x - Math.cos(a) * 18).toFixed(1)); ln.setAttribute("y2", (p0.y - Math.sin(a) * 18).toFixed(1));
+        ln.setAttribute("x1", (p0.x + Math.cos(a) * 18 * ls).toFixed(1)); ln.setAttribute("y1", (p0.y + Math.sin(a) * 18 * ls).toFixed(1));
+        ln.setAttribute("x2", (p0.x - Math.cos(a) * 18 * ls).toFixed(1)); ln.setAttribute("y2", (p0.y - Math.sin(a) * 18 * ls).toFixed(1));
+        tx.setAttribute("x", (p0.x + Math.cos(a) * 34).toFixed(1)); tx.setAttribute("y", (p0.y + Math.sin(a) * 34 + 6).toFixed(1));
+      }
+      if (open) {                                     // línea de meta, perpendicular al final del trazado
+        const p0 = pointAt(100), p1 = pointAt(99.6), a = Math.atan2(p0.y - p1.y, p0.x - p1.x) + Math.PI / 2;
+        const ln = $(".ttel__finish line", el), tx = $(".ttel__finish text", el);
+        ln.setAttribute("x1", (p0.x + Math.cos(a) * 18 * ls).toFixed(1)); ln.setAttribute("y1", (p0.y + Math.sin(a) * 18 * ls).toFixed(1));
+        ln.setAttribute("x2", (p0.x - Math.cos(a) * 18 * ls).toFixed(1)); ln.setAttribute("y2", (p0.y - Math.sin(a) * 18 * ls).toFixed(1));
         tx.setAttribute("x", (p0.x + Math.cos(a) * 34).toFixed(1)); tx.setAttribute("y", (p0.y + Math.sin(a) * 34 + 6).toFixed(1));
       }
 
       /* ---- Telemetría interpolada ---- */
-      const ring = [...samples, { ...samples[0], distancePercentage: samples[0].distancePercentage + 100 }];
+      // En un circuito, la última muestra enlaza con la primera; en una subida, no
+      const ring = open ? samples : [...samples, { ...samples[0], distancePercentage: samples[0].distancePercentage + 100 }];
       const at = (pct) => {
         let i = 0;
         while (i < ring.length - 2 && ring[i + 1].distancePercentage <= pct) i++;
@@ -188,29 +214,49 @@
         return {
           speed: mix("speedKmh"), rpm: mix("rpm"), lat: mix("lateralG"), lon: mix("longitudinalG"),
           thr: mix("throttlePercentage"), brk: mix("brakePressureBar"), gear: near.gear,
+          alt: a.altitudeM != null ? mix("altitudeM") : null,
         };
       };
 
       // Tiempo de vuelta estimado: se integra distancia / velocidad (cada 0,05 %)
       const STEP = 0.05, times = [0];
       for (let p = STEP; p <= 100 + 1e-9; p += STEP) {
-        const v = ((at(p - STEP).speed + at(p).speed) / 2) / 3.6;
+        const v = Math.max(1, ((at(p - STEP).speed + at(p).speed) / 2) / 3.6);   // salida parada: sin dividir por cero
         times.push(times[times.length - 1] + ((STEP / 100) * L * 1000) / v);
       }
-      const timeAt = (pct) => times[Math.round(clamp(pct, 0, 100) / STEP)];
+      const timed = samples.every((x) => x.timeS != null);
+      const timeAt = (pct) => {
+        if (!timed) return times[Math.round(clamp(pct, 0, 100) / STEP)];
+        let i = 0;
+        while (i < samples.length - 2 && samples[i + 1].distancePercentage <= pct) i++;
+        const a = samples[i], b = samples[i + 1] || a;
+        const t = clamp((pct - a.distancePercentage) / (b.distancePercentage - a.distancePercentage || 1), 0, 1);
+        return a.timeS + (b.timeS - a.timeS) * t;
+      };
 
       // Curva crítica en la que está el cursor (± 1,8 % de vuelta) o la próxima
       const vertexAt = (pct) => {
         const here = crit.find((s) => Math.abs(s.distancePercentage - pct) <= 1.8);
         if (here) return { s: here, here: true };
-        return { s: crit.find((s) => s.distancePercentage > pct) || crit[0], here: false };
+        return { s: crit.find((s) => s.distancePercentage > pct) || (open ? crit[crit.length - 1] : crit[0]), here: false };
       };
+
+      // Perfil de altitud (sólo si las muestras la traen): área, línea y marca de posición
+      const prof = $(".ttel__profile", el);
+      let profNow = null;
+      if (prof) {
+        const alts = samples.map((s) => s.altitudeM), lo = Math.min(...alts), hi = Math.max(...alts);
+        const pts = samples.map((s) => `${(s.distancePercentage * 3).toFixed(1)} ${(56 - ((s.altitudeM - lo) / (hi - lo || 1)) * 52).toFixed(1)}`);
+        $(".ttel__profile-line", prof).setAttribute("d", `M${pts.join("L")}`);
+        $(".ttel__profile-area", prof).setAttribute("d", `M0 60L${pts.join("L")}L300 60Z`);
+        profNow = $(".ttel__profile-now", prof);
+      }
 
       let pos = 0, shown = null;
       const paint = (pct) => {
         pos = pct;
         const p = pointAt(pct), len = lenAt(pct), t = at(pct);
-        cursor.setAttribute("transform", `translate(${p.x.toFixed(1)} ${p.y.toFixed(1)})`);
+        cursor.setAttribute("transform", `translate(${p.x.toFixed(1)} ${p.y.toFixed(1)}) scale(${ls.toFixed(2)})`);
         done.style.strokeDasharray = `${len.toFixed(1)} ${(total + 1).toFixed(1)}`;
         kmOut.textContent = fmt((pct / 100) * L, 2);
 
@@ -229,7 +275,8 @@
         out.brk.textContent = fmt(Math.round(t.brk));
         out.brkBar.style.transform = `scaleY(${(t.brk / maxBrake).toFixed(3)})`;
         out.time.textContent = mmss(timeAt(pct));
-        range.setAttribute("aria-valuetext", `${fmt((pct / 100) * L, 1)} km · ${Math.round(t.speed)} km/h en ${t.gear}.ª`);
+        if (out.alt && t.alt != null) { out.alt.textContent = fmt(Math.round(t.alt)); profNow.setAttribute("x1", (pct * 3).toFixed(1)); profNow.setAttribute("x2", (pct * 3).toFixed(1)); }
+        range.setAttribute("aria-valuetext", `${fmt((pct / 100) * L, 1)} km · ${Math.round(t.speed)} km/h en ${t.gear}.ª${t.alt != null ? ` · ${fmt(Math.round(t.alt))} m` : ""}`);
 
         const v = vertexAt(pct), key = `${v.s.id}:${v.here}`;
         if (key !== shown) {
@@ -247,7 +294,7 @@
       const stop = () => {
         cancelAnimationFrame(raf); raf = 0;
         play.setAttribute("aria-pressed", "false");
-        $(".ttel__play-txt", play).textContent = "Reproducir vuelta";
+        $(".ttel__play-txt", play).textContent = `Reproducir ${open ? "subida" : "vuelta"}`;
       };
       const tween = (to, ms) => {
         stop();

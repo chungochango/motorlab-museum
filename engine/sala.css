@@ -150,6 +150,9 @@ html.js .rv.is-in { opacity: 1; }
 /* El rótulo sólo cuando cabe: entre 1101 y 1359 px la ruta de secciones ocupa ese sitio; en móvil queda el logo */
 @media (min-width: 1101px) and (max-width: 1359px), (max-width: 760px) { .back .back__brand { display: none; } }
 .wordmark { white-space: nowrap; }
+/* Un nombre largo («Sport quattro S1») se recorta con puntos suspensivos en vez de empujar los botones fuera de la pantalla */
+.topbar__left { min-width: 0; }
+.wordmark { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .route { display: flex; }
 .route a { position: relative; }
 .modes { display: inline-flex; }
