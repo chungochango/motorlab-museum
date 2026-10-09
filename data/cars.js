@@ -14228,9 +14228,9 @@ window.MUSEO = {
           "fit": "contain"
         },
         "teaser": {
-          "badge": "En desarrollo",
+          "badge": "Próximamente",
           "lines": [
-            "Sala 10 · En desarrollo",
+            "Sala 10 · Próximamente",
             "Motor rotativo Wankel"
           ]
         }
