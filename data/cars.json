@@ -14166,29 +14166,98 @@
       "name": "Mazda RX-7 Spirit R (FD3S)",
       "brand": "Mazda",
       "make": "Mazda",
-      "model": "RX-7",
+      "model": "RX-7 Spirit R",
       "badge": "Spirit R Type-A",
       "year": 2002,
       "years": "1992 — 2002",
+      "theme": "hiroshima",
       "country": "Japón",
       "category": "Deportivo de motor rotativo",
       "tags": [
         "rotativo",
         "turbo"
       ],
-      "status": "coming_soon",
+      "releaseDate": "2026-10-09T22:00:00+02:00",
       "palette": {
-        "accent": "#38BDF8",
+        "accent": "#00D2FF",
         "body": "#1E3A8A",
-        "hallAccent": "56, 189, 248"
+        "hallAccent": "0, 210, 255"
       },
       "marks": [
         "Mazda",
         "RX-7",
         "13B-REW",
-        "BBS",
+        "Hitachi",
+        "Torsen",
+        "Bilstein",
         "Recaro"
       ],
+      "exitLine": "Dos rotores, dos turbos en relevo y un reparto de masas 50:50",
+      "meta": {
+        "title": "Mazda RX-7 Spirit R (FD3S) · Sala 10 · Museo digital del automóvil",
+        "description": "Sala 10 del museo digital del automóvil: el Mazda RX-7 Spirit R Type A. Motor rotativo 13B-REW biturbo secuencial de 280 PS, reparto 50:50, Power Plant Frame y duelo contra el Skyline GT-R R34."
+      },
+      "specs": {
+        "engine": {
+          "label": "Motor",
+          "value": "13B-REW birrotor",
+          "note": "Wankel · biturbo secuencial"
+        },
+        "power": {
+          "label": "Potencia",
+          "value": 280,
+          "unit": "PS",
+          "note": "a 6.500 rpm · homologada (pacto de caballeros)"
+        },
+        "torque": {
+          "label": "Par motor",
+          "value": 314,
+          "unit": "Nm",
+          "note": "a 5.000 rpm"
+        },
+        "displacement": {
+          "label": "Cilindrada",
+          "value": 1308,
+          "unit": "cc",
+          "note": "2 rotores × 654 cc"
+        },
+        "redline": {
+          "label": "Línea roja",
+          "value": 8000,
+          "unit": "rpm"
+        },
+        "weight": {
+          "label": "Peso",
+          "value": 1270,
+          "unit": "kg",
+          "note": "Spirit R Type A"
+        },
+        "balance": {
+          "label": "Reparto de masas",
+          "value": "50:50",
+          "note": "delante / detrás"
+        },
+        "topSpeed": {
+          "label": "Velocidad máxima",
+          "value": 180,
+          "unit": "km/h",
+          "note": "limitada electrónicamente, norma japonesa"
+        },
+        "transmission": {
+          "label": "Caja",
+          "value": "Manual de 5 velocidades",
+          "note": "diferencial Torsen"
+        },
+        "drivetrain": {
+          "label": "Tracción",
+          "value": "Trasera"
+        },
+        "production": {
+          "label": "Unidades Spirit R",
+          "value": 1504,
+          "note": "1.044 de ellas Type A"
+        }
+      },
       "images": {
         "rx7-hall": {
           "role": "hero",
@@ -14196,6 +14265,83 @@
           "w": 1672,
           "h": 941,
           "alt": "Mazda RX-7 FD3S azul de perfil sobre suelo mojado con reflejos ámbar",
+          "formats": [
+            "avif",
+            "webp"
+          ]
+        },
+        "despiece-motor": {
+          "role": "exploded",
+          "src": "rooms/cars/rx7/img/despiece-motor.jpg",
+          "w": 1024,
+          "h": 1536,
+          "alt": "Despiece vertical ilustrativo del motor rotativo 13B: colector de admisión, carcasas, los dos rotores, el eje excéntrico y el cárter",
+          "formats": [
+            "avif",
+            "webp"
+          ]
+        },
+        "despiece-rotor": {
+          "role": "exploded",
+          "src": "rooms/cars/rx7/img/despiece-rotor.jpg",
+          "w": 1536,
+          "h": 1024,
+          "alt": "Despiece ilustrativo de un rotor triangular junto a su carcasa trocoidal",
+          "formats": [
+            "avif",
+            "webp"
+          ]
+        },
+        "despiece-turbos": {
+          "role": "exploded",
+          "src": "rooms/cars/rx7/img/despiece-turbos.jpg",
+          "w": 1536,
+          "h": 1024,
+          "alt": "Despiece ilustrativo de un sistema de dos turbos con su colector, válvulas y tuberías",
+          "formats": [
+            "avif",
+            "webp"
+          ]
+        },
+        "despiece-transmision": {
+          "role": "exploded",
+          "src": "rooms/cars/rx7/img/despiece-transmision.jpg",
+          "w": 1536,
+          "h": 1024,
+          "alt": "Despiece ilustrativo de la transmisión: embrague, caja de cambios, árbol, Power Plant Frame y diferencial",
+          "formats": [
+            "avif",
+            "webp"
+          ]
+        },
+        "despiece-suspension": {
+          "role": "exploded",
+          "src": "rooms/cars/rx7/img/despiece-suspension.jpg",
+          "w": 1536,
+          "h": 1024,
+          "alt": "Despiece ilustrativo de una suspensión de doble trapecio con amortiguador, mangueta, buje, disco y pinza roja",
+          "formats": [
+            "avif",
+            "webp"
+          ]
+        },
+        "despiece-aero": {
+          "role": "exploded",
+          "src": "rooms/cars/rx7/img/despiece-aero.jpg",
+          "w": 1536,
+          "h": 1024,
+          "alt": "Despiece ilustrativo de paragolpes, alerón y piezas aerodinámicas en azul",
+          "formats": [
+            "avif",
+            "webp"
+          ]
+        },
+        "despiece-asiento": {
+          "role": "exploded",
+          "src": "rooms/cars/rx7/img/despiece-asiento.jpg",
+          "w": 1536,
+          "h": 1024,
+          "alt": "Despiece ilustrativo de un baquet rojo con su carcasa, anclajes y raíles",
           "formats": [
             "avif",
             "webp"
@@ -14223,9 +14369,9 @@
           "fit": "contain"
         },
         "teaser": {
-          "badge": "Próximamente",
+          "badge": "Apertura programada",
           "lines": [
-            "Sala 10 · Próximamente",
+            "Sala 10 · Apertura programada",
             "Motor rotativo Wankel"
           ]
         }
@@ -14234,7 +14380,630 @@
         "engine": "Wankel birrotor 13B-REW, biturbo secuencial",
         "chassis": "Reparto de masas 50:50 · motor central delantero",
         "weight": "1.270 kg (Spirit R Type A)"
-      }
+      },
+      "sections": [
+        {
+          "type": "hero-cinematic",
+          "id": "inicio",
+          "nav": "Historia",
+          "kicker": [
+            "Japón",
+            "Rotativo · Sala 10"
+          ],
+          "title": "RX-7",
+          "image": "rx7-hall",
+          "lead": {
+            "historia": "Mazda fue la única marca que llevó el motor <em>rotativo Wankel</em> a lo más alto. El RX-7 FD3S fue su obra maestra, y el <em>Spirit R</em> de 2002, su despedida: sólo se fabricaron <em>1.504</em>.",
+            "tecnico": "Birrotor <em>13B-REW</em> de 2 × 654 cc con dos turbos Hitachi secuenciales: <em>280 PS a 6.500 rpm</em> y 314 Nm a 5.000. <em>1.270 kg</em> (Type A) con reparto <em>50:50</em>."
+          },
+          "facts": {
+            "historia": [
+              [
+                "2002",
+                "Spirit R"
+              ],
+              [
+                "1.504",
+                "Unidades"
+              ],
+              [
+                "50:50",
+                "Reparto"
+              ]
+            ],
+            "tecnico": [
+              [
+                "280 PS",
+                "A 6.500 rpm"
+              ],
+              [
+                "314 Nm",
+                "A 5.000 rpm"
+              ],
+              [
+                "1.270 kg",
+                "Type A"
+              ]
+            ]
+          },
+          "cue": {
+            "label": "Despiece",
+            "target": "despieces",
+            "aria": "Ir al despiece"
+          }
+        },
+        {
+          "type": "systems-lanes",
+          "id": "despieces",
+          "nav": "Despiece",
+          "shield": "10",
+          "title": "Siete sistemas",
+          "intro": "Elige un sistema. Cada uno aparece desmontado: pasa el ratón o pulsa un número para enfocar la pieza, y cambia a <b>Técnico</b> para ver las cifras.",
+          "hint": "Pulsa un número o una fila para fijar el enfoque; vuelve a pulsar para soltarlo. Las imágenes son despieces ilustrativos, no planos de fábrica.",
+          "lanes": [
+            {
+              "key": "motor",
+              "name": "Motor",
+              "code": "13B-REW // BIRROTOR",
+              "image": "despiece-motor",
+              "caption": "Despiece vertical ilustrativo del motor rotativo.",
+              "title": "El motor rotativo 13B-REW",
+              "line": "2 rotores × 654 cc · Wankel · biturbo secuencial",
+              "historia": "No tiene pistones, bielas ni válvulas: dos rotores triangulares giran dentro de sus carcasas y cada cara hace a la vez una fase distinta del ciclo. Por eso es tan compacto y gira tan suave, y por eso Mazda pudo meterlo detrás del eje delantero para lograr el reparto 50:50.",
+              "tecnico": [
+                [
+                  "Cilindrada",
+                  "2 × 654 cc",
+                  "1.308 cc"
+                ],
+                [
+                  "Potencia",
+                  "280 PS",
+                  "a 6.500 rpm"
+                ],
+                [
+                  "Par",
+                  "314 Nm",
+                  "a 5.000 rpm"
+                ],
+                [
+                  "Línea roja",
+                  "8.000 rpm"
+                ]
+              ],
+              "parts": [
+                {
+                  "x": 50,
+                  "y": 7,
+                  "name": "Colector de admisión",
+                  "short": "Admisión",
+                  "desc": "Reparte el aire entre las lumbreras primarias y secundarias de cada rotor; las secundarias se abren a alto régimen.",
+                  "value": "Admisión variable"
+                },
+                {
+                  "x": 31,
+                  "y": 25,
+                  "name": "Espárragos pasantes",
+                  "short": "Espárragos",
+                  "desc": "No hay un bloque macizo: el motor es un «sándwich» de carcasas y placas unido por largos tornillos de acero que lo atraviesan entero.",
+                  "value": "Unen todas las carcasas"
+                },
+                {
+                  "x": 50,
+                  "y": 35,
+                  "name": "Rotor delantero",
+                  "short": "Rotor",
+                  "desc": "Triangular, con un sello en cada vértice. Sus tres caras están siempre en fases distintas: admisión, compresión, combustión y escape a la vez.",
+                  "value": "3 caras · 3 cámaras"
+                },
+                {
+                  "x": 50,
+                  "y": 43,
+                  "name": "Eje excéntrico",
+                  "short": "Eje",
+                  "desc": "Hace el papel del cigüeñal: el rotor gira sobre una excéntrica y el eje da tres vueltas por cada vuelta del rotor.",
+                  "value": "3 vueltas por vuelta de rotor"
+                },
+                {
+                  "x": 38,
+                  "y": 49,
+                  "name": "Carcasa y placa intermedia",
+                  "short": "Carcasas",
+                  "desc": "La carcasa trocoidal, con su superficie interior endurecida, y la placa que separa los dos rotores; el conjunto se refrigera por agua.",
+                  "value": "Refrigeradas por agua"
+                },
+                {
+                  "x": 50,
+                  "y": 92,
+                  "name": "Cárter",
+                  "short": "Cárter",
+                  "desc": "Además de lubricar el eje, el motor rotativo inyecta una pequeña cantidad de aceite en las cámaras para lubricar los sellos: por eso consume aceite por diseño.",
+                  "value": "Aceite también en las cámaras"
+                }
+              ]
+            },
+            {
+              "key": "rotor",
+              "name": "Rotor",
+              "code": "WANKEL // SELLOS",
+              "image": "despiece-rotor",
+              "caption": "Despiece ilustrativo de un rotor y su carcasa.",
+              "title": "Rotor y carcasa trocoidal",
+              "line": "Rotor triangular · sellos de vértice · engranaje interno",
+              "historia": "La forma de la carcasa, una trocoide de dos lóbulos, deja tres cámaras que cambian de volumen al girar el rotor. Todo depende de los sellos de los vértices: si se desgastan, el motor pierde compresión, y por eso son la pieza más famosa del rotativo.",
+              "tecnico": [
+                [
+                  "Cámaras por rotor",
+                  "3"
+                ],
+                [
+                  "Ciclos por vuelta de rotor",
+                  "3",
+                  "uno por cara"
+                ],
+                [
+                  "Relación rotor / eje",
+                  "1 : 3"
+                ],
+                [
+                  "Sellado",
+                  "Sellos de vértice y laterales"
+                ]
+              ],
+              "parts": [
+                {
+                  "x": 27,
+                  "y": 13,
+                  "name": "Sello de vértice",
+                  "short": "Vértice",
+                  "desc": "Una lámina en cada punta del rotor que roza contra la carcasa y separa una cámara de la siguiente.",
+                  "value": "3 por rotor"
+                },
+                {
+                  "x": 26,
+                  "y": 52,
+                  "name": "Engranaje interno",
+                  "short": "Engranaje",
+                  "desc": "Engrana con un piñón fijo de la placa lateral y obliga al rotor a seguir la trayectoria correcta.",
+                  "value": "Guía el giro"
+                },
+                {
+                  "x": 43,
+                  "y": 40,
+                  "name": "Cara del rotor",
+                  "short": "Cara",
+                  "desc": "Su vaciado forma la cámara de combustión cuando la cara pasa por la zona de las bujías.",
+                  "value": "Cámara de combustión"
+                },
+                {
+                  "x": 60,
+                  "y": 45,
+                  "name": "Carcasa trocoidal",
+                  "short": "Carcasa",
+                  "desc": "La pista por la que corren los sellos: lleva una superficie interior endurecida para resistir el roce.",
+                  "value": "Superficie endurecida"
+                },
+                {
+                  "x": 86,
+                  "y": 62,
+                  "name": "Conductos de refrigeración",
+                  "short": "Agua",
+                  "desc": "El agua rodea la carcasa; la zona de combustión siempre está más caliente que la de admisión.",
+                  "value": "Por agua"
+                }
+              ]
+            },
+            {
+              "key": "turbos",
+              "name": "Turbos",
+              "code": "HITACHI // SECUENCIALES",
+              "image": "despiece-turbos",
+              "caption": "Despiece ilustrativo de un sistema de dos turbos.",
+              "title": "Biturbo secuencial",
+              "line": "Dos turbos Hitachi que trabajan en relevo",
+              "historia": "A bajas vueltas sopla un solo turbo, que se llena rápido de gases y responde enseguida; a medio régimen entra el segundo y los dos soplan juntos. Así el RX-7 evita el retraso típico de un turbo grande sin quedarse corto arriba.",
+              "tecnico": [
+                [
+                  "Turbos",
+                  "2 Hitachi",
+                  "secuenciales"
+                ],
+                [
+                  "A bajo régimen",
+                  "Sólo el primario"
+                ],
+                [
+                  "A medio y alto régimen",
+                  "Los dos"
+                ],
+                [
+                  "Intercooler",
+                  "Aire-aire"
+                ]
+              ],
+              "parts": [
+                {
+                  "x": 15,
+                  "y": 30,
+                  "name": "Colector de escape",
+                  "short": "Colector",
+                  "desc": "Lleva los gases a los turbos. En el motor rotativo los gases salen muy calientes.",
+                  "value": "Gases muy calientes"
+                },
+                {
+                  "x": 65,
+                  "y": 38,
+                  "name": "Turbo primario",
+                  "short": "Primario",
+                  "desc": "El que sopla desde abajo: con todo el caudal de gases para él, coge vueltas enseguida.",
+                  "value": "Desde bajo régimen"
+                },
+                {
+                  "x": 66,
+                  "y": 76,
+                  "name": "Turbo secundario",
+                  "short": "Secundario",
+                  "desc": "Se precarga a medio régimen y entra cuando el motor lo necesita: a partir de ahí soplan los dos.",
+                  "value": "Medio y alto régimen"
+                },
+                {
+                  "x": 52,
+                  "y": 16,
+                  "name": "Actuador de válvula",
+                  "short": "Válvula",
+                  "desc": "Las válvulas del sistema deciden qué turbo recibe gases y cuándo pasan a trabajar juntos.",
+                  "value": "Controla el relevo"
+                },
+                {
+                  "x": 90,
+                  "y": 80,
+                  "name": "Salida de escape",
+                  "short": "Escape",
+                  "desc": "Recoge los gases que salen de las turbinas.",
+                  "value": "Hacia el escape"
+                }
+              ]
+            },
+            {
+              "key": "transmision",
+              "name": "Transmisión",
+              "code": "PPF // TORSEN",
+              "image": "despiece-transmision",
+              "caption": "Despiece ilustrativo de la transmisión y el Power Plant Frame.",
+              "title": "Caja, PPF y diferencial",
+              "line": "Manual de 5 velocidades · Power Plant Frame · diferencial Torsen",
+              "historia": "La pieza más original del FD está bajo el coche: el Power Plant Frame, una viga de aluminio que une rígidamente la caja de cambios con el diferencial trasero. Así el conjunto motor-caja-diferencial trabaja como una sola pieza y el par llega sin torsiones parásitas.",
+              "tecnico": [
+                [
+                  "Caja",
+                  "Manual de 5 velocidades"
+                ],
+                [
+                  "Diferencial",
+                  "Torsen",
+                  "autoblocante"
+                ],
+                [
+                  "Power Plant Frame",
+                  "Viga de aluminio",
+                  "caja ↔ diferencial"
+                ],
+                [
+                  "Tracción",
+                  "Trasera"
+                ]
+              ],
+              "parts": [
+                {
+                  "x": 14,
+                  "y": 42,
+                  "name": "Embrague y volante",
+                  "short": "Embrague",
+                  "desc": "Une y separa el motor de la caja.",
+                  "value": "Monodisco"
+                },
+                {
+                  "x": 40,
+                  "y": 34,
+                  "name": "Caja de cambios",
+                  "short": "Caja",
+                  "desc": "Manual de cinco velocidades.",
+                  "value": "5 velocidades"
+                },
+                {
+                  "x": 43,
+                  "y": 12,
+                  "name": "Palanca",
+                  "short": "Palanca",
+                  "desc": "Recorridos cortos y precisos, montada casi encima de la caja.",
+                  "value": "Mando directo"
+                },
+                {
+                  "x": 66,
+                  "y": 62,
+                  "name": "Power Plant Frame",
+                  "short": "PPF",
+                  "desc": "Viga de aluminio que ata la caja al diferencial: el conjunto no se retuerce al transmitir el par.",
+                  "value": "Aluminio"
+                },
+                {
+                  "x": 78,
+                  "y": 26,
+                  "name": "Diferencial Torsen",
+                  "short": "Torsen",
+                  "desc": "Reparte el par hacia la rueda trasera con más agarre al salir de las curvas.",
+                  "value": "Autoblocante"
+                }
+              ]
+            },
+            {
+              "key": "suspension",
+              "name": "Suspensión",
+              "code": "DOBLE TRAPECIO // FRENOS",
+              "image": "despiece-suspension",
+              "caption": "Despiece ilustrativo de una suspensión de doble trapecio.",
+              "title": "Suspensión y frenos",
+              "line": "Doble trapecio de aluminio · amortiguadores Bilstein · pinzas rojas",
+              "historia": "El FD lleva dobles trapecios de aluminio en las cuatro ruedas, una solución de coche de carreras que mantiene la rueda bien apoyada al comprimirse. El Spirit R Type A estrenó amortiguadores Bilstein específicos y pinzas de freno pintadas de rojo.",
+              "tecnico": [
+                [
+                  "Esquema",
+                  "Doble trapecio",
+                  "delante y detrás"
+                ],
+                [
+                  "Brazos",
+                  "Aluminio"
+                ],
+                [
+                  "Amortiguadores",
+                  "Bilstein",
+                  "específicos del Spirit R"
+                ],
+                [
+                  "Frenos",
+                  "Discos ventilados",
+                  "pinzas rojas"
+                ]
+              ],
+              "parts": [
+                {
+                  "x": 20,
+                  "y": 12,
+                  "name": "Trapecio superior",
+                  "short": "Superior",
+                  "desc": "Junto al inferior, controla la caída de la rueda al comprimirse la suspensión.",
+                  "value": "Aluminio"
+                },
+                {
+                  "x": 31,
+                  "y": 40,
+                  "name": "Amortiguador",
+                  "short": "Amortiguador",
+                  "desc": "Con su muelle, frena las oscilaciones de la carrocería.",
+                  "value": "Bilstein"
+                },
+                {
+                  "x": 40,
+                  "y": 45,
+                  "name": "Mangueta",
+                  "short": "Mangueta",
+                  "desc": "La pieza que une los brazos con la rueda.",
+                  "value": "Une brazos y rueda"
+                },
+                {
+                  "x": 70,
+                  "y": 55,
+                  "name": "Disco ventilado",
+                  "short": "Disco",
+                  "desc": "Con canales interiores para evacuar el calor de las frenadas.",
+                  "value": "Ventilado"
+                },
+                {
+                  "x": 92,
+                  "y": 64,
+                  "name": "Pinza de freno",
+                  "short": "Pinza",
+                  "desc": "Roja en el Spirit R.",
+                  "value": "Roja"
+                },
+                {
+                  "x": 30,
+                  "y": 82,
+                  "name": "Trapecio inferior",
+                  "short": "Inferior",
+                  "desc": "Soporta la mayor parte de la carga de la rueda.",
+                  "value": "Aluminio"
+                }
+              ]
+            },
+            {
+              "key": "aero",
+              "name": "Aerodinámica",
+              "code": "INNOCENT BLUE // ALERÓN",
+              "image": "despiece-aero",
+              "caption": "Despiece ilustrativo de piezas aerodinámicas (no reproduce exactamente las de serie).",
+              "title": "Carrocería y aerodinámica",
+              "line": "Paragolpes · alerón trasero · azul Innocent Blue Mica",
+              "historia": "La silueta del FD se dibujó baja y redondeada, sin apenas aristas, y es una de las más admiradas de los noventa. Las piezas del despiece son ilustrativas: muestran paragolpes, alerón y apéndices desmontados, no la pieza exacta de serie.",
+              "tecnico": [
+                [
+                  "Color de referencia",
+                  "Innocent Blue Mica"
+                ],
+                [
+                  "Carrocería",
+                  "Coupé biplaza",
+                  "Type A"
+                ],
+                [
+                  "Alerón",
+                  "Trasero"
+                ],
+                [
+                  "Ilustración",
+                  "No es la pieza de serie exacta"
+                ]
+              ],
+              "parts": [
+                {
+                  "x": 60,
+                  "y": 10,
+                  "name": "Alerón trasero",
+                  "short": "Alerón",
+                  "desc": "Genera apoyo en el eje trasero a alta velocidad.",
+                  "value": "Apoyo trasero"
+                },
+                {
+                  "x": 35,
+                  "y": 58,
+                  "name": "Paragolpes delantero",
+                  "short": "Delante",
+                  "desc": "Con las tomas para el intercooler y los radiadores.",
+                  "value": "Tomas de aire"
+                },
+                {
+                  "x": 40,
+                  "y": 86,
+                  "name": "Labio delantero",
+                  "short": "Labio",
+                  "desc": "Reduce el aire que pasa bajo el coche.",
+                  "value": "Bajo el paragolpes"
+                },
+                {
+                  "x": 60,
+                  "y": 54,
+                  "name": "Zaga y pilotos",
+                  "short": "Zaga",
+                  "desc": "Los pilotos redondos, una firma del RX-7.",
+                  "value": "Pilotos redondos"
+                }
+              ]
+            },
+            {
+              "key": "asiento",
+              "name": "Asiento",
+              "code": "RECARO // TYPE A",
+              "image": "despiece-asiento",
+              "caption": "Despiece ilustrativo de un baquet con su carcasa y anclajes.",
+              "title": "Baquets Recaro",
+              "line": "Baquets Recaro rojos · Type A biplaza",
+              "historia": "El Spirit R Type A es biplaza y monta baquets Recaro con tapicería roja: menos peso y más sujeción. Junto con la suspensión Bilstein, es lo que lo separa de los demás FD.",
+              "tecnico": [
+                [
+                  "Asientos",
+                  "Baquets Recaro",
+                  "tapicería roja"
+                ],
+                [
+                  "Plazas",
+                  "2",
+                  "Type A"
+                ],
+                [
+                  "Peso del coche",
+                  "1.270 kg"
+                ]
+              ],
+              "parts": [
+                {
+                  "x": 20,
+                  "y": 38,
+                  "name": "Tapicería roja",
+                  "short": "Tapicería",
+                  "desc": "El color que distingue al Type A.",
+                  "value": "Roja"
+                },
+                {
+                  "x": 55,
+                  "y": 40,
+                  "name": "Carcasa del baquet",
+                  "short": "Carcasa",
+                  "desc": "Una pieza rígida que sujeta al piloto en las curvas.",
+                  "value": "Baquet"
+                },
+                {
+                  "x": 36,
+                  "y": 80,
+                  "name": "Raíles",
+                  "short": "Raíles",
+                  "desc": "Permiten ajustar la posición del asiento.",
+                  "value": "Regulación"
+                },
+                {
+                  "x": 76,
+                  "y": 55,
+                  "name": "Anclajes laterales",
+                  "short": "Anclajes",
+                  "desc": "Fijan la carcasa a los raíles.",
+                  "value": "Acero"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "duel-board",
+          "id": "duelo",
+          "nav": "Duelo",
+          "shield": "VS",
+          "title": "Duelo JDM: rotativo contra seis en línea",
+          "intro": "Dos maneras de entender un deportivo japonés: el RX-7 Spirit R contra el Nissan Skyline GT-R R34 de la Sala 02. Gana cada fila la cifra mejor.",
+          "rival": "nissan-skyline-r34",
+          "rows": [
+            {
+              "spec": "power",
+              "better": "high",
+              "verdict": {
+                "historia": "Empate obligado: los dos declaraban los 280 PS del pacto de caballeros.",
+                "tecnico": "280 PS homologados en ambos."
+              }
+            },
+            {
+              "spec": "torque",
+              "better": "high",
+              "verdict": {
+                "historia": "El seis en línea de 2,6 litros del GT-R empuja más.",
+                "tecnico": "314 Nm a 5.000 rpm frente a 392 Nm a 4.400 rpm."
+              }
+            },
+            {
+              "spec": "weight",
+              "better": "low",
+              "verdict": {
+                "historia": "El RX-7 pesa 270 kg menos: es su gran arma.",
+                "tecnico": "1.270 kg (Type A) frente a 1.540 kg (GT-R estándar)."
+              }
+            },
+            {
+              "spec": "topSpeed",
+              "better": "high",
+              "verdict": {
+                "historia": "Los dos, limitados a 180 km/h en Japón.",
+                "tecnico": "Limitación electrónica de la norma japonesa en ambos."
+              }
+            }
+          ],
+          "note": {
+            "historia": "Dos filosofías: el RX-7 apuesta por la ligereza, el reparto 50:50 y la tracción trasera; el GT-R, por la tracción total ATTESA E-TS y la fuerza de su seis en línea.",
+            "tecnico": "Cifras de las fichas del museo: RX-7 Spirit R Type A (FD3S) y Skyline GT-R (BNR34), versiones japonesas."
+          }
+        },
+        {
+          "type": "facts-counters",
+          "id": "cifras",
+          "kicker": "Ficha técnica",
+          "title": "Cifras del Spirit R",
+          "specs": [
+            "power",
+            "torque",
+            "weight",
+            "redline",
+            "balance",
+            "production"
+          ]
+        }
+      ]
     },
     {
       "id": "mitsubishi-lancer-evo-viii-mr",

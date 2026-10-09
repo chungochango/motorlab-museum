@@ -39,7 +39,7 @@ Con servidor (`http://`), el motor lee `cars.json` directamente. Sin servidor, u
   "make": "Ferrari", "model": "F40", "badge": "R34",   // cabecera y Hall (badge opcional)
   "year": 1987,                   // año de presentación
   "years": "1987 — 1992",         // periodo de producción, como se muestra
-  "theme": "maranello",           // themes/<tema>.css: maranello (F40) · wangan (R34) · woking (P1) · motorsport (M3) · weissach (GT3 RS) · santagata (Temerario) · stuttgart (190E) · midnight (Supra) · pikes (Sport quattro S1) · motolab (salas de motos)
+  "theme": "maranello",           // themes/<tema>.css: maranello (F40) · wangan (R34) · woking (P1) · motorsport (M3) · weissach (GT3 RS) · santagata (Temerario) · stuttgart (190E) · midnight (Supra) · pikes (Sport quattro S1) · hiroshima (RX-7) · motolab (salas de motos)
   "country": "Alemania", "category": "Turismo de Homologación Grupo A / DTM",   // opcionales, informativos
   "tags": ["supercar", "turbo"],   // filtros del índice del Hall: supercar · competicion · moto · turbo · atmosferico (otras, como rally o rotativo, sólo cuentan para el buscador)
   "pendingImages": true,          // opcional: fotos aún no subidas (aviso en vez de error)
