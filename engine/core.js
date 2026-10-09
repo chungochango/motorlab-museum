@@ -33,10 +33,24 @@
   // Carpeta de una sala (rooms/cars/f40) y su enlace: en la web, la URL pública limpia (/f40/, que
   // vercel.json y _redirects reescriben a su carpeta); con file://, el index.html de la carpeta
   const web = /^https?:$/.test(location.protocol);
-  const roomDir = (car) => car.dir || car.slug;
-  const roomHref = (car) => (web ? `/${car.slug}/` : url(`${roomDir(car)}/index.html`));
 
-  Object.assign(Museo, { $, $$, clamp, esc, pad2, roomNo, roomDir, roomHref, url, reduceMotion, finePointer });
+  /* Vista previa local: en tu ordenador (localhost o file://), «?vista-previa» en la dirección
+     ignora las fechas de apertura para revisar una sala programada antes de su estreno. En la
+     web publicada no hace nada. Los enlaces entre salas la conservan mientras esté activa. */
+  const local = !web || /^(localhost|127\.0\.0\.1|\[::1\])$|\.localhost$/.test(location.hostname);
+  const preview = local && new URLSearchParams(location.search).has("vista-previa");
+  const keep = (href) => (preview ? `${href}?vista-previa` : href);
+
+  const roomDir = (car) => car.dir || car.slug;
+  const roomHref = (car) => keep(web ? `/${car.slug}/` : url(`${roomDir(car)}/index.html`));
+
+  Object.assign(Museo, { $, $$, clamp, esc, pad2, roomNo, roomDir, roomHref, url, reduceMotion, finePointer, preview });
+
+  // Aviso fijo mientras la vista previa está activa, para no confundirla con lo que ve el público
+  if (preview) {
+    addEventListener("DOMContentLoaded", () => document.body.insertAdjacentHTML("beforeend",
+      `<p role="status" style="position:fixed;left:12px;bottom:12px;z-index:9999;margin:0;padding:8px 12px;border-radius:6px;background:#ffd400;color:#111;font:600 12px/1.3 system-ui,sans-serif;letter-spacing:.04em;box-shadow:0 6px 20px rgba(0,0,0,.5)">VISTA PREVIA LOCAL · fechas de apertura ignoradas</p>`));
+  }
 
   /* ---------- Publicación programada ----------
      "releaseDate" (ISO 8601 con zona: "2026-10-10T18:00:00+02:00") cierra una sala hasta esa
@@ -44,7 +58,7 @@
      página (status distinto de "coming_soon"). Es un cierre de presentación en el navegador:
      los datos y la página ya están publicados, así que no sirve para ocultar nada sensible. */
   const releaseTime = (car) => (car?.releaseDate ? Date.parse(car.releaseDate) : NaN);
-  const isRoomUnlocked = (car, now = Date.now()) => !(releaseTime(car) > now);
+  const isRoomUnlocked = (car, now = Date.now()) => preview || !(releaseTime(car) > now);
   const isRoomOpen = (car, now) => car.status !== "coming_soon" && isRoomUnlocked(car, now);
   const isScheduled = (car, now) => !isRoomUnlocked(car, now);
   // Fecha de apertura en hora de Madrid (la del museo): "sáb 10 oct · 18:00 h"

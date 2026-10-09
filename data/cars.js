@@ -14957,11 +14957,15 @@ window.MUSEO = {
           "rival": "nissan-skyline-r34",
           "rows": [
             {
-              "spec": "power",
+              "spec": "potenciaReal",
+              "label": "Potencia real (no oficial)",
+              "a": 290,
+              "b": 330,
+              "unit": "PS",
               "better": "high",
               "verdict": {
-                "historia": "Empate obligado: los dos declaraban los 280 PS del pacto de caballeros.",
-                "tecnico": "280 PS homologados en ambos."
+                "historia": "Fin del pacto de caballeros: en banco de potencia se le atribuyen al 13B-REW unos 290 PS reales, mientras que el RB26DETT del R34 rozaba los 330 PS de serie.",
+                "tecnico": "Cifras no oficiales de banco de potencia; las homologadas eran 280 PS en ambos."
               }
             },
             {
@@ -14969,7 +14973,7 @@ window.MUSEO = {
               "better": "high",
               "verdict": {
                 "historia": "El seis en línea de 2,6 litros del GT-R empuja más.",
-                "tecnico": "314 Nm a 5.000 rpm frente a 392 Nm a 4.400 rpm."
+                "tecnico": "314 Nm a 5.000 rpm frente a 392 Nm a 4.400 rpm (cifras oficiales)."
               }
             },
             {
@@ -14981,17 +14985,34 @@ window.MUSEO = {
               }
             },
             {
-              "spec": "topSpeed",
+              "spec": "pesoPotencia",
+              "label": "Peso / potencia real (no oficial)",
+              "a": 4.38,
+              "b": 4.67,
+              "unit": "kg/PS",
+              "decimals": 2,
+              "better": "low",
+              "verdict": {
+                "historia": "Con menos peso por cada caballo, el RX-7 compensa en pista la potencia que le falta.",
+                "tecnico": "1.270 kg / 290 PS frente a 1.540 kg / 330 PS, con las potencias no oficiales."
+              }
+            },
+            {
+              "spec": "velocidadLibre",
+              "label": "Velocidad máxima sin limitador (no oficial)",
+              "a": 256,
+              "b": 266,
+              "unit": "km/h",
               "better": "high",
               "verdict": {
-                "historia": "Los dos, limitados a 180 km/h en Japón.",
-                "tecnico": "Limitación electrónica de la norma japonesa en ambos."
+                "historia": "Sin el limitador japonés de 180 km/h: la 6.ª marcha Getrag y el empuje del RB26 llevan al GT-R a 266 km/h; el RX-7 corona en 256 km/h con su caja de 5 marchas.",
+                "tecnico": "Cifras no oficiales sin limitador; de serie, los dos estaban limitados a 180 km/h en Japón."
               }
             }
           ],
           "note": {
             "historia": "Dos filosofías: el RX-7 apuesta por la ligereza, el reparto 50:50 y la tracción trasera; el GT-R, por la tracción total ATTESA E-TS y la fuerza de su seis en línea.",
-            "tecnico": "Cifras de las fichas del museo: RX-7 Spirit R Type A (FD3S) y Skyline GT-R (BNR34), versiones japonesas."
+            "tecnico": "Par y peso: fichas del museo (versiones japonesas). Potencia real, peso/potencia y velocidad sin limitador: cifras no oficiales difundidas; las homologadas eran 280 PS y 180 km/h en ambos."
           }
         },
         {
