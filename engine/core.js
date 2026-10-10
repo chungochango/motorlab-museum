@@ -39,6 +39,11 @@
      web publicada no hace nada. Los enlaces entre salas la conservan mientras esté activa. */
   const local = !web || /^(localhost|127\.0\.0\.1|\[::1\])$|\.localhost$/.test(location.hostname);
   const preview = local && new URLSearchParams(location.search).has("vista-previa");
+  /* Service worker (sw.js, en la raíz): sólo en la web publicada. En local estorbaría al desarrollo
+     (serviría copias guardadas); para probarlo ahí, abre la página con ?sw. */
+  if (web && "serviceWorker" in navigator && (!local || new URLSearchParams(location.search).has("sw"))) {
+    addEventListener("load", () => navigator.serviceWorker.register("/sw.js").catch(() => {}));
+  }
   const keep = (href) => (preview ? `${href}?vista-previa` : href);
 
   const roomDir = (car) => car.dir || car.slug;
@@ -59,7 +64,8 @@
      los datos y la página ya están publicados, así que no sirve para ocultar nada sensible. */
   const releaseTime = (car) => (car?.releaseDate ? Date.parse(car.releaseDate) : NaN);
   const isRoomUnlocked = (car, now = Date.now()) => preview || !(releaseTime(car) > now);
-  const isRoomOpen = (car, now) => car.status !== "coming_soon" && isRoomUnlocked(car, now);
+  // En la vista previa local (?vista-previa) un borrador con secciones también se abre, para poder montarlo antes de publicarlo
+  const isRoomOpen = (car, now) => (car.status !== "coming_soon" || (preview && Array.isArray(car.sections))) && isRoomUnlocked(car, now);
   const isScheduled = (car, now) => !isRoomUnlocked(car, now);
   // Fecha de apertura en hora de Madrid (la del museo): "sáb 10 oct · 18:00 h"
   const releaseFmt = new Intl.DateTimeFormat("es-ES", { timeZone: "Europe/Madrid", weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", hourCycle: "h23" });

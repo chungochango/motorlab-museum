@@ -47,7 +47,7 @@ for (const car of data.cars) {
     }
     for (const f of im.formats || []) {
       const alt = im.src.replace(/\.[a-z0-9]+$/i, `.${f}`);
-      if (alt !== im.src) { try { await access(join(root, alt)); } catch { problems.push(`${where} › images.${key}: declara ${f} pero falta ${alt}`); } }
+      if (alt !== im.src) { try { await access(join(root, alt)); } catch { (car.pendingImages ? pending : problems).push(`${where} › images.${key}: declara ${f} pero falta ${alt}`); } }
     }
   }
   // Toda referencia a imagen ("clave" o { ref }) debe existir en el catálogo
@@ -101,6 +101,10 @@ console.log(`✔ data/cars.js generado · ${data.cars.length} salas: ${data.cars
   const out = html.replace(/(<!-- preload:hall[^>]*-->)[\s\S]*?(\s*<!-- \/preload:hall -->)/, (_, open, close) => `${open}\n${tag}${close}`);
   if (out !== html) await writeFile(indexPath, out);
 }
+
+// Datos estructurados (JSON-LD) y manifiesto en el <head> de cada página: antes de las cabeceras, que leen los HTML
+const { buildSeo } = await import("./build-seo.mjs");
+await buildSeo();
 
 await import("./build-headers.mjs");
 

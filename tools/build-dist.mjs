@@ -2,9 +2,12 @@
    MUSEO · Carpeta de publicación (dist/)
    ---------------------------------------------------------
    Copia a dist/ sólo lo que la web usa: páginas, motor, temas,
-   datos, recursos comunes y, del catálogo de data/cars.json, cada
-   imagen con sus formatos (avif/webp) y su variante de alta
-   resolución. Nada de originales PNG, notas de procedencia,
+   datos, recursos comunes y, del catálogo PÚBLICO (tools/public-catalog.mjs:
+   salas abiertas, con apertura próxima o anunciadas), cada imagen
+   con sus formatos (avif/webp) y su variante de alta resolución.
+   Los borradores y las salas a largo plazo no salen: ni su página,
+   ni sus imágenes, ni su ficha en dist/data/cars.json, ni sus rutas
+   en _headers, _redirects o sitemap.xml. Nada de originales PNG, notas de procedencia,
    herramientas ni documentación. Incluye _headers (Netlify y
    Cloudflare Pages lo leen desde la carpeta publicada).
    Después comprueba que toda ruta referenciada existe en dist/.
@@ -12,13 +15,15 @@
    Uso:  node tools/build-dist.mjs   (lo ejecutan Vercel y Netlify al desplegar)
    Antes, en local: node tools/build-data.mjs (datos, preload y cabeceras).
    ========================================================= */
-import { readFile, readdir, mkdir, copyFile, rm, stat } from "node:fs/promises";
+import { readFile, writeFile, readdir, mkdir, copyFile, rm, stat } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { dirname, join, posix } from "node:path";
+import { publicCatalog } from "./public-catalog.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const out = join(root, "dist");
-const data = JSON.parse(await readFile(join(root, "data/cars.json"), "utf8"));
+const full = JSON.parse(await readFile(join(root, "data/cars.json"), "utf8"));
+const { data, hidden } = publicCatalog(full);          // sólo lo que ya puede verse; el resto no sale de aquí
 const rooms = data.cars.filter((c) => c.status !== "coming_soon");
 const files = new Set();
 const problems = [];
@@ -34,7 +39,7 @@ async function walk(dir, skip = () => false) {
 }
 
 /* ---------- Qué se publica ---------- */
-["index.html", "_headers", "_redirects", "data/cars.json", "data/cars.js", "robots.txt", "sitemap.xml"].forEach(add);
+["index.html", "_headers", "_redirects", "robots.txt", "sitemap.xml", "manifest.json", "sw.js"].forEach(add);
 // Imágenes para redes sociales (og:image) que no están en el catálogo: X/Facebook no leen AVIF y no todos leen WebP
 ["rooms/cars/f40/img/f40-perfil.jpg"].forEach(add);
 await walk("engine");
@@ -77,6 +82,29 @@ for (const c of rooms) {
   files.add(`${c.slug}/index.html`);
 }
 
+/* ---------- Datos y rutas: sólo el catálogo público ---------- */
+const GENERATED = `/* ARCHIVO GENERADO por tools/build-dist.mjs — catálogo público. Fuente: data/cars.json */\n`;
+await mkdir(join(out, "data"), { recursive: true });
+await writeFile(join(out, "data/cars.json"), JSON.stringify(data));
+await writeFile(join(out, "data/cars.js"), `${GENERATED}window.MUSEO = ${JSON.stringify(data)};\n`);
+files.add("data/cars.json"); files.add("data/cars.js");
+if (hidden.length) {
+  // Rutas de una sala oculta: su URL pública (/slug) y su carpeta (/rooms/…)
+  const isHidden = (path) => hidden.some((c) => [`/${c.slug}`, `/${dirOf(c)}`].some((p) => path === p || path.startsWith(`${p}/`)));
+  const rewrite = async (file, fn) => writeFile(join(out, file), fn((await readFile(join(out, file), "utf8")).replace(/\r\n/g, "\n")));
+  // _headers: bloques «ruta + cabeceras» separados por una línea en blanco
+  await rewrite("_headers", (t) => t.split(/\n{2,}/).filter((b) => !isHidden(b.trim().split("\n")[0].trim())).join("\n\n"));
+  await rewrite("_redirects", (t) => t.split("\n").filter((l) => !isHidden(l.trim().split(/\s+/)[0] || "")).join("\n"));
+  await rewrite("sitemap.xml", (t) => t.replace(/[ \t]*<url>[\s\S]*?<\/url>\n?/g, (u) => (hidden.some((c) => u.includes(`.com/${c.slug}/`)) ? "" : u)));
+}
+// Service worker: sello del despliegue (un sello nuevo jubila las copias guardadas por el anterior)
+await writeFile(join(out, "sw.js"), (await readFile(join(out, "sw.js"), "utf8")).replace("const VERSION = \"__BUILD__\"", `const VERSION = "${Date.now().toString(36)}"`));
+// Red de seguridad: nada de una sala oculta puede haber llegado a los archivos de texto publicados
+for (const f of ["data/cars.json", "data/cars.js", "_headers", "_redirects", "sitemap.xml"]) {
+  const text = await readFile(join(out, f), "utf8");
+  for (const c of hidden) if (text.includes(c.id) || text.includes(`/${c.slug}/`)) problems.push(`${f} contiene la sala oculta ${c.id}`);
+}
+
 /* ---------- Comprobación de rutas dentro de dist/ ---------- */
 const inDist = (p) => files.has(posix.normalize(p));
 // URL pública de una sala → su carpeta real (las mismas reescrituras que vercel.json y _redirects): "f40/…" → "rooms/cars/f40/…"
@@ -104,4 +132,4 @@ if (problems.length) {
   console.error(`✖ dist/ incompleto (${problems.length}):\n  · ${problems.join("\n  · ")}`);
   process.exit(1);
 }
-console.log(`✔ dist/ listo · ${files.size} archivos · ${(bytes / 1048576).toFixed(1)} MB · ${rooms.length} salas · 0 rutas rotas`);
+console.log(`✔ dist/ listo · ${files.size} archivos · ${(bytes / 1048576).toFixed(1)} MB · ${rooms.length} salas · 0 rutas rotas${hidden.length ? ` · ${hidden.length} sala(s) fuera del catálogo público: ${hidden.map((c) => c.id).join(", ")}` : " · catálogo público completo"}`);

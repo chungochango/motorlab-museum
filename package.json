@@ -1,0 +1,11 @@
+{
+  "name": "motorlab-museum",
+  "private": true,
+  "description": "Museo digital del automóvil (sitio estático, sin dependencias).",
+  "scripts": {
+    "dev": "node .claude/serve.mjs",
+    "data": "node tools/build-data.mjs",
+    "build": "node tools/build-data.mjs && node tools/build-dist.mjs",
+    "new-room": "node tools/create-room.mjs"
+  }
+}

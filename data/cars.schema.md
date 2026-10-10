@@ -40,6 +40,8 @@ Con servidor (`http://`), el motor lee `cars.json` directamente. Sin servidor, u
   "year": 1987,                   // año de presentación
   "years": "1987 — 1992",         // periodo de producción, como se muestra
   "theme": "maranello",           // themes/<tema>.css: maranello (F40) · wangan (R34) · woking (P1) · motorsport (M3) · weissach (GT3 RS) · santagata (Temerario) · stuttgart (190E) · midnight (Supra) · pikes (Sport quattro S1) · hiroshima (RX-7) · ralliart (Evo VIII FQ-400) · motolab (salas de motos)
+  "announce": true,               // con "status": "coming_soon": la sala se anuncia en el Hall como avance. Sin esto, un "coming_soon" es un BORRADOR y no sale a producción (tools/public-catalog.mjs)
+  "bodyType": "Coupé",            // opcional: tipo de carrocería para los datos estructurados (tools/build-seo.mjs)
   "motion": true,                 // opcional: capa de movimiento con Motion (engine/fx/room-motion.js + engine/vendor/motion.min.js, copia local)
   "country": "Alemania", "category": "Turismo de Homologación Grupo A / DTM",   // opcionales, informativos
   "tags": ["supercar", "turbo"],   // filtros del índice del Hall: supercar · competicion · moto · turbo · atmosferico → ahora: iconos-90s · homologacion-rally · hiperdeportivo · moto (las demás, como turbo, rally o rotativo, sólo cuentan para el buscador)

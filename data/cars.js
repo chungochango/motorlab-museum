@@ -15933,6 +15933,7 @@ window.MUSEO = {
         "moto"
       ],
       "status": "coming_soon",
+      "announce": true,
       "palette": {
         "accent": "#CC0000",
         "body": "#CC0000",
