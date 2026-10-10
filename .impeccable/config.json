@@ -148,6 +148,24 @@
         "rule": "overused-font",
         "value": "helvetica",
         "createdAt": "2026-10-08T10:14:53.156Z"
+      },
+      {
+        "rule": "pulsing-dot",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-10T10:48:29.395Z",
+        "reason": "petición explícita del usuario: insignia pulsante de «apertura programada» en el Hall; acompaña a una cuenta atrás real (dato vivo) y se detiene con prefers-reduced-motion"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-10T10:48:29.395Z",
+        "reason": "petición explícita del usuario: microbarra de estado con escaneo continuo en la sala con apertura programada; es un filo decorativo de 2 px, no desplaza contenido, y se detiene con prefers-reduced-motion"
       }
     ]
   }

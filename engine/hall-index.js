@@ -5,10 +5,10 @@
    encontrar cualquiera de las salas (pensado para llegar a 40):
      · buscador en tiempo real (modelo, marca, motor, años,
        número de sala), sin distinguir acentos ni mayúsculas;
-     · filtros por categoría técnica (campo "tags" de cada coche
-       en data/cars.json); cada píldora lleva su recuento y se
-       desactiva si no hay ninguna sala que mostrar; "En desarrollo"
-       reúne las próximas salas (status "coming_soon");
+     · filtros por categoría (campo "tags" de cada coche en
+       data/cars.json: iconos-90s, homologacion-rally, hiperdeportivo,
+       moto); cada píldora lleva su recuento y se desactiva si no hay
+       ninguna sala que mostrar;
      · límite inicial de PAGE salas y botón "Cargar más salas".
    Las salas abiertas enlazan a su página; las que están en
    desarrollo suben al showroom, las ponen al frente y abren
@@ -17,16 +17,16 @@
 (() => {
   "use strict";
 
-  const PAGE = 9;
+  const PAGE = 12;                       // divisible entre 2, 3 y 4 columnas
   const FILTERS = [
-    ["all", "Todos"],
-    ["supercar", "Supercars"],
-    ["competicion", "Competición / DTM"],
-    ["moto", "Motos"],
-    ["turbo", "Turbo"],
-    ["atmosferico", "Atmosférico"],
-    ["soon", "En desarrollo"],          // no es un "tag": agrupa las salas con status "coming_soon"
+    ["all", "Todas"],
+    ["iconos-90s", "Iconos 90s"],
+    ["homologacion-rally", "Homologación & Rally"],
+    ["hiperdeportivo", "Hiperdeportivos"],
+    ["moto", "Próximamente: MotoLab"],
   ];
+  // Etiquetas que no son filtro pero sí cuentan para el buscador ("soon" agrupa las salas aún cerradas)
+  const WORDS = { supercar: "Supercars", competicion: "Competición DTM", turbo: "Turbo", atmosferico: "Atmosférico", rally: "Rally", rotativo: "Rotativo" };
   const ARROW = '<svg viewBox="0 0 16 12" aria-hidden="true"><path d="M1 6h14M10 1l5 5-5 5" /></svg>';
   const SEARCH = '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5.25" /><path d="M11 11l3.5 3.5" /></svg>';
   // Sin acentos ni mayúsculas: "cosworth", "Atmosférico" y "atmosferico" coinciden
@@ -54,7 +54,7 @@
       c, i, tags: c.tags || [],
       text: norm([`sala ${M.roomNo(c, i)}`, wing(c)?.label, wing(c)?.name, c.name, c.brand, c.make, c.model, c.badge, engine(c), c.years, c.category,
         ...(c.hall?.specs || []).flat(), ...Object.values(c.specsPreview || {}),
-        ...(c.tags || []).map((t) => FILTERS.find(([k]) => k === t)?.[1])].join(" ")),
+        ...(c.tags || []).map((t) => FILTERS.find(([k]) => k === t)?.[1] || WORDS[t])].join(" ")),
     }));
 
     /* ---------- Marcado ---------- */
@@ -122,11 +122,13 @@
     const render = ({ focusFrom = -1 } = {}) => {
       const hits = rooms.filter((r) => matchesQuery(r) && inCat(r, state.cat));
       const shown = new Set(hits.slice(0, state.limit).map((r) => r.i));
-      items.forEach((el, i) => {
+      const commit = () => items.forEach((el, i) => {
         const on = shown.has(i);
         if (on && el.hidden) { el.hidden = false; el.classList.remove("is-in"); void el.offsetWidth; el.classList.add("is-in"); }
         else if (!on) el.hidden = true;
       });
+      // Con la capa de movimiento (engine/fx/hall-motion.js) el cambio se anima: las que salen se apagan y el resto se recoloca
+      if (M.fx?.hallFlip) M.fx.hallFlip({ items, shown, commit }); else commit();
 
       // Recuento por categoría con la búsqueda actual; la píldora activa nunca se desactiva
       pills.forEach((p) => {

@@ -1,0 +1,70 @@
+/* =========================================================
+   HALL · TELEMETRÍA Y CAPA DE MOVIMIENTO
+   Tablero del museo, bloque de apertura programada y lo que
+   acompaña a engine/fx/hall-motion.js. Lo que depende de Motion
+   cuelga de html.fx-hall (no existe con «reducir movimiento»).
+   ========================================================= */
+
+/* ---------- Tablero de telemetría ---------- */
+.hud { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-bottom: clamp(48px, 8vh, 88px); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+.hud__cell { position: relative; display: grid; align-content: start; gap: 8px; padding: clamp(18px, 2.6vh, 28px) clamp(14px, 1.8vw, 28px); }
+.hud__cell + .hud__cell { border-left: 1px solid var(--hairline); }
+.hud dt { font-size: 0.66rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--grey-dim); }
+.hud dd { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 8px; font-size: clamp(1.7rem, 3vw, 2.6rem); font-weight: 200; line-height: 1; font-variant-numeric: tabular-nums; color: var(--white); }
+.hud dd small { font-size: 0.72rem; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; color: var(--grey); }
+.hud__note { font-size: 0.72rem; line-height: 1.35; color: var(--grey); }
+.hud__bar { display: block; height: 2px; background: rgba(255, 255, 255, 0.12); }
+.hud__bar i { display: block; height: 100%; background: var(--white); transform-origin: 0 50%; transform: scaleX(var(--k)); }
+@media (max-width: 1000px) {
+  .hud { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hud__cell:nth-child(3) { border-left: 0; }
+  .hud__cell:nth-child(n + 3) { border-top: 1px solid var(--hairline); }
+}
+@media (max-width: 600px) {
+  .hud__cell { padding: 16px 12px; }
+  .hud dt { letter-spacing: 0.16em; }
+}
+
+/* ---------- Sala con apertura programada ---------- */
+.has-launch .idx__status { display: none; }          /* su cuenta atrás sigue viva (recarga el Hall al abrir); aquí se ve la detallada */
+.launch { display: grid; gap: 8px; margin-top: 10px; }
+.launch__badge { display: inline-flex; align-items: center; gap: 8px; font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: #f4b942; }
+.launch__lamp { flex: none; width: 7px; height: 7px; border-radius: 50%; background: #f4b942; box-shadow: 0 0 8px rgba(244, 185, 66, 0.9); animation: launchLamp 1.6s ease-in-out infinite; }
+.launch__clock { display: flex; gap: 12px; font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey); font-variant-numeric: tabular-nums; }
+.launch__clock b { margin-right: 3px; font-size: 1.25rem; font-weight: 300; letter-spacing: 0; color: var(--white); }
+.launch__date { font-size: 0.72rem; color: var(--platinum); }
+.launch__scan { position: relative; display: block; padding-top: 9px; overflow: hidden; font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--grey-dim); }
+.launch__scan::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 2px; background: rgba(255, 255, 255, 0.1); }
+.launch__scan i { position: absolute; left: 0; top: 0; width: 28%; height: 2px; background: linear-gradient(90deg, transparent, rgb(var(--accent)), transparent); animation: launchScan 2.4s cubic-bezier(0.45, 0, 0.55, 1) infinite; }
+@keyframes launchLamp { 50% { opacity: 0.35; box-shadow: 0 0 2px rgba(244, 185, 66, 0.4); } }
+@keyframes launchScan { from { transform: translateX(-100%); } to { transform: translateX(360%); } }
+@media (max-width: 600px) {
+  .launch__clock { gap: 9px; }
+  .launch__clock b { font-size: 1.05rem; }
+}
+
+/* ---------- Con Motion ---------- */
+html.fx-hall .idx__item.is-in { animation: none; }               /* la entrada la hace la reordenación */
+html.fx-hall .idx__item { perspective: 900px; will-change: transform; }
+html.fx-hall .idx__card { isolation: isolate; will-change: transform; }
+/* Halo del color de la sala: relleno tenue y un filo de 1 px que sólo se ve cerca del cursor */
+html.fx-hall .idx__card::before,
+html.fx-hall .idx__card::after {
+  content: ""; position: absolute; z-index: -1; inset: -12px; border-radius: 8px; pointer-events: none; opacity: 0; transition: opacity 0.35s ease;
+  background: radial-gradient(260px circle at calc(var(--mouse-x, -400px) + 12px) calc(var(--mouse-y, -400px) + 12px), rgba(var(--accent), 0.16), rgba(var(--accent), 0) 70%);
+}
+html.fx-hall .idx__card::after {
+  padding: 1px;
+  background: radial-gradient(200px circle at calc(var(--mouse-x, -400px) + 12px) calc(var(--mouse-y, -400px) + 12px), rgba(var(--accent), 0.85), rgba(var(--accent), 0) 70%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+}
+@media (hover: hover) and (pointer: fine) {
+  html.fx-hall .idx__item:hover .idx__card::before, html.fx-hall .idx__item:hover .idx__card::after { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .launch__lamp, .launch__scan i { animation: none; }
+  .launch__scan i { width: 100%; opacity: 0.5; }
+}

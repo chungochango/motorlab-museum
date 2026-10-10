@@ -8,6 +8,7 @@ window.MUSEO = {
   "museum": {
     "name": "Museo digital del automóvil",
     "hall": "index.html",
+    "plannedRooms": 100,
     "wings": {
       "dos-ruedas": {
         "label": "Ala dos ruedas",
@@ -56,7 +57,8 @@ window.MUSEO = {
       "years": "1987 — 1992",
       "tags": [
         "supercar",
-        "turbo"
+        "turbo",
+        "hiperdeportivo"
       ],
       "theme": "maranello",
       "palette": {
@@ -1544,7 +1546,8 @@ window.MUSEO = {
       "year": 1999,
       "years": "1999 — 2002",
       "tags": [
-        "turbo"
+        "turbo",
+        "iconos-90s"
       ],
       "theme": "wangan",
       "palette": {
@@ -2324,7 +2327,8 @@ window.MUSEO = {
       "years": "2013 — 2015",
       "tags": [
         "supercar",
-        "turbo"
+        "turbo",
+        "hiperdeportivo"
       ],
       "theme": "woking",
       "palette": {
@@ -3254,7 +3258,8 @@ window.MUSEO = {
       "category": "Turismo de Homologación Grupo A / DTM",
       "tags": [
         "competicion",
-        "atmosferico"
+        "atmosferico",
+        "homologacion-rally"
       ],
       "theme": "motorsport",
       "palette": {
@@ -3831,7 +3836,8 @@ window.MUSEO = {
       "category": "Weissach Package // Nordschleife Track Weapon",
       "tags": [
         "supercar",
-        "atmosferico"
+        "atmosferico",
+        "hiperdeportivo"
       ],
       "theme": "weissach",
       "palette": {
@@ -6289,7 +6295,8 @@ window.MUSEO = {
       "category": "Superdeportivo híbrido enchufable (HPEV)",
       "tags": [
         "supercar",
-        "turbo"
+        "turbo",
+        "hiperdeportivo"
       ],
       "palette": {
         "accent": "#39ff14",
@@ -7454,7 +7461,9 @@ window.MUSEO = {
       "category": "Turismo de Homologación Grupo A / DTM",
       "tags": [
         "competicion",
-        "atmosferico"
+        "atmosferico",
+        "homologacion-rally",
+        "iconos-90s"
       ],
       "palette": {
         "accent": "#E2E8F0",
@@ -8280,7 +8289,8 @@ window.MUSEO = {
       "country": "Japón",
       "category": "Gran turismo",
       "tags": [
-        "turbo"
+        "turbo",
+        "iconos-90s"
       ],
       "palette": {
         "accent": "#FF9E1B",
@@ -11012,7 +11022,8 @@ window.MUSEO = {
       "category": "Subida de montaña · Pikes Peak International Hill Climb",
       "tags": [
         "competicion",
-        "turbo"
+        "turbo",
+        "homologacion-rally"
       ],
       "releaseDate": "2026-10-08T21:00:00+02:00",
       "palette": {
@@ -14180,7 +14191,8 @@ window.MUSEO = {
       "category": "Deportivo de motor rotativo",
       "tags": [
         "rotativo",
-        "turbo"
+        "turbo",
+        "iconos-90s"
       ],
       "releaseDate": "2026-10-09T22:00:00+02:00",
       "palette": {
@@ -15049,7 +15061,8 @@ window.MUSEO = {
       "category": "Berlina de rallies de serie limitada",
       "tags": [
         "turbo",
-        "rally"
+        "rally",
+        "homologacion-rally"
       ],
       "palette": {
         "accent": "#FF1E27",

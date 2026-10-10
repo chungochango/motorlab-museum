@@ -42,7 +42,7 @@ Con servidor (`http://`), el motor lee `cars.json` directamente. Sin servidor, u
   "theme": "maranello",           // themes/<tema>.css: maranello (F40) · wangan (R34) · woking (P1) · motorsport (M3) · weissach (GT3 RS) · santagata (Temerario) · stuttgart (190E) · midnight (Supra) · pikes (Sport quattro S1) · hiroshima (RX-7) · ralliart (Evo VIII FQ-400) · motolab (salas de motos)
   "motion": true,                 // opcional: capa de movimiento con Motion (engine/fx/room-motion.js + engine/vendor/motion.min.js, copia local)
   "country": "Alemania", "category": "Turismo de Homologación Grupo A / DTM",   // opcionales, informativos
-  "tags": ["supercar", "turbo"],   // filtros del índice del Hall: supercar · competicion · moto · turbo · atmosferico (otras, como rally o rotativo, sólo cuentan para el buscador)
+  "tags": ["supercar", "turbo"],   // filtros del índice del Hall: supercar · competicion · moto · turbo · atmosferico → ahora: iconos-90s · homologacion-rally · hiperdeportivo · moto (las demás, como turbo, rally o rotativo, sólo cuentan para el buscador)
   "pendingImages": true,          // opcional: fotos aún no subidas (aviso en vez de error)
   "status": "coming_soon",       // opcional: sala en desarrollo. Sale en el Hall apagada, con la insignia «Sala en desarrollo // Próximamente»
                                   // y un avance (hall.teaser + specsPreview) en vez de enlace; no necesita specs, sections ni carpeta index.html

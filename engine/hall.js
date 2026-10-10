@@ -17,6 +17,7 @@
   document.documentElement.classList.add("is-ready");
   M.hallReady = true;
   M.hallCars = data.cars;
+  M.hallPlanned = data.museum.plannedRooms;      // salas previstas en total (tablero de telemetría del Hall)
   M.wings = data.museum.wings || {};             // alas temáticas ("dos-ruedas"): las usan el anillo y el índice
   document.dispatchEvent(new CustomEvent("museo:hall", { detail: { cars: data.cars } }));
 })();

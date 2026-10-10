@@ -399,6 +399,10 @@ html { scroll-padding-top: 24px; }
 @media (hover: hover) and (pointer: fine) { .topbar__link:hover { border-bottom-color: currentColor; } }
 
 @media (max-width: 1000px) { .idx__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1800px) {
+  .idx { max-width: 1720px; }
+  .idx__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
 /* Móvil: lista compacta (miniatura + datos) para que 40 salas no sean un scroll infinito */
 @media (max-width: 600px) {
   .topbar__link span { display: none; }
