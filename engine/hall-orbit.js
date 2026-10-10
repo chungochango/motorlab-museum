@@ -2,19 +2,34 @@
    MUSEO · SHOWROOM DEL HALL
    ---------------------------------------------------------
    Vista única a pantalla completa: los coches de data/cars.json
-   sobre pedestales en un anillo 3D, sin librerías.
-     · frente (0°): escala 1, opacidad 1, nítido, con su ficha y
-       su botón "Entrar en la sala";
-     · espera (±120°): retrasado (−300 px en Z), escala 0,65,
-       opacidad 0,4 y desenfoque de 2 px; estático;
-     · detrás (±180°): oculto. Funciona con 2, 3 o 40 coches.
-   Cambiar de coche desliza el anillo entero en horizontal (una
-   fase interpolada con requestAnimationFrame) y la ficha técnica
-   cambia con un fundido sincrónico (transiciones CSS).
+   en un escenario 3D en profundidad (coverflow), sin librerías.
+   Cada coche se coloca según su distancia al coche activo
+   (offset = índice − posición), interpolando entre tres puntos:
+     · activo (0): centrado, escala 1, opacidad 1, nítido, con su
+       ficha y su botón "Entrar en la sala";
+     · lateral (±1): desplazado un 65 % de su ancho, 350 px hacia el
+       fondo, girado 32° hacia el centro, escala 0,78, opacidad 0,35
+       y desenfoque de 3 px; un clic lo trae al centro;
+     · lejano (±2 o más): 600 px al fondo, invisible y sin clics.
+   Detrás del coche activo, un halo del color de su sala. El número
+   de cada sala, gigante y muy tenue, se desplaza más que el coche al
+   cambiar (paralaje); se pinta en modo «aclarar», así que sólo se ve
+   sobre el negro y nunca sobre el coche.
+   Cambiar de coche mueve la posición con un muelle con rebote suave (requestAnimationFrame) que hereda
+   la velocidad del gesto, y mientras hay velocidad la silueta de los
+   coches se inclina un poco (skewX) y se endereza al parar. La ficha
+   técnica cambia con un fundido sincrónico (transiciones CSS).
+   Bajo el anillo, una plataforma en perspectiva con rejilla y el
+   reflejo del color del coche al frente (--focus).
+   Cada cambio de coche se anuncia con el evento "museo:hall-active"
+   (lo usa el radar de engine/fx/hall-motion.js).
 
-   Controles: flechas, indicadores numéricos, deslizamiento
-   horizontal (sigue al dedo; un gesto rápido basta), rueda
-   horizontal y teclas ← →. Con prefers-reduced-motion: cambio
+   Controles: flechas, indicadores numéricos, clic en un coche
+   lateral, deslizamiento horizontal (sigue al dedo y encaja en el
+   coche más cercano; un gesto rápido basta), rueda del ratón sobre
+   el escenario (un coche por gesto; ahí no desplaza la página) y
+   teclas ← → (en toda la página mientras el showroom
+   está a la vista). Con prefers-reduced-motion: cambio
    instantáneo y fundidos mínimos.
    ========================================================= */
 (() => {
@@ -29,8 +44,6 @@
     const roomUrl = (c) => esc(M.roomHref(c));
 
     const N = cars.length;
-    const STEP = 360 / Math.max(N, 3);         // con 2 coches, el de espera queda a 120° (a un lado, no tapado)
-    const BACK = 120;                          // ángulo de la posición de espera
     const reduce = matchMedia("(prefers-reduced-motion: reduce)");
     const ARROW = (d) => `<svg viewBox="0 0 16 12" aria-hidden="true"><path d="${d}" /></svg>`;
     const accent = (c) => c.palette?.hallAccent || M.hexToRgb(c.palette?.accent || "#e2e4e8");
@@ -72,6 +85,8 @@
     section.setAttribute("aria-label", "Salas del museo");
     section.innerHTML = `
       <div class="orbit__stage">
+        <span class="orbit__deck" aria-hidden="true"><i></i></span>
+        <span class="orbit__halo" aria-hidden="true"></span>
         <div class="orbit__ring">
           ${cars.map((c, i) => `
             <div class="orbit__slot hall--${c.theme}${soon(c) ? " is-soon" : ""}" data-i="${i}" style="--accent: ${accent(c)}; --ar: ${ratio(c.hall.image)}" role="group" aria-roledescription="sala" aria-label="${i + 1} de ${N}: ${esc(c.name)}${soon(c) ? " (próximamente)" : ""}">
@@ -84,6 +99,7 @@
               ${soon(c) ? `</span><span class="orbit__soon" aria-hidden="true">${c.status === "coming_soon" ? "Sala en desarrollo" : "Sala en calibración"} <i>//</i> ${opening(c)}</span>` : "</a>"}
             </div>`).join("")}
         </div>
+        <div class="orbit__nums" aria-hidden="true">${cars.map((c, i) => `<span class="orbit__num">${esc(M.roomNo(c, i))}</span>`).join("")}</div>
         <button type="button" class="orbit__arrow orbit__arrow--prev" aria-label="Sala anterior">${ARROW("M15 6H1M6 1L1 6l5 5")}</button>
         <button type="button" class="orbit__arrow orbit__arrow--next" aria-label="Sala siguiente">${ARROW("M1 6h14M10 1l5 5-5 5")}</button>
       </div>
@@ -115,51 +131,74 @@
     const infos = [...section.querySelectorAll(".orbit__info")];
     const dots = [...section.querySelectorAll(".orbit__dots button")];
     const live = section.querySelector(".orbit__live");
+    const deckGlow = section.querySelector(".orbit__deck i");
+    const halo = section.querySelector(".orbit__halo");
+    const nums = [...section.querySelectorAll(".orbit__num")];
     if (N < 2) section.classList.add("is-single");
 
-    /* ---------- Geometría del anillo ---------- */
-    let phase = 0;                             // posición continua del anillo (0 = primer coche al frente)
+    /* ---------- Geometría del escenario ---------- */
+    let phase = 0;                             // posición continua (0 = primer coche al centro; puede dar la vuelta)
     let active = 0;
-    let rx = 0, rz = 0;
+    let span = 300;                            // recorrido en px entre un coche y el siguiente (65 % de su ancho)
+    let vel = 0;                               // velocidad de la posición (coches por segundo): inclina las siluetas
     const measure = () => {
-      const w = stage.clientWidth;
       section.style.setProperty("--stage-h", `${stage.clientHeight}px`);
-      rx = w < 720 ? w * 0.72 : Math.min(w * 0.46, 660);   // los de espera quedan a los lados (en móvil, asoman por el borde)
-      rz = 300 / (1 - Math.cos((BACK * Math.PI) / 180));    // → a 120° quedan a −300 px
+      span = (slots[0].offsetWidth || 460) * 0.65;
     };
-    const wrap = (a) => { a %= 360; if (a > 180) a -= 360; if (a < -180) a += 360; return a; };
+    // Puntos de paso por distancia al activo: 0 (centro), 1 (lateral), 2 (lejano)
+    const KEYS = [
+      { x: 0, z: 0, r: 0, s: 1, o: 1, b: 0 },
+      { x: 65, z: -350, r: 32, s: 0.78, o: 0.35, b: 3 },
+      { x: 112, z: -600, r: 40, s: 0.7, o: 0, b: 5 },
+    ];
+    const mix = (a, b, f) => a + (b - a) * f;
 
     const place = () => {
+      const skew = Math.max(-7, Math.min(7, -vel * 2.4));     // la parte alta del coche se queda atrás
       slots.forEach((slot, i) => {
-        // Los vecinos del coche frontal quedan siempre en la posición de espera (±120°) aunque
-        // haya 4 o más coches; los demás pasan por detrás, ocultos
-        const a = Math.max(-180, Math.min(180, wrap((i - phase) * STEP) * (BACK / STEP)));
-        const t = Math.abs(a);
-        const rad = (a * Math.PI) / 180;
-        const k = Math.min(t / BACK, 1);
-        const opacity = t <= BACK ? 1 - 0.6 * k : 0.4 * Math.max(0, 1 - (t - BACK) / 60);
-        const x = Math.sin(rad) * rx, z = -(1 - Math.cos(rad)) * rz;
-        slot.style.transform = `translate3d(${x.toFixed(2)}px, 0, ${z.toFixed(2)}px) rotateY(${(-a * 0.12).toFixed(2)}deg) scale(${(1 - 0.35 * k).toFixed(4)})`;
+        // offset con signo por el camino más corto (la fila se cierra sobre sí misma)
+        let o = (((i - phase) % N) + N) % N;
+        if (o > N / 2) o -= N;
+        const d = Math.min(Math.abs(o), 2), k = Math.min(1, Math.floor(d)), f = d - k, A = KEYS[k], B = KEYS[k + 1];
+        const side = Math.sign(o);
+        const opacity = mix(A.o, B.o, f);
+        slot.style.transform = `translate3d(${(side * mix(A.x, B.x, f)).toFixed(2)}%, 0, ${mix(A.z, B.z, f).toFixed(1)}px) rotateY(${(-side * mix(A.r, B.r, f)).toFixed(2)}deg) scale(${mix(A.s, B.s, f).toFixed(4)})`;
         slot.style.opacity = opacity.toFixed(3);
         slot.style.visibility = opacity > 0.001 ? "visible" : "hidden";
-        slot.style.zIndex = Math.round(200 - t);
-        const blur = 2 * k;                    // nítido al frente, 2 px en espera
+        slot.style.pointerEvents = d < 1.5 ? "auto" : "none";
+        slot.style.zIndex = Math.round(20 - d * 10);
+        const blur = mix(A.b, B.b, f);
         carsEl[i].style.filter = blur > 0.05 ? `blur(${blur.toFixed(2)}px)` : "";
+        carsEl[i].style.transform = Math.abs(skew) > 0.05 && opacity > 0.001 ? `skewX(${skew.toFixed(2)}deg)` : "";
+        // Número de sala al fondo: recorre casi el doble que el coche y sólo se ve el del coche activo
+        const fade = Math.max(0, 1 - Math.abs(o));
+        nums[i].style.transform = `translate3d(${(o * span * 1.9).toFixed(1)}px, 0, -400px)`;
+        nums[i].style.opacity = fade.toFixed(3);
+        nums[i].style.visibility = fade > 0.001 ? "visible" : "hidden";
       });
     };
 
-    /* ---------- Interpolación de la fase (sin librerías) ---------- */
-    const easeInOut = (p) => (p < 0.5 ? 8 * p ** 4 : 1 - (-2 * p + 2) ** 4 / 2);   // cuártica: arranque y frenada suaves
+    /* ---------- Muelle de la fase (sin librerías) ----------
+       Muelle (rigidez 90, amortiguación 12: llega con un rebote suave) que parte de
+       la velocidad que traiga el anillo: la del gesto al soltar, o la del cambio anterior. */
+    const STIFF = 90, DAMP = 12;
     let raf = 0;
-    const animate = (to, duration, done) => {
+    const animate = (to, instant, done) => {
       cancelAnimationFrame(raf);
-      const from = phase, t0 = performance.now();
-      if (!duration) { phase = to; place(); done(); return; }
+      if (instant) { phase = to; vel = 0; place(); done(); return; }
+      let last = performance.now();
       const frame = (now) => {
-        const p = Math.min(1, (now - t0) / (duration * 1000));
-        phase = from + (to - from) * easeInOut(p);
+        let dt = Math.min(0.05, (now - last) / 1000);
+        last = now;
+        while (dt > 0) {                         // pasos de 1/120 s: estable aunque el navegador salte fotogramas
+          const h = Math.min(dt, 1 / 120);
+          vel += (-STIFF * (phase - to) - DAMP * vel) * h;
+          phase += vel * h;
+          dt -= h;
+        }
+        if (Math.abs(phase - to) < 0.0008 && Math.abs(vel) < 0.01) { phase = to; vel = 0; place(); done(); return; }
         place();
-        if (p < 1) raf = requestAnimationFrame(frame); else done();
+        raf = requestAnimationFrame(frame);
       };
       raf = requestAnimationFrame(frame);
     };
@@ -190,18 +229,23 @@
       dots.forEach((d, k) => d.setAttribute("aria-current", String(k === i)));
       slots.forEach((s, k) => s.classList.toggle("is-active", k === i));
       live.textContent = `Sala ${i + 1} de ${N}: ${cars[i].name}`;
+      // Reflejo de la plataforma: toma el color del coche al frente con un fundido
+      section.style.setProperty("--focus", accent(cars[i]));
+      if (!reduce.matches && deckGlow.animate) [deckGlow, halo].forEach((el) => el.animate([{ opacity: 0.15 }, { opacity: 1 }], { duration: 900, easing: "cubic-bezier(0.22, 1, 0.36, 1)" }));
+      M.hallActive = i;
+      document.dispatchEvent(new CustomEvent("museo:hall-active", { detail: { i } }));
     };
 
     /* ---------- Navegación ---------- */
-    const goTo = (target, { fromDrag = false } = {}) => {
+    const goTo = (target, { fromDrag = false, velocity = null } = {}) => {
       // Fase destino por el camino más corto del anillo (permite dar la vuelta sin fin)
       const idx = ((target % N) + N) % N;
       let dest = Math.round(phase) + (((idx - Math.round(phase)) % N) + N) % N;
       if (dest - phase > N / 2) dest -= N;
       if (fromDrag) dest = target;              // tras arrastrar, la fase ya viene calculada
-      const duration = reduce.matches ? 0 : Math.min(1.1, 0.55 + Math.abs(dest - phase) * 0.45);
+      if (velocity != null) vel = velocity;
       if (active !== idx) { active = idx; showInfo(idx); }
-      animate(dest, duration, () => { phase = ((dest % N) + N) % N; place(); });
+      animate(dest, reduce.matches, () => { phase = ((dest % N) + N) % N; place(); });
     };
     const step = (d) => goTo(active + d);
     // Para el índice de salas (engine/hall-index.js): trae una sala al frente y, si está en desarrollo, abre su avance
@@ -210,9 +254,13 @@
     section.querySelector(".orbit__arrow--prev").addEventListener("click", () => step(-1));
     section.querySelector(".orbit__arrow--next").addEventListener("click", () => step(1));
     section.querySelector(".orbit__dots").addEventListener("click", (ev) => { const b = ev.target.closest("[data-go]"); if (b) goTo(+b.dataset.go); });
-    section.addEventListener("keydown", (ev) => {
-      if (ev.key === "ArrowRight") { ev.preventDefault(); step(1); }
-      if (ev.key === "ArrowLeft") { ev.preventDefault(); step(-1); }
+    // Teclas ← →: en toda la página mientras el showroom está a la vista (no al escribir en el buscador)
+    document.addEventListener("keydown", (ev) => {
+      if (ev.key !== "ArrowRight" && ev.key !== "ArrowLeft") return;
+      if (ev.defaultPrevented || ev.ctrlKey || ev.metaKey || ev.altKey || ev.target.closest?.("input, textarea, select, [contenteditable]")) return;
+      if (!section.contains(ev.target) && section.getBoundingClientRect().bottom < innerHeight * 0.5) return;
+      ev.preventDefault();
+      step(ev.key === "ArrowRight" ? 1 : -1);
     });
 
     // Clic en un coche de espera: pasa al frente. El del frente entra en su sala;
@@ -224,7 +272,7 @@
     }));
 
     /* Deslizamiento: el anillo sigue al dedo; al soltar, un gesto rápido
-       (> 0,11 px/ms) avanza un coche aunque el recorrido sea corto */
+       (> 0,35 px/ms) avanza un coche aunque el recorrido sea corto; si no, encaja en el más cercano */
     let drag = null, dragged = false;
     stage.addEventListener("pointerdown", (ev) => {
       if (drag || ev.button !== 0 || ev.target.closest(".orbit__arrow")) return;   // un solo dedo manda
@@ -236,11 +284,14 @@
       const dx = ev.clientX - drag.x, dy = ev.clientY - drag.y;
       if (!drag.axis && Math.hypot(dx, dy) > 6) {
         drag.axis = Math.abs(dx) > Math.abs(dy) ? "x" : "y";
-        if (drag.axis === "x") { cancelAnimationFrame(raf); drag.phase = phase; drag.x = ev.clientX; try { stage.setPointerCapture(ev.pointerId); } catch {} }
+        if (drag.axis === "x") { cancelAnimationFrame(raf); vel = 0; drag.phase = phase; drag.x = ev.clientX; try { stage.setPointerCapture(ev.pointerId); } catch {} }
       }
       if (drag.axis !== "x") return;
       dragged = true;
-      phase = drag.phase - (ev.clientX - drag.x) / (rx * 1.15);
+      const before = phase, now = performance.now();
+      phase = drag.phase - (ev.clientX - drag.x) / span;
+      vel = 0.6 * vel + 0.4 * ((phase - before) / Math.max(0.008, (now - (drag.last || now - 16)) / 1000));   // suavizada
+      drag.last = now;
       place();
     });
     const endDrag = (ev) => {
@@ -250,22 +301,28 @@
       const dx = ev.clientX - d.x;
       const v = dx / Math.max(1, performance.now() - d.t);
       let target = Math.round(phase);
-      if (Math.abs(v) > 0.11 && target === Math.round(d.phase)) target -= Math.sign(dx);   // gesto rápido = un coche más
-      goTo(target, { fromDrag: true });
+      if (Math.abs(v) > 0.35 && target === Math.round(d.phase)) target -= Math.sign(dx);   // gesto rápido = un coche más
+      goTo(target, { fromDrag: true, velocity: Math.max(-6, Math.min(6, vel)) });
       setTimeout(() => { dragged = false; }, 0);
     };
     stage.addEventListener("pointerup", endDrag);
     stage.addEventListener("pointercancel", endDrag);
 
-    // Rueda horizontal (trackpad): un coche por gesto
-    let wheelLock = 0;
+    // Rueda del ratón o trackpad sobre el escenario: cambia de coche (uno por gesto) en vez de desplazar la página.
+    // Fuera del escenario (ficha, índice) la página se desplaza como siempre.
+    let wheelLock = 0, wheelSum = 0, wheelAt = 0;
     stage.addEventListener("wheel", (ev) => {
-      if (Math.abs(ev.deltaX) <= Math.abs(ev.deltaY) || Math.abs(ev.deltaX) < 12) return;
+      if (ev.ctrlKey || N < 2) return;                     // Ctrl + rueda es el zoom del navegador
       ev.preventDefault();
       const now = performance.now();
-      if (now < wheelLock) return;
-      wheelLock = now + 700;
-      step(Math.sign(ev.deltaX));
+      if (now - wheelAt > 250) wheelSum = 0;               // gesto nuevo
+      wheelAt = now;
+      const d = Math.abs(ev.deltaX) > Math.abs(ev.deltaY) ? ev.deltaX : ev.deltaY;
+      wheelSum += ev.deltaMode === 1 ? d * 32 : d;
+      if (now < wheelLock || Math.abs(wheelSum) < 36) return;
+      wheelLock = now + 420;
+      step(Math.sign(wheelSum));
+      wheelSum = 0;
     }, { passive: false });
 
     /* ---------- Arranque ---------- */

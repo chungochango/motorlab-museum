@@ -86,13 +86,15 @@ window.MUSEO = {
           "label": "Potencia",
           "value": 478,
           "unit": "CV",
-          "note": "a 7.000 rpm"
+          "note": "a 7.000 rpm",
+          "rpm": 7000
         },
         "torque": {
           "label": "Par motor",
           "value": 577,
           "unit": "Nm",
-          "note": "a 4.000 rpm"
+          "note": "a 4.000 rpm",
+          "rpm": 4000
         },
         "topSpeed": {
           "label": "Velocidad máxima",
@@ -118,7 +120,16 @@ window.MUSEO = {
         "production": {
           "label": "Unidades",
           "value": 1315
+        },
+        "redline": {
+          "label": "Régimen máximo",
+          "value": 7750,
+          "unit": "rpm"
         }
+      },
+      "dimensions": {
+        "height": 1124,
+        "cd": 0.34
       },
       "images": {
         "f40-perfil": {
@@ -1577,13 +1588,15 @@ window.MUSEO = {
           "label": "Potencia",
           "value": 280,
           "unit": "PS",
-          "note": "homologada"
+          "note": "homologada",
+          "rpm": 6800
         },
         "torque": {
           "label": "Par máximo",
           "value": 392,
           "unit": "N·m",
-          "note": "a 4.400 rpm"
+          "note": "a 4.400 rpm",
+          "rpm": 4400
         },
         "topSpeed": {
           "label": "Velocidad máxima",
@@ -1607,7 +1620,16 @@ window.MUSEO = {
           "label": "Tracción",
           "value": "ATTESA",
           "note": "total, reparto variable"
+        },
+        "redline": {
+          "label": "Régimen máximo",
+          "value": 8000,
+          "unit": "rpm"
         }
+      },
+      "dimensions": {
+        "wheelbase": 2665,
+        "height": 1360
       },
       "images": {
         "r34-hero": {
@@ -2391,6 +2413,11 @@ window.MUSEO = {
           "label": "Unidades",
           "value": 375
         }
+      },
+      "dimensions": {
+        "wheelbase": 2670,
+        "height": 1188,
+        "cd": 0.34
       },
       "images": {
         "p1-perfil": {
@@ -3293,13 +3320,15 @@ window.MUSEO = {
           "label": "Potencia",
           "value": 238,
           "unit": "CV",
-          "note": "a 7.000 rpm (calle) · 300 CV a 8.500 rpm (DTM)"
+          "note": "a 7.000 rpm (calle) · 300 CV a 8.500 rpm (DTM)",
+          "rpm": 7000
         },
         "torque": {
           "label": "Par motor",
           "value": 240,
           "unit": "Nm",
-          "note": "a 4.750 rpm"
+          "note": "a 4.750 rpm",
+          "rpm": 4750
         },
         "topSpeed": {
           "label": "Velocidad máxima",
@@ -6236,19 +6265,26 @@ window.MUSEO = {
           "label": "Potencia",
           "value": 525,
           "unit": "CV",
-          "note": "a 8.500 rpm"
+          "note": "a 8.500 rpm",
+          "rpm": 8500
         },
         "torque": {
           "label": "Par motor",
           "value": 465,
           "unit": "Nm",
-          "note": "a 6.300 rpm"
+          "note": "a 6.300 rpm",
+          "rpm": 6300
         },
         "weight": {
           "label": "Peso",
           "value": 1450,
           "unit": "kg",
           "note": "DIN · Paquete Weissach"
+        },
+        "topSpeed": {
+          "label": "Velocidad máxima",
+          "value": 296,
+          "unit": "km/h"
         },
         "downforce": {
           "label": "Carga aerodinámica",
@@ -6277,7 +6313,16 @@ window.MUSEO = {
           "value": 3.2,
           "unit": "s",
           "decimals": 1
+        },
+        "redline": {
+          "label": "Régimen máximo",
+          "value": 9000,
+          "unit": "rpm"
         }
+      },
+      "dimensions": {
+        "wheelbase": 2457,
+        "height": 1322
       }
     },
     {
@@ -6318,7 +6363,21 @@ window.MUSEO = {
           "label": "Potencia combinada",
           "value": 920,
           "unit": "CV",
-          "note": "676 kW"
+          "note": "676 kW",
+          "rpm": 9000
+        },
+        "torque": {
+          "label": "Par motor",
+          "value": 730,
+          "unit": "Nm",
+          "note": "del motor V8",
+          "rpm": 4000
+        },
+        "weight": {
+          "label": "Peso",
+          "value": 1690,
+          "unit": "kg",
+          "note": "en seco · 1,84 kg/CV"
         },
         "thermal": {
           "label": "Motor V8",
@@ -6373,6 +6432,10 @@ window.MUSEO = {
           "value": "Aluminio",
           "note": "Bastidor integral spaceframe"
         }
+      },
+      "dimensions": {
+        "wheelbase": 2658,
+        "height": 1201
       },
       "images": {
         "temerario-hero": {
@@ -7489,13 +7552,15 @@ window.MUSEO = {
           "label": "Potencia",
           "value": 235,
           "unit": "CV",
-          "note": "a 7.200 rpm · corte a 7.700 rpm"
+          "note": "a 7.200 rpm · corte a 7.700 rpm",
+          "rpm": 7200
         },
         "torque": {
           "label": "Par",
           "value": 245,
           "unit": "Nm",
-          "note": "a 5.000 rpm"
+          "note": "a 5.000 rpm",
+          "rpm": 5000
         },
         "topSpeed": {
           "label": "Velocidad máxima",
@@ -7543,6 +7608,11 @@ window.MUSEO = {
           "label": "Tracción",
           "value": "Trasera",
           "note": "autoblocante ASD"
+        },
+        "redline": {
+          "label": "Régimen máximo",
+          "value": 7700,
+          "unit": "rpm"
         }
       },
       "images": {
@@ -8315,13 +8385,15 @@ window.MUSEO = {
           "label": "Potencia",
           "value": 280,
           "unit": "PS",
-          "note": "a 5.600 rpm · homologada (pacto de caballeros)"
+          "note": "a 5.600 rpm · homologada (pacto de caballeros)",
+          "rpm": 5600
         },
         "torque": {
           "label": "Par",
           "value": 431,
           "unit": "Nm",
-          "note": "a 3.600 rpm (44 kgm)"
+          "note": "a 3.600 rpm (44 kgm)",
+          "rpm": 3600
         },
         "topSpeed": {
           "label": "Velocidad máxima",
@@ -8368,7 +8440,15 @@ window.MUSEO = {
         "drivetrain": {
           "label": "Tracción",
           "value": "Trasera"
+        },
+        "redline": {
+          "label": "Régimen máximo",
+          "value": 6800,
+          "unit": "rpm"
         }
+      },
+      "dimensions": {
+        "wheelbase": 2550
       },
       "images": {
         "supra-perfil": {
@@ -11058,13 +11138,15 @@ window.MUSEO = {
           "label": "Potencia",
           "value": 598,
           "unit": "CV",
-          "note": "440 kW a 8.000 rpm (dato de Audi)"
+          "note": "440 kW a 8.000 rpm (dato de Audi)",
+          "rpm": 8000
         },
         "torque": {
           "label": "Par motor",
           "value": 590,
           "unit": "Nm",
-          "note": "a 5.500 rpm (dato de Audi)"
+          "note": "a 5.500 rpm (dato de Audi)",
+          "rpm": 5500
         },
         "displacement": {
           "label": "Cilindrada",
@@ -14224,13 +14306,15 @@ window.MUSEO = {
           "label": "Potencia",
           "value": 280,
           "unit": "PS",
-          "note": "a 6.500 rpm · homologada (pacto de caballeros)"
+          "note": "a 6.500 rpm · homologada (pacto de caballeros)",
+          "rpm": 6500
         },
         "torque": {
           "label": "Par motor",
           "value": 314,
           "unit": "Nm",
-          "note": "a 5.000 rpm"
+          "note": "a 5.000 rpm",
+          "rpm": 5000
         },
         "displacement": {
           "label": "Cilindrada",
@@ -14274,6 +14358,10 @@ window.MUSEO = {
           "value": 1504,
           "note": "1.044 de ellas Type A"
         }
+      },
+      "dimensions": {
+        "wheelbase": 2425,
+        "height": 1230
       },
       "images": {
         "rx7-hall": {
@@ -15149,6 +15237,10 @@ window.MUSEO = {
           "note": "sólo para el Reino Unido"
         }
       },
+      "dimensions": {
+        "wheelbase": 2625,
+        "height": 1450
+      },
       "images": {
         "evo-hall": {
           "role": "hero",
@@ -15853,6 +15945,28 @@ window.MUSEO = {
         "Ducati Corse",
         "Akrapovič"
       ],
+      "specs": {
+        "power": {
+          "label": "Potencia",
+          "value": 221,
+          "unit": "CV",
+          "note": "a 15.250 rpm",
+          "rpm": 15250
+        },
+        "torque": {
+          "label": "Par motor",
+          "value": 112,
+          "unit": "Nm",
+          "note": "a 11.500 rpm",
+          "rpm": 11500
+        },
+        "redline": {
+          "label": "Régimen máximo",
+          "value": 16500,
+          "unit": "rpm",
+          "note": "en 6.ª marcha"
+        }
+      },
       "images": {
         "panigale-perfil": {
           "role": "hero",

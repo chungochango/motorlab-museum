@@ -82,7 +82,7 @@ html.js:not(.has-orbit) main { min-height: 100svh; }   /* reserva el sitio mient
   user-select: none; -webkit-user-select: none; cursor: grab;
 }
 .orbit__stage:active { cursor: grabbing; }
-.orbit__ring { position: absolute; inset: 0; transform-style: preserve-3d; }
+.orbit__ring { position: absolute; inset: 0; transform-style: preserve-3d; pointer-events: none; }   /* su plano (z = 0) taparía los clics de los coches del fondo; cada coche los recibe por su cuenta */
 .orbit__slot {
   /* Ancho: el menor entre el máximo de diseño y lo que cabe en la altura del escenario
      (--stage-h lo mide el JS); la proporción es la de la propia foto (sin recortes) */
@@ -91,6 +91,33 @@ html.js:not(.has-orbit) main { min-height: 100svh; }   /* reserva el sitio mient
   width: var(--w); aspect-ratio: var(--ar);
   margin: calc(var(--w) / var(--ar) / -2) 0 0 calc(var(--w) / -2);   /* centrado sin "translate": el transform es de GSAP */
   transform-style: preserve-3d; visibility: hidden;
+}
+/* Plataforma de banco de pruebas: plano en perspectiva bajo el anillo, con rejilla fina y gruesa,
+   fundido hacia los bordes. Encima, el reflejo difuso del color del coche al frente (--focus). */
+.orbit__deck {
+  position: absolute; left: 50%; bottom: -4%; width: min(1700px, 150%); height: 58%; translate: -50% 0; pointer-events: none;
+  transform: rotateX(74deg); transform-origin: 50% 100%;
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 80px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 80px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.022) 0 1px, transparent 1px 16px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.022) 0 1px, transparent 1px 16px);
+  -webkit-mask-image: radial-gradient(ellipse 50% 62% at 50% 62%, #000 0, rgba(0, 0, 0, 0.5) 45%, transparent 100%);
+  mask-image: radial-gradient(ellipse 50% 62% at 50% 62%, #000 0, rgba(0, 0, 0, 0.5) 45%, transparent 100%);
+}
+.orbit__deck i { position: absolute; inset: 0; mix-blend-mode: screen; background: radial-gradient(ellipse 34% 46% at 50% 58%, rgba(var(--focus, var(--neutral)), 0.3), rgba(var(--focus, var(--neutral)), 0) 78%); }
+/* Halo ambiental detrás del coche activo: toma el color de su sala (--focus) y lo despega del negro */
+.orbit__halo {
+  position: absolute; left: 50%; top: 45%; width: min(1100px, 92%); aspect-ratio: 16 / 9; translate: -50% -50%; pointer-events: none;
+  background: radial-gradient(ellipse closest-side, rgba(var(--focus, var(--neutral)), 0.17), rgba(var(--focus, var(--neutral)), 0.06) 55%, rgba(var(--focus, var(--neutral)), 0) 100%);
+}
+/* Número de la sala: gigante, condensado y casi invisible; hall-orbit.js lo desplaza más que el coche (paralaje).
+   Va por encima del anillo pero en modo «aclarar»: sólo aclara lo que es más oscuro que él (el fondo), no el coche */
+.orbit__nums { position: absolute; inset: 0; z-index: 1; pointer-events: none; mix-blend-mode: lighten; }
+.orbit__num {
+  position: absolute; left: 50%; top: 45%; translate: -50% -50%; visibility: hidden; white-space: nowrap;
+  font-family: "Barlow Condensed", "Arial Narrow", var(--font); font-weight: 600; font-size: clamp(240px, 46vw, 700px); line-height: 0.8; letter-spacing: -0.02em;
+  color: #090909; will-change: transform, opacity;                       /* ≈ 3,5 % de blanco sobre negro */
 }
 /* Entrada del showroom: aparece desde la penumbra */
 .has-orbit .orbit__stage { animation: orbitIn 1s var(--ease) 0.1s both; }
