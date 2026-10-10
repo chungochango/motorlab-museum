@@ -1,0 +1,94 @@
+/* =========================================================
+   CAPA DE MOVIMIENTO (salas con "motion": true)
+   Lo que no necesita JavaScript: el pulso de los puntos del
+   despiece, el halo que sigue al cursor y el resplandor de las
+   barras ganadoras. Todo cuelga de html.fx-motion, que sólo
+   pone engine/fx/room-motion.js.
+   ========================================================= */
+
+/* La portada entra con Motion: el desplazamiento del tema no debe sumarse */
+html.fx-motion .hero-cine__content > * { will-change: transform, opacity; }
+
+/* Las barras del duelo las mueve Motion (muelle), no la transición CSS */
+html.fx-motion .duel__bar { transition: box-shadow 0.5s ease 0.7s; }
+html.fx-motion .duel__board.is-on .duel__bar--a.is-win { box-shadow: 0 0 16px rgba(var(--accent), 0.75), 0 0 2px rgba(var(--accent), 0.9); }
+
+/* El carril que entra lo anima Motion; el que sale conserva su fundido */
+html.js.fx-motion .lane-panel.is-active { transform: none; filter: none; transition: opacity 0.1s linear, visibility 0s; }
+html.fx-motion .lane-panel__fig .optic { will-change: transform; }
+
+/* Puntos del despiece: onda expansiva continua, desfasada entre puntos */
+html.fx-motion .pt::before,
+html.fx-motion .pt::after {
+  content: ""; position: absolute; left: 50%; top: 50%; width: 26px; height: 26px; margin: -13px 0 0 -13px;
+  border-radius: 50%; border: 1.5px solid rgb(var(--accent)); pointer-events: none; opacity: 0;
+  animation: ptWave 2.8s cubic-bezier(0.2, 0.7, 0.3, 1) infinite;
+  animation-delay: calc(var(--n, 0) * -0.47s);
+}
+html.fx-motion .pt::after { animation-delay: calc(var(--n, 0) * -0.47s - 1.4s); border-color: rgb(var(--accent-3)); }
+html.fx-motion .pt:nth-of-type(2) { --n: 1; }
+html.fx-motion .pt:nth-of-type(3) { --n: 2; }
+html.fx-motion .pt:nth-of-type(4) { --n: 3; }
+html.fx-motion .pt:nth-of-type(5) { --n: 4; }
+html.fx-motion .pt:nth-of-type(6) { --n: 5; }
+html.fx-motion .pt:nth-of-type(7) { --n: 6; }
+html.fx-motion .pt:nth-of-type(8) { --n: 7; }
+html.fx-motion .pt.is-on::before, html.fx-motion .pt.is-on::after,
+html.fx-motion .optic.is-focus .pt::before, html.fx-motion .optic.is-focus .pt::after { animation-play-state: paused; opacity: 0; }
+html.fx-motion .lane-panel:not(.is-active) .pt::before, html.fx-motion .lane-panel:not(.is-active) .pt::after { animation: none; }
+@keyframes ptWave {
+  0% { transform: scale(1); opacity: 0.75; }
+  70% { opacity: 0.12; }
+  100% { transform: scale(2.7); opacity: 0; }
+}
+
+/* Halo que sigue al cursor (--mouse-x / --mouse-y los pone room-motion.js) */
+html.fx-motion .fx-spot {
+  background-image: radial-gradient(260px circle at var(--mouse-x, -400px) var(--mouse-y, -400px), rgba(var(--accent), 0.13), rgba(245, 245, 247, 0.04) 45%, transparent 70%);
+  background-repeat: no-repeat;
+}
+
+/* =========================================================
+   INCLINACIÓN 3D · IMÁN · MANÓMETRO · REGLETA · SALIDA
+   ========================================================= */
+
+/* La perspectiva va en el contenedor; el elemento sólo gira */
+html.fx-motion .facts__grid, html.fx-motion .duel, html.fx-motion .hero-cine { perspective: 1000px; }
+html.fx-motion .fact, html.fx-motion .duel__board, html.fx-motion .hero-cine__bg { will-change: transform; }
+/* Su transform lo lleva Motion: la transición de aparición del tema sólo debe tocar la opacidad */
+html.fx-motion .fact.rv, html.fx-motion .duel__board.rv { transition-property: opacity; }
+
+/* Imán de los puntos: el número lo mueve Motion; la transición CSS no debe competir */
+html.fx-motion .pt span { transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease; }
+
+/* Manómetro de un carril (lo inserta room-motion.js si el carril declara "gauge") */
+.fx-gauge { display: grid; grid-template-columns: 132px minmax(0, 1fr); column-gap: 18px; align-items: end; margin: 18px 0 6px; padding: 16px 18px; border: 1px solid var(--plaque-rule, var(--line-2)); border-radius: 3px; background: var(--panel); }
+.fx-gauge svg { grid-row: span 2; width: 132px; height: auto; overflow: visible; }
+.fx-gauge path { fill: none; stroke-width: 7; stroke-linecap: butt; }
+.fx-gauge__track { stroke: var(--line-2); }
+.fx-gauge__arc { stroke: rgb(var(--accent)); filter: drop-shadow(0 0 6px rgba(var(--accent), 0.6)); }
+.fx-gauge__needle { stroke: var(--text); stroke-width: 1.5; transform-box: view-box; transform-origin: 60px 62px; transform: rotate(-90deg); }
+.fx-gauge__read { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 8px; margin: 0; }
+.fx-gauge__read strong { font-family: var(--font-data); font-size: 2.1rem; font-weight: 400; line-height: 1; font-variant-numeric: tabular-nums; color: var(--text); }
+.fx-gauge__read small { font-family: var(--font-data); font-size: 0.8rem; letter-spacing: 0.1em; color: rgb(var(--accent)); }
+.fx-gauge__read span { flex-basis: 100%; margin-top: 6px; font-family: var(--font-data); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-2); }
+.fx-gauge__note { margin: 6px 0 0; font-size: 0.78rem; line-height: 1.4; color: var(--text-3); }
+
+/* Regleta lateral de recorrido: sólo donde sobra margen */
+.fx-hud { display: none; }
+@media (min-width: 1400px) and (hover: hover) and (pointer: fine) {
+  .fx-hud { display: block; position: fixed; z-index: 40; left: 18px; top: calc(var(--topbar) + 28px); bottom: 40px; width: 96px; pointer-events: none; }
+  .fx-hud__rail { position: absolute; left: 0; top: 0; bottom: 0; width: 9px; background: repeating-linear-gradient(180deg, var(--line-2) 0 1px, transparent 1px 10px) 0 0 / 5px 100% no-repeat, repeating-linear-gradient(180deg, var(--text-3) 0 1px, transparent 1px 50px) 0 0 / 9px 100% no-repeat; }
+  .fx-hud__fill { position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: rgb(var(--accent)); box-shadow: 0 0 8px rgba(var(--accent), 0.7); transform-origin: 50% 0; transform: scaleY(0); }
+  .fx-hud__tag { position: absolute; left: 16px; top: var(--at, 0%); translate: 0 -50%; display: flex; gap: 6px; white-space: nowrap; font-family: var(--font-data); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-3); opacity: 0.55; transition: color 0.3s ease, opacity 0.3s ease; }
+  .fx-hud__tag b { font-weight: 400; }
+  .fx-hud__tag.is-on { color: var(--text); opacity: 1; }
+  .fx-hud__tag.is-on b { color: rgb(var(--accent)); }
+}
+
+/* Salida: la sala se encoge desde el centro de la pantalla */
+html.fx-motion #sala { transform-origin: 50% 50vh; }
+
+@media (prefers-reduced-motion: reduce) {
+  html.fx-motion .pt::before, html.fx-motion .pt::after { animation: none; }
+}

@@ -89,6 +89,15 @@
     console.error(err);
   }
 
+  // Capa de movimiento opcional ("motion": true): Motion en copia local + engine/fx/room-motion.js|css
+  if (car.motion && !M.reduceMotion) {
+    try {
+      await Promise.all([M.loadScript("engine/vendor/motion.min.js"), M.loadScript("engine/fx/room-motion.js"), M.loadCSS("engine/fx/room-motion.css")]);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   /* ---------- Composición ---------- */
   const sections = car.sections.map((cfg) => {
     const mod = M.module(cfg.type);
@@ -114,6 +123,7 @@
   M.progress();
   M.routeSpy();
   M.lamps();
+  M.fx?.motion?.(ctx);                              // antes de reveal(): la portada pasa a animarla Motion
   M.reveal();
 
   // Ancla en la URL (#piezas…): se respeta una vez que la sala existe

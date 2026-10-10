@@ -15033,29 +15033,104 @@
       "name": "Mitsubishi Lancer Evolution VIII MR FQ-400",
       "brand": "Mitsubishi",
       "make": "Mitsubishi",
-      "model": "Lancer Evolution",
+      "model": "Evo FQ-400",
       "badge": "VIII MR FQ-400",
       "year": 2004,
-      "years": "2003 — 2005",
-      "country": "Japón",
-      "category": "Berlina de homologación de rallies",
+      "years": "2004 — 2005",
+      "theme": "ralliart",
+      "motion": true,
+      "releaseDate": "2026-10-10T22:00:00+02:00",
+      "country": "Japón · Reino Unido",
+      "category": "Berlina de rallies de serie limitada",
       "tags": [
         "turbo",
         "rally"
       ],
-      "status": "coming_soon",
       "palette": {
-        "accent": "#EF4444",
-        "body": "#DC2626",
-        "hallAccent": "239, 68, 68"
+        "accent": "#FF1E27",
+        "body": "#B91C1C",
+        "hallAccent": "255, 30, 39"
       },
       "marks": [
         "Mitsubishi",
         "Lancer Evolution",
         "FQ-400",
-        "Brembo",
-        "Bilstein"
+        "4G63",
+        "Ralliart",
+        "Alcon",
+        "Bilstein",
+        "Recaro",
+        "Momo"
       ],
+      "exitLine": "Dos litros, 405 bhp y dos diferenciales activos",
+      "meta": {
+        "title": "Mitsubishi Lancer Evolution VIII MR FQ-400 · Sala 11 · Museo digital del automóvil",
+        "description": "Sala 11 del museo digital del automóvil: el Mitsubishi Lancer Evolution VIII MR FQ-400. Motor 4G63 de 2.0 litros turbo con 405 bhp, diferenciales activos ACD y Super AYC, sólo 100 unidades y duelo contra el Skyline GT-R R34."
+      },
+      "specs": {
+        "engine": {
+          "label": "Motor",
+          "value": "4G63 2.0 turbo",
+          "note": "4 cilindros en línea · DOHC 16V · transversal"
+        },
+        "power": {
+          "label": "Potencia",
+          "value": 411,
+          "unit": "CV",
+          "note": "405 bhp · cifra de Mitsubishi Motors UK"
+        },
+        "torque": {
+          "label": "Par motor",
+          "value": 481,
+          "unit": "Nm",
+          "note": "355 lb·ft · cifra de Mitsubishi Motors UK"
+        },
+        "displacement": {
+          "label": "Cilindrada",
+          "value": 1997,
+          "unit": "cc",
+          "note": "85 × 88 mm"
+        },
+        "specific": {
+          "label": "Potencia específica",
+          "value": 203,
+          "unit": "bhp/l",
+          "note": "405 bhp con 1.997 cc"
+        },
+        "acceleration": {
+          "label": "0 – 60 mph",
+          "value": 3.5,
+          "unit": "s",
+          "decimals": 1,
+          "note": "0 – 97 km/h · cifra del fabricante"
+        },
+        "topSpeed": {
+          "label": "Velocidad máxima",
+          "value": 282,
+          "unit": "km/h",
+          "note": "más de 175 mph, según el fabricante"
+        },
+        "weight": {
+          "label": "Peso",
+          "value": 1400,
+          "unit": "kg",
+          "note": "aproximado · fichas de la época, no oficial"
+        },
+        "transmission": {
+          "label": "Caja",
+          "value": "Manual de 6 velocidades"
+        },
+        "drivetrain": {
+          "label": "Tracción",
+          "value": "Total",
+          "note": "ACD + Super AYC"
+        },
+        "production": {
+          "label": "Unidades",
+          "value": 100,
+          "note": "sólo para el Reino Unido"
+        }
+      },
       "images": {
         "evo-hall": {
           "role": "hero",
@@ -15067,18 +15142,73 @@
             "avif",
             "webp"
           ]
+        },
+        "despiece-motor": {
+          "role": "exploded",
+          "src": "rooms/cars/evo/img/despiece-motor.jpg",
+          "w": 941,
+          "h": 1672,
+          "alt": "Despiece vertical ilustrativo de un motor de cuatro cilindros en línea: tapa de balancines roja, árboles de levas, culata, junta, pistones y bielas, bloque, cigüeñal, sombreretes y cárter",
+          "formats": [
+            "avif",
+            "webp"
+          ]
+        },
+        "despiece-transmision": {
+          "role": "exploded",
+          "src": "rooms/cars/evo/img/despiece-transmision.jpg",
+          "w": 941,
+          "h": 1672,
+          "alt": "Despiece vertical ilustrativo de una transmisión de tracción total: caja de cambios, caja de transferencia, árbol de transmisión, diferencial trasero y palieres",
+          "formats": [
+            "avif",
+            "webp"
+          ]
+        },
+        "despiece-turbo": {
+          "role": "exploded",
+          "src": "rooms/cars/evo/img/despiece-turbo.jpg",
+          "w": 941,
+          "h": 1672,
+          "alt": "Despiece vertical ilustrativo de la sobrealimentación: colector de escape, turbocompresor, tubo de escape, tuberías, mariposa e intercooler frontal",
+          "formats": [
+            "avif",
+            "webp"
+          ]
+        },
+        "despiece-aero": {
+          "role": "exploded",
+          "src": "rooms/cars/evo/img/despiece-aero.jpg",
+          "w": 941,
+          "h": 1672,
+          "alt": "Despiece vertical ilustrativo de la carrocería en rojo: alerón de carbono, generadores de vórtices, techo, aletas, paragolpes y labio delantero",
+          "formats": [
+            "avif",
+            "webp"
+          ]
+        },
+        "despiece-suspension": {
+          "role": "exploded",
+          "src": "rooms/cars/evo/img/despiece-suspension.jpg",
+          "w": 941,
+          "h": 1672,
+          "alt": "Despiece vertical ilustrativo de una suspensión McPherson con muelle, amortiguador, mangueta, disco ranurado, pinza roja y brazo inferior",
+          "formats": [
+            "avif",
+            "webp"
+          ]
         }
       },
       "hall": {
-        "text": "La berlina de rallies llevada al extremo: el 4G63T de 2.0 litros exprimido hasta 405 CV, junto a los diferenciales activos ACD y Super AYC.",
+        "text": "La berlina de rallies llevada al extremo: el 4G63 de 2.0 litros exprimido hasta 405 bhp, junto a los diferenciales activos ACD y Super AYC. Sólo 100 unidades.",
         "specs": [
           [
-            "405 CV",
-            "2.0L 4G63T turbo"
+            "405 bhp",
+            "2.0 4G63 turbo"
           ],
           [
             "3,5 s",
-            "0 – 60 mph (dato de fábrica UK)"
+            "0 – 60 mph (fabricante)"
           ],
           [
             "Super AYC",
@@ -15090,9 +15220,9 @@
           "fit": "contain"
         },
         "teaser": {
-          "badge": "En modelado",
+          "badge": "Apertura programada",
           "lines": [
-            "Sala 11 · En modelado",
+            "Sala 11 · Apertura programada",
             "Rally de calle · FQ-400"
           ]
         }
@@ -15101,7 +15231,577 @@
         "engine": "2.0L 4G63T DOHC 16V turbo (405 CV)",
         "transmission": "Manual de 6 velocidades",
         "drivetrain": "Tracción integral con ACD y Super AYC"
-      }
+      },
+      "sections": [
+        {
+          "type": "hero-cinematic",
+          "id": "inicio",
+          "nav": "Historia",
+          "kicker": [
+            "Serie limitada · 100 uds.",
+            "Sala 11"
+          ],
+          "title": "Evo VIII",
+          "image": "evo-hall",
+          "lead": {
+            "historia": "En 2004, Mitsubishi Motors UK celebró sus 30 años en el Reino Unido con el Evo más radical que había vendido: el <em>FQ-400</em>. Sólo <em>100 unidades</em>, cada una con su placa numerada, y más de <em>200 caballos por litro</em>.",
+            "tecnico": "<em>4G63</em> de 1.997 cc con turbo a medida: <em>405 bhp</em> (411 CV) y <em>481 Nm</em>. Tracción total con diferencial central activo <em>ACD</em> y trasero <em>Super AYC</em>. 0 – 60 mph en <em>3,5 s</em>, según el fabricante."
+          },
+          "facts": {
+            "historia": [
+              [
+                "405 bhp",
+                "2.0 4G63 turbo"
+              ],
+              [
+                "3,5 s",
+                "0 – 60 mph"
+              ],
+              [
+                "Super AYC",
+                "Diferencial activo"
+              ]
+            ],
+            "tecnico": [
+              [
+                "405 bhp",
+                "411 CV"
+              ],
+              [
+                "481 Nm",
+                "355 lb·ft"
+              ],
+              [
+                "100",
+                "Unidades"
+              ]
+            ]
+          },
+          "cue": {
+            "label": "Despiece",
+            "target": "despieces",
+            "aria": "Ir al despiece"
+          }
+        },
+        {
+          "type": "systems-lanes",
+          "id": "despieces",
+          "nav": "Despiece",
+          "shield": "11",
+          "title": "Cinco sistemas",
+          "intro": "Elige un sistema. Cada uno aparece desmontado: pasa el ratón o pulsa un número para enfocar la pieza, y cambia a <b>Técnico</b> para ver las cifras.",
+          "hint": "Pulsa un número o una fila para fijar el enfoque; vuelve a pulsar para soltarlo. Las imágenes son despieces ilustrativos, no planos de fábrica.",
+          "lanes": [
+            {
+              "key": "motor",
+              "name": "Motor",
+              "code": "4G63 // 2.0 TURBO",
+              "image": "despiece-motor",
+              "caption": "Despiece vertical ilustrativo de un cuatro cilindros en línea.",
+              "title": "El motor 4G63",
+              "line": "4 cilindros en línea · 1.997 cc · DOHC 16 válvulas · turbo",
+              "historia": "El 4G63 es el motor de todos los Evo desde el primero: un cuatro cilindros de bloque de hierro que ganó cuatro mundiales de rallies con Tommi Mäkinen. Para el FQ-400 se rehizo por dentro en el Reino Unido, con pistones, bielas y cigüeñal nuevos, hasta sacar más de 200 caballos de cada litro.",
+              "tecnico": [
+                [
+                  "Cilindrada",
+                  "1.997 cc",
+                  "85 × 88 mm"
+                ],
+                [
+                  "Potencia",
+                  "405 bhp",
+                  "411 CV"
+                ],
+                [
+                  "Par",
+                  "481 Nm",
+                  "355 lb·ft"
+                ],
+                [
+                  "Potencia específica",
+                  "203 bhp/l"
+                ],
+                [
+                  "Preparación",
+                  "Rampage · Owen Developments · Flow Race Engines"
+                ]
+              ],
+              "parts": [
+                {
+                  "x": 52,
+                  "y": 7,
+                  "name": "Tapa de balancines y árboles de levas",
+                  "short": "Levas",
+                  "desc": "Bajo la tapa roja giran dos árboles de levas, uno para admisión y otro para escape, que abren las 16 válvulas.",
+                  "value": "DOHC · 16 válvulas"
+                },
+                {
+                  "x": 50,
+                  "y": 24,
+                  "name": "Culata y junta",
+                  "short": "Culata",
+                  "desc": "La culata de aluminio lleva cuatro válvulas por cilindro; la junta sella la unión con el bloque frente a la presión del turbo.",
+                  "value": "Aluminio · 4 válvulas por cilindro"
+                },
+                {
+                  "x": 50,
+                  "y": 41,
+                  "name": "Pistones y bielas",
+                  "short": "Pistones",
+                  "desc": "El FQ-400 estrenó pistones y bielas nuevos, más resistentes que los de serie, para soportar la presión de un turbo a medida.",
+                  "value": "Nuevos en el FQ-400"
+                },
+                {
+                  "x": 48,
+                  "y": 60,
+                  "name": "Bloque de hierro fundido",
+                  "short": "Bloque",
+                  "desc": "La base del 4G63: un bloque de fundición de hierro, más pesado que uno de aluminio pero muy resistente a la sobrealimentación.",
+                  "value": "Hierro fundido · 85 × 88 mm"
+                },
+                {
+                  "x": 50,
+                  "y": 76,
+                  "name": "Cigüeñal y sombreretes",
+                  "short": "Cigüeñal",
+                  "desc": "Convierte el vaivén de los pistones en giro. También es nuevo en el FQ-400; los sombreretes lo sujetan al bloque por cinco apoyos.",
+                  "value": "Nuevo en el FQ-400 · 5 apoyos"
+                },
+                {
+                  "x": 50,
+                  "y": 91,
+                  "name": "Cárter con tabiques",
+                  "short": "Cárter",
+                  "desc": "Los tabiques interiores evitan que el aceite se aleje de la bomba en frenadas y curvas fuertes.",
+                  "value": "Aceite siempre junto a la bomba"
+                }
+              ]
+            },
+            {
+              "key": "transmision",
+              "name": "Transmisión",
+              "code": "ACD // SUPER AYC",
+              "image": "despiece-transmision",
+              "caption": "Despiece ilustrativo de una transmisión de tracción total (no reproduce la disposición exacta del Evo).",
+              "title": "Tracción total activa",
+              "line": "Manual de 6 velocidades · ACD central · Super AYC trasero",
+              "historia": "Aquí está el secreto del Evo. El diferencial central ACD decide cuánto se bloquea el reparto entre los dos ejes, y el trasero Super AYC envía más par a la rueda exterior de la curva para ayudar al coche a girar. El conductor elige el modo según el firme: asfalto, tierra o nieve.",
+              "tecnico": [
+                [
+                  "Caja",
+                  "Manual de 6 velocidades",
+                  "transversal"
+                ],
+                [
+                  "Diferencial central",
+                  "ACD",
+                  "embrague multidisco hidráulico"
+                ],
+                [
+                  "Diferencial trasero",
+                  "Super AYC",
+                  "reparto de par entre ruedas"
+                ],
+                [
+                  "Modos del ACD",
+                  "Tarmac · Gravel · Snow"
+                ]
+              ],
+              "parts": [
+                {
+                  "x": 42,
+                  "y": 14,
+                  "name": "Caja de cambios",
+                  "short": "Caja",
+                  "desc": "Manual de seis velocidades, montada en transversal junto al motor.",
+                  "value": "6 velocidades"
+                },
+                {
+                  "x": 52,
+                  "y": 35,
+                  "name": "Diferencial central ACD",
+                  "short": "ACD",
+                  "desc": "Active Center Differential: un embrague multidisco hidráulico regula cuánto se bloquea el reparto entre el eje delantero y el trasero.",
+                  "value": "Embrague multidisco"
+                },
+                {
+                  "x": 50,
+                  "y": 52,
+                  "name": "Árbol de transmisión",
+                  "short": "Árbol",
+                  "desc": "Lleva el par desde la caja de transferencia hasta el eje trasero.",
+                  "value": "Hacia el eje trasero"
+                },
+                {
+                  "x": 44,
+                  "y": 63,
+                  "name": "Unidad hidráulica",
+                  "short": "Hidráulica",
+                  "desc": "La bomba y las válvulas que alimentan con presión de aceite los embragues del ACD y del Super AYC.",
+                  "value": "Presión para ACD y AYC"
+                },
+                {
+                  "x": 54,
+                  "y": 72,
+                  "name": "Diferencial trasero Super AYC",
+                  "short": "Super AYC",
+                  "desc": "Active Yaw Control: transfiere par de una rueda trasera a la otra para hacer girar el coche. El «Super» usa un engranaje planetario que mueve más par que el AYC anterior.",
+                  "value": "Engranaje planetario"
+                },
+                {
+                  "x": 30,
+                  "y": 86,
+                  "name": "Palieres",
+                  "short": "Palieres",
+                  "desc": "Llevan el par del diferencial a cada rueda trasera.",
+                  "value": "A las ruedas traseras"
+                }
+              ]
+            },
+            {
+              "key": "turbo",
+              "name": "Turbo",
+              "code": "TURBO // INTERCOOLER",
+              "image": "despiece-turbo",
+              "gauge": {
+                "label": "Presión de soplado",
+                "unit": "bar",
+                "max": 2.5,
+                "peak": 2.1,
+                "value": 1.95,
+                "note": "Valor ilustrativo y no oficial: Mitsubishi no publicó la presión de soplado del FQ-400."
+              },
+              "caption": "Despiece ilustrativo de la sobrealimentación (no reproduce las piezas exactas del FQ-400).",
+              "title": "Sobrealimentación y refrigeración",
+              "line": "Turbo a medida · intercooler frontal · aspersores de agua",
+              "historia": "Para pasar de los 320 caballos del FQ-320 a más de 400, el FQ-400 recibió un turbo fabricado a medida y mejoras en admisión, escape y refrigeración. El aire comprimido se enfría en un gran intercooler frontal antes de entrar al motor.",
+              "tecnico": [
+                [
+                  "Turbo",
+                  "A medida",
+                  "específico del FQ-400"
+                ],
+                [
+                  "Intercooler",
+                  "Frontal aire-aire"
+                ],
+                [
+                  "Aspersores",
+                  "Agua sobre el intercooler"
+                ],
+                [
+                  "Base",
+                  "Evo VIII MR FQ-320"
+                ]
+              ],
+              "parts": [
+                {
+                  "x": 55,
+                  "y": 9,
+                  "name": "Colector de escape",
+                  "short": "Colector",
+                  "desc": "Reúne los gases de los cuatro cilindros y los lleva a la turbina.",
+                  "value": "4 cilindros a 1 turbo"
+                },
+                {
+                  "x": 12,
+                  "y": 11,
+                  "name": "Actuador de la válvula de descarga",
+                  "short": "Descarga",
+                  "desc": "Abre el paso que desvía gases de la turbina cuando se alcanza la presión de soplado deseada.",
+                  "value": "Limita la presión"
+                },
+                {
+                  "x": 20,
+                  "y": 30,
+                  "name": "Compresor",
+                  "short": "Compresor",
+                  "desc": "La rueda fría del turbo: aspira aire y lo comprime hacia el intercooler.",
+                  "value": "Lado frío"
+                },
+                {
+                  "x": 78,
+                  "y": 26,
+                  "name": "Turbina",
+                  "short": "Turbina",
+                  "desc": "La rueda caliente: los gases de escape la hacen girar y ella mueve el compresor.",
+                  "value": "Lado caliente"
+                },
+                {
+                  "x": 55,
+                  "y": 56,
+                  "name": "Mariposa de admisión",
+                  "short": "Mariposa",
+                  "desc": "Regula el aire que entra al motor según el acelerador.",
+                  "value": "Aire al motor"
+                },
+                {
+                  "x": 30,
+                  "y": 73,
+                  "name": "Aspersores de agua",
+                  "short": "Aspersores",
+                  "desc": "Rocían agua sobre el intercooler para bajar aún más la temperatura del aire de admisión.",
+                  "value": "Refrigeración extra"
+                },
+                {
+                  "x": 48,
+                  "y": 81,
+                  "name": "Intercooler frontal",
+                  "short": "Intercooler",
+                  "desc": "Enfría el aire comprimido: aire más frío es aire más denso, y permite quemar más combustible.",
+                  "value": "Aire-aire"
+                }
+              ]
+            },
+            {
+              "key": "aero",
+              "name": "Aerodinámica",
+              "code": "MR // VORTEX GENERATOR",
+              "image": "despiece-aero",
+              "caption": "Despiece ilustrativo de la carrocería (no reproduce exactamente las piezas de serie).",
+              "title": "Carrocería y aerodinámica",
+              "line": "Alerón trasero · generador de vórtices · spoiler delantero nuevo",
+              "historia": "El detalle más reconocible de los MR es la fila de «dientes de tiburón» en el borde trasero del techo: un generador de vórtices que mantiene el aire pegado a la luneta para que llegue con más energía al alerón. El FQ-400 añadió un spoiler delantero propio y llantas negras.",
+              "tecnico": [
+                [
+                  "Techo",
+                  "Generador de vórtices",
+                  "«dientes de tiburón»"
+                ],
+                [
+                  "Alerón",
+                  "Trasero, de gran tamaño"
+                ],
+                [
+                  "Delante",
+                  "Spoiler específico del FQ-400"
+                ],
+                [
+                  "Interior",
+                  "Recaro · Momo · placa numerada"
+                ]
+              ],
+              "parts": [
+                {
+                  "x": 58,
+                  "y": 5,
+                  "name": "Alerón trasero",
+                  "short": "Alerón",
+                  "desc": "Genera apoyo sobre el eje trasero a alta velocidad.",
+                  "value": "Apoyo trasero"
+                },
+                {
+                  "x": 55,
+                  "y": 14,
+                  "name": "Generador de vórtices",
+                  "short": "Vórtices",
+                  "desc": "Las aletas del borde del techo crean pequeños remolinos que mantienen el flujo pegado a la luneta y mejoran el trabajo del alerón.",
+                  "value": "Ayuda al alerón"
+                },
+                {
+                  "x": 50,
+                  "y": 22,
+                  "name": "Techo",
+                  "short": "Techo",
+                  "desc": "La parte más alta de la carrocería: cuanto menos pese, más bajo queda el centro de gravedad.",
+                  "value": "Centro de gravedad"
+                },
+                {
+                  "x": 17,
+                  "y": 46,
+                  "name": "Estribo lateral",
+                  "short": "Estribo",
+                  "desc": "Guía el aire por el costado del coche.",
+                  "value": "Flujo lateral"
+                },
+                {
+                  "x": 62,
+                  "y": 63,
+                  "name": "Paragolpes delantero",
+                  "short": "Delante",
+                  "desc": "Con las grandes tomas que alimentan el intercooler y los radiadores.",
+                  "value": "Tomas de aire"
+                },
+                {
+                  "x": 60,
+                  "y": 81,
+                  "name": "Labio delantero",
+                  "short": "Labio",
+                  "desc": "Reduce el aire que pasa bajo el coche.",
+                  "value": "Bajo el paragolpes"
+                }
+              ]
+            },
+            {
+              "key": "suspension",
+              "name": "Suspensión",
+              "code": "BILSTEIN // ALCON",
+              "image": "despiece-suspension",
+              "caption": "Despiece ilustrativo de una suspensión delantera McPherson.",
+              "title": "Suspensión y frenos",
+              "line": "McPherson delante · amortiguadores Bilstein · frenos Alcon",
+              "historia": "Los MR estrenaron amortiguadores Bilstein, y los del FQ-400 se pusieron a punto en Nürburgring. Para frenar un coche capaz de pasar de 280 km/h, Mitsubishi UK cambió los frenos de serie por un equipo Alcon.",
+              "tecnico": [
+                [
+                  "Delante",
+                  "McPherson"
+                ],
+                [
+                  "Detrás",
+                  "Multibrazo"
+                ],
+                [
+                  "Amortiguadores",
+                  "Bilstein",
+                  "puesta a punto en Nürburgring"
+                ],
+                [
+                  "Frenos",
+                  "Alcon",
+                  "específicos del FQ-400"
+                ]
+              ],
+              "parts": [
+                {
+                  "x": 37,
+                  "y": 8,
+                  "name": "Copela superior",
+                  "short": "Copela",
+                  "desc": "Une el conjunto muelle-amortiguador a la carrocería y permite que gire con la dirección.",
+                  "value": "Anclaje a la carrocería"
+                },
+                {
+                  "x": 37,
+                  "y": 20,
+                  "name": "Muelle",
+                  "short": "Muelle",
+                  "desc": "Sostiene el peso del coche y absorbe los baches.",
+                  "value": "Helicoidal"
+                },
+                {
+                  "x": 37,
+                  "y": 40,
+                  "name": "Amortiguador",
+                  "short": "Amortiguador",
+                  "desc": "Frena las oscilaciones del muelle. En el esquema McPherson es además parte de la guía de la rueda.",
+                  "value": "Bilstein"
+                },
+                {
+                  "x": 8,
+                  "y": 42,
+                  "name": "Barra estabilizadora",
+                  "short": "Estabilizadora",
+                  "desc": "Une las dos ruedas del eje para limitar el balanceo en curva.",
+                  "value": "Menos balanceo"
+                },
+                {
+                  "x": 12,
+                  "y": 53,
+                  "name": "Palier",
+                  "short": "Palier",
+                  "desc": "En un tracción total también las ruedas delanteras reciben par.",
+                  "value": "Rueda motriz"
+                },
+                {
+                  "x": 62,
+                  "y": 57,
+                  "name": "Disco de freno",
+                  "short": "Disco",
+                  "desc": "Ventilado, para evacuar el calor de las frenadas.",
+                  "value": "Ventilado"
+                },
+                {
+                  "x": 88,
+                  "y": 54,
+                  "name": "Pinza de freno",
+                  "short": "Pinza",
+                  "desc": "Aprieta las pastillas contra el disco.",
+                  "value": "Alcon en el FQ-400"
+                },
+                {
+                  "x": 24,
+                  "y": 76,
+                  "name": "Brazo inferior",
+                  "short": "Brazo",
+                  "desc": "Sitúa la rueda por abajo y soporta los esfuerzos laterales.",
+                  "value": "Guía inferior"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "duel-board",
+          "id": "duelo",
+          "nav": "Duelo",
+          "shield": "VS",
+          "title": "Duelo de tracción total: tramo contra autopista",
+          "intro": "Dos berlinas japonesas de tracción total con filosofías opuestas: el Evo VIII MR FQ-400 contra el Nissan Skyline GT-R R34 de la Sala 02. Gana cada fila la cifra mejor.",
+          "rival": "nissan-skyline-r34",
+          "rows": [
+            {
+              "spec": "potenciaDuelo",
+              "label": "Potencia (GT-R: cifra real, no oficial)",
+              "a": 411,
+              "b": 330,
+              "unit": "CV",
+              "better": "high",
+              "verdict": {
+                "historia": "Con cuatro cilindros y dos litros, el FQ-400 supera con claridad al seis en línea biturbo del GT-R.",
+                "tecnico": "405 bhp (411 CV) del fabricante frente a unos 330 PS reales atribuidos al RB26DETT; el GT-R estaba homologado en 280 PS."
+              }
+            },
+            {
+              "spec": "torque",
+              "better": "high",
+              "verdict": {
+                "historia": "El turbo a medida del Evo empuja más que los dos turbos del GT-R.",
+                "tecnico": "481 Nm (355 lb·ft) frente a 392 Nm a 4.400 rpm."
+              }
+            },
+            {
+              "spec": "weight",
+              "label": "Peso (Evo: dato no oficial)",
+              "better": "low",
+              "verdict": {
+                "historia": "El Evo es más compacto y unos 140 kg más ligero.",
+                "tecnico": "Unos 1.400 kg según las fichas de la época (no oficial) frente a 1.540 kg del GT-R estándar."
+              }
+            },
+            {
+              "spec": "aceleracionDuelo",
+              "label": "Aceleración (Evo: 0 – 60 mph · GT-R: 0 – 100 km/h, no oficial)",
+              "a": 3.5,
+              "b": 4.9,
+              "unit": "s",
+              "decimals": 1,
+              "better": "low",
+              "verdict": {
+                "historia": "Con más potencia, menos peso y cuatro ruedas motrices, el Evo sale como un coche de rallies.",
+                "tecnico": "No son la misma medida: 3,5 s es el 0 – 60 mph (97 km/h) que anunció Mitsubishi UK; 4,9 s es un 0 – 100 km/h no oficial del GT-R."
+              }
+            }
+          ],
+          "note": {
+            "historia": "Dos filosofías: el Evo usa su electrónica (ACD y Super AYC) para girar como un coche de tramo; el GT-R es un gran turismo de propulsión trasera que conecta el eje delantero cuando hace falta (ATTESA E-TS).",
+            "tecnico": "Evo: cifras de Mitsubishi Motors UK (405 bhp, 355 lb·ft, 0 – 60 mph en 3,5 s); el peso es aproximado y no oficial. GT-R: par y peso de la ficha del museo; los 330 PS y el 0 – 100 km/h son cifras no oficiales."
+          }
+        },
+        {
+          "type": "facts-counters",
+          "id": "cifras",
+          "kicker": "Ficha técnica",
+          "title": "Cifras del FQ-400",
+          "specs": [
+            "power",
+            "torque",
+            "specific",
+            "acceleration",
+            "topSpeed",
+            "production"
+          ]
+        }
+      ]
     },
     {
       "id": "ducati-panigale-v4r",
